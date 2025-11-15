@@ -1,0 +1,235 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 4200
+>>
+stream
+BT
+/F2 20 Tf
+50 750 Td
+(SRAJAL TIWARI) Tj
+0 -20 Td
+/F1 10 Tf
+(srajaltiwari902@gmail.com | +91 9919084211 | Lucknow, India) Tj
+
+0 -25 Td
+/F1 10 Tf
+(LinkedIn    Github    CodingNinjas    Leetcode) Tj
+
+0 -25 Td
+/F2 14 Tf
+(SKILLS) Tj
+0 -15 Td
+/F1 10 Tf
+(Programming skills: C/C++, Python, SQL) Tj
+0 -12 Td
+(Libraries: Pandas, Numpy, Matplotlib, Scikit-learn, Seaborn.) Tj
+0 -12 Td
+(Core Competencies: Basics of DSA, Machine learning, Operating System, DBMS.) Tj
+0 -12 Td
+(Tools & Platforms: Google Colaboratory, Kaggle, Cursor IDE, MySQL Workbench, VS Code, Docker.) Tj
+
+0 -25 Td
+/F2 14 Tf
+(EDUCATION) Tj
+0 -15 Td
+/F1 10 Tf
+(Babu Banarasi Das University, Lucknow) Tj
+0 -12 Td
+(B.Tech in Computer Science and Engineering $$Artificial Intelligence$$) Tj
+0 -12 Td
+(Expected Graduation: 2027 | CGPA: 8.3/10 $$First Year$$) Tj
+
+0 -25 Td
+/F2 14 Tf
+(PROJECTS) Tj
+
+0 -15 Td
+/F2 10 Tf
+(Spam Email Prediction Model -- GitHub) Tj
+350 0 Td
+(April 2025) Tj
+-350 -12 Td
+/F1 9 Tf
+(Developed a logistic regression model to classify emails as spam or ham, achieving 96.77% training) Tj
+0 -10 Td
+(accuracy and 96.68% test accuracy using Python and scikit-learn.) Tj
+0 -10 Td
+(Applied TF-IDF vectorization to transform email text into numerical features, optimizing for accurate) Tj
+0 -10 Td
+(spam detection. Enhanced model performance through hyperparameter tuning and robust text preprocessing.) Tj
+
+0 -20 Td
+/F2 10 Tf
+(Rock vs. Mine Prediction Model -- GitHub) Tj
+300 0 Td
+(May 2025) Tj
+-300 -12 Td
+/F1 9 Tf
+(Developed a logistic regression model to classify sonar signals as rock or mine, achieving 83.42%) Tj
+0 -10 Td
+(training accuracy and 76.19% test accuracy using Python and scikit-learn.) Tj
+0 -10 Td
+(Processed 208 sonar data samples with 60 features, splitting into 90-10 train-test sets using) Tj
+0 -10 Td
+(stratified sampling for balanced evaluation. Demonstrated effective feature understanding and) Tj
+0 -10 Td
+(binary classification techniques on real-world sonar data.) Tj
+
+0 -20 Td
+/F2 10 Tf
+(Diabetes Prediction Model -- GitHub) Tj
+350 0 Td
+(May 2025) Tj
+-350 -12 Td
+/F1 9 Tf
+(Built a logistic regression model on the PIMA Indian Diabetes dataset using Python and Scikit-learn,) Tj
+0 -10 Td
+(achieving 77% test accuracy through EDA, feature selection, and model tuning.) Tj
+0 -10 Td
+(Compared models $$Logistic Regression$$ and evaluated performance using confusion matrix and) Tj
+0 -10 Td
+(classification report. Integrated data visualization and EDA to uncover key trends influencing) Tj
+0 -10 Td
+(diabetes prediction.) Tj
+
+0 -25 Td
+/F2 14 Tf
+(EXPERIENCE) Tj
+0 -15 Td
+/F2 10 Tf
+(Artificial Intelligence Intern — Codec Technologies $$Remote$$) Tj
+0 -12 Td
+(March 2025 – May 2025 – Certificate) Tj
+0 -12 Td
+/F1 9 Tf
+(Applied AI concepts including supervised/unsupervised learning and reinforcement learning.) Tj
+0 -10 Td
+(Built and evaluated machine learning models using Python and key ML frameworks.) Tj
+0 -10 Td
+(Participated in real-world AI projects involving data cleaning, preprocessing, and model optimization.) Tj
+
+0 -25 Td
+/F2 14 Tf
+(CERTIFICATION) Tj
+0 -15 Td
+/F2 9 Tf
+(AI Engineer Certification, One Roadmap $$View$$) Tj
+300 0 Td
+(May 29, 2025) Tj
+-300 -10 Td
+/F1 8 Tf
+(Completed projects on supervised and unsupervised learning algorithms.) Tj
+
+0 -15 Td
+/F2 9 Tf
+(Python Certification, One Roadmap $$View$$) Tj
+330 0 Td
+(May 21, 2025) Tj
+-330 -10 Td
+/F1 8 Tf
+(Practiced Python programming, data structures, and functional logic.) Tj
+
+0 -15 Td
+/F2 9 Tf
+(SQL Certification, One Roadmap $$View$$) Tj
+350 0 Td
+(May 21, 2025) Tj
+-350 -10 Td
+/F1 8 Tf
+(Worked on SQL queries, joins, and real-time database management.) Tj
+
+0 -15 Td
+/F2 9 Tf
+(Cyber Security Virtual Experience, Deloitte $$Forage$$ $$View$$) Tj
+200 0 Td
+(July 7, 2025) Tj
+-200 -10 Td
+/F1 8 Tf
+(Simulated threat analysis and cybersecurity risk mitigation tasks.) Tj
+
+0 -15 Td
+/F2 9 Tf
+(Data Analytics Virtual Experience, Deloitte $$Forage$$ $$View$$) Tj
+210 0 Td
+(July 7, 2025) Tj
+-210 -10 Td
+/F1 8 Tf
+(Performed data analysis and forensic technology simulations.) Tj
+
+0 -25 Td
+/F2 14 Tf
+(ACHIEVEMENTS) Tj
+0 -15 Td
+/F1 9 Tf
+(Participated in Ninja Slayground 2.0, a competitive coding event by Coding Ninjas.) Tj
+0 -10 Td
+(Attended the Google GDG Program in Lucknow and earned verified participation badges.) Tj
+
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000004526 00000 n 
+0000004593 00000 n 
+trailer
+<<
+/Size 7
+/Root 1 0 R
+>>
+startxref
+4665
+%%EOF

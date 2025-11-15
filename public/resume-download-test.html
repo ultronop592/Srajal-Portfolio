@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Download Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">Resume Download Test</h1>
+        
+        <!-- Method 1: Direct Anchor Tag -->
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-3">Method 1: Direct Anchor</h2>
+            <a
+                href="/resume.pdf"
+                download="Srajal_Tiwari_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block w-full"
+            >
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    📄 Download Resume (Anchor)
+                </button>
+            </a>
+        </div>
+
+        <!-- Method 2: JavaScript Function -->
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-3">Method 2: JavaScript</h2>
+            <button 
+                onclick="downloadResume()"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            >
+                📄 Download Resume (JS)
+            </button>
+        </div>
+
+        <!-- Direct Link Test -->
+        <div class="mb-6">
+            <h2 class="text-lg font-semibold mb-3">Direct Link Test</h2>
+            <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-block w-full"
+            >
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                    👀 View Resume (New Tab)
+                </button>
+            </a>
+        </div>
+
+        <!-- Status Display -->
+        <div id="status" class="mt-4 p-3 rounded-lg bg-gray-50 text-sm text-gray-600 text-center">
+            Click any button to test resume download functionality
+        </div>
+    </div>
+
+    <script>
+        function downloadResume() {
+            const link = document.createElement("a")
+            link.href = "/resume.pdf"
+            link.download = "Srajal_Tiwari_Resume.pdf"
+            link.target = "_blank"
+            link.rel = "noopener noreferrer"
+            
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+            
+            document.getElementById('status').innerHTML = '✅ Download triggered via JavaScript!'
+            document.getElementById('status').className = 'mt-4 p-3 rounded-lg bg-green-50 text-sm text-green-600 text-center'
+        }
+
+        // Test if resume.pdf exists
+        fetch('/resume.pdf', { method: 'HEAD' })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('status').innerHTML = '✅ resume.pdf found and ready for download!'
+                    document.getElementById('status').className = 'mt-4 p-3 rounded-lg bg-green-50 text-sm text-green-600 text-center'
+                } else {
+                    document.getElementById('status').innerHTML = '❌ resume.pdf not found in /public folder'
+                    document.getElementById('status').className = 'mt-4 p-3 rounded-lg bg-red-50 text-sm text-red-600 text-center'
+                }
+            })
+            .catch(() => {
+                document.getElementById('status').innerHTML = '⚠️ Unable to check resume.pdf status'
+                document.getElementById('status').className = 'mt-4 p-3 rounded-lg bg-yellow-50 text-sm text-yellow-600 text-center'
+            })
+    </script>
+</body>
+</html>
