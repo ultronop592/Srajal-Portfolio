@@ -15,6 +15,9 @@ import { CursorBlob } from "@/components/cursor-blob"
 import { Profile3DTilt } from "@/components/profile-3d-tilt"
 import { SplineSceneBasic } from '@/components/spline-scene-demo'
 import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client"
+import { HoveredLink, Menu, MenuItem } from "@/components/ui/navbar-menu"
+import { cn } from "@/lib/utils"
+import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -28,6 +31,7 @@ export default function Portfolio() {
   const [isMobile, setIsMobile] = useState(false)
   const [profileMode, setProfileMode] = useState<"css" | "canvas" | "webgl">("css")
   const [showLanding, setShowLanding] = useState(true)
+  const [active, setActive] = useState<string | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -211,18 +215,9 @@ export default function Portfolio() {
             </Suspense>
           </div>
 
-          <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/80 border-b border-neutral-800">
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center border border-neutral-800 bg-neutral-900">
-                    <Terminal className="h-4 w-4 text-white" />
-                  </div>
-                  <h1 className="text-xl font-semibold text-white">Srajal Tiwari</h1>
-                </div>
-              </div>
-            </div>
-          </header>
+          <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+            <PillBase />
+          </div>
 
           <motion.button
             onClick={handleDownloadResume}
@@ -803,7 +798,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20100842-WBZSCaB5OUO9bqgJ7ctwNSjq8vc4df.png"
+                          src="/images/design-mode/Screenshot%202025-11-15%20100842.png"
                           alt="LeetCode Achievement"
                           className="w-full h-full object-cover"
                         />
@@ -828,7 +823,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20101639-phR5GKP5TzV4GjqWFjFAAIVyMx1Wsr.png"
+                          src="/images/design-mode/Screenshot%202025-11-15%20101639.png"
                           alt="Coding Ninjas Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -853,7 +848,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hack2skill-Certificate%20%281%29-DsgOnpj9qqsGoO64TqFi3ZZYs5Et8T.png"
+                          src="/images/design-mode/Hack2skill-Certificate%20%281%29.png"
                           alt="Google Cloud Agentic AI Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -878,7 +873,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-11-15%20at%2010.20.29%20AM-pZ3Vx6a4fvgdVD8eSnPa1q6uesLfuC.jpeg"
+                          src="/images/design-mode/WhatsApp%20Image%202025-11-15%20at%2010.20.29%20AM.jpeg"
                           alt="BBD University Software Exhibition Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -904,7 +899,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20102310-MfGKYy5yw0UHDof2MAvvEns1kWGMU5.png"
+                          src="/images/design-mode/Screenshot%202025-11-15%20102310.png"
                           alt="Google GDG Solution Challenge Certificate"
                           className="w-full h-full object-cover object-center"
                         />
