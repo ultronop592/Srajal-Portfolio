@@ -14,13 +14,13 @@ import { Textarea } from "@/components/ui/textarea"
 import { CursorBlob } from "@/components/cursor-blob"
 import { Profile3DTilt } from "@/components/profile-3d-tilt"
 import { SplineSceneBasic } from '@/components/spline-scene-demo'
-import { StackingNavbar } from "@/components/ui/stacking-navbar"
 import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
-const TechBackground3D = dynamic(() => import("@/components/tech-background-3d"), { ssr: false })
+const SpiralAnimation = dynamic(() => import("@/components/ui/spiral-animation").then(m => ({ default: m.SpiralAnimation })), { ssr: false })
+
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -203,14 +203,13 @@ export default function Portfolio() {
 
       {!showLanding && (
         <>
-          <StackingNavbar />
           <ScrollToHashClient />
 
-          <Suspense
-            fallback={<div className="fixed inset-0 z-0 bg-gradient-to-br from-black via-neutral-950 to-neutral-900" />}
-          >
-            <TechBackground3D />
-          </Suspense>
+          <div className="fixed inset-0 z-0">
+            <Suspense fallback={<div className="w-full h-full bg-black" />}>
+              <SpiralAnimation />
+            </Suspense>
+          </div>
 
           <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-black/80 border-b border-neutral-800">
             <div className="container mx-auto px-4 py-4">
@@ -220,9 +219,6 @@ export default function Portfolio() {
                     <Terminal className="h-4 w-4 text-white" />
                   </div>
                   <h1 className="text-xl font-semibold text-white">Srajal Tiwari</h1>
-                </div>
-                <div className="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full text-xs text-neutral-300">
-                  Available for Work
                 </div>
               </div>
             </div>
@@ -329,7 +325,7 @@ export default function Portfolio() {
                     </motion.div>
 
                     <motion.div
-                      className="flex flex-wrap gap-3"
+                      className="flex flex-wrap gap-3 mt-12"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.8 }}
@@ -343,7 +339,7 @@ export default function Portfolio() {
                           onClick={handleDownloadResume}
                           className="bg-white hover:bg-neutral-100 text-black font-semibold px-7 py-6 shadow-lg hover:shadow-neutral-500/30 transition-all duration-300"
                         >
-                          <Download className="h-5 w-5 mr-2" />
+                          <Download className="h-4 w-4 mr-2" />
                           Download Resume
                         </Button>
                       </motion.div>
@@ -521,7 +517,6 @@ export default function Portfolio() {
               </div>
             </AnimatedSection>
 
-
             <AnimatedSection id="featured-projects" className="py-20 px-4" delay={0.15}>
               <div className="container mx-auto">
                 <motion.h2
@@ -697,7 +692,6 @@ export default function Portfolio() {
               </div>
             </AnimatedSection>
 
-
             <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>
               <div className="container mx-auto">
                 <motion.h2
@@ -784,6 +778,149 @@ export default function Portfolio() {
               </div>
             </section>
 
+            <AnimatedSection id="achievements" className="py-20 px-4" delay={0.12}>
+              <div className="container mx-auto">
+                <motion.h2
+                  className="text-3xl font-bold text-white mb-12 text-center"
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="bg-gradient-to-r from-neutral-400 to-neutral-500 bg-clip-text text-transparent">
+                    Achievements
+                  </span>
+                </motion.h2>
+                <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+                  {/* Achievement 1: LeetCode */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20100842-WBZSCaB5OUO9bqgJ7ctwNSjq8vc4df.png"
+                          alt="LeetCode Achievement"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      <CardContent className="p-6">
+                        <p className="text-neutral-300 leading-relaxed">
+                          Solved 150+ DSA problems on LeetCode, improving algorithmic thinking and coding efficiency.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Achievement 2: Coding Ninjas */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20101639-phR5GKP5TzV4GjqWFjFAAIVyMx1Wsr.png"
+                          alt="Coding Ninjas Certificate"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      <CardContent className="p-6">
+                        <p className="text-neutral-300 leading-relaxed">
+                          Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Achievement 3: Google Cloud Agentic AI */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hack2skill-Certificate%20%281%29-DsgOnpj9qqsGoO64TqFi3ZZYs5Et8T.png"
+                          alt="Google Cloud Agentic AI Certificate"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      <CardContent className="p-6">
+                        <p className="text-neutral-300 leading-relaxed">
+                          Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project "Project Drishti" with team members.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Achievement 4: BBD University Software Exhibition */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-11-15%20at%2010.20.29%20AM-pZ3Vx6a4fvgdVD8eSnPa1q6uesLfuC.jpeg"
+                          alt="BBD University Software Exhibition Certificate"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      <CardContent className="p-6">
+                        <p className="text-neutral-300 leading-relaxed">
+                          Presented the project "Esport Strategy Hub" at the College Software Exhibition.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+
+                  {/* Achievement 5: Google GDG Badges */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                    whileHover={{ y: -8 }}
+                    className="md:col-span-2"
+                  >
+                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
+                      <div className="relative h-48 overflow-hidden rounded-t-lg">
+                        <img
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-11-15%20102310-MfGKYy5yw0UHDof2MAvvEns1kWGMU5.png"
+                          alt="Google GDG Solution Challenge Certificate"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      <CardContent className="p-6">
+                        <p className="text-neutral-300 leading-relaxed">
+                          Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </div>
+              </div>
+            </AnimatedSection>
+
             <section id="contact" className="py-16 px-4">
               <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">Contact</h2>
@@ -869,9 +1006,11 @@ export default function Portfolio() {
           </main>
 
           <footer className="py-8 px-4 bg-black/80 border-t border-neutral-800 relative z-10">
-            <div className="container mx-auto text-center">
-              <div className="text-neutral-400 mb-2">© 2025 Srajal Tiwari</div>
-              <div className="text-neutral-500 text-sm">Built with React.js, Next.js & Tailwind CSS</div>
+            <div className="container mx-auto">
+              <div className="text-center">
+                <div className="text-neutral-400 mb-2">© 2025 Srajal Tiwari</div>
+                <div className="text-neutral-500 text-sm">Built with React.js, Next.js & Tailwind CSS</div>
+              </div>
             </div>
           </footer>
         </>
