@@ -18,6 +18,7 @@ import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client
 import { HoveredLink, Menu, MenuItem } from "@/components/ui/navbar-menu"
 import { cn } from "@/lib/utils"
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
+import { EtheralShadow } from "@/components/ui/etheral-shadow"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -244,7 +245,16 @@ export default function Portfolio() {
 
           <main className="relative z-10 pt-24">
             <AnimatedSection className="py-20 px-4 relative overflow-hidden">
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute inset-0 z-[1] opacity-40">
+                <EtheralShadow
+                  color="rgba(200, 200, 200, 1)"
+                  animation={{ scale: 100, speed: 30 }}
+                  noise={{ opacity: 0.4, scale: 1.8 }}
+                  sizing="fill"
+                />
+              </div>
+              
+              <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <motion.div
                   animate={{
                     x: [0, 100, 0],
