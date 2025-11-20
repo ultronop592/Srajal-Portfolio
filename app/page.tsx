@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send, Terminal, Zap, Code } from 'lucide-react'
+import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send, Zap, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,18 +13,19 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { CursorBlob } from "@/components/cursor-blob"
 import { Profile3DTilt } from "@/components/profile-3d-tilt"
-import { SplineSceneBasic } from '@/components/spline-scene-demo'
+import { SplineSceneBasic } from "@/components/spline-scene-demo"
 import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client"
-import { HoveredLink, Menu, MenuItem } from "@/components/ui/navbar-menu"
-import { cn } from "@/lib/utils"
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 import { EtheralShadow } from "@/components/ui/etheral-shadow"
+import { NeonButton } from "@/components/ui/neon-button"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
-const SpiralAnimation = dynamic(() => import("@/components/ui/spiral-animation").then(m => ({ default: m.SpiralAnimation })), { ssr: false })
-
+const SpiralAnimation = dynamic(
+  () => import("@/components/ui/spiral-animation").then((m) => ({ default: m.SpiralAnimation })),
+  { ssr: false },
+)
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -197,12 +198,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {showLanding && (
-        <SplineSceneBasic
-          isLanding={true}
-          onExplore={() => setShowLanding(false)}
-        />
-      )}
+      {showLanding && <SplineSceneBasic isLanding={true} onExplore={() => setShowLanding(false)} />}
 
       {!showLanding && <CursorBlob />}
 
@@ -220,28 +216,15 @@ export default function Portfolio() {
             <PillBase />
           </div>
 
-          <motion.button
+          <NeonButton
             onClick={handleDownloadResume}
-            className="fixed bottom-6 right-6 z-50"
-            whileHover={{ scale: 1.1, y: -5 }}
-            whileTap={{ scale: 0.93 }}
-            animate={{
-              boxShadow: [
-                "0 10px 30px rgba(100, 100, 100, 0.2)",
-                "0 15px 40px rgba(100, 100, 100, 0.3)",
-                "0 10px 30px rgba(100, 100, 100, 0.2)",
-              ],
-            }}
-            transition={{
-              boxShadow: { duration: 3, repeat: Number.POSITIVE_INFINITY },
-              default: { type: "spring", stiffness: 300, damping: 20 },
-            }}
+            variant="ghost"
+            size="lg"
+            className="fixed bottom-6 right-6 z-50 font-semibold shadow-lg"
           >
-            <div className="bg-white hover:bg-neutral-100 text-black px-6 py-3 rounded-full font-medium shadow-lg backdrop-blur-sm transition-all duration-300">
-              <Download className="h-4 w-4 mr-2 inline" />
-              Download Resume
-            </div>
-          </motion.button>
+            <Download className="h-4 w-4 mr-2" />
+            Download Resume
+          </NeonButton>
 
           <main className="relative z-10 pt-24">
             <AnimatedSection className="py-20 px-4 relative overflow-hidden">
@@ -253,7 +236,7 @@ export default function Portfolio() {
                   sizing="fill"
                 />
               </div>
-              
+
               <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <motion.div
                   animate={{
@@ -288,12 +271,7 @@ export default function Portfolio() {
                     <div className="text-xl md:text-2xl font-medium text-neutral-300 mb-5 h-12">
                       <Suspense fallback={<span>AI Engineer</span>}>
                         <TypingText
-                          words={[
-                            "AI Engineer",
-                            "Machine Learning Developer",
-                            "Deep Learning ",
-                            "Gen Ai Enthusiasm",
-                          ]}
+                          words={["AI Engineer", "Machine Learning Developer", "Deep Learning ", "Gen Ai Enthusiasm"]}
                           className="text-xl md:text-2xl font-medium text-neutral-300"
                         />
                       </Suspense>
@@ -305,7 +283,8 @@ export default function Portfolio() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.2, duration: 0.8 }}
                     >
-                      I build AI/ML products that turn data into decisions. Exploring the world of Generative AI | Passionate about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
+                      I build AI/ML products that turn data into decisions. Exploring the world of Generative AI |
+                      Passionate about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
                     </motion.p>
 
                     <motion.div
@@ -340,13 +319,15 @@ export default function Portfolio() {
                         whileTap={{ scale: 0.95 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       >
-                        <Button
+                        <NeonButton
                           onClick={handleDownloadResume}
-                          className="bg-white hover:bg-neutral-100 text-black font-semibold px-7 py-6 shadow-lg hover:shadow-neutral-500/30 transition-all duration-300"
+                          variant="ghost"
+                          size="lg"
+                          className="font-semibold shadow-lg hover:shadow-neutral-500/30"
                         >
                           <Download className="h-4 w-4 mr-2" />
                           Download Resume
-                        </Button>
+                        </NeonButton>
                       </motion.div>
 
                       {[
@@ -360,14 +341,14 @@ export default function Portfolio() {
                           whileTap={{ scale: 0.95 }}
                           transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
-                          <Button
-                            variant="outline"
-                            className="border-neutral-700 text-neutral-200 hover:bg-white/5 hover:border-neutral-500/50 bg-transparent/50 backdrop-blur-sm transition-all duration-300"
+                          <NeonButton
+                            variant="ghost"
+                            className="text-neutral-200 hover:text-white"
                             onClick={() => window.open(item.url, "_blank")}
                           >
                             <item.icon className="h-4 w-4 mr-2" />
                             {item.label}
-                          </Button>
+                          </NeonButton>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -601,27 +582,24 @@ export default function Portfolio() {
                                 )}
                               </div>
                               <div className="flex gap-2">
-                                <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                  <Button
-                                    size="sm"
-                                    className="w-full bg-gradient-to-r from-neutral-400 to-neutral-500 hover:from-neutral-500 hover:to-neutral-600 text-white shadow-lg transition-all duration-300 text-xs"
-                                    onClick={() => window.open(project.liveDemo, "_blank")}
-                                  >
-                                    <Zap className="h-3 w-3 mr-1" />
-                                    Demo
-                                  </Button>
-                                </motion.div>
-                                <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                  <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="w-full border-neutral-600 text-neutral-300 hover:border-neutral-500/50 hover:text-neutral-300 hover:bg-neutral-400/10 transition-all duration-300 bg-neutral-800/30 text-xs"
-                                    onClick={() => window.open(project.github, "_blank")}
-                                  >
-                                    <Github className="h-3 w-3 mr-1" />
-                                    Code
-                                  </Button>
-                                </motion.div>
+                                <NeonButton
+                                  variant="ghost"
+                                  size="sm"
+                                  className="text-xs flex-1"
+                                  onClick={() => window.open(project.liveDemo, "_blank")}
+                                >
+                                  <Zap className="h-3 w-3 mr-1" />
+                                  Demo
+                                </NeonButton>
+                                <NeonButton
+                                  variant="ghost"
+                                  size="sm"
+                                  className="text-xs flex-1"
+                                  onClick={() => window.open(project.github, "_blank")}
+                                >
+                                  <Github className="h-3 w-3 mr-1" />
+                                  Code
+                                </NeonButton>
                               </div>
                             </CardContent>
                           </div>
@@ -666,27 +644,24 @@ export default function Portfolio() {
                               ))}
                             </div>
                             <div className="flex gap-2">
-                              <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button
-                                  size="sm"
-                                  className="w-full bg-gradient-to-r from-neutral-400 to-neutral-500 hover:from-neutral-500 hover:to-neutral-600 text-white shadow-lg transition-all duration-300"
-                                  onClick={() => window.open(project.liveDemo, "_blank")}
-                                >
-                                  <Zap className="h-4 w-4 mr-2" />
-                                  Demo
-                                </Button>
-                              </motion.div>
-                              <motion.div className="flex-1" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  className="w-full border-neutral-600 text-neutral-300 hover:border-neutral-500/50 hover:text-neutral-300 hover:bg-neutral-400/10 transition-all duration-300 bg-neutral-800/30"
-                                  onClick={() => window.open(project.github, "_blank")}
-                                >
-                                  <Github className="h-4 w-4 mr-2" />
-                                  Code
-                                </Button>
-                              </motion.div>
+                              <NeonButton
+                                variant="ghost"
+                                size="sm"
+                                className="flex-1"
+                                onClick={() => window.open(project.liveDemo, "_blank")}
+                              >
+                                <Zap className="h-4 w-4 mr-2" />
+                                Demo
+                              </NeonButton>
+                              <NeonButton
+                                variant="ghost"
+                                size="sm"
+                                className="flex-1"
+                                onClick={() => window.open(project.github, "_blank")}
+                              >
+                                <Github className="h-4 w-4 mr-2" />
+                                Code
+                              </NeonButton>
                             </div>
                           </CardContent>
                         </Card>
@@ -756,7 +731,9 @@ export default function Portfolio() {
                     <div className="flex justify-between items-start flex-wrap gap-4">
                       <div>
                         <CardTitle className="text-xl text-white/90">Artificial Intelligence Intern (Remote)</CardTitle>
-                        <CardDescription className="text-lg text-neutral-300">Mirai School of Technology</CardDescription>
+                        <CardDescription className="text-lg text-neutral-300">
+                          Mirai School of Technology
+                        </CardDescription>
                       </div>
                       <Badge className="bg-neutral-800 text-neutral-200 border border-neutral-700">
                         July 2025 - August 2025
@@ -808,7 +785,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="/images/design-mode/Screenshot%202025-11-15%20100842.png"
+                          src="/images/screenshot-202025-11-15-20100842.png"
                           alt="LeetCode Achievement"
                           className="w-full h-full object-cover"
                         />
@@ -833,7 +810,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="/images/design-mode/Screenshot%202025-11-15%20101639.png"
+                          src="/images/screenshot-202025-11-15-20101639.png"
                           alt="Coding Ninjas Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -858,7 +835,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="/images/design-mode/Hack2skill-Certificate%20%281%29.png"
+                          src="/images/hack2skill-certificate-20-281-29.png"
                           alt="Google Cloud Agentic AI Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -866,7 +843,8 @@ export default function Portfolio() {
                       </div>
                       <CardContent className="p-6">
                         <p className="text-neutral-300 leading-relaxed">
-                          Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project "Project Drishti" with team members.
+                          Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project "Project
+                          Drishti" with team members.
                         </p>
                       </CardContent>
                     </Card>
@@ -883,7 +861,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="/images/design-mode/WhatsApp%20Image%202025-11-15%20at%2010.20.29%20AM.jpeg"
+                          src="/images/whatsapp-20image-202025-11-15-20at-2010.jpeg"
                           alt="BBD University Software Exhibition Certificate"
                           className="w-full h-full object-cover"
                         />
@@ -909,7 +887,7 @@ export default function Portfolio() {
                     <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
                       <div className="relative h-48 overflow-hidden rounded-t-lg">
                         <img
-                          src="/images/design-mode/Screenshot%202025-11-15%20102310.png"
+                          src="/images/screenshot-202025-11-15-20102310.png"
                           alt="Google GDG Solution Challenge Certificate"
                           className="w-full h-full object-cover object-center"
                         />

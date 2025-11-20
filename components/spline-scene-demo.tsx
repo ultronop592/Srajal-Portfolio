@@ -1,10 +1,11 @@
-'use client'
+"use client"
 
-import { Card } from '@/components/ui/card'
-import { Spotlight } from '@/components/ui/spotlight'
-import { SplineScene } from '@/components/ui/spline'
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { Card } from "@/components/ui/card"
+import { Spotlight } from "@/components/ui/spotlight"
+import { SplineScene } from "@/components/ui/spline"
+import { NeonButton } from "@/components/ui/neon-button"
+import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 interface SplineSceneBasicProps {
   isLanding?: boolean
@@ -15,7 +16,7 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
     setPrefersReducedMotion(mediaQuery.matches)
   }, [])
 
@@ -29,10 +30,7 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
         className="fixed inset-0 z-[9999] flex items-center justify-center"
       >
         <Card className="w-full h-full bg-gradient-to-br from-black to-neutral-950 relative overflow-hidden border-0">
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-            fill="white"
-          />
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
           <div className="flex h-full items-center justify-center px-4">
             {/* Left content */}
@@ -42,20 +40,16 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
               animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                Srajal Tiwari
-              </h1>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Srajal Tiwari</h1>
               <p className="text-xl md:text-2xl text-neutral-300 mb-8 leading-relaxed">
-                I build AI/ML products that turn data into decisions. Exploring the world of Generative AI | Passionate about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
+                I build AI/ML products that turn data into decisions. Exploring the world of Generative AI | Passionate
+                about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
               </p>
-              <motion.button
-                onClick={onExplore}
-                className="w-fit px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-neutral-100 transition-colors duration-300 text-lg"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.08, y: -3 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore Portfolio
-              </motion.button>
+              <motion.div whileHover={prefersReducedMotion ? {} : { scale: 1.08, y: -3 }} whileTap={{ scale: 0.95 }}>
+                <NeonButton onClick={onExplore} variant="ghost" size="lg" className="font-semibold shadow-lg text-lg">
+                  Explore Portfolio
+                </NeonButton>
+              </motion.div>
             </motion.div>
 
             {/* Right content - 3D Scene */}
@@ -84,10 +78,7 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
       transition={{ duration: 0.8 }}
     >
       <Card className="w-full h-[500px] bg-gradient-to-br from-black to-neutral-950 relative overflow-hidden border border-neutral-800">
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
-          fill="white"
-        />
+        <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
         <div className="flex h-full">
           {/* Left content */}
@@ -98,19 +89,16 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Featured Experience
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Experience</h1>
             <p className="mt-4 text-neutral-300 max-w-lg leading-relaxed">
-              Explore my 3D portfolio experience showcasing key projects and achievements with interactive visualizations.
+              Explore my 3D portfolio experience showcasing key projects and achievements with interactive
+              visualizations.
             </p>
-            <motion.button
-              className="mt-6 w-fit px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-neutral-100 transition-colors duration-300"
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-            </motion.button>
+            <motion.div whileHover={prefersReducedMotion ? {} : { scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <NeonButton variant="ghost" size="lg" className="font-semibold shadow-lg text-lg">
+                Learn More
+              </NeonButton>
+            </motion.div>
           </motion.div>
 
           {/* Right content - 3D Scene */}
