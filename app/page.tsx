@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send, Zap, Code } from "lucide-react"
+import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -19,6 +19,7 @@ import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 import { EtheralShadow } from "@/components/ui/etheral-shadow"
 import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import ExpandCards from "@/components/ui/expand-cards"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -517,159 +518,7 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {projects.map((project, i) =>
-                    project.image ? (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.08, duration: 0.6, ease: "easeOut" }}
-                        whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                        className="md:col-span-2 lg:col-span-1"
-                      >
-                        <Card className="bg-gradient-to-br from-neutral-900/80 to-neutral-950/80 backdrop-blur-sm border border-neutral-700 hover:border-neutral-600 group relative overflow-hidden h-full transition-all duration-300">
-                          <div className="absolute inset-0 bg-gradient-to-r from-neutral-400/0 via-neutral-500/0 to-neutral-600/0 group-hover:from-neutral-400/10 group-hover:via-neutral-500/10 group-hover:to-neutral-600/10 transition-all duration-500" />
-
-                          <div className="relative z-10 overflow-hidden">
-                            <motion.div
-                              className="relative h-48 overflow-hidden rounded-t-lg"
-                              whileHover={{ scale: 1.05 }}
-                              transition={{ duration: 0.4 }}
-                            >
-                              <img
-                                src={project.image || "/placeholder.svg"}
-                                alt={project.title}
-                                className="w-full h-full object-cover"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                              <div className="absolute inset-0 bg-neutral-800/0 group-hover:bg-neutral-100/10 transition-all duration-500" />
-                            </motion.div>
-
-                            <CardHeader className="pb-3">
-                              <div className="flex justify-between items-start mb-2">
-                                <Badge className="bg-neutral-800/20 text-neutral-300 border border-neutral-700 text-xs backdrop-blur-sm">
-                                  {project.category === "ai" ? "AI/ML" : "Web"}
-                                </Badge>
-                              </div>
-                              <CardTitle className="text-lg text-white group-hover:text-neutral-300 transition-colors duration-300">
-                                {project.title}
-                              </CardTitle>
-                              <CardDescription className="text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300 text-sm">
-                                {project.description}
-                              </CardDescription>
-                            </CardHeader>
-
-                            <CardContent className="pt-0">
-                              <p className="text-neutral-300 mb-3 text-xs leading-relaxed">{project.details}</p>
-                              <div className="flex flex-wrap gap-2 mb-3">
-                                {project.tech.slice(0, 2).map((t) => (
-                                  <Badge
-                                    key={t}
-                                    variant="outline"
-                                    className="text-xs border-neutral-600 text-neutral-300 hover:border-neutral-500/50 hover:text-neutral-300 transition-all duration-300 bg-neutral-800/30"
-                                  >
-                                    {t}
-                                  </Badge>
-                                ))}
-                                {project.tech.length > 2 && (
-                                  <Badge
-                                    variant="outline"
-                                    className="text-xs border-neutral-600 text-neutral-300 bg-neutral-800/30"
-                                  >
-                                    +{project.tech.length - 2}
-                                  </Badge>
-                                )}
-                              </div>
-                              <div className="flex gap-2">
-                                <NeonButton
-                                  variant="ghost"
-                                  size="sm"
-                                  className="text-xs flex-1"
-                                  onClick={() => window.open(project.liveDemo, "_blank")}
-                                >
-                                  <Zap className="h-3 w-3 mr-1" />
-                                  Demo
-                                </NeonButton>
-                                <NeonButton
-                                  variant="ghost"
-                                  size="sm"
-                                  className="text-xs flex-1"
-                                  onClick={() => window.open(project.github, "_blank")}
-                                >
-                                  <Github className="h-3 w-3 mr-1" />
-                                  Code
-                                </NeonButton>
-                              </div>
-                            </CardContent>
-                          </div>
-                        </Card>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.08, duration: 0.6, ease: "easeOut" }}
-                        whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                      >
-                        <Card className="bg-gradient-to-br from-neutral-900/80 to-neutral-950/80 backdrop-blur-sm border border-neutral-700 hover:border-neutral-600 group relative overflow-hidden h-full transition-all duration-300">
-                          <div className="absolute inset-0 bg-gradient-to-r from-neutral-400/0 via-neutral-500/0 to-neutral-600/0 group-hover:from-neutral-400/5 group-hover:via-neutral-500/5 group-hover:to-neutral-600/5 transition-all duration-500" />
-
-                          <CardHeader className="relative z-10">
-                            <div className="flex justify-between items-start mb-2">
-                              <Badge className="bg-neutral-800/20 text-neutral-300 border border-neutral-700 text-xs backdrop-blur-sm">
-                                {project.category === "ai" ? "AI/ML" : "Web"}
-                              </Badge>
-                            </div>
-                            <CardTitle className="text-lg text-white group-hover:text-neutral-300 transition-colors duration-300">
-                              {project.title}
-                            </CardTitle>
-                            <CardDescription className="text-neutral-400 group-hover:text-neutral-300 transition-colors duration-300">
-                              {project.description}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="relative z-10">
-                            <p className="text-neutral-300 mb-4 text-sm leading-relaxed">{project.details}</p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                              {project.tech.map((t) => (
-                                <Badge
-                                  key={t}
-                                  variant="outline"
-                                  className="text-xs border-neutral-600 text-neutral-300 hover:border-neutral-500/50 hover:text-neutral-300 transition-all duration-300 bg-neutral-800/30"
-                                >
-                                  {t}
-                                </Badge>
-                              ))}
-                            </div>
-                            <div className="flex gap-2">
-                              <NeonButton
-                                variant="ghost"
-                                size="sm"
-                                className="flex-1"
-                                onClick={() => window.open(project.liveDemo, "_blank")}
-                              >
-                                <Zap className="h-4 w-4 mr-2" />
-                                Demo
-                              </NeonButton>
-                              <NeonButton
-                                variant="ghost"
-                                size="sm"
-                                className="flex-1"
-                                onClick={() => window.open(project.github, "_blank")}
-                              >
-                                <Github className="h-4 w-4 mr-2" />
-                                Code
-                              </NeonButton>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    ),
-                  )}
-                </div>
+                <ExpandCards projects={projects} initialIndex={0} />
               </div>
             </AnimatedSection>
 

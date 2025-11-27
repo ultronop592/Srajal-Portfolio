@@ -72,7 +72,7 @@ importers:
         specifier: latest
         version: 1.5.1(next@14.2.33(@babel/core@7.28.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       gsap:
-        specifier: latest
+        specifier: ^3.12.5
         version: 3.13.0
       lucide-react:
         specifier: ^0.454.0
