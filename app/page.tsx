@@ -18,6 +18,7 @@ import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 import { EtheralShadow } from "@/components/ui/etheral-shadow"
 import { NeonButton } from "@/components/ui/neon-button"
+import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -773,134 +774,43 @@ export default function Portfolio() {
                     Achievements
                   </span>
                 </motion.h2>
-                <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-                  {/* Achievement 1: LeetCode */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src="/images/screenshot-202025-11-15-20100842.png"
-                          alt="LeetCode Achievement"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      <CardContent className="p-6">
-                        <p className="text-neutral-300 leading-relaxed">
-                          Solved 150+ DSA problems on LeetCode, improving algorithmic thinking and coding efficiency.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  {/* Achievement 2: Coding Ninjas */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src="/images/screenshot-202025-11-15-20101639.png"
-                          alt="Coding Ninjas Certificate"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      <CardContent className="p-6">
-                        <p className="text-neutral-300 leading-relaxed">
-                          Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  {/* Achievement 3: Google Cloud Agentic AI */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src="/images/hack2skill-certificate-20-281-29.png"
-                          alt="Google Cloud Agentic AI Certificate"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      <CardContent className="p-6">
-                        <p className="text-neutral-300 leading-relaxed">
-                          Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project "Project
-                          Drishti" with team members.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  {/* Achievement 4: BBD University Software Exhibition */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    whileHover={{ y: -8 }}
-                  >
-                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src="/images/whatsapp-20image-202025-11-15-20at-2010.jpeg"
-                          alt="BBD University Software Exhibition Certificate"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      <CardContent className="p-6">
-                        <p className="text-neutral-300 leading-relaxed">
-                          Presented the project "Esport Strategy Hub" at the College Software Exhibition.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-
-                  {/* Achievement 5: Google GDG Badges */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 }}
-                    whileHover={{ y: -8 }}
-                    className="md:col-span-2"
-                  >
-                    <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600 transition-all duration-300">
-                      <div className="relative h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src="/images/screenshot-202025-11-15-20102310.png"
-                          alt="Google GDG Solution Challenge Certificate"
-                          className="w-full h-full object-cover object-center"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      <CardContent className="p-6">
-                        <p className="text-neutral-300 leading-relaxed">
-                          Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </div>
+                <AnimatedTestimonials
+                  autoplay={true}
+                  testimonials={[
+                    {
+                      name: "LeetCode Achievement",
+                      designation: "Competitive Programming",
+                      quote:
+                        "Solved 150+ DSA problems on LeetCode, improving algorithmic thinking and coding efficiency.",
+                      src: "/images/screenshot-202025-11-15-20100842.png",
+                    },
+                    {
+                      name: "Coding Ninjas Challenge",
+                      designation: "21-Day Coding Challenge",
+                      quote: "Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.",
+                      src: "/images/screenshot-202025-11-15-20101639.png",
+                    },
+                    {
+                      name: "Google Cloud Agentic AI",
+                      designation: "Hackathon Participation",
+                      quote:
+                        "Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project 'Project Drishti' with team members.",
+                      src: "/images/hack2skill-certificate-20-281-29.png",
+                    },
+                    {
+                      name: "Software Exhibition",
+                      designation: "BBD University",
+                      quote: "Presented the project 'Esport Strategy Hub' at the College Software Exhibition.",
+                      src: "/images/whatsapp-20image-202025-11-15-20at-2010.jpeg",
+                    },
+                    {
+                      name: "Google GDG Badges",
+                      designation: "Google Developer Groups",
+                      quote: "Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.",
+                      src: "/images/screenshot-202025-11-15-20102310.png",
+                    },
+                  ]}
+                />
               </div>
             </AnimatedSection>
 
