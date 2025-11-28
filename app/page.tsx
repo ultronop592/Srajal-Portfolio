@@ -5,7 +5,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send, Code } from "lucide-react"
+import { Download, Github, Linkedin, Mail, MapPin, Phone, Send, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -20,6 +20,7 @@ import { EtheralShadow } from "@/components/ui/etheral-shadow"
 import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import ExpandCards from "@/components/ui/expand-cards"
+import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -533,43 +534,15 @@ export default function Portfolio() {
                 >
                   Certifications
                 </motion.h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {certifications.map((cert, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.06 }}
-                      whileHover={{ y: -4 }}
-                    >
-                      <Card className="bg-neutral-900/70 border border-neutral-800 hover:border-neutral-600">
-                        <CardHeader>
-                          <Badge className="bg-neutral-800 text-neutral-200 border border-neutral-700 text-xs w-fit">
-                            {cert.level}
-                          </Badge>
-                          <CardTitle className="text-lg text-white/90 mt-2">{cert.name}</CardTitle>
-                          <CardDescription className="text-neutral-300">{cert.issuer}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="flex justify-between items-center">
-                            <Badge variant="outline" className="border-neutral-700 text-neutral-200 text-xs">
-                              {cert.date}
-                            </Badge>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="text-neutral-200 hover:text-white hover:bg-white/5"
-                              onClick={() => window.open(cert.link, "_blank")}
-                            >
-                              <ExternalLink className="h-4 w-4" />
-                            </Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
+                <StaggerTestimonials
+                  testimonials={certifications.map((cert, i) => ({
+                    tempId: i,
+                    testimonial: cert.name,
+                    by: cert.issuer + " • " + cert.date,
+                    level: cert.level,
+                    link: cert.link,
+                  }))}
+                />
               </div>
             </AnimatedSection>
 
@@ -594,15 +567,15 @@ export default function Portfolio() {
                     <ul className="space-y-3 text-neutral-300">
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>Designed and implemented an AI-powered Trip Planner using n8n with Gemini LLM.</span>
+                        <span>AI-Powered Trip Planner: Designed and implemented an end-to-end travel itinerary automation system using n8n for workflow orchestration, leveraging the Gemini LLM to generate personalized plans, and integrating with Google Sheets for data storage and automated email delivery..</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>Built a Feedback Sentiment Analysis system using Zapier and Gemini AI.</span>
+                        <span>Feedback Sentiment Analysis System: Created a business intelligence solution where n8n captured customer feedback forms (e.g., café ratings), and the Gemini API was used as an analytical agent to accurately classify sentiment and store results in Google Sheets..</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>Developed cross-platform AI prototypes and automation workflows.</span>
+                        <span>Conversational Telegram Chatbot: Developed a cross-platform AI prototype with n8n managing the full backend, integrating the Gemini API for conversational intelligence, and successfully enabling advanced multimodal interaction by processing user voice inputs..</span>
                       </li>
                     </ul>
                   </CardContent>
