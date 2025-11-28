@@ -31,6 +31,7 @@
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
     "@gsap/react": "^2.1.0",
+    "@radix-ui/react-icons": "latest",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-three/drei": "latest",
     "@react-three/fiber": "latest",

@@ -21,6 +21,8 @@ import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import ExpandCards from "@/components/ui/expand-cards"
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
+import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
+import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -65,7 +67,18 @@ export default function Portfolio() {
     languages: ["Python", "C/C++", "SQL"],
     frameworks: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Streamlit", "TensorFlow", "Keras"],
     concepts: ["Machine Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
-    tools: ["Google Colab", "Kaggle", "Cursor IDE", "Docker", "MySQL Workbench", "VS Code", "n8n", "Zapier"],
+    tools: [
+      "Google Colab",
+      "Kaggle",
+      "Cursor IDE",
+      "Docker",
+      "MySQL Workbench",
+      "VS Code",
+      "n8n",
+      "Zapier",
+      "github",
+      "Git",
+    ],
   }
 
   const projects = [
@@ -194,6 +207,53 @@ export default function Portfolio() {
       date: "July 7, 2025",
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Deloitte/YPWCiGNTkr6QxcpEu_Deloitte_completion_certificate.pdf",
       level: "Professional",
+    },
+  ]
+
+  const skillFeatures = [
+    {
+      Icon: CodeIcon,
+      name: "Languages",
+      description: skills.languages.join(" • "),
+      href: "#skills",
+      cta: "Core Languages",
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent opacity-60" />
+      ),
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    },
+    {
+      Icon: LayersIcon,
+      name: "Frameworks & Libraries",
+      description: skills.frameworks.join(" • "),
+      href: "#skills",
+      cta: "Tech Stack",
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-60" />
+      ),
+      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+    },
+    {
+      Icon: LightningBoltIcon,
+      name: "Concepts & Domains",
+      description: skills.concepts.join(" • "),
+      href: "#skills",
+      cta: "Expertise Areas",
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent opacity-60" />
+      ),
+      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    },
+    {
+      Icon: GearIcon,
+      name: "Tools & Platforms",
+      description: skills.tools.join(" • "),
+      href: "#skills",
+      cta: "Development Tools",
+      background: (
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-60" />
+      ),
+      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
     },
   ]
 
@@ -455,54 +515,18 @@ export default function Portfolio() {
                     Skills & Expertise
                   </span>
                 </motion.h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {[
-                    { title: "Languages", items: skills.languages },
-                    { title: "Frameworks", items: skills.frameworks },
-                    { title: "Concepts", items: skills.concepts },
-                    { title: "Tools", items: skills.tools },
-                  ].map((category, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.6 }}
-                      whileHover={{
-                        y: -8,
-                        transition: { duration: 0.3 },
-                      }}
-                    >
-                      <Card className="bg-gradient-to-br from-neutral-900/80 to-neutral-950/80 backdrop-blur-sm border border-neutral-700 hover:border-neutral-600 group relative overflow-hidden transition-all duration-300">
-                        <div className="absolute inset-0 bg-gradient-to-r from-neutral-400/0 via-neutral-500/0 to-neutral-600/0 group-hover:from-neutral-400/5 group-hover:via-neutral-500/5 group-hover:to-neutral-600/5 transition-all duration-500" />
-
-                        <CardHeader className="relative z-10">
-                          <CardTitle className="text-lg text-white/90 group-hover:text-neutral-300 transition-colors duration-300">
-                            {category.title}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="relative z-10">
-                          <div className="flex flex-wrap gap-2">
-                            {category.items.map((item, idx) => (
-                              <motion.div
-                                key={item}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 + idx * 0.02, duration: 0.4 }}
-                                whileHover={{ scale: 1.1, y: -2 }}
-                              >
-                                <Badge className="bg-neutral-800/80 hover:bg-neutral-100 text-neutral-200 border border-neutral-600 hover:border-neutral-500/50 text-xs backdrop-blur-sm transition-all duration-300 cursor-default">
-                                  {item}
-                                </Badge>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <BentoGrid className="lg:grid-rows-3">
+                    {skillFeatures.map((feature) => (
+                      <BentoCard key={feature.name} {...feature} />
+                    ))}
+                  </BentoGrid>
+                </motion.div>
               </div>
             </AnimatedSection>
 
@@ -567,15 +591,28 @@ export default function Portfolio() {
                     <ul className="space-y-3 text-neutral-300">
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>AI-Powered Trip Planner: Designed and implemented an end-to-end travel itinerary automation system using n8n for workflow orchestration, leveraging the Gemini LLM to generate personalized plans, and integrating with Google Sheets for data storage and automated email delivery..</span>
+                        <span>
+                          AI-Powered Trip Planner: Designed and implemented an end-to-end travel itinerary automation
+                          system using n8n for workflow orchestration, leveraging the Gemini LLM to generate
+                          personalized plans, and integrating with Google Sheets for data storage and automated email
+                          delivery..
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>Feedback Sentiment Analysis System: Created a business intelligence solution where n8n captured customer feedback forms (e.g., café ratings), and the Gemini API was used as an analytical agent to accurately classify sentiment and store results in Google Sheets..</span>
+                        <span>
+                          Feedback Sentiment Analysis System: Created a business intelligence solution where n8n
+                          captured customer feedback forms (e.g., café ratings), and the Gemini API was used as an
+                          analytical agent to accurately classify sentiment and store results in Google Sheets..
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-neutral-400 mr-2">•</span>
-                        <span>Conversational Telegram Chatbot: Developed a cross-platform AI prototype with n8n managing the full backend, integrating the Gemini API for conversational intelligence, and successfully enabling advanced multimodal interaction by processing user voice inputs..</span>
+                        <span>
+                          Conversational Telegram Chatbot: Developed a cross-platform AI prototype with n8n managing the
+                          full backend, integrating the Gemini API for conversational intelligence, and successfully
+                          enabling advanced multimodal interaction by processing user voice inputs..
+                        </span>
                       </li>
                     </ul>
                   </CardContent>
