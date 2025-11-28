@@ -1,14 +1,17 @@
 "use client"
 
+import { CardDescription } from "@/components/ui/card"
+import { CardTitle } from "@/components/ui/card"
+import { CardHeader } from "@/components/ui/card"
 import type React from "react"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, Github, Linkedin, Mail, MapPin, Phone, Send, Code } from "lucide-react"
+import { Download, Github, Linkedin, Mail, MapPin, Phone, Send, Code, GraduationCap, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { CursorBlob } from "@/components/cursor-blob"
@@ -16,21 +19,20 @@ import { Profile3DTilt } from "@/components/profile-3d-tilt"
 import { SplineSceneBasic } from "@/components/spline-scene-demo"
 import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client"
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
-import { EtheralShadow } from "@/components/ui/etheral-shadow"
 import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import ExpandCards from "@/components/ui/expand-cards"
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
+import { LampContainer } from "@/components/ui/lamp"
+import { CpuArchitecture } from "@/components/ui/cpu-architecture"
+import DisplayCards from "@/components/ui/display-cards"
+import { Timeline } from "@/components/ui/timeline"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
-const SpiralAnimation = dynamic(
-  () => import("@/components/ui/spiral-animation").then((m) => ({ default: m.SpiralAnimation })),
-  { ssr: false },
-)
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -210,6 +212,38 @@ export default function Portfolio() {
     },
   ]
 
+  const aboutMeCards = [
+    {
+      icon: <GraduationCap className="size-4 text-neutral-300" />,
+      title: "Education",
+      description: "B.Tech CSE (AI) - CGPA: 8.4",
+      date: "2023 - 2027",
+      iconClassName: "bg-neutral-800",
+      titleClassName: "text-neutral-200",
+      className:
+        "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Code className="size-4 text-neutral-300" />,
+      title: "Focus Area",
+      description: "AI/ML & GEN AI",
+      date: "Current",
+      iconClassName: "bg-neutral-800",
+      titleClassName: "text-neutral-200",
+      className:
+        "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+    },
+    {
+      icon: <Briefcase className="size-4 text-neutral-300" />,
+      title: "Seeking",
+      description: "AI/ML Internship",
+      date: "Open to work",
+      iconClassName: "bg-neutral-800",
+      titleClassName: "text-neutral-200",
+      className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
+    },
+  ]
+
   const skillFeatures = [
     {
       Icon: CodeIcon,
@@ -269,10 +303,14 @@ export default function Portfolio() {
         <>
           <ScrollToHashClient />
 
-          <div className="fixed inset-0 z-0">
-            <Suspense fallback={<div className="w-full h-full bg-black" />}>
-              <SpiralAnimation />
-            </Suspense>
+          <div className="fixed inset-0 z-0 flex items-center justify-center bg-black">
+            <CpuArchitecture
+              className="w-full h-full opacity-30"
+              text="AI"
+              animateText={true}
+              animateLines={true}
+              animateMarkers={true}
+            />
           </div>
 
           <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
@@ -290,35 +328,7 @@ export default function Portfolio() {
           </NeonButton>
 
           <main className="relative z-10 pt-24">
-            <AnimatedSection className="py-20 px-4 relative overflow-hidden">
-              <div className="absolute inset-0 z-[1] opacity-40">
-                <EtheralShadow
-                  color="rgba(200, 200, 200, 1)"
-                  animation={{ scale: 100, speed: 30 }}
-                  noise={{ opacity: 0.4, scale: 1.8 }}
-                  sizing="fill"
-                />
-              </div>
-
-              <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <motion.div
-                  animate={{
-                    x: [0, 100, 0],
-                    y: [0, 50, 0],
-                  }}
-                  transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="absolute -top-40 -right-40 w-80 h-80 bg-neutral-800/10 rounded-full blur-3xl"
-                />
-                <motion.div
-                  animate={{
-                    x: [0, -100, 0],
-                    y: [0, -50, 0],
-                  }}
-                  transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                  className="absolute -bottom-40 -left-40 w-80 h-80 bg-neutral-800/10 rounded-full blur-3xl"
-                />
-              </div>
-
+            <LampContainer className="py-20 px-4 min-h-[90vh]">
               <div className="container mx-auto relative z-10">
                 <div className="grid items-center gap-10 md:grid-cols-2">
                   <div>
@@ -428,77 +438,90 @@ export default function Portfolio() {
                       <button
                         key={m}
                         onClick={() => setProfileMode(m as "css" | "canvas" | "webgl")}
-                        className={`px-2 py-1 rounded border ${
-                          profileMode === m
-                            ? "bg-neutral-800 border-neutral-600"
-                            : "bg-neutral-800 border-neutral-700 hover:border-neutral-500"
-                        }`}
+                        className={`px-2 py-1 rounded ${profileMode === m ? "bg-neutral-700" : "bg-neutral-800/50"}`}
                       >
-                        {m.toUpperCase()}
+                        {m}
                       </button>
                     ))}
                   </div>
                 )}
               </div>
-            </AnimatedSection>
+            </LampContainer>
 
             <section id="about-me" className="py-16 px-4">
               <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">About Me</h2>
-                <Card className="mx-auto max-w-4xl bg-neutral-900/70 border border-neutral-800">
-                  <CardContent className="p-8">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white/90">Profile</h3>
-                        <p className="text-neutral-300 leading-relaxed">
-                          Motivated 3rd-year B.Tech AI student with strong foundations in machine learning and deep
-                          learning. Experienced in building AI/ML projects with Python and modern frameworks.Seeking for
-                          Internship in AI\ML domain or as well as in IT sector.
-                        </p>
-                        <div className="space-y-2">
-                          <div className="text-neutral-300 font-medium">Education</div>
-                          <div className="text-neutral-300 ml-4">
-                            B.Tech CSE (Artificial Intelligence)
-                            <br />
-                            Babu Banarasi Das University
-                            <br />
-                            CGPA: 8.4/10 (2nd year)
-                          </div>
+
+                <div className="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto">
+                  {/* DisplayCards on the left */}
+                  <div className="flex-1 flex justify-center">
+                    <DisplayCards cards={aboutMeCards} />
+                  </div>
+
+                  {/* Info Card on the right */}
+                  <Card className="flex-1 bg-neutral-900/70 border border-neutral-800">
+                    <CardContent className="p-8">
+                      <div className="space-y-6">
+                        <div className="space-y-4">
+                          <h3 className="text-xl font-semibold text-white/90">Profile</h3>
+                          <p className="text-neutral-300 leading-relaxed">
+                            Motivated 3rd-year B.Tech AI student with strong foundations in machine learning and deep
+                            learning. Experienced in building AI/ML projects with Python and modern frameworks. Seeking
+                            Internship in AI/ML domain or as well as in IT sector.
+                          </p>
                         </div>
-                      </div>
-                      <div className="space-y-4">
-                        <h3 className="text-xl font-semibold text-white/90">Contact</h3>
-                        <div className="space-y-3">
-                          <div className="flex items-center text-neutral-300">
-                            <Mail className="h-4 w-4 mr-3" />
-                            <div>
-                              <div className="text-neutral-400 text-sm">Email</div>
-                              <a href="mailto:srajaltiwari902@gmail.com" className="hover:text-white">
-                                srajaltiwari902@gmail.com
-                              </a>
-                            </div>
-                          </div>
-                          <div className="flex items-center text-neutral-300">
-                            <Phone className="h-4 w-4 mr-3" />
-                            <div>
-                              <div className="text-neutral-400 text-sm">Phone</div>
-                              <a href="tel:+919919084211" className="hover:text-white">
-                                +91 9919084211
-                              </a>
-                            </div>
-                          </div>
-                          <div className="flex items-center text-neutral-300">
-                            <MapPin className="h-4 w-4 mr-3" />
-                            <div>
-                              <div className="text-neutral-400 text-sm">Location</div>
-                              <span>Lucknow, India</span>
+
+                        <div className="space-y-4">
+                          <h3 className="text-xl font-semibold text-white/90">Education</h3>
+                          <div className="space-y-4">
+                            <div className="border-l-2 border-neutral-700 pl-4">
+                              <div className="flex items-center gap-2 mb-1">
+                                <GraduationCap className="h-4 w-4 text-neutral-400" />
+                                <span className="text-white font-medium">B.Tech in Computer Science (AI)</span>
+                              </div>
+                              <p className="text-neutral-400 text-sm">Babu Banarasi Das University, Lucknow</p>
+                              <div className="flex items-center gap-4 mt-1 text-sm">
+                                <span className="text-neutral-500">2023 - 2027</span>
+                                <span className="text-green-400 font-medium">CGPA: 8.4</span>
+                              </div>
                             </div>
                           </div>
                         </div>
+
+                        <div className="space-y-4">
+                          <h3 className="text-xl font-semibold text-white/90">Contact</h3>
+                          <div className="space-y-3">
+                            <div className="flex items-center text-neutral-300">
+                              <Mail className="h-4 w-4 mr-3" />
+                              <div>
+                                <div className="text-neutral-400 text-sm">Email</div>
+                                <a href="mailto:srajaltiwari902@gmail.com" className="hover:text-white">
+                                  srajaltiwari902@gmail.com
+                                </a>
+                              </div>
+                            </div>
+                            <div className="flex items-center text-neutral-300">
+                              <Phone className="h-4 w-4 mr-3" />
+                              <div>
+                                <div className="text-neutral-400 text-sm">Phone</div>
+                                <a href="tel:+919919084211" className="hover:text-white">
+                                  +91 9919084211
+                                </a>
+                              </div>
+                            </div>
+                            <div className="flex items-center text-neutral-300">
+                              <MapPin className="h-4 w-4 mr-3" />
+                              <div>
+                                <div className="text-neutral-400 text-sm">Location</div>
+                                <span>Lucknow, India</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </section>
 
@@ -573,50 +596,81 @@ export default function Portfolio() {
             <section id="experience" className="py-16 px-4">
               <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">Experience</h2>
-                <Card className="mx-auto max-w-4xl bg-neutral-900/70 border border-neutral-800">
-                  <CardHeader>
-                    <div className="flex justify-between items-start flex-wrap gap-4">
-                      <div>
-                        <CardTitle className="text-xl text-white/90">Artificial Intelligence Intern (Remote)</CardTitle>
-                        <CardDescription className="text-lg text-neutral-300">
-                          Mirai School of Technology
-                        </CardDescription>
-                      </div>
-                      <Badge className="bg-neutral-800 text-neutral-200 border border-neutral-700">
-                        July 2025 - August 2025
-                      </Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3 text-neutral-300">
-                      <li className="flex items-start">
-                        <span className="text-neutral-400 mr-2">•</span>
-                        <span>
-                          AI-Powered Trip Planner: Designed and implemented an end-to-end travel itinerary automation
-                          system using n8n for workflow orchestration, leveraging the Gemini LLM to generate
-                          personalized plans, and integrating with Google Sheets for data storage and automated email
-                          delivery..
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-neutral-400 mr-2">•</span>
-                        <span>
-                          Feedback Sentiment Analysis System: Created a business intelligence solution where n8n
-                          captured customer feedback forms (e.g., café ratings), and the Gemini API was used as an
-                          analytical agent to accurately classify sentiment and store results in Google Sheets..
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-neutral-400 mr-2">•</span>
-                        <span>
-                          Conversational Telegram Chatbot: Developed a cross-platform AI prototype with n8n managing the
-                          full backend, integrating the Gemini API for conversational intelligence, and successfully
-                          enabling advanced multimodal interaction by processing user voice inputs..
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+                <Timeline
+                  data={[
+                    {
+                      title: "2025",
+                      content: (
+                        <div className="bg-neutral-900/70 border border-neutral-800 rounded-lg p-6">
+                          <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
+                            <div>
+                              <h4 className="text-xl font-semibold text-white/90">
+                                Artificial Intelligence Intern (Remote)
+                              </h4>
+                              <p className="text-lg text-neutral-300">Mirai School of Technology</p>
+                            </div>
+                            <span className="bg-neutral-800 text-neutral-200 border border-neutral-700 px-3 py-1 rounded-full text-sm">
+                              July 2025 - August 2025
+                            </span>
+                          </div>
+                          <ul className="space-y-3 text-neutral-300">
+                            <li className="flex items-start">
+                              <span className="text-neutral-400 mr-2">•</span>
+                              <span>
+                                AI-Powered Trip Planner: Designed and implemented an end-to-end travel itinerary
+                                automation system using n8n for workflow orchestration, leveraging the Gemini LLM to
+                                generate personalized plans, and integrating with Google Sheets for data storage and
+                                automated email delivery.
+                              </span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="text-neutral-400 mr-2">•</span>
+                              <span>
+                                Feedback Sentiment Analysis System: Created a business intelligence solution where n8n
+                                captured customer feedback forms (e.g., café ratings), and the Gemini API was used as an
+                                analytical agent to accurately classify sentiment and store results in Google Sheets.
+                              </span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="text-neutral-400 mr-2">•</span>
+                              <span>
+                                Conversational Telegram Chatbot: Developed a cross-platform AI prototype with n8n
+                                managing the full backend, integrating the Gemini API for conversational intelligence,
+                                and successfully enabling advanced multimodal interaction by processing user voice
+                                inputs.
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      ),
+                    },
+                    {
+                      title: "Projects",
+                      content: (
+                        <div className="bg-neutral-900/70 border border-neutral-800 rounded-lg p-6">
+                          <h4 className="text-xl font-semibold text-white/90 mb-4">Key Highlights</h4>
+                          <div className="space-y-3">
+                            <div className="flex gap-2 items-center text-neutral-300 text-sm">
+                              <span className="text-green-400">✓</span> Built AI automation workflows with n8n
+                            </div>
+                            <div className="flex gap-2 items-center text-neutral-300 text-sm">
+                              <span className="text-green-400">✓</span> Integrated Gemini LLM for intelligent responses
+                            </div>
+                            <div className="flex gap-2 items-center text-neutral-300 text-sm">
+                              <span className="text-green-400">✓</span> Developed multimodal chatbot with voice support
+                            </div>
+                            <div className="flex gap-2 items-center text-neutral-300 text-sm">
+                              <span className="text-green-400">✓</span> Implemented sentiment analysis pipelines
+                            </div>
+                            <div className="flex gap-2 items-center text-neutral-300 text-sm">
+                              <span className="text-green-400">✓</span> Automated data storage with Google Sheets
+                            </div>
+                          </div>
+                        </div>
+                      ),
+                    },
+                  ]}
+                />
               </div>
             </section>
 
