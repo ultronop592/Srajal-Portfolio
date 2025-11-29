@@ -1,19 +1,12 @@
 "use client"
-
-import { CardDescription } from "@/components/ui/card"
-import { CardTitle } from "@/components/ui/card"
-import { CardHeader } from "@/components/ui/card"
 import type React from "react"
 import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, Github, Linkedin, Mail, MapPin, Phone, Send, Code, GraduationCap, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Download, Github, Linkedin, Mail, MapPin, Phone, Code, GraduationCap, Briefcase } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { CursorBlob } from "@/components/cursor-blob"
 import { Profile3DTilt } from "@/components/profile-3d-tilt"
 import { SplineSceneBasic } from "@/components/spline-scene-demo"
@@ -29,6 +22,8 @@ import { LampContainer } from "@/components/ui/lamp"
 import { CpuArchitecture } from "@/components/ui/cpu-architecture"
 import DisplayCards from "@/components/ui/display-cards"
 import { Timeline } from "@/components/ui/timeline"
+import { ContainerScroll } from "@/components/ui/container-scroll-animation"
+import { PinContainer } from "@/components/ui/3d-pin"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -492,7 +487,7 @@ export default function Portfolio() {
                           <h3 className="text-xl font-semibold text-white/90">Contact</h3>
                           <div className="space-y-3">
                             <div className="flex items-center text-neutral-300">
-                              <Mail className="h-4 w-4 mr-3" />
+                              <Mail className="h-5 w-5 mr-3 text-neutral-300" />
                               <div>
                                 <div className="text-neutral-400 text-sm">Email</div>
                                 <a href="mailto:srajaltiwari902@gmail.com" className="hover:text-white">
@@ -501,7 +496,7 @@ export default function Portfolio() {
                               </div>
                             </div>
                             <div className="flex items-center text-neutral-300">
-                              <Phone className="h-4 w-4 mr-3" />
+                              <Phone className="h-5 w-5 mr-3 text-neutral-300" />
                               <div>
                                 <div className="text-neutral-400 text-sm">Phone</div>
                                 <a href="tel:+919919084211" className="hover:text-white">
@@ -510,7 +505,7 @@ export default function Portfolio() {
                               </div>
                             </div>
                             <div className="flex items-center text-neutral-300">
-                              <MapPin className="h-4 w-4 mr-3" />
+                              <MapPin className="h-5 w-5 mr-3 text-neutral-300" />
                               <div>
                                 <div className="text-neutral-400 text-sm">Location</div>
                                 <span>Lucknow, India</span>
@@ -523,6 +518,50 @@ export default function Portfolio() {
                   </Card>
                 </div>
               </div>
+            </section>
+
+            <section className="py-10">
+              <ContainerScroll
+                titleComponent={
+                  <div className="mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                      Explore My{" "}
+                      <span className="bg-gradient-to-r from-neutral-400 to-neutral-500 bg-clip-text text-transparent">
+                        Portfolio
+                      </span>
+                    </h2>
+                    <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+                      Scroll down to discover my projects, skills, and achievements in AI/ML development
+                    </p>
+                  </div>
+                }
+              >
+                <div className="h-full w-full flex flex-col items-center justify-center p-4 md:p-8">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
+                    {[
+                      { label: "Projects", value: "5+", icon: "🚀" },
+                      { label: "Certifications", value: "10+", icon: "📜" },
+                      { label: "Achievements", value: "5+", icon: "⭐" },
+                      { label: "Tech Stack", value: "10+", icon: "💻" },
+                    ].map((stat, i) => (
+                      <div key={i} className="bg-neutral-900/80 border border-neutral-700 rounded-xl p-4 text-center">
+                        <div className="text-2xl mb-2">{stat.icon}</div>
+                        <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
+                        <div className="text-neutral-400 text-sm">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 text-neutral-500 text-sm flex items-center gap-2">
+                    <span>Scroll to explore</span>
+                    <motion.div
+                      animate={{ y: [0, 5, 0] }}
+                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
+                    >
+                      ↓
+                    </motion.div>
+                  </div>
+                </div>
+              </ContainerScroll>
             </section>
 
             <AnimatedSection id="skills" className="py-20 px-4" delay={0.1}>
@@ -730,77 +769,72 @@ export default function Portfolio() {
             <section id="contact" className="py-16 px-4">
               <div className="container mx-auto">
                 <h2 className="text-3xl font-bold text-white mb-12 text-center">Contact</h2>
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                  <Card className="bg-neutral-900/70 border border-neutral-800">
-                    <CardHeader>
-                      <CardTitle className="text-white/90">Get In Touch</CardTitle>
-                      <CardDescription className="text-neutral-300">Send me a message</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <Input
-                          placeholder="Your Name"
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          required
-                          className="bg-neutral-900/60 border-neutral-800 text-white"
-                        />
-                        <Input
-                          type="email"
-                          placeholder="Your Email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          required
-                          className="bg-neutral-900/60 border-neutral-800 text-white"
-                        />
-                        <Textarea
-                          placeholder="Your Message"
-                          rows={4}
-                          value={formData.message}
-                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          required
-                          className="bg-neutral-900/60 border-neutral-800 text-white"
-                        />
-                        <Button type="submit" className="w-full bg-white text-black hover:bg-neutral-100">
-                          <Send className="h-4 w-4 mr-2" />
-                          Send
-                        </Button>
-                      </form>
-                    </CardContent>
-                  </Card>
+                <div className="max-w-2xl mx-auto">
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-semibold text-white/90 text-center">Connect</h3>
 
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-white/90">Connect</h3>
-                    {[
-                      {
-                        icon: Mail,
-                        label: "Email",
-                        href: "mailto:srajaltiwari902@gmail.com",
-                        text: "srajaltiwari902@gmail.com",
-                      },
-                      { icon: Phone, label: "Phone", href: "tel:+919919084211", text: "+91 9919084211" },
-                      {
-                        icon: Linkedin,
-                        label: "LinkedIn",
-                        href: "https://linkedin.com/in/srajal-tiwari-7229172b9",
-                        text: "LinkedIn",
-                      },
-                      { icon: Github, label: "GitHub", href: "https://github.com/ultronop592", text: "GitHub" },
-                    ].map((item, i) => (
-                      <a
-                        key={i}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg hover:border-neutral-600"
-                      >
-                        <item.icon className="h-5 w-5 mr-3 text-neutral-300" />
-                        <div>
-                          <div className="text-neutral-400 text-sm">{item.label}</div>
-                          <div className="text-neutral-200 text-sm">{item.text}</div>
+                    {/* Email and Phone - simple links */}
+                    <div className="space-y-3">
+                      {[
+                        {
+                          icon: Mail,
+                          label: "Email",
+                          href: "mailto:srajaltiwari902@gmail.com",
+                          text: "srajaltiwari902@gmail.com",
+                        },
+                        { icon: Phone, label: "Phone", href: "tel:+919919084211", text: "+91 9919084211" },
+                      ].map((item, i) => (
+                        <a
+                          key={i}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
+                        >
+                          <item.icon className="h-5 w-5 mr-3 text-neutral-300" />
+                          <div>
+                            <div className="text-neutral-400 text-sm">{item.label}</div>
+                            <div className="text-neutral-200 text-sm">{item.text}</div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+
+                    {/* GitHub and LinkedIn - 3D Pin cards */}
+                    <div className="flex flex-wrap gap-6 justify-center pt-4">
+                      <PinContainer title="github.com/ultronop592" href="https://github.com/ultronop592">
+                        <div className="flex flex-col p-4 tracking-tight text-neutral-100 w-[200px] h-[150px]">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Github className="h-8 w-8 text-white" />
+                            <h3 className="font-bold text-lg text-neutral-100">GitHub</h3>
+                          </div>
+                          <p className="text-sm text-neutral-400 leading-relaxed">
+                            Check out my open source projects and contributions
+                          </p>
+                          <div className="mt-auto pt-3">
+                            <span className="text-xs text-neutral-500">@ultronop592</span>
+                          </div>
                         </div>
-                      </a>
-                    ))}
+                      </PinContainer>
+
+                      <PinContainer
+                        title="linkedin.com/in/srajal-tiwari"
+                        href="https://linkedin.com/in/srajal-tiwari-7229172b9"
+                      >
+                        <div className="flex flex-col p-4 tracking-tight text-neutral-100 w-[200px] h-[150px]">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Linkedin className="h-8 w-8 text-white" />
+                            <h3 className="font-bold text-lg text-neutral-100">LinkedIn</h3>
+                          </div>
+                          <p className="text-sm text-neutral-400 leading-relaxed">
+                            Connect with me for professional networking
+                          </p>
+                          <div className="mt-auto pt-3">
+                            <span className="text-xs text-neutral-500">Srajal Tiwari</span>
+                          </div>
+                        </div>
+                      </PinContainer>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -814,7 +848,7 @@ export default function Portfolio() {
           <footer className="py-8 px-4 bg-black/80 border-t border-neutral-800 relative z-10">
             <div className="container mx-auto">
               <div className="text-center">
-                <div className="text-neutral-400 mb-2">© 2025 Srajal Tiwari</div>
+                <div className="text-neutral-400 mb-2">Srajal Tiwari</div>
                 <div className="text-neutral-500 text-sm">Built with React.js, Next.js & Tailwind CSS</div>
               </div>
             </div>
