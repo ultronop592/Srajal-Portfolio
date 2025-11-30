@@ -22,7 +22,7 @@ import { LampContainer } from "@/components/ui/lamp"
 import { CpuArchitecture } from "@/components/ui/cpu-architecture"
 import DisplayCards from "@/components/ui/display-cards"
 import { Timeline } from "@/components/ui/timeline"
-import { ContainerScroll } from "@/components/ui/container-scroll-animation"
+import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
@@ -520,49 +520,9 @@ export default function Portfolio() {
               </div>
             </section>
 
-            <section className="py-10">
-              <ContainerScroll
-                titleComponent={
-                  <div className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                      Explore My{" "}
-                      <span className="bg-gradient-to-r from-neutral-400 to-neutral-500 bg-clip-text text-transparent">
-                        Portfolio
-                      </span>
-                    </h2>
-                    <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
-                      Scroll down to discover my projects, skills, and achievements in AI/ML development
-                    </p>
-                  </div>
-                }
-              >
-                <div className="h-full w-full flex flex-col items-center justify-center p-4 md:p-8">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
-                    {[
-                      { label: "Projects", value: "5+", icon: "🚀" },
-                      { label: "Certifications", value: "10+", icon: "📜" },
-                      { label: "Achievements", value: "5+", icon: "⭐" },
-                      { label: "Tech Stack", value: "10+", icon: "💻" },
-                    ].map((stat, i) => (
-                      <div key={i} className="bg-neutral-900/80 border border-neutral-700 rounded-xl p-4 text-center">
-                        <div className="text-2xl mb-2">{stat.icon}</div>
-                        <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
-                        <div className="text-neutral-400 text-sm">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-6 text-neutral-500 text-sm flex items-center gap-2">
-                    <span>Scroll to explore</span>
-                    <motion.div
-                      animate={{ y: [0, 5, 0] }}
-                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
-                    >
-                      ↓
-                    </motion.div>
-                  </div>
-                </div>
-              </ContainerScroll>
-            </section>
+            <AnimatedSection id="explore" className="py-0">
+              <HeroScrollDemo />
+            </AnimatedSection>
 
             <AnimatedSection id="skills" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
