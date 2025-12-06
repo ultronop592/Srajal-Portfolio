@@ -80,6 +80,17 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "AI-Powered Waterborne Disease Predictor",
+      description: "Deep Learning model for medical report analysis",
+      details:
+        "A Bi-LSTM model that analyzes medical reports to predict waterborne diseases, showcasing advanced NLP and sequence modeling skills.",
+      github: "https://github.com/ultronop592/WaterBrone-Diease-Prediction.git",
+      liveDemo: "https://waterbrone-diease-prediction-byble.streamlit.app/",
+      tech: ["Deep Learning", "Bi-LSTM", "NLP", "Streamlit", "Python", "TensorFlow/Keras"],
+      category: "ai",
+      image: "/images/waterborne-disease-predictor.png",
+    },
+    {
       title: "🔍 Fake News Classifier using RNN",
       description: "Deep learning-based text classification with Bidirectional LSTM",
       details: "Built a Fake News Classifier using Bidirectional LSTM for accurate text classification.",
@@ -689,6 +700,13 @@ export default function Portfolio() {
                 <AnimatedTestimonials
                   autoplay={true}
                   testimonials={[
+                    {
+                      name: "100+ Days LeetCode Coding Streak",
+                      designation: "LeetCode Badge 2025",
+                      quote:
+                        "Successfully maintained a consistent coding streak of 100+ days on LeetCode, demonstrating strong commitment, discipline, and proficiency in solving data structures and algorithms problems.",
+                      src: "/images/leetcode-100-days-badge.png",
+                    },
                     {
                       name: "LeetCode Achievement",
                       designation: "Competitive Programming",
