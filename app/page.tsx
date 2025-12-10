@@ -216,6 +216,13 @@ export default function Portfolio() {
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Deloitte/YPWCiGNTkr6QxcpEu_Deloitte_completion_certificate.pdf",
       level: "Professional",
     },
+    {
+      name: "Startup School: Prompt to Prototype",
+      issuer: "Google for Startups x Scaler",
+      date: "April 2025",
+      link: "https://example.com/startup-school-certificate",
+      level: "Intermediate",
+    },
   ]
 
   const aboutMeCards = [
@@ -708,11 +715,11 @@ export default function Portfolio() {
                       src: "/images/leetcode-100-days-badge.png",
                     },
                     {
-                      name: "LeetCode Achievement",
-                      designation: "Competitive Programming",
+                      name: "Startup School: Prompt to Prototype",
+                      designation: "Google for Startups x Scaler",
                       quote:
-                        "Solved 150+ DSA problems on LeetCode, improving algorithmic thinking and coding efficiency.",
-                      src: "/images/screenshot-202025-11-15-20100842.png",
+                        "Completed a two-week programme by Google for Startups in collaboration with Scaler. Learned the full AI product lifecycle from prompting to deployment through six expert-led sessions covering foundation skills, AI research, creative asset generation, prototyping, app development and deployment. Earned Certificate of Completion and applied hands-on learning to build AI-powered prototypes.",
+                      src: "/images/google-startup-school-certificate.png",
                     },
                     {
                       name: "Coding Ninjas Challenge",
