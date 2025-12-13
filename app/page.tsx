@@ -722,6 +722,13 @@ export default function Portfolio() {
                       src: "/images/google-startup-school-certificate.png",
                     },
                     {
+                      name: "Mission Upskill India – Pre-Summit Event",
+                      designation: "AI Impact Summit 2026 | HCL GUVI",
+                      quote:
+                        "Participated in the Mission Upskill India Pre-Summit Event organized by HCL GUVI in collaboration with Ministry of Electronics & Information Technology, Government of India, Digital India, and INDIAai. Focused on practical applications of AI and ML to build an AI-ready workforce. Learned core and advanced concepts of Machine Learning, Deep Learning, and Generative AI. Gained hands-on experience in rapid prototyping using Google Gemini AI Studio and practical prompt engineering. Mentored by Saransh Saxena, Amit Arjun Verma, and Yash Sharma. Certificate ID: i6047qOS1Ju74552W2",
+                      src: "/images/hcl-guvi-ai-summit-certificate.jpg",
+                    },
+                    {
                       name: "Coding Ninjas Challenge",
                       designation: "21-Day Coding Challenge",
                       quote: "Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.",
