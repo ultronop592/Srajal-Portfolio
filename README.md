@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with Next.js, React, and Tailwind C
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 your-portfolio/
 ├── public/
 │   ├── resume.pdf               ⬅️ Your actual resume PDF
@@ -32,7 +32,7 @@ your-portfolio/
 ├── tailwind.config.ts           ⬅️ Tailwind CSS configuration
 ├── next.config.mjs              ⬅️ Next.js configuration
 └── README.md
-\`\`\`
+```
 
 ## 🛠️ Technologies Used
 

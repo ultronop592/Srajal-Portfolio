@@ -21,14 +21,14 @@ Test the link in an incognito/private browser window to ensure it works without 
 ## 🔄 Link Format Conversion
 
 ### View Link Format:
-\`\`\`
+```
 https://drive.google.com/file/d/FILE_ID/view?usp=sharing
-\`\`\`
+```
 
 ### Direct Download Link Format:
-\`\`\`
+```
 https://drive.google.com/uc?export=download&id=FILE_ID
-\`\`\`
+```
 
 ### Your File ID: 
 `1CH06-cEDdE4jjTdyRLq3ZpeMmOJz9oUP`
@@ -37,12 +37,12 @@ https://drive.google.com/uc?export=download&id=FILE_ID
 
 The portfolio now uses JavaScript to handle the Google Drive download:
 
-\`\`\`javascript
+```javascript
 const handleDownloadResume = () => {
   const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=1CH06-cEDdE4jjTdyRLq3ZpeMmOJz9oUP"
   window.open(driveDownloadUrl, "_blank", "noopener,noreferrer")
 }
-\`\`\`
+```
 
 ## ✅ Benefits of Google Drive Hosting
 

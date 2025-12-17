@@ -1,7 +1,7 @@
 # 📄 Resume Download Setup Guide
 
 ## 📁 Project Structure
-\`\`\`
+```
 your-portfolio/
 ├── public/
 │   └── resume.pdf              ← Your resume file (REQUIRED)
@@ -10,7 +10,7 @@ your-portfolio/
 ├── components/
 │   └── ui/                     ← UI components
 └── vercel.json                 ← Deployment configuration
-\`\`\`
+```
 
 ## 🔗 Resume Download Implementation
 
@@ -27,7 +27,7 @@ your-portfolio/
 ### 💻 Button Implementation
 
 #### Method 1: Direct Anchor Tag (Recommended)
-\`\`\`jsx
+```jsx
 <a
   href="/resume.pdf"
   download="Srajal_Tiwari_Resume.pdf"
@@ -40,10 +40,10 @@ your-portfolio/
     Download Resume
   </button>
 </a>
-\`\`\`
+```
 
 #### Method 2: JavaScript Function
-\`\`\`jsx
+```jsx
 const handleDownloadResume = () => {
   const link = document.createElement("a")
   link.href = "/resume.pdf"
@@ -61,7 +61,7 @@ const handleDownloadResume = () => {
 >
   Download Resume
 </button>
-\`\`\`
+```
 
 ## 🎨 Styling Features
 
@@ -88,7 +88,7 @@ Your resume will be accessible at:
 - `https://your-site.vercel.app/resume` (with vercel.json rewrite)
 
 ### Vercel Configuration (`vercel.json`):
-\`\`\`json
+```json
 {
   "rewrites": [
     {
@@ -112,7 +112,7 @@ Your resume will be accessible at:
     }
   ]
 }
-\`\`\`
+```
 
 ## 🔧 Troubleshooting
 
