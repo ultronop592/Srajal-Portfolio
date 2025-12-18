@@ -24,6 +24,7 @@ import DisplayCards from "@/components/ui/display-cards"
 import { Timeline } from "@/components/ui/timeline"
 import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
+import { FallingPattern } from "@/components/ui/falling-pattern"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -317,6 +318,13 @@ export default function Portfolio() {
           <ScrollToHashClient />
 
           <div className="fixed inset-0 z-0 flex items-center justify-center bg-black">
+            <FallingPattern
+              className="absolute inset-0 opacity-20"
+              color="rgba(255, 255, 255, 0.6)"
+              backgroundColor="transparent"
+              duration={100}
+              blurIntensity="0.5em"
+            />
             <CpuArchitecture
               className="w-full h-full opacity-30"
               text="AI"
