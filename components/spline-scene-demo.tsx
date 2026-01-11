@@ -28,16 +28,14 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+        className="fixed inset-0 z-[9999] flex items-center justify-center"
       >
-        <DottedSurface className="absolute inset-0 z-0" />
+        <DottedSurface className="fixed inset-0 z-0" />
 
-        <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-neutral-950/30 z-10" />
+        <Card className="w-full h-full bg-gradient-to-br from-black/90 to-neutral-950/90 relative overflow-hidden border-0">
+          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
 
-        <Card className="w-full h-full bg-transparent relative overflow-hidden border-0 z-20">
-          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20 z-20" fill="white" />
-
-          <div className="flex h-full items-center justify-center px-4 relative z-30">
+          <div className="flex h-full items-center justify-center px-4">
             {/* Left content */}
             <motion.div
               className="flex-1 max-w-xl relative z-10 flex flex-col justify-center"
