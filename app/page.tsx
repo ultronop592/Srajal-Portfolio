@@ -24,8 +24,7 @@ import { Timeline } from "@/components/ui/timeline"
 import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
-import CarouselAutoplay from "@/components/ui/carousel-autoplay"
-import { Zap } from "lucide-react"
+import ProjectCard from "@/components/ui/project-card" // Import ProjectCard component
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -305,79 +304,6 @@ export default function Portfolio() {
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
     },
   ]
-
-  const projectSlides = projects.map((project) => (
-    <div
-      key={project.title}
-      className="border h-full w-full relative overflow-hidden rounded-md bg-card text-card-foreground"
-    >
-      <div className="w-full h-full overflow-hidden">
-        <img
-          src={project.image || "/placeholder.svg?height=400&width=600&query=project"}
-          alt={project.title}
-          className="object-cover h-full w-full"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-      </div>
-
-      {/* Project content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        {/* Category badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 text-xs font-medium bg-neutral-800/80 text-neutral-300 rounded-full border border-neutral-600 backdrop-blur-sm">
-            {project.category === "ai" ? "AI/ML" : "Web"}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="space-y-3">
-          <h3 className="text-xl font-bold text-white leading-tight">{project.title.replace(/[🔍🎬]/gu, "").trim()}</h3>
-          <p className="text-neutral-300 text-sm line-clamp-2">{project.description}</p>
-
-          {/* Tech stack */}
-          <div className="flex flex-wrap gap-1.5">
-            {project.tech.slice(0, 3).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-0.5 text-xs bg-neutral-800/60 text-neutral-400 rounded-md border border-neutral-700"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.tech.length > 3 && (
-              <span className="px-2 py-0.5 text-xs bg-neutral-800/60 text-neutral-400 rounded-md border border-neutral-700">
-                +{project.tech.length - 3}
-              </span>
-            )}
-          </div>
-
-          {/* Action buttons */}
-          <div className="flex gap-2 pt-2">
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                window.open(project.liveDemo, "_blank")
-              }}
-              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium bg-neutral-100 text-neutral-900 rounded-lg hover:bg-white transition-colors"
-            >
-              <Zap className="h-3.5 w-3.5" />
-              Demo
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                window.open(project.github, "_blank")
-              }}
-              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-medium bg-neutral-800 text-neutral-200 rounded-lg hover:bg-neutral-700 border border-neutral-600 transition-colors"
-            >
-              <Github className="h-3.5 w-3.5" />
-              Code
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  ))
 
   if (!mounted) return null
 
@@ -665,13 +591,19 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
-                <CarouselAutoplay
-                  slides={projectSlides}
-                  options={{
-                    align: "start",
-                    loop: true,
-                  }}
-                />
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                  {projects.map((project, index) => (
+                    <ProjectCard
+                      key={index}
+                      imgSrc={project.image}
+                      title={project.title}
+                      description={project.description}
+                      github={project.github}
+                      liveDemo={project.liveDemo}
+                      tech={project.tech}
+                    />
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
 
