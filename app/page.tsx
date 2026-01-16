@@ -24,7 +24,7 @@ import { Timeline } from "@/components/ui/timeline"
 import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
-import ProjectCard from "@/components/ui/project-card" // Import ProjectCard component
+import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -305,6 +305,17 @@ export default function Portfolio() {
     },
   ]
 
+  const focusRailItems: FocusRailItem[] = projects.map((project, index) => ({
+    id: index,
+    title: project.title,
+    description: project.description,
+    meta: project.tech.slice(0, 2).join(" • "),
+    imageSrc: project.image,
+    href: project.liveDemo,
+    github: project.github,
+    tech: project.tech,
+  }))
+
   if (!mounted) return null
 
   return (
@@ -578,7 +589,7 @@ export default function Portfolio() {
               </div>
             </AnimatedSection>
 
-            <AnimatedSection id="featured-projects" className="py-20 px-4" delay={0.15}>
+            <AnimatedSection id="projects" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
                 <motion.h2
                   className="text-3xl font-bold text-white mb-12 text-center"
@@ -591,19 +602,7 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {projects.map((project, index) => (
-                    <ProjectCard
-                      key={index}
-                      imgSrc={project.image}
-                      title={project.title}
-                      description={project.description}
-                      github={project.github}
-                      liveDemo={project.liveDemo}
-                      tech={project.tech}
-                    />
-                  ))}
-                </div>
+                <FocusRail items={focusRailItems} autoPlay={false} loop={true} />
               </div>
             </AnimatedSection>
 
