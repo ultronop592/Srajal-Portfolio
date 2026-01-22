@@ -64,16 +64,17 @@ export default function Portfolio() {
   const skills = {
     languages: ["Python", "C/C++", "SQL"],
     frameworks: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Streamlit", "TensorFlow", "Keras"],
-    concepts: ["Machine Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
+    concepts: ["Machine Learning","Deep Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
     tools: [
       "Google Colab",
+      "Hugging Face",
+      "LLMs"
       "Kaggle",
       "Cursor IDE",
       "Docker",
       "MySQL Workbench",
       "VS Code",
       "n8n",
-      "Zapier",
       "github",
       "Git",
     ],
