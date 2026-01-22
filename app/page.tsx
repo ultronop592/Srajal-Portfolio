@@ -68,7 +68,7 @@ export default function Portfolio() {
     tools: [
       "Google Colab",
       "Hugging Face",
-      "LLMs"
+      "LLMs",
       "Kaggle",
       "Cursor IDE",
       "Docker",
