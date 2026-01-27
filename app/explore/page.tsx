@@ -1,92 +1,165 @@
-"use client";
+'use client';
 
-import React, { useState, Suspense } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, Github, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
-import { Badge } from "@/components/ui/badge";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, ChevronRight, Sparkles } from 'lucide-react';
+import ScrollMorphHero from '@/components/ui/scroll-morph-hero';
 
 const PROJECTS = [
   {
-    title: "AI-Powered Waterborne Disease Predictor",
-    description: "Deep Learning model for medical report analysis",
-    image: "/images/waterborne-disease-predictor.png",
-    tech: ["Deep Learning", "Bi-LSTM", "NLP", "Streamlit", "TensorFlow/Keras"],
-    details: "A Bi-LSTM model that analyzes medical reports to predict waterborne diseases, showcasing advanced NLP and sequence modeling skills.",
-    github: "https://github.com/ultronop592/WaterBrone-Diease-Prediction.git",
-    demo: "https://waterbrone-diease-prediction-byble.streamlit.app/",
+    id: 1,
+    title: 'AI-Powered Waterborne Disease Predictor',
+    description: 'Deep Learning model for medical report analysis',
+    image: '/images/waterborne-disease-predictor.png',
+    tech: ['Deep Learning', 'Bi-LSTM', 'NLP', 'Streamlit', 'TensorFlow'],
+    longDescription: 'A sophisticated Bi-LSTM model that analyzes medical reports to predict waterborne diseases. This project showcases advanced NLP and sequence modeling skills with real-world medical applications.',
+    github: 'https://github.com/ultronop592/WaterBrone-Diease-Prediction.git',
+    demo: 'https://waterbrone-diease-prediction-byble.streamlit.app/',
+    category: 'Machine Learning',
   },
   {
-    title: "Fake News Classifier using RNN",
-    description: "Deep learning-based text classification",
-    image: "/images/fake-news-classifier.png",
-    tech: ["RNN", "LSTM", "NLP", "TensorFlow", "Python"],
-    details: "Built a Fake News Classifier using Bidirectional LSTM for accurate text classification.",
-    github: "https://github.com/ultronop592/FakeNews-Classifier-using-RNN.git",
-    demo: "#",
+    id: 2,
+    title: 'Fake News Classifier using RNN',
+    description: 'Deep learning-based text classification system',
+    image: '/images/fake-news-classifier.png',
+    tech: ['RNN', 'LSTM', 'NLP', 'TensorFlow', 'Python'],
+    longDescription: 'Built a sophisticated Fake News Classifier using Bidirectional LSTM networks for accurate text classification and misinformation detection.',
+    github: 'https://github.com/ultronop592/FakeNews-Classifier-using-RNN.git',
+    demo: '#',
+    category: 'NLP',
   },
   {
-    title: "Movie Recommender System",
-    description: "Content-based & collaborative filtering",
-    image: "/images/movie-recommender.png",
-    tech: ["Machine Learning", "Pandas", "NumPy", "Python", "Scikit-learn"],
-    details: "Advanced recommendation engine using multiple algorithms to suggest movies based on user preferences.",
-    github: "#",
-    demo: "#",
+    id: 3,
+    title: 'Movie Recommender System',
+    description: 'Content-based & collaborative filtering engine',
+    image: '/images/movie-recommender.png',
+    tech: ['Machine Learning', 'Pandas', 'NumPy', 'Scikit-learn'],
+    longDescription: 'Advanced recommendation engine using multiple algorithms to suggest movies based on user preferences and viewing patterns.',
+    github: '#',
+    demo: '#',
+    category: 'Recommendation',
   },
   {
-    title: "Multiple Diseases Prediction",
-    description: "ML models for disease diagnosis",
-    image: "/images/multiple-diseases-prediction.png",
-    tech: ["Machine Learning", "Medical AI", "Python", "Scikit-learn"],
-    details: "Comprehensive ML system predicting multiple diseases using patient health data.",
-    github: "#",
-    demo: "#",
+    id: 4,
+    title: 'Multiple Diseases Prediction',
+    description: 'ML models for disease diagnosis',
+    image: '/images/multiple-diseases-prediction.png',
+    tech: ['Machine Learning', 'Medical AI', 'Python', 'Scikit-learn'],
+    longDescription: 'Comprehensive ML system predicting multiple diseases using patient health data with high accuracy.',
+    github: '#',
+    demo: '#',
+    category: 'Healthcare',
   },
   {
-    title: "Loan Approval Prediction",
-    description: "Classification model for loan decisions",
-    image: "/images/loan-approval-prediction.png",
-    tech: ["Classification", "Feature Engineering", "Python", "Scikit-learn"],
-    details: "Predictive model to determine loan approval probability based on applicant data.",
-    github: "#",
-    demo: "#",
+    id: 5,
+    title: 'Loan Approval Prediction',
+    description: 'Classification model for loan decisions',
+    image: '/images/loan-approval-prediction.png',
+    tech: ['Classification', 'Feature Engineering', 'Python', 'Scikit-learn'],
+    longDescription: 'Predictive model to determine loan approval probability based on applicant data and financial history.',
+    github: '#',
+    demo: '#',
+    category: 'Finance',
   },
   {
-    title: "Spam Email Detection",
-    description: "NLP-based spam classification",
-    image: "/images/spam-email-detection.png",
-    tech: ["NLP", "Text Classification", "Machine Learning", "Python"],
-    details: "Advanced spam detection system using natural language processing techniques.",
-    github: "#",
-    demo: "#",
+    id: 6,
+    title: 'Spam Email Detection',
+    description: 'NLP-based spam classification',
+    image: '/images/spam-email-detection.png',
+    tech: ['NLP', 'Text Classification', 'Machine Learning', 'Python'],
+    longDescription: 'Advanced spam detection system using natural language processing techniques for email security.',
+    github: '#',
+    demo: '#',
+    category: 'Security',
   },
   {
-    title: "eSports Strategy Hub",
-    description: "Data analytics platform for gaming",
-    image: "/images/esports-strategy-hub.png",
-    tech: ["Data Analytics", "Visualization", "Python", "Streamlit"],
-    details: "Analytics dashboard providing game strategies and team performance insights.",
-    github: "#",
-    demo: "#",
+    id: 7,
+    title: 'eSports Strategy Hub',
+    description: 'Data analytics platform for gaming',
+    image: '/images/esports-strategy-hub.png',
+    tech: ['Data Analytics', 'Visualization', 'Python', 'Streamlit'],
+    longDescription: 'Analytics dashboard providing game strategies and team performance insights for competitive gaming.',
+    github: '#',
+    demo: '#',
+    category: 'Analytics',
   },
   {
-    title: "Advanced Data Analytics",
-    description: "Comprehensive data science solutions",
-    image: "/placeholder.jpg",
-    tech: ["Data Science", "Analytics", "Python", "Pandas"],
-    details: "Portfolio of data science and analytics projects with insights and visualizations.",
-    github: "#",
-    demo: "#",
+    id: 8,
+    title: 'Advanced Data Analytics',
+    description: 'Comprehensive data science solutions',
+    image: '/placeholder.jpg',
+    tech: ['Data Science', 'Analytics', 'Python', 'Pandas'],
+    longDescription: 'Portfolio of data science and analytics projects with insights and visualizations.',
+    github: '#',
+    demo: '#',
+    category: 'Data Science',
   },
 ];
 
-function ProjectDetailModal({ project, isOpen, onClose, onNavigate }: {
-  project: typeof PROJECTS[0] | null;
-  isOpen: boolean;
-  onClose: () => void;
-  onNavigate: (direction: "prev" | "next") => void;
-}) {
+function ProjectCard({ project, onClick }: { project: typeof PROJECTS[0]; onClick: () => void }) {
+  return (
+    <motion.div
+      whileHover={{ y: -8 }}
+      onClick={onClick}
+      className="group cursor-pointer relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-5 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
+    >
+      {/* Gradient background on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:via-blue-500/5 group-hover:to-cyan-500/10 transition-all duration-500" />
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Image */}
+        <div className="mb-4 overflow-hidden rounded-lg bg-slate-700 h-40">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Category badge */}
+        <div className="mb-3 inline-block">
+          <span className="px-2.5 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30 group-hover:border-blue-400 transition-colors">
+            {project.category}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base font-semibold text-white mb-2 line-clamp-2 group-hover:text-blue-300 transition-colors">
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs text-slate-400 mb-4 line-clamp-2 group-hover:text-slate-300 transition-colors">
+          {project.description}
+        </p>
+
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tech.slice(0, 3).map((tech, i) => (
+            <span
+              key={i}
+              className="px-2 py-0.5 text-xs bg-slate-700/50 text-slate-300 rounded border border-slate-600/50 group-hover:border-blue-500/30 transition-colors"
+            >
+              {tech}
+            </span>
+          ))}
+          {project.tech.length > 3 && (
+            <span className="px-2 py-0.5 text-xs text-slate-400">+{project.tech.length - 3}</span>
+          )}
+        </div>
+
+        {/* Arrow indicator */}
+        <div className="flex items-center gap-2 text-blue-400 group-hover:gap-3 transition-all opacity-0 group-hover:opacity-100">
+          <span className="text-xs font-medium">View Details</span>
+          <ChevronRight className="w-4 h-4" />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function ProjectModal({ project, isOpen, onClose }: { project: typeof PROJECTS[0] | null; isOpen: boolean; onClose: () => void }) {
   if (!project) return null;
 
   return (
@@ -97,100 +170,83 @@ function ProjectDetailModal({ project, isOpen, onClose, onNavigate }: {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl max-w-2xl w-full border border-slate-700 shadow-2xl"
+            className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl border border-slate-700/50 p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-slate-700">
-              <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-              <button
-                onClick={onClose}
-                className="p-2 hover:bg-slate-700 rounded-lg transition"
-              >
-                <X className="w-5 h-5 text-slate-400" />
-              </button>
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 p-2 hover:bg-slate-800 rounded-lg transition-colors"
+            >
+              ✕
+            </button>
+
+            {/* Project image */}
+            <div className="mb-6 overflow-hidden rounded-xl">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
-            {/* Content */}
-            <div className="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
-              {/* Image */}
-              <div className="rounded-lg overflow-hidden h-64 bg-slate-700">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  crossOrigin="anonymous"
-                />
-              </div>
+            {/* Category and title */}
+            <div className="mb-4">
+              <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30 mb-3">
+                {project.category}
+              </span>
+              <h2 className="text-3xl font-bold text-white mb-2">{project.title}</h2>
+              <p className="text-lg text-slate-400">{project.description}</p>
+            </div>
 
-              {/* Description */}
-              <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">About</h3>
-                <p className="text-slate-300 leading-relaxed">{project.details}</p>
-              </div>
+            {/* Long description */}
+            <p className="text-slate-300 mb-6 leading-relaxed">{project.longDescription}</p>
 
-              {/* Tech Stack */}
-              <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Tech Stack</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="bg-blue-900/50 text-blue-200 border-blue-700">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              {/* Links */}
-              <div className="flex gap-3 pt-4">
-                {project.github !== "#" && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
+            {/* Tech stack */}
+            <div className="mb-6">
+              <h3 className="text-sm font-semibold text-slate-200 mb-3">Technology Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 text-sm bg-slate-800 text-slate-300 rounded-lg border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-all"
                   >
-                    <Github className="w-4 h-4" />
-                    View on GitHub
-                  </a>
-                )}
-                {project.demo !== "#" && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                )}
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Navigation */}
-            <div className="flex items-center justify-between p-6 border-t border-slate-700 bg-slate-900/50">
-              <button
-                onClick={() => onNavigate("prev")}
-                className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition"
-              >
-                <ChevronLeft className="w-4 h-4" />
-                Previous
-              </button>
-              <span className="text-slate-400 text-sm">Project Details</span>
-              <button
-                onClick={() => onNavigate("next")}
-                className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition"
-              >
-                Next
-                <ChevronRight className="w-4 h-4" />
-              </button>
+            {/* Links */}
+            <div className="flex gap-3 pt-4 border-t border-slate-700">
+              {project.github !== '#' && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
+                >
+                  <Github className="w-5 h-5" />
+                  GitHub
+                </a>
+              )}
+              {project.demo !== '#' && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  Live Demo
+                </a>
+              )}
             </div>
           </motion.div>
         </motion.div>
@@ -200,129 +256,103 @@ function ProjectDetailModal({ project, isOpen, onClose, onNavigate }: {
 }
 
 export default function ExplorePage() {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [autoplayIndex, setAutoplayIndex] = useState<number | null>(null);
-
-  const handleCardClick = (index: number) => {
-    setSelectedIndex(index);
-    setAutoplayIndex(index);
-  };
-
-  const handleNavigate = (direction: "prev" | "next") => {
-    if (selectedIndex === null) return;
-    const newIndex = direction === "next"
-      ? (selectedIndex + 1) % PROJECTS.length
-      : (selectedIndex - 1 + PROJECTS.length) % PROJECTS.length;
-    setSelectedIndex(newIndex);
-  };
-
-  const projectImages = PROJECTS.map((p) => p.image);
+  const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
 
   return (
-    <div className="w-full">
-      {/* Hero Section with Scroll Morph Animation */}
-      <section className="h-screen w-full">
-        <Suspense fallback={<div className="w-full h-screen bg-slate-950" />}>
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+      {/* Navigation hint */}
+      <div className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-slate-950/80 to-transparent pt-4 pb-8 pointer-events-none">
+        <div className="container mx-auto px-4 flex justify-between items-center pointer-events-auto">
+          <a href="/" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+            ← Back
+          </a>
+        </div>
+      </div>
+
+      {/* Hero Section with Scroll Morph */}
+      <section className="pt-28 pb-20 px-4">
+        <div className="container mx-auto">
+          <div className="mb-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-blue-400" />
+              <span className="text-sm text-blue-300 font-medium">Explore My Work</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent"
+            >
+              Featured Projects
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-slate-400 max-w-2xl mx-auto"
+            >
+              A collection of AI and machine learning projects showcasing expertise in deep learning, NLP, and data science
+            </motion.p>
+          </div>
+
+          {/* Scroll Morph Animation */}
           <ScrollMorphHero
-            images={projectImages}
-            onCardClick={handleCardClick}
+            images={PROJECTS.map((p) => p.image)}
+            onImageClick={(index) => setSelectedProject(PROJECTS[index])}
           />
-        </Suspense>
+        </div>
       </section>
 
-      {/* Projects Grid Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-black to-slate-900">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
+      {/* Projects Grid */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Featured Projects
-            </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              A comprehensive collection of AI/ML projects, deep learning models, and data-driven applications showcasing expertise in cutting-edge technologies.
-            </p>
-          </motion.div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PROJECTS.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => handleCardClick(index)}
-                className="group cursor-pointer"
               >
-                <div className="relative h-64 rounded-xl overflow-hidden bg-gradient-to-br from-slate-700 to-slate-900 border border-slate-700 hover:border-blue-500/50 transition-all duration-300">
-                  {/* Image */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    crossOrigin="anonymous"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300 flex flex-col items-center justify-center">
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      className="text-center"
-                    >
-                      <h3 className="text-xl font-bold text-white mb-2 px-4">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-slate-300 mb-4">{project.description}</p>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition"
-                      >
-                        View Details
-                      </motion.button>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Card Footer */}
-                <div className="mt-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.slice(0, 2).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-slate-800 text-slate-300 border-slate-700 text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+                <ProjectCard project={project} onClick={() => setSelectedProject(project)} />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-slate-950 border-y border-slate-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+      <section className="py-20 px-4 border-t border-slate-800">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { label: "Projects", value: "8+" },
-              { label: "Technologies", value: "20+" },
-              { label: "Lines of Code", value: "10K+" },
-              { label: "Accuracy Rate", value: "95%+" },
-            ].map((stat) => (
+              { number: '8+', label: 'Projects Completed' },
+              { number: '5+', label: 'Technologies' },
+              { number: '100%', label: 'Success Rate' },
+              { number: 'AI/ML', label: 'Specialization' },
+            ].map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={i}
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="text-center"
               >
-                <div className="text-4xl font-bold text-blue-500 mb-2">{stat.value}</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+                  {stat.number}
+                </div>
                 <div className="text-slate-400">{stat.label}</div>
               </motion.div>
             ))}
@@ -330,49 +360,8 @@ export default function ExplorePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-slate-900 to-black">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Collaborate?
-          </h2>
-          <p className="text-lg text-slate-400 mb-8">
-            Let's build something amazing together. Get in touch to discuss your next project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/ultronop592"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition"
-            >
-              View on GitHub
-            </a>
-            <a
-              href="mailto:your-email@example.com"
-              className="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition"
-            >
-              Send an Email
-            </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Project Detail Modal */}
-      <ProjectDetailModal
-        project={selectedIndex !== null ? PROJECTS[selectedIndex] : null}
-        isOpen={selectedIndex !== null}
-        onClose={() => {
-          setSelectedIndex(null);
-          setAutoplayIndex(null);
-        }}
-        onNavigate={handleNavigate}
-      />
+      {/* Project Modal */}
+      <ProjectModal project={selectedProject} isOpen={!!selectedProject} onClose={() => setSelectedProject(null)} />
     </div>
   );
 }
