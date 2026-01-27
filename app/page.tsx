@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, Github, Linkedin, Mail, MapPin, Phone, Code, GraduationCap, Briefcase } from "lucide-react"
+import { Download, Github, Linkedin, Mail, MapPin, Phone, Code, GraduationCap, Briefcase, Twitter } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CursorBlob } from "@/components/cursor-blob"
@@ -778,77 +778,144 @@ export default function Portfolio() {
               </div>
             </AnimatedSection>
 
-            <section id="contact" className="py-16 px-4">
+            <section id="contact" className="py-20 px-4">
               <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-white mb-12 text-center">Contact</h2>
-                <div className="max-w-2xl mx-auto">
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white/90 text-center">Connect</h3>
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-16"
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                    <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+                      Let's Connect
+                    </span>
+                  </h2>
+                  <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+                    I'm always interested in hearing about new opportunities, projects, and collaborations. Feel free to reach out through any of these channels.
+                  </p>
+                </motion.div>
 
-                    {/* Email and Phone - simple links */}
-                    <div className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  {/* Contact Info Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-sky-500/30 transition-all duration-300"
+                  >
+                    <h3 className="text-2xl font-bold text-white mb-6">Direct Contact</h3>
+                    
+                    <div className="space-y-4">
                       {[
                         {
                           icon: Mail,
                           label: "Email",
                           href: "mailto:srajaltiwari902@gmail.com",
                           text: "srajaltiwari902@gmail.com",
+                          description: "Respond within 24 hours"
                         },
-                        { icon: Phone, label: "Phone", href: "tel:+919919084211", text: "+91 9919084211" },
+                        { 
+                          icon: Phone, 
+                          label: "Phone", 
+                          href: "tel:+919919084211", 
+                          text: "+91 9919084211",
+                          description: "Available on WhatsApp & Telegram"
+                        },
+                      ].map((item, i) => (
+                        <a
+                          key={i}
+                          href={item.href}
+                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-sky-500/10 hover:border-sky-500/50 transition-all duration-300"
+                        >
+                          <div className="p-3 bg-sky-500/20 rounded-lg mr-4 group-hover:bg-sky-500/30 transition-colors">
+                            <item.icon className="h-6 w-6 text-sky-400" />
+                          </div>
+                          <div>
+                            <div className="text-neutral-300 text-sm font-medium">{item.label}</div>
+                            <div className="text-white text-sm font-semibold mt-1">{item.text}</div>
+                            <div className="text-neutral-500 text-xs mt-1">{item.description}</div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Social Links Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-sky-500/30 transition-all duration-300"
+                  >
+                    <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
+                    
+                    <div className="space-y-4">
+                      {[
+                        {
+                          icon: Github,
+                          label: "GitHub",
+                          href: "https://github.com/ultronop592",
+                          handle: "@ultronop592",
+                          description: "Open source projects & contributions"
+                        },
+                        {
+                          icon: Linkedin,
+                          label: "LinkedIn",
+                          href: "https://linkedin.com/in/srajal-tiwari-7229172b9",
+                          handle: "Srajal Tiwari",
+                          description: "Professional networking & updates"
+                        },
+                        {
+                          icon: Twitter,
+                          label: "Twitter",
+                          href: "https://twitter.com",
+                          handle: "@srajaltiwari",
+                          description: "Tech insights & industry news"
+                        },
                       ].map((item, i) => (
                         <a
                           key={i}
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center p-3 bg-neutral-900/60 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
+                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-sky-500/10 hover:border-sky-500/50 transition-all duration-300"
                         >
-                          <item.icon className="h-5 w-5 mr-3 text-neutral-300" />
+                          <div className="p-3 bg-sky-500/20 rounded-lg mr-4 group-hover:bg-sky-500/30 transition-colors">
+                            <item.icon className="h-6 w-6 text-sky-400" />
+                          </div>
                           <div>
-                            <div className="text-neutral-400 text-sm">{item.label}</div>
-                            <div className="text-neutral-200 text-sm">{item.text}</div>
+                            <div className="text-neutral-300 text-sm font-medium">{item.label}</div>
+                            <div className="text-white text-sm font-semibold mt-1">{item.handle}</div>
+                            <div className="text-neutral-500 text-xs mt-1">{item.description}</div>
                           </div>
                         </a>
                       ))}
                     </div>
-
-                    {/* GitHub and LinkedIn - 3D Pin cards */}
-                    <div className="flex flex-wrap gap-6 justify-center pt-4">
-                      <PinContainer title="github.com/ultronop592" href="https://github.com/ultronop592">
-                        <div className="flex flex-col p-4 tracking-tight text-neutral-100 w-[200px] h-[150px]">
-                          <div className="flex items-center gap-3 mb-3">
-                            <Github className="h-8 w-8 text-white" />
-                            <h3 className="font-bold text-lg text-neutral-100">GitHub</h3>
-                          </div>
-                          <p className="text-sm text-neutral-400 leading-relaxed">
-                            Check out my open source projects and contributions
-                          </p>
-                          <div className="mt-auto pt-3">
-                            <span className="text-xs text-neutral-500">@ultronop592</span>
-                          </div>
-                        </div>
-                      </PinContainer>
-
-                      <PinContainer
-                        title="linkedin.com/in/srajal-tiwari"
-                        href="https://linkedin.com/in/srajal-tiwari-7229172b9"
-                      >
-                        <div className="flex flex-col p-4 tracking-tight text-neutral-100 w-[200px] h-[150px]">
-                          <div className="flex items-center gap-3 mb-3">
-                            <Linkedin className="h-8 w-8 text-white" />
-                            <h3 className="font-bold text-lg text-neutral-100">LinkedIn</h3>
-                          </div>
-                          <p className="text-sm text-neutral-400 leading-relaxed">
-                            Connect with me for professional networking
-                          </p>
-                          <div className="mt-auto pt-3">
-                            <span className="text-xs text-neutral-500">Srajal Tiwari</span>
-                          </div>
-                        </div>
-                      </PinContainer>
-                    </div>
-                  </div>
+                  </motion.div>
                 </div>
+
+                {/* CTA Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="mt-16 text-center"
+                >
+                  <p className="text-neutral-400 mb-6">Prefer to discuss directly?</p>
+                  <a
+                    href="https://calendly.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-sky-500/50 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Schedule a Call
+                  </a>
+                </motion.div>
               </div>
             </section>
 
