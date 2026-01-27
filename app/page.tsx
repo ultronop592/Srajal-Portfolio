@@ -871,9 +871,9 @@ export default function Portfolio() {
                         },
                         {
                           icon: Twitter,
-                          label: "Twitter",
-                          href: "https://twitter.com",
-                          handle: "@srajaltiwari",
+                          label: "X (Twitter)",
+                          href: "https://x.com/SrajalT54493802",
+                          handle: "@SrajalT54493802",
                           description: "Tech insights & industry news"
                         },
                       ].map((item, i) => (
