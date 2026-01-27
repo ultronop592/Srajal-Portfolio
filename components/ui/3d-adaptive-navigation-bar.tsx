@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { motion, useSpring, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 
 interface NavItem {
   label: string
   id: string
+  href?: string
 }
 
 export const PillBase: React.FC = () => {
@@ -16,6 +18,7 @@ export const PillBase: React.FC = () => {
   const prevSectionRef = useRef('home')
   
   const navItems: NavItem[] = [
+    { label: 'Explore', id: 'explore', href: '/explore' },
     { label: 'Projects', id: 'featured-projects' },
     { label: 'About', id: 'about-me' },
     { label: 'Skills', id: 'skills' },
@@ -56,7 +59,12 @@ export const PillBase: React.FC = () => {
     setHovering(false)
   }
 
-  const handleSectionClick = (sectionId: string) => {
+  const handleSectionClick = (sectionId: string, href?: string) => {
+    if (href) {
+      window.location.href = href
+      return
+    }
+    
     console.log('[v0] Navigating to section:', sectionId)
     setIsTransitioning(true)
     prevSectionRef.current = sectionId
@@ -269,7 +277,7 @@ export const PillBase: React.FC = () => {
                     duration: 0.25,
                     ease: 'easeOut'
                   }}
-                  onClick={() => handleSectionClick(item.id)}
+                  onClick={() => handleSectionClick(item.id, item.href)}
                   className="relative cursor-pointer transition-all duration-200"
                   style={{
                     fontSize: isActive ? '15.5px' : '15px',
