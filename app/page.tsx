@@ -876,6 +876,13 @@ export default function Portfolio() {
                           handle: "@SrajalT54493802",
                           description: "Tech insights & industry news"
                         },
+                        {
+                          icon: Code,
+                          label: "Kaggle",
+                          href: "https://www.kaggle.com/srajaltiwari76",
+                          handle: "srajaltiwari76",
+                          description: "Data science & ML competitions"
+                        },
                       ].map((item, i) => (
                         <a
                           key={i}
