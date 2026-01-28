@@ -4,7 +4,7 @@
 
 ## ✨ What You Get
 
-```
+\`\`\`
 🎯 Your Portfolio               ➜    Explore Page (/explore)
    Home Page (/)                      ↓
    All Sections                   ✨ Interactive Projects
@@ -12,11 +12,11 @@
                                   🎭 Flip Cards
                                   🔗 Direct Links
                                   📱 Responsive
-```
+\`\`\`
 
 ## 🚀 Get Started in 30 Seconds
 
-```bash
+\`\`\`bash
 # 1. Start the dev server
 npm run dev
 
@@ -28,11 +28,11 @@ npm run dev
 # • Scroll to see projects
 # • Click cards to flip
 # • Share your amazing work!
-```
+\`\`\`
 
 ## 🎬 Animation Sequence
 
-```
+\`\`\`
 Timeline          Event               Visual State
 ────────────────────────────────────────────────
 0.0s              Page Mounts         Cards Hidden
@@ -46,7 +46,7 @@ Timeline          Event               Visual State
     ↓             (600px+)            Arc Morphing Begins
     ↓
 Scroll            Arc Formation       Cards Scroll in Arc
-```
+\`\`\`
 
 ## 🎯 Features at a Glance
 
@@ -75,7 +75,7 @@ Scroll            Arc Formation       Cards Scroll in Arc
 
 ### 8 Projects Showcase
 
-```
+\`\`\`
 1. 🤖 Waterborne Disease Predictor
    → Deep Learning | Bi-LSTM | NLP
 
@@ -99,7 +99,7 @@ Scroll            Arc Formation       Cards Scroll in Arc
 
 8. 🌐 Portfolio Website
    → Next.js | Full-Stack | This Site!
-```
+\`\`\`
 
 ## 🎓 How to Use
 
@@ -128,7 +128,7 @@ Scroll            Arc Formation       Cards Scroll in Arc
 
 Edit `/app/explore/page.tsx`:
 
-```typescript
+\`\`\`typescript
 const PROJECTS = [
   // ... existing projects
   {
@@ -140,11 +140,11 @@ const PROJECTS = [
     demo: "https://project.example.com",
   },
 ];
-```
+\`\`\`
 
 ### Change the Theme
 
-```tsx
+\`\`\`tsx
 // Dark Mode (Current)
 className="bg-gradient-to-b from-slate-950 via-slate-900 to-black"
 
@@ -156,11 +156,11 @@ className="bg-gradient-to-b from-blue-900 via-teal-900 to-cyan-950"
 
 // Sunset Mode
 className="bg-gradient-to-b from-orange-900 via-red-900 to-pink-950"
-```
+\`\`\`
 
 ### Speed Up/Slow Down Animations
 
-```typescript
+\`\`\`typescript
 // Current (Medium speed)
 transition={{
   stiffness: 40,
@@ -178,12 +178,12 @@ transition={{
   stiffness: 20,
   damping: 20,
 }}
-```
+\`\`\`
 
 ## 📱 Responsive Design
 
 ### Desktop (1024px+)
-```
+\`\`\`
 ┌─────────────────────────────────┐
 │  ← Navigation Pill "Explore" → │
 ├─────────────────────────────────┤
@@ -193,10 +193,10 @@ transition={{
 │   (Scroll to rotate)            │
 │                                 │
 └─────────────────────────────────┘
-```
+\`\`\`
 
 ### Tablet (768-1024px)
-```
+\`\`\`
 ┌──────────────────┐
 │  Navigation      │
 ├──────────────────┤
@@ -205,10 +205,10 @@ transition={{
 │  Optimized Size  │
 │                  │
 └──────────────────┘
-```
+\`\`\`
 
 ### Mobile (<768px)
-```
+\`\`\`
 ┌────────────┐
 │ Navigation │
 ├────────────┤
@@ -218,7 +218,7 @@ transition={{
 │  Touch OK  │
 │            │
 └────────────┘
-```
+\`\`\`
 
 ## 📖 Documentation Provided
 
@@ -265,23 +265,23 @@ See: [`SETUP_CHECKLIST.md`](./SETUP_CHECKLIST.md)
 ## 🚀 Deploy Now
 
 ### Option 1: Vercel (Recommended)
-```bash
+\`\`\`bash
 # Already connected?
 git push origin main
 # → Auto-deploys! 🎉
-```
+\`\`\`
 
 ### Option 2: Any Node.js Host
-```bash
+\`\`\`bash
 npm run build
 npm run start
-```
+\`\`\`
 
 ### Option 3: Static Export
-```bash
+\`\`\`bash
 npm run export
 # → Deploy the /out folder
-```
+\`\`\`
 
 ## 🔗 Quick Links
 
@@ -329,7 +329,7 @@ npm run export
 
 ## 🌟 Features Highlight
 
-```
+\`\`\`
 ✨ Stunning Visual Effects
    • 4-phase animation sequence
    • Smooth 60 FPS scrolling
@@ -359,7 +359,7 @@ npm run export
    • Type-safe code
    • Professional design
    • Well documented
-```
+\`\`\`
 
 ## 📊 By The Numbers
 
@@ -382,7 +382,7 @@ npm run export
 
 ## ✅ Ready to Launch?
 
-```
+\`\`\`
 ✓ Animation system working
 ✓ Projects integrated
 ✓ Navigation updated
@@ -391,7 +391,7 @@ npm run export
 ✓ Documentation complete
 
 → Ready to impress! 🎉
-```
+\`\`\`
 
 ---
 

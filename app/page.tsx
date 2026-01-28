@@ -25,6 +25,8 @@ import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
+import ScrollStack from "@/components/ui/scroll-stack"
+import { ScrollStackProjectCard } from "@/components/ui/scroll-stack-project-card"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -603,7 +605,32 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
-                <FocusRail items={focusRailItems} autoPlay={false} loop={true} />
+                <ScrollStack
+                  className="w-full max-w-4xl mx-auto"
+                  useWindowScroll={false}
+                  itemDistance={60}
+                  itemScale={0.03}
+                  itemStackDistance={25}
+                  stackPosition="30%"
+                  scaleEndPosition="10%"
+                  baseScale={0.8}
+                  rotationAmount={0}
+                  blurAmount={0}
+                >
+                  {projects.map((project) => (
+                    <ScrollStackProjectCard
+                      key={project.title}
+                      title={project.title}
+                      description={project.description}
+                      details={project.details}
+                      image={project.image}
+                      tech={project.tech}
+                      github={project.github}
+                      liveDemo={project.liveDemo}
+                      category={project.category}
+                    />
+                  ))}
+                </ScrollStack>
               </div>
             </AnimatedSection>
 
