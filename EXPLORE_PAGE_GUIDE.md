@@ -25,13 +25,13 @@ The Explore Portfolio page is a stunning, interactive showcase of your AI/ML pro
 
 ## File Structure
 
-```
+\`\`\`
 /app/explore/
 ├── page.tsx                 # Main explore page component
 
 /components/ui/
 ├── scroll-morph-hero.tsx   # Reusable scroll animation component
-```
+\`\`\`
 
 ## Usage
 
@@ -41,7 +41,7 @@ Navigate to `/explore` or click "Explore" in the navigation bar.
 ### Customizing Projects
 Edit the `PROJECTS` array in `/app/explore/page.tsx`:
 
-```typescript
+\`\`\`typescript
 const PROJECTS = [
   {
     title: "Your Project",
@@ -54,17 +54,17 @@ const PROJECTS = [
   },
   // ... more projects
 ];
-```
+\`\`\`
 
 ### Using the Component Elsewhere
-```typescript
+\`\`\`typescript
 import ScrollMorphHero from "@/components/ui/scroll-morph-hero";
 
 <ScrollMorphHero 
   images={imageArray} 
   onCardClick={(index) => console.log(index)}
 />
-```
+\`\`\`
 
 ## Components
 

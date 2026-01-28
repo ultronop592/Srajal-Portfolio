@@ -25,6 +25,7 @@ import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
+import NeuralBackground from "@/components/ui/neural-background"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -329,21 +330,15 @@ export default function Portfolio() {
         <>
           <ScrollToHashClient />
 
-          <div className="fixed inset-0 z-0 flex items-center justify-center bg-black">
-            <FallingPattern
-              className="absolute inset-0 opacity-20"
-              color="rgba(255, 255, 255, 0.6)"
-              backgroundColor="transparent"
-              duration={100}
-              blurIntensity="0.5em"
+          <div className="fixed inset-0 z-0">
+            <NeuralBackground 
+              color="#6366f1"
+              trailOpacity={0.12}
+              particleCount={500}
+              speed={0.8}
+              className="absolute inset-0"
             />
-            <CpuArchitecture
-              className="w-full h-full opacity-30"
-              text="AI"
-              animateText={true}
-              animateLines={true}
-              animateMarkers={true}
-            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
           </div>
 
           <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
@@ -365,20 +360,31 @@ export default function Portfolio() {
               <div className="container mx-auto relative z-10">
                 <div className="grid items-center gap-10 md:grid-cols-2">
                   <div>
-                    <motion.h1
-                      className="text-4xl md:text-5xl font-bold text-white mb-3"
+                    <motion.div
+                      className="mb-6"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                      Srajal Tiwari
+                      <span className="inline-block text-neutral-400 text-sm md:text-base font-display tracking-widest uppercase mb-2 opacity-75">
+                        Welcome to My Portfolio
+                      </span>
+                    </motion.div>
+
+                    <motion.h1
+                      className="text-5xl md:text-7xl font-display font-black mb-4 bg-gradient-to-r from-cyan-400 via-indigo-400 to-blue-500 bg-clip-text text-transparent drop-shadow-lg"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                      I'm Srajal Tiwari
                     </motion.h1>
 
-                    <div className="text-xl md:text-2xl font-medium text-neutral-300 mb-5 h-12">
+                    <div className="text-xl md:text-2xl font-display font-bold bg-gradient-to-r from-blue-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent mb-5 h-12">
                       <Suspense fallback={<span>AI Engineer</span>}>
                         <TypingText
-                          words={["AI Engineer", "Machine Learning Developer", "Deep Learning ", "Gen Ai Enthusiasm"]}
-                          className="text-xl md:text-2xl font-medium text-neutral-300"
+                          words={["AI Engineer", "Machine Learning Developer", "Deep Learning Specialist", "Gen AI Enthusiast"]}
+                          className="font-display font-bold"
                         />
                       </Suspense>
                     </div>

@@ -28,10 +28,10 @@ importers:
         version: 1.0.2(@types/react@18.3.26)(react@18.3.1)
       '@react-three/drei':
         specifier: ^9.88.0
-        version: 9.88.0(ba8e87763d0e1df391054b7c97d3f5a3)
+        version: 9.88.0(0b5dbd177536fa5ccd1d787f2761ce18)
       '@react-three/fiber':
         specifier: ^9.4.0
-        version: 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
+        version: 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
       '@splinetool/react-spline':
         specifier: 4.1.0
         version: 4.1.0(@splinetool/runtime@1.11.4)(next@14.2.33(@babel/core@7.28.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -82,7 +82,7 @@ importers:
         version: 19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))
       expo-gl:
         specifier: latest
-        version: 16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
+        version: 16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       framer-motion:
         specifier: ^12.23.24
         version: 12.23.25(@emotion/is-prop-valid@1.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -125,6 +125,9 @@ importers:
       react-native-webview:
         specifier: latest
         version: 13.16.0(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
+      react-native-worklets:
+        specifier: latest
+        version: 0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -2345,8 +2348,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  expo-gl@16.0.9:
-    resolution: {integrity: sha512-MKzdPYa1fHoN4ObaVCXwqZ1P4a5xMh8wRbj74pb9VsESj4VoetN+1yQkkALM8bU+RShvzu2m3gMkyCQK8P0HvA==}
+  expo-gl@16.0.10:
+    resolution: {integrity: sha512-/pPlSJvfmrGuW+UXBRVADr52nhiHFwRGXB8shhQb+b6KKreCuTmQZUASznAXS6YaHNjkOghmkaUW0hRnyiAwBQ==}
     peerDependencies:
       expo: '*'
       react: '*'
@@ -5928,24 +5931,24 @@ snapshots:
       '@react-spring/types': 9.6.1
       react: 18.3.1
 
-  '@react-spring/three@9.6.1(@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)':
+  '@react-spring/three@9.6.1(@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)':
     dependencies:
       '@react-spring/animated': 9.6.1(react@18.3.1)
       '@react-spring/core': 9.6.1(react@18.3.1)
       '@react-spring/shared': 9.6.1(react@18.3.1)
       '@react-spring/types': 9.6.1
-      '@react-three/fiber': 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
+      '@react-three/fiber': 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
       react: 18.3.1
       three: 0.180.0
 
   '@react-spring/types@9.6.1': {}
 
-  '@react-three/drei@9.88.0(ba8e87763d0e1df391054b7c97d3f5a3)':
+  '@react-three/drei@9.88.0(0b5dbd177536fa5ccd1d787f2761ce18)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@mediapipe/tasks-vision': 0.10.2
-      '@react-spring/three': 9.6.1(@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)
-      '@react-three/fiber': 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
+      '@react-spring/three': 9.6.1(@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)
+      '@react-three/fiber': 9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)
       '@use-gesture/react': 10.3.1(react@18.3.1)
       camera-controls: 2.10.1(three@0.180.0)
       cross-env: 7.0.3
@@ -5974,7 +5977,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/three'
 
-  '@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)':
+  '@react-three/fiber@9.4.2(@types/react@18.3.26)(expo-asset@12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo-file-system@19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)))(expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)(three@0.180.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@types/react-reconciler': 0.32.3(@types/react@18.3.26)
@@ -5994,7 +5997,7 @@ snapshots:
       expo: 54.0.32(@babel/core@7.28.5)(@expo/dom-webview@0.2.8)(@expo/metro-runtime@6.1.2)(react-native-webview@13.16.0(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       expo-asset: 12.0.12(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       expo-file-system: 19.0.21(expo@54.0.32)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))
-      expo-gl: 16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
+      expo-gl: 16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
       react-native: 0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)
     transitivePeerDependencies:
@@ -7363,7 +7366,7 @@ snapshots:
       react: 18.3.1
       react-native: 0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1)
 
-  expo-gl@16.0.9(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1):
+  expo-gl@16.0.10(expo@54.0.32)(react-dom@18.3.1(react@18.3.1))(react-native-reanimated@4.2.1(react-native-worklets@0.7.2(@babel/core@7.28.5)(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native-web@0.21.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1):
     dependencies:
       expo: 54.0.32(@babel/core@7.28.5)(@expo/dom-webview@0.2.8)(@expo/metro-runtime@6.1.2)(react-native-webview@13.16.0(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1))(react-native@0.83.1(@babel/core@7.28.5)(@types/react@18.3.26)(react@18.3.1))(react@18.3.1)
       invariant: 2.2.4

@@ -68,6 +68,7 @@
     "react-native-reanimated": "latest",
     "react-native-web": "latest",
     "react-native-webview": "latest",
+    "react-native-worklets": "latest",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "1.0.7",
