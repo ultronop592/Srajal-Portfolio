@@ -26,6 +26,7 @@ import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import NeuralBackground from "@/components/ui/neural-background"
+import ElegantCarousel from "@/components/ui/elegant-carousel"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -599,7 +600,7 @@ export default function Portfolio() {
             <AnimatedSection id="projects" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl font-bold text-white mb-12 text-center"
+                  className="text-3xl font-bold text-white mb-16 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -609,8 +610,8 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
-                <FocusRail items={focusRailItems} autoPlay={false} loop={true} />
               </div>
+              <ElegantCarousel projects={projects} />
             </AnimatedSection>
 
             <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>

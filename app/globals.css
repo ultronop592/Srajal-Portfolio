@@ -647,3 +647,547 @@ html {
     offset-distance: 100%;
   }
 }
+
+/* ========================================
+   ELEGANT CAROUSEL STYLES
+   ======================================== */
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #12121a 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 3rem 2rem;
+}
+
+.carousel-bg-wash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 1;
+}
+
+/* ========================================
+   LEFT SIDE: CONTENT
+   ======================================== */
+
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.carousel-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Collection Number */
+.carousel-collection-num {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-collection-num.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.1s;
+}
+
+.carousel-collection-num.transitioning {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.carousel-num-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-num-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Courier New', monospace;
+}
+
+/* Category */
+.carousel-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-category.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.15s;
+}
+
+.carousel-category.transitioning {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Title */
+.carousel-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.carousel-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.carousel-title.transitioning {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* Subtitle */
+.carousel-subtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-subtitle.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+.carousel-subtitle.transitioning {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Description */
+.carousel-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  max-width: 540px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-description.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.carousel-description.transitioning {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Tech Stack */
+.carousel-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-tech-stack.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+.carousel-tech-stack.transitioning {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.carousel-tech-badge {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.813rem;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+}
+
+.carousel-tech-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.carousel-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-actions.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.carousel-actions.transitioning {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.carousel-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.938rem;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
+}
+
+.carousel-action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-github-btn:hover {
+  background: rgba(100, 100, 255, 0.15);
+}
+
+.carousel-live-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navigation Arrows */
+.carousel-nav-arrows {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.carousel-arrow-btn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* ========================================
+   RIGHT SIDE: IMAGE
+   ======================================== */
+
+.carousel-image-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95) translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.carousel-image-frame.visible {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  transition-delay: 0.2s;
+}
+
+.carousel-image-frame.transitioning {
+  opacity: 0;
+  transform: scale(0.9) translateX(-40px);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-image-frame:hover .carousel-image {
+  transform: scale(1.05);
+}
+
+.carousel-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: background 0.8s ease;
+}
+
+/* Decorative Corners */
+.carousel-frame-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-style: solid;
+  pointer-events: none;
+  transition: border-color 0.8s ease;
+}
+
+.carousel-frame-corner--tl {
+  top: -10px;
+  left: -10px;
+  border-width: 2px 0 0 2px;
+}
+
+.carousel-frame-corner--br {
+  bottom: -10px;
+  right: -10px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+
+.carousel-progress-bar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+  max-width: 90%;
+  overflow-x: auto;
+  padding: 0.5rem;
+}
+
+.carousel-progress-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.carousel-progress-bar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.carousel-progress-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.carousel-progress-track {
+  width: 80px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-progress-fill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  transition: width 0.05s linear, background-color 0.3s ease;
+}
+
+.carousel-progress-item.active .carousel-progress-track {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.carousel-progress-label {
+  font-size: 0.688rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.carousel-progress-item.active .carousel-progress-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.carousel-progress-item:hover .carousel-progress-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .carousel-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .carousel-image-container {
+    height: 450px;
+    order: -1;
+  }
+
+  .carousel-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .carousel-content {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  .carousel-inner {
+    gap: 2rem;
+  }
+
+  .carousel-image-container {
+    height: 350px;
+  }
+
+  .carousel-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .carousel-description {
+    font-size: 0.938rem;
+  }
+
+  .carousel-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .carousel-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .carousel-progress-bar {
+    bottom: 1rem;
+    gap: 0.5rem;
+  }
+
+  .carousel-progress-track {
+    width: 60px;
+  }
+
+  .carousel-progress-label {
+    font-size: 0.625rem;
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-image-container {
+    height: 280px;
+  }
+
+  .carousel-nav-arrows {
+    margin-top: 0.5rem;
+  }
+
+  .carousel-arrow-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-frame-corner {
+    width: 40px;
+    height: 40px;
+  }
+}
