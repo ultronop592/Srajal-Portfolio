@@ -490,7 +490,7 @@ export default function Portfolio() {
 
             <section id="about-me" className="py-16 px-4">
               <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-white mb-12 text-center">About Me</h2>
+                <h2 className="text-5xl font-bold text-white mb-12 text-center">About Me</h2>
 
                 <div className="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto">
                   {/* DisplayCards on the left */}
@@ -572,7 +572,7 @@ export default function Portfolio() {
             <AnimatedSection id="skills" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl font-bold text-white mb-12 text-center"
+                  className="text-5xl font-bold text-white mb-12 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -600,7 +600,7 @@ export default function Portfolio() {
             <AnimatedSection id="projects" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl font-bold text-white mb-16 text-center"
+                  className="text-5xl font-bold text-white mb-16 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -617,7 +617,7 @@ export default function Portfolio() {
             <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl font-bold text-white mb-12 text-center"
+                  className="text-5xl font-bold text-white mb-12 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -639,7 +639,7 @@ export default function Portfolio() {
 
             <section id="experience" className="py-16 px-4">
               <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-white mb-12 text-center">Experience</h2>
+                <h2 className="text-5xl font-bold text-white mb-12 text-center">Experience</h2>
                 <Timeline
                   data={[
                     {
@@ -721,7 +721,7 @@ export default function Portfolio() {
             <AnimatedSection id="achievements" className="py-20 px-4" delay={0.12}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl font-bold text-white mb-12 text-center"
+                  className="text-5xl font-bold text-white mb-12 text-center"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -794,7 +794,7 @@ export default function Portfolio() {
                   transition={{ duration: 0.6 }}
                   className="text-center mb-16"
                 >
-                  <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                  <h2 className="text-5xl font-bold mb-4">
                     <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
                       Let's Connect
                     </span>
