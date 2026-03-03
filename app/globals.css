@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Responsive heading refinements */
-@layer components {
-  h2.text-5xl {
-    @apply text-3xl sm:text-4xl md:text-5xl;
-  }
-}
-
 /* Enhanced smooth animations */
 @keyframes fadeInUp {
   from {
@@ -768,9 +761,9 @@ html {
 
 /* Title */
 .carousel-title {
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   color: #ffffff;
   margin: 0;
   opacity: 0;
@@ -1121,7 +1114,7 @@ html {
   }
 
   .carousel-title {
-    font-size: clamp(2.75rem, 6vw, 4rem);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
   }
 
   .carousel-content {
@@ -1143,7 +1136,7 @@ html {
   }
 
   .carousel-title {
-    font-size: clamp(2.25rem, 7vw, 3rem);
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
   .carousel-subtitle {
