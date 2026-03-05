@@ -66,7 +66,7 @@ export default function Portfolio() {
   const skills = {
     languages: ["Python", "C/C++", "SQL"],
     frameworks: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Streamlit", "TensorFlow", "Keras"],
-    concepts: ["Machine Learning","Deep Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
+    concepts: ["Machine Learning", "Deep Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
     tools: [
       "Google Colab",
       "Hugging Face",
@@ -169,6 +169,20 @@ export default function Portfolio() {
 
   const certifications = [
     {
+      name: "Model Context Protocol: Advanced Topics",
+      issuer: "Anthropic",
+      date: "March 4 2026",
+      link: "https://verify.skilljar.com/c/676s2waduew6",
+      level: "Advanced",
+    },
+    {
+      name: "Introduction To Model Context Protocol",
+      issuer: "Anthropic",
+      date: "March 4 2026",
+      link: "https://verify.skilljar.com/c/38cewzq2oxx9",
+      level: "Beginner",
+    },
+    {
       name: "Introduction to generative AI concepts",
       issuer: "Microsoft",
       date: "July 8, 2025",
@@ -231,13 +245,7 @@ export default function Portfolio() {
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Deloitte/YPWCiGNTkr6QxcpEu_Deloitte_completion_certificate.pdf",
       level: "Professional",
     },
-    {
-      name: "Startup School: Prompt to Prototype",
-      issuer: "Google for Startups x Scaler",
-      date: "April 2025",
-      link: "https://example.com/startup-school-certificate",
-      level: "Intermediate",
-    },
+
   ]
 
   const aboutMeCards = [
@@ -343,7 +351,7 @@ export default function Portfolio() {
           <ScrollToHashClient />
 
           <div className="fixed inset-0 z-0">
-            <NeuralBackground 
+            <NeuralBackground
               color="#6366f1"
               trailOpacity={0.12}
               particleCount={500}
@@ -825,7 +833,7 @@ export default function Portfolio() {
                     className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-sky-500/30 transition-all duration-300"
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Direct Contact</h3>
-                    
+
                     <div className="space-y-4">
                       {[
                         {
@@ -835,10 +843,10 @@ export default function Portfolio() {
                           text: "srajaltiwari902@gmail.com",
                           description: "Respond within 24 hours"
                         },
-                        { 
-                          icon: Phone, 
-                          label: "Phone", 
-                          href: "tel:+919919084211", 
+                        {
+                          icon: Phone,
+                          label: "Phone",
+                          href: "tel:+919919084211",
                           text: "+91 9919084211",
                           description: "Available on WhatsApp & Telegram"
                         },
@@ -870,7 +878,7 @@ export default function Portfolio() {
                     className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-sky-500/30 transition-all duration-300"
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
-                    
+
                     <div className="space-y-4">
                       {[
                         {
