@@ -245,7 +245,13 @@ export default function Portfolio() {
       link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Deloitte/YPWCiGNTkr6QxcpEu_Deloitte_completion_certificate.pdf",
       level: "Professional",
     },
-
+    {
+      name: "Introduction To Agent Skills",
+      issuer: "Anthropic",
+      date: "March 5 2026",
+      link: "https://verify.skilljar.com/c/bfu2bargdtsr",
+      level: "Intermediate",
+    },
   ]
 
   const aboutMeCards = [
