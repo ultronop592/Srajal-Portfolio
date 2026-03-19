@@ -1,6 +1,7 @@
 "use client"
 import { ContainerScroll } from "@/components/ui/container-scroll-animation"
 import { motion } from "framer-motion"
+import { Award, Briefcase, Cpu, Trophy } from "lucide-react"
 
 const techStack = [
   {
@@ -184,11 +185,33 @@ const techStack = [
 ]
 
 const stats = [
-  { label: "Projects", value: "5+", icon: "📁" },
-  { label: "Certificates", value: "10+", icon: "📜" },
-  { label: "Achievements", value: "5+", icon: "🏆" },
-  { label: "Tech Stack", value: "12+", icon: "⚡" },
+  {
+    label: "Featured Projects",
+    value: "9+",
+    icon: Briefcase,
+    meta: "Production AI and ML builds",
+  },
+  {
+    label: "Certifications",
+    value: "12+",
+    icon: Award,
+    meta: "Industry and platform credentials",
+  },
+  {
+    label: "Achievements",
+    value: "7+",
+    icon: Trophy,
+    meta: "Hackathons and coding milestones",
+  },
+  {
+    label: "Core Technologies",
+    value: "12+",
+    icon: Cpu,
+    meta: "Tools used in delivery",
+  },
 ]
+
+const techStackHeading = "Core Tech Stack"
 
 export default function HeroScrollDemo() {
   return (
@@ -210,7 +233,7 @@ export default function HeroScrollDemo() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-neutral-400 text-xl md:text-2xl font-light tracking-wide"
             >
-              AI & Machine Learning Engineer
+              AI/ML Engineer | GenAI and Applied NLP
             </motion.p>
           </div>
         }
@@ -236,13 +259,16 @@ export default function HeroScrollDemo() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
-                  <span className="text-2xl md:text-3xl mb-2 block">{stat.icon}</span>
+                  <span className="text-2xl md:text-3xl mb-2 flex justify-center text-neutral-200">
+                    <stat.icon className="h-6 w-6 md:h-8 md:w-8" />
+                  </span>
                   <div className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-base lg:text-lg text-neutral-400 font-medium uppercase tracking-wider">
+                  <div className="text-[11px] md:text-sm lg:text-base text-neutral-300 font-semibold uppercase tracking-wider">
                     {stat.label}
                   </div>
+                  <div className="mt-2 text-[10px] md:text-xs text-neutral-500">{stat.meta}</div>
                 </div>
               </motion.div>
             ))}
@@ -255,7 +281,7 @@ export default function HeroScrollDemo() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="text-lg md:text-xl text-neutral-500 font-semibold mb-4 md:mb-6 uppercase tracking-widest"
             >
-              Tech Stack
+              <span>{techStackHeading}</span>
             </motion.h3>
             <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
               {techStack.map((tech, index) => (

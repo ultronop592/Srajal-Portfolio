@@ -1,83 +1,220 @@
-# Srajal Tiwari - Portfolio Website
+# Srajal Tiwari - AI/ML Engineer Portfolio
 
-A modern, responsive portfolio website built with Next.js, React, and Tailwind CSS.
+A production-grade portfolio website showcasing 9+ AI/ML projects, 12+ industry certifications, and 12+ core technologies. Built with Next.js 14, React 18, TypeScript, and Tailwind CSS for a modern, interactive user experience.
 
-## 🚀 Features
+**Live Site**: [srajal-portfolio.vercel.app](https://srajal-portfolio.vercel.app)
 
-- **Responsive Design** - Works perfectly on all devices
-- **Dark Mode Toggle** - Switch between light and dark themes
-- **Resume Download** - Direct PDF download functionality
-- **Interactive UI** - Smooth animations and hover effects
-- **Contact Form** - Get in touch section
-- **Project Showcase** - Display of ML/AI projects
-- **Certifications** - Professional certifications display
+## ✨ Features
+
+### 🎨 Interactive UI Components
+- **Animated Hero Section** - Scroll-based animations with stats visualization (9+ Projects, 12+ Certificates, 7+ Achievements, 12+ Tech Stack)
+- **3D Effects** - Profile 3D tilt, spline scene viewer, and motion animations
+- **Smooth Transitions** - Framer Motion animations for all interactive elements
+- **Responsive Design** - Seamless experience across mobile, tablet, and desktop
+
+### 💼 Portfolio Showcase
+- **9+ Featured Projects** - Production AI/ML builds including:
+  - Multi Source Agentic RAG System (FastAPI, Next.js, Qdrant, Gemini)
+  - Cold Email Generator AI (LangChain, Groq LLM, ChromaDB)
+  - AI-Powered Disease Prediction (Deep Learning, NLP)
+  - And more...
+- **Project Details** - Live demos and GitHub repositories for each project
+- **Technology Tags** - Clear tech stack breakdown per project
+
+### 🏆 Achievements & Credentials
+- **12+ Industry Certifications** - Anthropic, Microsoft, Google, Deloitte, and more
+- **7+ Major Achievements** - LeetCode streak, Startup School program, HCL GUVI AI Summit, hackathons
+- **Autoplay Testimonials** - Animated certificates carousel with descriptions
+
+### 📋 Resume Section
+- **PDF Download** - Direct download from Google Drive with fallback link
+- **PDF Viewer** - Downloadable high-quality resume PDFs
+- **Contact Integration** - Email, phone, and social links
+
+### 🎯 Skills & Technologies
+- **Languages**: Python, C/C++, SQL
+- **Frameworks**: Pandas, NumPy, Scikit-learn, TensorFlow, Keras, Streamlit
+- **AI/ML Concepts**: Machine Learning, Deep Learning, Generative AI, Neural Networks, RAG
+- **Tools**: Docker, Git, Colab, Hugging Face, LangChain, ChromaDB, FastAPI
 
 ## 📁 Project Structure
 
 \`\`\`
-your-portfolio/
-├── public/
-│   ├── resume.pdf               ⬅️ Your actual resume PDF
-│   ├── profile.jpg              ⬅️ Your profile image
-│   └── resume-image.png         ⬅️ Resume screenshot
+Srajal-Portfolio/
 ├── app/
-│   ├── page.tsx                 ⬅️ Main homepage (Next.js App Router)
-│   ├── layout.tsx               ⬅️ Root layout
-│   └── globals.css              ⬅️ Global styles
+│   ├── page.tsx                          # Main portfolio page
+│   ├── layout.tsx                        # Root layout with metadata
+│   ├── globals.css                       # Global styles
+│   ├── carousel-demo/page.tsx            # Carousel demo page
+│   ├── explore/page.tsx                  # Explore projects page
+│   └── resume-pdf/page.tsx               # Resume PDF viewer
 ├── components/
-│   └── ui/                      ⬅️ shadcn/ui components
+│   ├── hero-scroll-demo.tsx              # Hero section with animated stats
+│   ├── macbook-scroll-demo.tsx           # Macbook scroll animation
+│   ├── profile-3d-tilt.tsx               # 3D profile tilt effect
+│   ├── spline-scene-demo.tsx             # Spline 3D viewer
+│   ├── animated-section.tsx              # Scroll reveal animations
+│   ├── cursor-blob.tsx                   # Custom cursor blob effect
+│   ├── theme-provider.tsx                # Theme context provider
+│   ├── portfolio/scroll-to-hash-client.tsx
+│   └── ui/                               # Reusable UI components
+│       ├── 3d-adaptive-navigation-bar.tsx
+│       ├── 3d-pin.tsx
+│       ├── animated-testimonials.tsx
+│       ├── bento-grid.tsx
+│       ├── elegant-carousel.tsx
+│       ├── container-scroll-animation.tsx
+│       ├── cpu-architecture.tsx
+│       ├── lamp.tsx
+│       ├── neural-background.tsx
+│       ├── scroll-morph-hero.tsx
+│       ├── timeline.tsx
+│       └── [more UI components]
+├── hooks/
+│   ├── use-magnetic-button.ts
+│   ├── use-reduced-motion.ts
+│   ├── use-reveal-on-scroll.ts
+│   └── use-tilt-effect.ts
 ├── lib/
-│   └── utils.ts                 ⬅️ Utility functions
+│   └── utils.ts                          # Utility functions
+├── public/
+│   ├── resume.pdf                        # Downloadable resume
+│   ├── RAG.png                           # Project screenshot
+│   ├── Screenshot 2026-03-19 224454.png # Cold Email AI screenshot
+│   └── images/                           # Project and certificate images
 ├── package.json
-├── tailwind.config.ts           ⬅️ Tailwind CSS configuration
-├── next.config.mjs              ⬅️ Next.js configuration
+├── tsconfig.json
+├── tailwind.config.ts
+├── next.config.mjs
+├── components.json                       # shadcn/ui config
 └── README.md
 \`\`\`
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
+### Frontend Framework
 - **Next.js 14** - React framework with App Router
 - **React 18** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **shadcn/ui** - UI components
-- **Lucide React** - Icons
+- **TypeScript** - Type safety and developer experience
 
-## 📋 Resume Download
+### Styling & Animation
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Advanced animations and interactions
+- **GSAP** - High-performance animations
+- **Tailwind Merge** - Utility class management
 
-The resume download functionality:
-- **File Location**: `/public/resume.pdf`
-- **Download URL**: `/resume.pdf`
-- **Features**: Opens in new tab + triggers download
-- **Filename**: `Srajal_Tiwari_Resume.pdf`
+### UI Components & Icons
+- **shadcn/ui** - Accessible component library
+- **Lucide React** - Comprehensive icon set
+- **Radix UI** - Unstyled, accessible primitives
+- **Three.js** - 3D graphics library
+- **React Three Fiber & Drei** - React renderer for Three.js
 
-## 🎨 Customization
+### Additional Libraries
+- **Embla Carousel** - Carousel component
+- **class-variance-authority** - Component variants
+- **Lenis** - Smooth scroll library
+- **Vercel Analytics** - Performance monitoring
+- **Next Themes** - Dark mode support
 
-### Adding Your Resume
-1. Place your PDF file in `/public/resume.pdf`
-2. The download button will automatically work
+### Development
+- **ESLint** - Code quality
+- **PostCSS** - CSS transformations
+- **Autoprefixer** - CSS vendor prefixes
 
-### Updating Profile Image
-1. Add your image to `/public/profile.jpg`
-2. Update the src in the hero section
+## 🚀 Getting Started
 
-### Modifying Content
-- **Personal Info**: Update in `app/page.tsx`
-- **Projects**: Modify the `projects` array
-- **Skills**: Update the `skills` object
-- **Certifications**: Edit the `certifications` array
+### Prerequisites
+- Node.js 18+ or npm/pnpm/yarn
+- Git
 
-## 🚀 Deployment
+### Installation
 
-### Vercel (Recommended)
-1. Push to GitHub
-2. Connect to Vercel
-3. Deploy automatically
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/ultronop592/Srajal-Portfolio.git
+cd Srajal-Portfolio
 
-### Other Platforms
-- **Netlify**: Drag and drop build folder
-- **GitHub Pages**: Use `next export` for static export
-- **Railway/Render**: Connect GitHub repository
+# Install dependencies
+npm install
+# or
+pnpm install
+# or
+yarn install
+\`\`\`
+
+### Development
+
+\`\`\`bash
+# Run development server
+npm run dev
+# or
+pnpm dev
+# or
+yarn dev
+
+# Open http://localhost:3000 in your browser
+\`\`\`
+
+### Production Build
+
+\`\`\`bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+\`\`\`
+
+## 🎨 Customization Guide
+
+### ✏️ Update Personal Information
+Edit \`app/page.tsx\`:
+\`\`\`typescript
+const skills = {
+  languages: ["Your languages"],
+  frameworks: ["Your frameworks"],
+  concepts: ["Your concepts"],
+  tools: ["Your tools"],
+}
+\`\`\`
+
+### 📂 Add/Update Projects
+Modify the \`projects\` array in \`app/page.tsx\`:
+\`\`\`typescript
+{
+  title: "Project Name",
+  description: "Short description",
+  details: "Detailed description",
+  github: "https://github.com/.../repo",
+  liveDemo: "https://deployed-site.com",
+  tech: ["Tech1", "Tech2", "Tech3"],
+  category: "ai" | "web",
+  image: "/path-to-image.png",
+}
+\`\`\`
+
+### 🏆 Add Certifications
+Update the \`certifications\` array in \`app/page.tsx\`:
+\`\`\`typescript
+{
+  name: "Certification Name",
+  issuer: "Issuing Organization",
+  date: "Month DD, YYYY",
+  link: "https://certificate-link.com",
+  level: "Beginner" | "Intermediate" | "Advanced",
+}
+\`\`\`
+
+### 📋 Update Resume
+1. Replace \`public/resume.pdf\` with your resume PDF
+2. Update drive download URL in \`app/page.tsx\` if using Google Drive:
+   \`\`\`typescript
+   const handleDownloadResume = () => {
+     const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
+     window.open(driveDownloadUrl, "_blank", "noopener,noreferrer")
+   }
+   \`\`\`
 
 ## 📱 Responsive Breakpoints
 
@@ -85,20 +222,69 @@ The resume download functionality:
 - **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
-## 🎯 Performance Features
+## 🎯 Performance Optimizations
 
-- **Image Optimization** - Next.js automatic optimization
-- **Code Splitting** - Automatic with Next.js
-- **SEO Friendly** - Meta tags and semantic HTML
-- **Fast Loading** - Optimized bundle size
+- ✅ Next.js Image Optimization
+- ✅ Automatic Code Splitting
+- ✅ Dynamic Imports for Heavy Components
+- ✅ SEO Meta Tags & Structured Data
+- ✅ Vercel Analytics Integration
+- ✅ CSS Minification & Purging
 
-## 📞 Contact Information
+## 🚀 Deployment
 
+### Deploy to Vercel (Recommended)
+
+\`\`\`bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# Preview: Visit the provided URL
+\`\`\`
+
+Or connect your GitHub repository to Vercel for automatic deployments on push.
+
+### Deploy to Other Platforms
+
+**Netlify**
+\`\`\`bash
+npm run build
+# Deploy the '.next' and 'public' folders
+\`\`\`
+
+**Docker**
+\`\`\`bash
+docker build -t portfolio .
+docker run -p 3000:3000 portfolio
+\`\`\`
+
+## 📊 Portfolio Statistics
+
+- **9+ Projects** - Production AI/ML applications
+- **12+ Certifications** - Industry-recognized credentials
+- **7+ Achievements** - Hackathons, coding challenges, summits
+- **12+ Technologies** - Core tech stack tools
+- **100+ Days** - LeetCode coding streak
+- **5+ Years** - Combined AI/ML learning experience
+
+## 🔗 Links
+
+- **Portfolio**: [srajal-portfolio.vercel.app](https://srajal-portfolio.vercel.app)
+- **GitHub**: [github.com/ultronop592](https://github.com/ultronop592)
+- **LinkedIn**: [linkedin.com/in/srajal-tiwari-7229172b9](https://linkedin.com/in/srajal-tiwari-7229172b9)
 - **Email**: srajaltiwari902@gmail.com
-- **Phone**: +91 9919084211
 - **Location**: Lucknow, India
-- **LinkedIn**: [Profile Link](https://linkedin.com/in/srajal-tiwari-7229172b9)
-- **GitHub**: [Profile Link](https://github.com/ultronop592)
+
+## 📝 Features in Progress
+
+- [ ] Dark/Light theme toggle UI
+- [ ] Blog section with articles
+- [ ] Project filtering by technology
+- [ ] Contact form submission
+- [ ] Analytics dashboard
 
 ## 📄 License
 
@@ -106,4 +292,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ by Srajal Tiwari
+**Built with ❤️ by [Srajal Tiwari](https://github.com/ultronop592) | AI/ML Engineer | GenAI Enthusiast**
+
+*Last updated: March 19, 2026 | Next.js 14 | React 18 | TypeScript*
