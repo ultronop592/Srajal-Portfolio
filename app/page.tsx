@@ -95,6 +95,17 @@ export default function Portfolio() {
       image: "/RAG.png",
     },
     {
+      title: "Cold Email Generator AI",
+      description: "Production-grade Gen AI pipeline for personalized cold emails",
+      details:
+        "Production-grade Gen AI pipeline that takes a job posting URL and a candidate resume PDF, then generates personalized cold emails with full AI reasoning. The system intelligently analyzes job requirements and candidate qualifications to craft targeted, compelling cold emails. Built with LangChain, Groq LLM API, ChromaDB, and FastAPI for efficient document processing and intelligent email generation.",
+      github: "https://github.com/ultronop592/Cold-Email-AI.git",
+      liveDemo: "http://cold-email-ai-peach.vercel.app/",
+      tech: ["LangChain", "Groq LLM", "ChromaDB", "FastAPI", "Gen AI", "Python", "Next.js"],
+      category: "ai",
+      image: "/Screenshot 2026-03-19 224454.png",
+    },
+    {
       title: "AI-Powered Waterborne Disease Predictor",
       description: "Deep Learning model for medical report analysis",
       details:
