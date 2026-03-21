@@ -136,6 +136,14 @@ export default function ResumePDF() {
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span>
+              <strong>Claude 101, Anthropic Academy (View)</strong>
+            </span>
+            <span>March 17, 2026</span>
+          </div>
+          <p className="text-xs ml-4">Completed foundational training on advanced Claude usage and practical AI workflows.</p>
+
+          <div className="flex justify-between">
+            <span>
               <strong>AI Engineer Certification, One Roadmap (View)</strong>
             </span>
             <span>May 29, 2025</span>

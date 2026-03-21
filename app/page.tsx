@@ -194,6 +194,13 @@ export default function Portfolio() {
       level: "Beginner",
     },
     {
+      name: "Claude 101",
+      issuer: "Anthropic Academy",
+      date: "March 17, 2026",
+      link: "https://verify.skilljar.com/c/7acndjj3z4hf",
+      level: "Advanced",
+    },
+    {
       name: "Introduction to generative AI concepts",
       issuer: "Microsoft",
       date: "July 8, 2025",
