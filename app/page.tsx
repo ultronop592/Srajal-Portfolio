@@ -84,6 +84,17 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "UnLegalize",
+      description: "AI-powered legal clause simplification tool (2nd place hackathon project)",
+      details:
+        "UnLegalize is an AI-powered legal clause simplification tool developed during a hackathon, where it secured 2nd place. It focuses on Indian rental and leave-and-license agreements, converting complex legal jargon into clear, actionable English using a fine-tuned small language model (Gemma 3 - 270M) with LoRA. I handled the complete backend development, including building the FastAPI server, designing the clause-splitting pipeline, implementing local model inference, and integrating OCR for PDF and image-based contract parsing. I also fine-tuned the Gemma model using PEFT (LoRA) on a curated dataset of legal clauses to improve domain-specific accuracy. The system runs entirely locally without external APIs, ensuring privacy and efficiency, and includes features like per-clause analysis and risk scoring for critical legal terms.",
+      github: "https://github.com/ultronop592/Con-Tech_Srajal.git",
+      liveDemo: "https://con-tech-srajal.vercel.app/",
+      tech: ["Gemma 3 270M", "LoRA", "PEFT", "FastAPI", "OCR", "Python", "Legal AI"],
+      category: "ai",
+      image: "/Screenshot 2026-04-27 193253.png",
+    },
+    {
       title: "Multi Source Agentic RAG System",
       description: "Production Ready Multi Source Agentic Retrieval Augmented Generation Platform",
       details:
