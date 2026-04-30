@@ -1,6 +1,6 @@
 # Srajal Tiwari - AI/ML Engineer Portfolio
 
-A production-grade portfolio website showcasing 9+ AI/ML projects, 12+ industry certifications, and 12+ core technologies. Built with Next.js 14, React 18, TypeScript, and Tailwind CSS for a modern, interactive user experience.
+A production-grade portfolio website showcasing 10+ AI/ML projects, 12+ industry certifications, and a modern AI/ML tech stack. Built with Next.js 14, React 18, TypeScript, and Tailwind CSS for a modern, interactive user experience.
 
 **Live Site**: [srajal-portfolio.vercel.app](https://srajal-portfolio.vercel.app)
 
@@ -13,10 +13,10 @@ A production-grade portfolio website showcasing 9+ AI/ML projects, 12+ industry 
 - **Responsive Design** - Seamless experience across mobile, tablet, and desktop
 
 ### 💼 Portfolio Showcase
-- **9+ Featured Projects** - Production AI/ML builds including:
+- **10+ Featured Projects** - Production AI/ML builds including:
+  - UnLegalize (Gemma 3 + LoRA legal clause simplification)
   - Multi Source Agentic RAG System (FastAPI, Next.js, Qdrant, Gemini)
   - Cold Email Generator AI (LangChain, Groq LLM, ChromaDB)
-  - AI-Powered Disease Prediction (Deep Learning, NLP)
   - And more...
 - **Project Details** - Live demos and GitHub repositories for each project
 - **Technology Tags** - Clear tech stack breakdown per project
@@ -27,8 +27,8 @@ A production-grade portfolio website showcasing 9+ AI/ML projects, 12+ industry 
 - **Autoplay Testimonials** - Animated certificates carousel with descriptions
 
 ### 📋 Resume Section
-- **PDF Download** - Direct download from Google Drive with fallback link
-- **PDF Viewer** - Downloadable high-quality resume PDFs
+- **Resume Download** - Direct download from Google Drive
+- **Resume Viewer** - Embedded resume page
 - **Contact Integration** - Email, phone, and social links
 
 ### 🎯 Skills & Technologies
@@ -78,7 +78,7 @@ Srajal-Portfolio/
 ├── lib/
 │   └── utils.ts                          # Utility functions
 ├── public/
-│   ├── resume.pdf                        # Downloadable resume
+│   ├── resume.html                       # Embedded resume page
 │   ├── RAG.png                           # Project screenshot
 │   ├── Screenshot 2026-03-19 224454.png # Cold Email AI screenshot
 │   └── images/                           # Project and certificate images
@@ -109,6 +109,7 @@ Srajal-Portfolio/
 - **Radix UI** - Unstyled, accessible primitives
 - **Three.js** - 3D graphics library
 - **React Three Fiber & Drei** - React renderer for Three.js
+- **Spline** - Interactive 3D scenes
 
 ### Additional Libraries
 - **Embla Carousel** - Carousel component
@@ -207,8 +208,8 @@ Update the \`certifications\` array in \`app/page.tsx\`:
 \`\`\`
 
 ### 📋 Update Resume
-1. Replace \`public/resume.pdf\` with your resume PDF
-2. Update drive download URL in \`app/page.tsx\` if using Google Drive:
+1. Replace `public/resume.html` with your resume (or update the embed source)
+2. Update drive download URL in `app/page.tsx` if using Google Drive:
    \`\`\`typescript
    const handleDownloadResume = () => {
      const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
@@ -263,7 +264,7 @@ docker run -p 3000:3000 portfolio
 
 ## 📊 Portfolio Statistics
 
-- **9+ Projects** - Production AI/ML applications
+- **10+ Projects** - Production AI/ML applications
 - **12+ Certifications** - Industry-recognized credentials
 - **7+ Achievements** - Hackathons, coding challenges, summits
 - **12+ Technologies** - Core tech stack tools
@@ -294,4 +295,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Built with ❤️ by [Srajal Tiwari](https://github.com/ultronop592) | AI/ML Engineer | GenAI Enthusiast**
 
-*Last updated: March 19, 2026 | Next.js 14 | React 18 | TypeScript*
+*Last updated: April 30, 2026 | Next.js 14 | React 18 | TypeScript*
