@@ -827,6 +827,37 @@ html {
   transform: translateY(-20px);
 }
 
+/* Metrics */
+.carousel-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.carousel-metrics.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
+}
+
+.carousel-metrics.transitioning {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.carousel-metric-pill {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* Tech Stack */
 .carousel-tech-stack {
   display: flex;

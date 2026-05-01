@@ -11,6 +11,7 @@ interface ProjectSlide {
   tech: string[];
   category: string;
   image: string;
+  metrics?: string[];
 }
 
 interface ElegantCarouselProps {
@@ -165,6 +166,16 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
             >
               {currentSlide.details}
             </p>
+
+            {currentSlide.metrics && currentSlide.metrics.length > 0 && (
+              <div className={`carousel-metrics ${isTransitioning ? 'transitioning' : 'visible'}`}>
+                {currentSlide.metrics.map((metric, idx) => (
+                  <span key={idx} className="carousel-metric-pill" style={{ borderColor: accentColor }}>
+                    {metric}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Tech Stack */}
             <div className={`carousel-tech-stack ${isTransitioning ? 'transitioning' : 'visible'}`}>

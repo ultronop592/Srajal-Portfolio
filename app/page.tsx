@@ -93,6 +93,7 @@ export default function Portfolio() {
       tech: ["Gemma 3 270M", "LoRA", "PEFT", "FastAPI", "OCR", "Python", "Legal AI"],
       category: "ai",
       image: "/Screenshot 2026-04-27 193253.png",
+      metrics: ["Hackathon: 2nd place"],
     },
     {
       title: "Multi Source Agentic RAG System",
@@ -176,6 +177,7 @@ export default function Portfolio() {
       tech: ["Python", "Scikit-learn", "TF-IDF"],
       category: "ai",
       image: "/spam-email-detection.png",
+      metrics: ["Accuracy: 96.77%"],
     },
     {
       title: "Loan Approval Predictive System",
@@ -186,6 +188,7 @@ export default function Portfolio() {
       tech: ["Python", "Pandas", "SVM"],
       category: "ai",
       image: "/loan-approval-prediction.png",
+      metrics: ["Accuracy: 78%"],
     },
   ]
 
@@ -434,6 +437,15 @@ export default function Portfolio() {
                     >
                       I'm Srajal Tiwari
                     </motion.h1>
+
+                    <motion.p
+                      className="text-base md:text-lg font-semibold text-sky-300/90 mb-3"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
+                    >
+                      I build AI systems that turn messy data into reliable decisions for real users.
+                    </motion.p>
 
                     <div className="text-xl md:text-2xl font-display font-bold bg-gradient-to-r from-blue-300 via-cyan-300 to-indigo-300 bg-clip-text text-transparent mb-5 h-12">
                       <Suspense fallback={<span>AI Engineer</span>}>
