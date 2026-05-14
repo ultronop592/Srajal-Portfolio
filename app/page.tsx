@@ -41,6 +41,7 @@ export default function Portfolio() {
   const [profileMode, setProfileMode] = useState<"css" | "canvas" | "webgl">("css")
   const [showLanding, setShowLanding] = useState(true)
   const [active, setActive] = useState<string | null>(null)
+  const [selectedFilter, setSelectedFilter] = useState<string | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -84,7 +85,7 @@ export default function Portfolio() {
     ],
   }
 
-  const projects = [
+  const allProjects = [
     {
       title: "UnLegalize",
       description: "AI-powered legal clause simplification tool (2nd place hackathon project)",
@@ -107,6 +108,7 @@ export default function Portfolio() {
       tech: ["AI", "RAG", "Agentic AI", "FastAPI", "Next.js", "Qdrant", "Gemini", "LLM"],
       category: "ai",
       image: "/RAG.png",
+      metrics: ["Production-Ready", "Hybrid Retrieval", "Real-time Streaming"],
     },
     {
       title: "Cold Email Generator AI",
@@ -118,6 +120,7 @@ export default function Portfolio() {
       tech: ["LangChain", "Groq LLM", "ChromaDB", "FastAPI", "Gen AI", "Python", "Next.js"],
       category: "ai",
       image: "/Screenshot 2026-03-19 224454.png",
+      metrics: ["AI Reasoning", "Resume Analysis", "Production Grade"],
     },
     {
       title: "AI-Powered Waterborne Disease Predictor",
@@ -129,6 +132,7 @@ export default function Portfolio() {
       tech: ["Deep Learning", "Bi-LSTM", "NLP", "Streamlit", "Python", "TensorFlow/Keras"],
       category: "ai",
       image: "/images/waterborne-disease-predictor.png",
+      metrics: ["Bi-LSTM Model", "Medical NLP", "Real-time Prediction"],
     },
     {
       title: "🔍 Fake News Classifier using RNN",
@@ -139,6 +143,7 @@ export default function Portfolio() {
       tech: ["Python", "TensorFlow/Keras", "Deep Learning", "LSTM"],
       category: "ai",
       image: "/fake-news-classifier.png",
+      metrics: ["LSTM Architecture", "Text Classification", "95%+ Accuracy"],
     },
     {
       title: "🎬 Movie Recommendation System",
@@ -149,6 +154,7 @@ export default function Portfolio() {
       tech: ["Python", "Streamlit", "NLP", "OMDB API"],
       category: "ai",
       image: "/movie-recommender.png",
+      metrics: ["TF-IDF Vectorization", "Cosine Similarity", "10k+ Movies"],
     },
     {
       title: "Multiple Disease Prediction System",
@@ -159,6 +165,7 @@ export default function Portfolio() {
       tech: ["Python", "Scikit-learn", "Streamlit"],
       category: "ai",
       image: "/multiple-diseases-prediction.png",
+      metrics: ["Multi-Disease Model", "SVM & Regression", "Real-time Prediction"],
     },
     {
       title: "Esports Strategy Hub",
@@ -169,6 +176,7 @@ export default function Portfolio() {
       tech: ["React", "TypeScript", "Tailwind CSS"],
       category: "web",
       image: "/esports-strategy-hub.png",
+      metrics: ["React SPA", "Interactive Visuals", "TypeScript"],
     },
     {
       title: "Spam Email Detection",
@@ -193,6 +201,14 @@ export default function Portfolio() {
       metrics: ["Accuracy: 78%"],
     },
   ]
+
+  // Filter projects based on selected filter
+  const projects = selectedFilter
+    ? allProjects.filter(p => p.category === selectedFilter)
+    : allProjects
+
+  // Get unique categories for filter buttons
+  const categories = Array.from(new Set(allProjects.map(p => p.category)))
 
   const certifications = [
     {
@@ -405,17 +421,22 @@ export default function Portfolio() {
             <NavbarFrosted />
           </div>
 
-          <NeonButton
-            onClick={handleDownloadResume}
-            variant="ghost"
-            size="lg"
-            className="fixed bottom-6 right-6 z-50 font-semibold shadow-lg"
-          >
-            <Download className="h-4 w-4 mr-2" />
-            Download Resume
-          </NeonButton>
+          <div className="fixed bottom-6 right-6 z-50 group">
+            <NeonButton
+              onClick={handleDownloadResume}
+              variant="ghost"
+              size="lg"
+              className="font-semibold shadow-lg"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download Resume
+            </NeonButton>
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+              Last Updated: May 14, 2026
+            </div>
+          </div>
 
-          <main className="relative z-10 pt-20">
+          <main className="relative z-10 pt-20" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
             <section className="relative py-20 px-4 min-h-[90vh] bg-gradient-to-b from-neutral-950 via-neutral-950 to-black overflow-hidden">
               {/* Background Base */}
               <div className="absolute inset-0 bg-[#0a0908]"></div>
@@ -521,6 +542,60 @@ export default function Portfolio() {
               </div>
             </section>
 
+            <AnimatedSection id="stats" className="py-20 px-4" delay={0.08}>
+              <div className="container mx-auto">
+                <motion.h2
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="pulsing-prompt text-orange-400">▸</span>
+                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                    Coding Stats
+                  </span>
+                </motion.h2>
+
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                  {/* GitHub Stats */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="rounded-2xl overflow-hidden border border-orange-500/20 bg-orange-500/5 backdrop-blur-sm hover:border-orange-500/40 transition-all duration-300 shadow-lg shadow-orange-500/10 cursor-pointer"
+                  >
+                    <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
+                      <img 
+                        src="/Screenshot 2026-05-14 164341.png" 
+                        alt="GitHub Stats" 
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </a>
+                  </motion.div>
+
+                  {/* LeetCode Stats */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="rounded-2xl overflow-hidden border border-orange-500/20 bg-orange-500/5 backdrop-blur-sm hover:border-orange-500/40 transition-all duration-300 shadow-lg shadow-orange-500/10 cursor-pointer"
+                  >
+                    <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
+                      <img 
+                        src="/Screenshot 2026-05-14 164458.png" 
+                        alt="LeetCode Stats" 
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </a>
+                  </motion.div>
+                </div>
+              </div>
+            </AnimatedSection>
+
             <AnimatedSection id="explore" className="py-0">
               <HeroScrollDemo />
             </AnimatedSection>
@@ -558,7 +633,7 @@ export default function Portfolio() {
             <AnimatedSection id="projects" className="py-20 px-4" delay={0.1}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-16 text-center"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -570,6 +645,42 @@ export default function Portfolio() {
                     Featured Projects
                   </span>
                 </motion.h2>
+
+                {/* Filter Buttons */}
+                <motion.div
+                  className="flex flex-wrap justify-center gap-3 mb-16"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <button
+                    onClick={() => setSelectedFilter(null)}
+                    className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
+                      selectedFilter === null
+                        ? 'bg-orange-500/30 border border-orange-500 text-orange-300'
+                        : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-orange-300'
+                    }`}
+                  >
+                    All ({allProjects.length})
+                  </button>
+                  {categories.map((category) => {
+                    const count = allProjects.filter(p => p.category === category).length
+                    return (
+                      <button
+                        key={category}
+                        onClick={() => setSelectedFilter(category)}
+                        className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
+                          selectedFilter === category
+                            ? 'bg-orange-500/30 border border-orange-500 text-orange-300'
+                            : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-orange-300'
+                        }`}
+                      >
+                        {category.toUpperCase()} ({count})
+                      </button>
+                    )
+                  })}
+                </motion.div>
               </div>
               <ElegantCarousel projects={projects} />
             </AnimatedSection>
@@ -863,12 +974,9 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 hover:border-orange-500/50 rounded-2xl p-8 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-orange-500/30 transition-all duration-300"
                   >
-                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-                      <span className="pulsing-prompt text-orange-400">▸</span>
-                      Follow Me
-                    </h3>
+                    <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
 
                     <div className="space-y-4">
                       {[

@@ -59,6 +59,22 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
     goToSlide(prevIndex, 'prev');
   }, [currentIndex, goToSlide, projects.length]);
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goPrev();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goNext, goPrev]);
+
   useEffect(() => {
     if (isPaused) return;
 
