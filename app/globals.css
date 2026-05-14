@@ -319,6 +319,10 @@ html.dark {
   animation: floatingSoft 3s ease-in-out infinite;
 }
 
+.animate-float {
+  animation: floatingSoft 3s ease-in-out infinite;
+}
+
 .animate-glow-pulse {
   animation: glowPulse 3s ease-in-out infinite;
 }

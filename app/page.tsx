@@ -13,7 +13,7 @@ import { SplineSceneBasic } from "@/components/spline-scene-demo"
 import { ScrollToHashClient } from "@/components/portfolio/scroll-to-hash-client"
 import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 import { NeonButton } from "@/components/ui/neon-button"
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import { AnimatedFeatureSpotlight } from "@/components/ui/feature-spotlight"
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
@@ -797,9 +797,8 @@ export default function Portfolio() {
                     Achievements
                   </span>
                 </motion.h2>
-                <AnimatedTestimonials
-                  autoplay={true}
-                  testimonials={[
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  {[
                     {
                       name: "100+ Days LeetCode Coding Streak",
                       designation: "LeetCode Badge 2025",
@@ -846,8 +845,18 @@ export default function Portfolio() {
                       quote: "Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.",
                       src: "/images/screenshot-202025-11-15-20102310.png",
                     },
-                  ]}
-                />
+                  ].map((achievement) => (
+                    <AnimatedFeatureSpotlight
+                      key={achievement.name}
+                      preheaderText={achievement.designation}
+                      heading={achievement.name}
+                      description={achievement.quote}
+                      imageUrl={achievement.src}
+                      imageAlt={achievement.name}
+                      className="bg-neutral-950/70 border-neutral-800"
+                    />
+                  ))}
+                </div>
               </div>
             </AnimatedSection>
 
