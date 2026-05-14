@@ -101,10 +101,10 @@ function ProjectCard({ project, onClick }: { project: typeof PROJECTS[0]; onClic
     <motion.div
       whileHover={{ y: -8 }}
       onClick={onClick}
-      className="group cursor-pointer relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-5 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
+      className="group cursor-pointer relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-5 border border-slate-700/50 hover:border-orange-500/50 transition-all duration-300"
     >
       {/* Gradient background on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:via-blue-500/5 group-hover:to-cyan-500/10 transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-rose-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-rose-500/10 transition-all duration-500" />
 
       {/* Content */}
       <div className="relative z-10">
@@ -119,13 +119,13 @@ function ProjectCard({ project, onClick }: { project: typeof PROJECTS[0]; onClic
 
         {/* Category badge */}
         <div className="mb-3 inline-block">
-          <span className="px-2.5 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30 group-hover:border-blue-400 transition-colors">
+          <span className="px-2.5 py-1 text-xs font-medium bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30 group-hover:border-orange-400 transition-colors">
             {project.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-base font-semibold text-white mb-2 line-clamp-2 group-hover:text-blue-300 transition-colors">
+        <h3 className="text-base font-semibold text-white mb-2 line-clamp-2 group-hover:text-orange-300 transition-colors">
           {project.title}
         </h3>
 
@@ -139,7 +139,7 @@ function ProjectCard({ project, onClick }: { project: typeof PROJECTS[0]; onClic
           {project.tech.slice(0, 3).map((tech, i) => (
             <span
               key={i}
-              className="px-2 py-0.5 text-xs bg-slate-700/50 text-slate-300 rounded border border-slate-600/50 group-hover:border-blue-500/30 transition-colors"
+              className="px-2 py-0.5 text-xs bg-slate-700/50 text-slate-300 rounded border border-slate-600/50 group-hover:border-orange-500/30 transition-colors"
             >
               {tech}
             </span>
@@ -150,7 +150,7 @@ function ProjectCard({ project, onClick }: { project: typeof PROJECTS[0]; onClic
         </div>
 
         {/* Arrow indicator */}
-        <div className="flex items-center gap-2 text-blue-400 group-hover:gap-3 transition-all opacity-0 group-hover:opacity-100">
+        <div className="flex items-center gap-2 text-orange-400 group-hover:gap-3 transition-all opacity-0 group-hover:opacity-100">
           <span className="text-xs font-medium">View Details</span>
           <ChevronRight className="w-4 h-4" />
         </div>
@@ -198,7 +198,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: typeof PROJECTS[0
 
             {/* Category and title */}
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30 mb-3">
+              <span className="inline-block px-3 py-1 text-xs font-medium bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30 mb-3">
                 {project.category}
               </span>
               <h2 className="text-3xl font-bold text-white mb-2">{project.title}</h2>
@@ -215,7 +215,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: typeof PROJECTS[0
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1.5 text-sm bg-slate-800 text-slate-300 rounded-lg border border-slate-700 hover:border-blue-500 hover:text-blue-300 transition-all"
+                    className="px-3 py-1.5 text-sm bg-slate-800 text-slate-300 rounded-lg border border-slate-700 hover:border-orange-500 hover:text-orange-300 transition-all"
                   >
                     {tech}
                   </span>
@@ -230,7 +230,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: typeof PROJECTS[0
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
                 >
                   <Github className="w-5 h-5" />
                   GitHub
@@ -241,7 +241,7 @@ function ProjectModal({ project, isOpen, onClose }: { project: typeof PROJECTS[0
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors font-medium flex-1 justify-center"
                 >
                   <ExternalLink className="w-5 h-5" />
                   Live Demo
@@ -277,17 +277,17 @@ export default function ExplorePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 mb-6"
             >
-              <Sparkles className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300 font-medium">Explore My Work</span>
+              <Sparkles className="w-4 h-4 text-orange-400" />
+              <span className="text-sm text-orange-300 font-medium">Explore My Work</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-blue-200 to-cyan-300 bg-clip-text text-transparent"
+              className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-orange-200 to-rose-300 bg-clip-text text-transparent"
             >
               Featured Projects
             </motion.h1>
@@ -350,7 +350,7 @@ export default function ExplorePage() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent mb-2">
                   {stat.number}
                 </div>
                 <div className="text-slate-400">{stat.label}</div>

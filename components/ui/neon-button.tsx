@@ -7,9 +7,9 @@ import { type VariantProps, cva } from "class-variance-authority"
 const buttonVariants = cva("relative group border text-foreground mx-auto text-center rounded-full", {
   variants: {
     variant: {
-      default: "bg-blue-500/5 hover:bg-blue-500/0 border-blue-500/20",
+      default: "bg-orange-500/5 hover:bg-orange-500/0 border-orange-500/20",
       solid:
-        "bg-blue-500 hover:bg-blue-600 text-white border-transparent hover:border-foreground/50 transition-all duration-200",
+        "bg-orange-500 hover:bg-orange-600 text-white border-transparent hover:border-foreground/50 transition-all duration-200",
       ghost:
         "border-neutral-500/50 bg-neutral-800/50 hover:border-neutral-400 hover:bg-neutral-700/50 text-neutral-200 hover:text-white",
     },
@@ -33,7 +33,7 @@ export interface NeonButtonProps
 
 const NeonButton = React.forwardRef<HTMLButtonElement, NeonButtonProps>(
   ({ className, neon = true, size, variant, children, ...props }, ref) => {
-    const glowColor = variant === "ghost" ? "neutral-400" : "blue-500"
+    const glowColor = variant === "ghost" ? "neutral-400" : "orange-500"
 
     return (
       <button className={cn(buttonVariants({ variant, size }), className)} ref={ref} {...props}>

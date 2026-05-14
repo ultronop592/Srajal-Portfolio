@@ -71,11 +71,11 @@ function FlipCard({
 
                 {/* Back Face */}
                 <div
-                    className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-blue-600 to-blue-900 flex flex-col items-center justify-center p-3 border border-blue-400/50"
+                    className="absolute inset-0 h-full w-full overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-orange-600 to-rose-900 flex flex-col items-center justify-center p-3 border border-orange-400/50"
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                 >
                     <div className="text-center">
-                        <p className="text-[7px] font-bold text-blue-200 uppercase tracking-widest mb-1">Explore</p>
+                        <p className="text-[7px] font-bold text-orange-200 uppercase tracking-widest mb-1">Explore</p>
                         <p className="text-xs font-medium text-white">Project</p>
                     </div>
                 </div>

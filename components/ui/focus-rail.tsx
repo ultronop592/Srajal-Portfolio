@@ -239,7 +239,7 @@ export function FocusRail({
                 {activeItem.tech && activeItem.tech.length > 0 && (
                   <div className="flex flex-wrap gap-2 pt-2">
                     {activeItem.tech.slice(0, 3).map((t, i) => (
-                      <span key={i} className="text-xs bg-sky-500/20 text-sky-300 px-2 py-1 rounded">
+                      <span key={i} className="text-xs bg-orange-500/20 text-orange-300 px-2 py-1 rounded">
                         {t}
                       </span>
                     ))}
@@ -274,7 +274,7 @@ export function FocusRail({
               {activeItem.href && (
                 <Link
                   href={activeItem.href}
-                  className="group flex items-center gap-2 rounded-full bg-sky-500 px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-sky-500/50"
+                  className="group flex items-center gap-2 rounded-full bg-orange-500 px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-orange-500/50"
                 >
                   Demo
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -285,7 +285,7 @@ export function FocusRail({
                   href={activeItem.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-2 rounded-full bg-sky-500/20 border border-sky-500/50 px-5 py-3 text-sm font-semibold text-sky-300 transition-all hover:bg-sky-500/30 hover:border-sky-500 active:scale-95"
+                  className="group flex items-center gap-2 rounded-full bg-orange-500/20 border border-orange-500/50 px-5 py-3 text-sm font-semibold text-orange-300 transition-all hover:bg-orange-500/30 hover:border-orange-500 active:scale-95"
                 >
                   <Github className="h-4 w-4" />
                   Code
