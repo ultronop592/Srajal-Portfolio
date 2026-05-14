@@ -6,9 +6,6 @@ import { Badge } from "@/components/ui/badge"
 
 const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) => {
   const [displayedText, setDisplayedText] = useState("")
-  const [displayedCounter1, setDisplayedCounter1] = useState(0)
-  const [displayedCounter2, setDisplayedCounter2] = useState(0)
-  const [displayedCounter3, setDisplayedCounter3] = useState(0)
   const [mounted, setMounted] = useState(false)
 
   const subtitles = [
@@ -18,44 +15,6 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
     "Data → Decisions",
   ]
   const [currentSubtitle, setCurrentSubtitle] = useState(0)
-
-  // Counter animation
-  useEffect(() => {
-    if (!mounted) return
-
-    // Counter 1: 15+
-    let timer1 = setInterval(() => {
-      setDisplayedCounter1((prev) => {
-        if (prev < 15) return prev + 1
-        clearInterval(timer1)
-        return prev
-      })
-    }, 50)
-
-    // Counter 2: 3+
-    let timer2 = setInterval(() => {
-      setDisplayedCounter2((prev) => {
-        if (prev < 3) return prev + 1
-        clearInterval(timer2)
-        return prev
-      })
-    }, 150)
-
-    // Counter 3: 10+
-    let timer3 = setInterval(() => {
-      setDisplayedCounter3((prev) => {
-        if (prev < 10) return prev + 1
-        clearInterval(timer3)
-        return prev
-      })
-    }, 100)
-
-    return () => {
-      clearInterval(timer1)
-      clearInterval(timer2)
-      clearInterval(timer3)
-    }
-  }, [mounted])
 
   // Typewriter effect
   useEffect(() => {
@@ -144,7 +103,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
           {/* Label */}
           <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm">
             <span className="pulsing-prompt">▸</span>
-            <span className="text-xs md:text-sm font-mono tracking-widest uppercase text-orange-300/80">
+            <span className="text-xs md:text-sm tracking-widest uppercase text-orange-300/80" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>
               Welcome to My Portfolio
             </span>
           </div>
@@ -171,33 +130,33 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 
           {/* Subtitle - Typewriter Effect */}
           <div className="mb-6 min-h-[2.5rem] flex items-center">
-            <div className="text-xl md:text-2xl font-mono font-semibold text-orange-300/90">
+            <div className="text-xl md:text-2xl font-semibold text-orange-300/90" style={{ fontFamily: "JetBrains Mono, monospace" }}>
               <span className="typewriter">{displayedText}</span>
             </div>
           </div>
 
           {/* Bio Text */}
-          <p className="text-neutral-300 leading-relaxed max-w-xl mb-8 text-sm md:text-base animate-fade-in">
+          <p className="text-neutral-300 leading-relaxed max-w-xl mb-8 text-sm md:text-base animate-fade-in" style={{ fontFamily: "Inter, sans-serif" }}>
             I build AI/ML products that turn data into decisions. Exploring the world of Generative AI | Passionate
             about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
           </p>
 
-          {/* Stats Row */}
+          {/* Tech Stack Section */}
           <div className="grid grid-cols-3 gap-4 mb-8">
             {[
-              { number: displayedCounter1, label: "Projects" },
-              { number: displayedCounter2, label: "Years" },
-              { number: displayedCounter3, label: "Models" },
-            ].map((stat, idx) => (
+              { icon: "🤖", label: "AI/ML" },
+              { icon: "🧠", label: "Gen AI" },
+              { icon: "⚡", label: "RAG/LLMs" },
+            ].map((tech, idx) => (
               <div
                 key={idx}
-                className="animate-fade-in p-3 rounded-lg border border-orange-500/20 bg-orange-500/5 backdrop-blur text-center"
+                className="animate-fade-in p-3 rounded-lg border border-orange-500/20 bg-orange-500/5 backdrop-blur text-center hover:border-orange-500/40 transition-all duration-300 cursor-pointer"
                 style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
               >
-                <div className="text-2xl md:text-3xl font-bold text-orange-300 font-mono">
-                  {stat.number}+
+                <div className="text-2xl md:text-3xl mb-1">{tech.icon}</div>
+                <div className="text-xs md:text-sm text-neutral-300" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 500 }}>
+                  {tech.label}
                 </div>
-                <div className="text-xs md:text-sm text-neutral-400 font-mono mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -227,6 +186,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             <button
               onClick={onDownloadResume}
               className="shimmer-sweep relative px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/30 group overflow-hidden"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
             >
               <Download className="inline-block h-4 w-4 mr-2" />
               Download Resume
@@ -260,6 +220,8 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${social.delay}s forwards`,
                   opacity: 0,
+                  fontFamily: "Inter, sans-serif",
+                  fontWeight: 600,
                 }}
               >
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -294,10 +256,12 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
               {/* Name Overlay */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black to-transparent flex items-end p-4">
                 <div
-                  className="text-xl md:text-2xl font-bold font-mono text-orange-300 tracking-wider"
+                  className="text-xl md:text-2xl font-bold text-orange-300 tracking-wider"
                   style={{
                     animation: "slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards",
                     opacity: 0,
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontWeight: 700,
                   }}
                 >
                   SRAJAL TIWARI
@@ -318,7 +282,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-orange-400/60 hover:text-orange-400 transition-colors">
-        <span className="text-xs font-mono uppercase tracking-widest">scroll</span>
+        <span className="text-xs uppercase tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>scroll</span>
         <div className="bounce-indicator">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
             <polyline points="10 14 17 7 10 14 3 7" />

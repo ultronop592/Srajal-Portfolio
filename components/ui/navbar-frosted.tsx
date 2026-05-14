@@ -17,9 +17,11 @@ const NavbarFrosted = () => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-            <span className="text-white font-bold text-sm font-mono">ST</span>
+            <span className="text-white font-bold text-sm" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>ST</span>
           </div>
-          <span className="text-orange-400 font-mono font-semibold hidden sm:inline-block">Srajal Tiwari</span>
+          <span className="text-orange-400 font-semibold hidden sm:inline-block" style={{ fontFamily: "Syne, sans-serif", fontWeight: 700 }}>
+            Srajal Tiwari
+          </span>
         </div>
 
         {/* Desktop Links */}
@@ -28,7 +30,8 @@ const NavbarFrosted = () => {
             <a
               key={link.label}
               href={link.href}
-              className="relative group text-neutral-300 hover:text-orange-300 transition-colors text-sm font-mono"
+              className="relative group text-neutral-300 hover:text-orange-300 transition-colors text-sm"
+              style={{ fontFamily: "Inter, sans-serif", fontWeight: 500 }}
             >
               {link.label}
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-600 group-hover:w-full transition-all duration-300" />
