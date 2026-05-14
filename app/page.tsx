@@ -845,6 +845,22 @@ export default function Portfolio() {
                       quote: "Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.",
                       src: "/images/screenshot-202025-11-15-20102310.png",
                     },
+                    {
+                      name: "Hackathon Achievement",
+                      designation: "2nd Place Winner – KALPATHON 2.0 (April 2026)",
+                      quote: (
+                        <>
+                          Built UnLegalize, an AI legal clause simplification platform for Indian rental agreements.
+                          <br />
+                          Developed FastAPI backend with clause-splitting, OCR parsing, and local AI inference.
+                          <br />
+                          Fine-tuned Gemma 3 270M with LoRA (PEFT) plus per-clause explanations and risk scoring.
+                          <br />
+                          Recognized for practical legal accessibility and privacy-first architecture.
+                        </>
+                      ),
+                      src: "/WhatsApp Image 2026-05-14 at 9.27.07 AM.jpeg",
+                    },
                   ].map((achievement) => (
                     <AnimatedFeatureSpotlight
                       key={achievement.name}

@@ -6,7 +6,7 @@ interface AnimatedFeatureSpotlightProps extends React.HTMLAttributes<HTMLElement
   preheaderIcon?: React.ReactNode
   preheaderText: string
   heading: React.ReactNode
-  description: string
+  description: React.ReactNode
   buttonText?: string
   buttonProps?: ButtonProps
   imageUrl: string
