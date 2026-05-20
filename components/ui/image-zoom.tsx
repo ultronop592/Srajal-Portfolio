@@ -27,11 +27,11 @@ const HeroImageZoom = ({ imageSrc, name, className }: HeroImageZoomProps) => {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="relative mx-auto my-6 flex h-[360px] w-full max-w-[320px] flex-col items-start border border-orange-500/20 bg-black/40 p-5 md:h-[30rem] md:max-w-[420px]">
-        <Plus strokeWidth={0.5} className="text-orange-300 absolute -left-4 -top-4 h-8 w-8" />
-        <Plus strokeWidth={0.5} className="text-orange-300 absolute -bottom-4 -left-4 h-8 w-8" />
-        <Plus strokeWidth={0.5} className="text-orange-300 absolute -right-4 -top-4 h-8 w-8" />
-        <Plus strokeWidth={0.5} className="text-orange-300 absolute -bottom-4 -right-4 h-8 w-8" />
+      <div className="relative mx-auto my-6 flex h-[360px] w-full max-w-[320px] flex-col items-start border border-emerald-500/20 bg-black/40 p-5 md:h-[30rem] md:max-w-[420px]">
+        <Plus strokeWidth={0.5} className="text-emerald-400 absolute -left-4 -top-4 h-8 w-8" />
+        <Plus strokeWidth={0.5} className="text-emerald-400 absolute -bottom-4 -left-4 h-8 w-8" />
+        <Plus strokeWidth={0.5} className="text-emerald-400 absolute -right-4 -top-4 h-8 w-8" />
+        <Plus strokeWidth={0.5} className="text-emerald-400 absolute -bottom-4 -right-4 h-8 w-8" />
         <ImageZoom>
           <div>
             <div className="overflow-hidden rounded-md bg-black/40">

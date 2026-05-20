@@ -103,7 +103,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
           {/* Label */}
           <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 backdrop-blur-sm">
             <span className="pulsing-prompt">▸</span>
-            <span className="text-xs md:text-sm tracking-widest uppercase text-orange-300/80" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>
+            <span className="text-xs md:text-sm tracking-widest uppercase text-emerald-400/80" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>
               Welcome to My Portfolio
             </span>
           </div>
@@ -116,7 +116,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
                 className="letter-reveal text-5xl md:text-7xl font-bold"
                 style={{
                   fontFamily: "Syne, sans-serif",
-                  background: "linear-gradient(135deg, #fb923c 0%, #ea580c 100%)",
+                  background: "linear-gradient(135deg, #34d399 0%, #10b981 100%)",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -130,7 +130,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 
           {/* Subtitle - Typewriter Effect */}
           <div className="mb-6 min-h-[2.5rem] flex items-center">
-            <div className="text-xl md:text-2xl font-semibold text-orange-300/90" style={{ fontFamily: "JetBrains Mono, monospace" }}>
+            <div className="text-xl md:text-2xl font-semibold text-emerald-400/90" style={{ fontFamily: "JetBrains Mono, monospace" }}>
               <span className="typewriter">{displayedText}</span>
             </div>
           </div>
@@ -150,7 +150,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="animate-fade-in p-3 rounded-lg border border-orange-500/20 bg-orange-500/5 backdrop-blur text-center hover:border-orange-500/40 transition-all duration-300 cursor-pointer"
+                className="animate-fade-in p-3 rounded-lg border border-emerald-500/20 bg-emerald-500/10 backdrop-blur text-center hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
                 style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
               >
                 <div className="text-2xl md:text-3xl mb-1">{tech.icon}</div>
@@ -172,8 +172,8 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
                   opacity: 0,
                 }}
               >
-                <Badge className="bg-neutral-800/50 text-neutral-200 border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300 cursor-pointer">
-                  <span className="pulsing-prompt text-orange-400">▸</span>
+                <Badge className="bg-neutral-800/50 text-neutral-200 border border-emerald-500/30 hover:border-emerald-500/60 transition-all duration-300 cursor-pointer">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
                   {tag}
                 </Badge>
               </div>
@@ -185,7 +185,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             {/* Download Resume Button */}
             <button
               onClick={onDownloadResume}
-              className="shimmer-sweep relative px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/30 group overflow-hidden"
+              className="shimmer-sweep relative px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-emerald-600/30 group overflow-hidden"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
             >
               <Download className="inline-block h-4 w-4 mr-2" />
@@ -216,7 +216,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
               <button
                 key={idx}
                 onClick={() => window.open(social.url, "_blank")}
-                className="relative px-4 py-3 rounded-lg font-semibold text-neutral-200 border border-neutral-700 hover:border-orange-500/60 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300 transform hover:scale-105 active:scale-95 group overflow-hidden"
+                className="relative px-4 py-3 rounded-lg font-semibold text-neutral-200 border border-neutral-700 hover:border-emerald-500/60 bg-neutral-900/50 hover:bg-neutral-800/50 transition-all duration-300 transform hover:scale-105 active:scale-95 group overflow-hidden"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${social.delay}s forwards`,
                   opacity: 0,
@@ -224,7 +224,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
                   fontWeight: 600,
                 }}
               >
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-emerald-500 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 <social.icon className="inline-block h-4 w-4 mr-2" />
                 {social.label}
               </button>
@@ -239,13 +239,13 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             <div className="breathing-glow absolute inset-0 rounded-2xl" />
 
             {/* Corner Brackets */}
-            <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-orange-500 rounded-tl-lg" />
-            <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-orange-500 rounded-tr-lg" />
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-orange-500 rounded-bl-lg" />
-            <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-orange-500 rounded-br-lg" />
+            <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-emerald-500 rounded-tl-lg" />
+            <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-emerald-500 rounded-tr-lg" />
+            <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-emerald-500 rounded-bl-lg" />
+            <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-emerald-500 rounded-br-lg" />
 
             {/* Image Container */}
-            <div className="relative rounded-2xl overflow-hidden border border-orange-500/20 bg-neutral-900/50 backdrop-blur-sm">
+            <div className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-900/50 backdrop-blur-sm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/profile-3d.png"
@@ -256,7 +256,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
               {/* Name Overlay */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black to-transparent flex items-end p-4">
                 <div
-                  className="text-xl md:text-2xl font-bold text-orange-300 tracking-wider"
+                  className="text-xl md:text-2xl font-bold text-emerald-400 tracking-wider"
                   style={{
                     animation: "slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards",
                     opacity: 0,
@@ -270,7 +270,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             </div>
 
             {/* Plus Icon Corners */}
-            <div className="absolute top-4 right-4 text-orange-300 opacity-60 hover:opacity-100 transition-opacity">
+            <div className="absolute top-4 right-4 text-emerald-400 opacity-60 hover:opacity-100 transition-opacity">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -281,7 +281,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-orange-400/60 hover:text-orange-400 transition-colors">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-emerald-400/60 hover:text-emerald-400 transition-colors">
         <span className="text-xs uppercase tracking-widest" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>scroll</span>
         <div className="bounce-indicator">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
@@ -294,3 +294,4 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 }
 
 export default HeroEnhanced
+
