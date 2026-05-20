@@ -212,6 +212,13 @@ export default function Portfolio() {
 
   const certifications = [
     {
+      name: "AI Fluency: AI Capabilities & Limitations",
+      issuer: "Anthropic",
+      date: "May 19 2026",
+      link: "https://verify.skilljar.com/c/gutkha2in57t",
+      level: "Intermediate",
+    },
+    {
       name: "Model Context Protocol: Advanced Topics",
       issuer: "Anthropic",
       date: "March 4 2026",
