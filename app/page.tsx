@@ -29,6 +29,7 @@ import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import NeuralBackground from "@/components/ui/neural-background"
 import ElegantCarousel from "@/components/ui/elegant-carousel"
+import GradientBarsBackground from "@/components/ui/gradient-bars-background"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -413,13 +414,14 @@ export default function Portfolio() {
         <>
           <ScrollToHashClient />
 
-          <div className="fixed inset-0 z-0">
-            <NeuralBackground
-              color="#f97316"
-              trailOpacity={0.12}
-              particleCount={500}
-              speed={0.8}
-              className="absolute inset-0"
+          <div className="fixed inset-0 z-0 overflow-hidden">
+            <GradientBarsBackground
+              numBars={9}
+              gradientFrom="rgb(249, 115, 22)"
+              gradientTo="rgba(249, 115, 22, 0.1)"
+              animationDuration={3}
+              backgroundColor="rgb(10, 10, 10)"
+              className="!min-h-screen"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
           </div>
