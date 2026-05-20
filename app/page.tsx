@@ -352,7 +352,7 @@ export default function Portfolio() {
       href: "#skills",
       cta: "Core Languages",
       background: (
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
       className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
     },
@@ -385,7 +385,7 @@ export default function Portfolio() {
       href: "#skills",
       cta: "Development Tools",
       background: (
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
       className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
     },
@@ -417,8 +417,8 @@ export default function Portfolio() {
           <div className="fixed inset-0 z-0 overflow-hidden">
             <GradientBarsBackground
               numBars={9}
-              gradientFrom="rgb(249, 115, 22)"
-              gradientTo="rgba(249, 115, 22, 0.1)"
+              gradientFrom="rgb(16, 101, 60)"
+              gradientTo="rgba(16, 101, 60, 0.1)"
               animationDuration={3}
               backgroundColor="rgb(10, 10, 10)"
               className="!min-h-screen"
@@ -440,7 +440,7 @@ export default function Portfolio() {
               <Download className="h-4 w-4 mr-2" />
               Download Resume
             </NeonButton>
-            <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-emerald-500/20 border border-emerald-500/40 rounded text-xs text-emerald-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
               Last Updated: May 14, 2026
             </div>
           </div>
@@ -466,8 +466,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     About Me
                   </span>
                 </motion.h2>
@@ -479,12 +479,12 @@ export default function Portfolio() {
                   </div>
 
                   {/* Info Card on the right */}
-                  <Card className="flex-1 bg-neutral-900/70 border border-neutral-800 hover:border-orange-500/40 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300">
+                  <Card className="flex-1 bg-neutral-900/70 border border-neutral-800 hover:border-emerald-500/40  transition-all duration-300">
                     <CardContent className="p-8">
                       <div className="space-y-6">
                         <div className="space-y-4">
                           <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
-                            <span className="pulsing-prompt text-orange-400">▸</span>
+                            <span className="pulsing-prompt text-emerald-400">▸</span>
                             Profile
                           </h3>
                           <p className="text-neutral-300 leading-relaxed">
@@ -496,19 +496,19 @@ export default function Portfolio() {
 
                         <div className="space-y-4">
                           <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
-                            <span className="pulsing-prompt text-orange-400">▸</span>
+                            <span className="pulsing-prompt text-emerald-400">▸</span>
                             Education
                           </h3>
                           <div className="space-y-4">
-                            <div className="border-l-2 border-orange-500/40 pl-4 hover:border-orange-500/70 transition-colors">
+                            <div className="border-l-2 border-emerald-500/40 pl-4 hover:border-emerald-500/70 transition-colors">
                               <div className="flex items-center gap-2 mb-1">
-                                <GraduationCap className="h-4 w-4 text-orange-400" />
+                                <GraduationCap className="h-4 w-4 text-emerald-400" />
                                 <span className="text-white font-medium">B.Tech in Computer Science (AI)</span>
                               </div>
                               <p className="text-neutral-400 text-sm">Babu Banarasi Das University, Lucknow</p>
                               <div className="flex items-center gap-4 mt-1 text-sm">
                                 <span className="text-neutral-500 font-mono">2023 - 2027</span>
-                                <span className="text-orange-400 font-medium">CGPA: 8.4</span>
+                                <span className="text-emerald-400 font-medium">CGPA: 8.4</span>
                               </div>
                             </div>
                           </div>
@@ -561,8 +561,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Coding Stats
                   </span>
                 </motion.h2>
@@ -574,7 +574,7 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="rounded-2xl overflow-hidden border border-orange-500/20 bg-orange-500/5 backdrop-blur-sm hover:border-orange-500/40 transition-all duration-300 shadow-lg shadow-orange-500/10 cursor-pointer"
+                    className="rounded-2xl overflow-hidden border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
                   >
                     <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
                       <img 
@@ -591,7 +591,7 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="rounded-2xl overflow-hidden border border-orange-500/20 bg-orange-500/5 backdrop-blur-sm hover:border-orange-500/40 transition-all duration-300 shadow-lg shadow-orange-500/10 cursor-pointer"
+                    className="rounded-2xl overflow-hidden border border-emerald-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
                   >
                     <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
                       <img 
@@ -619,8 +619,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Skills & Expertise
                   </span>
                 </motion.h2>
@@ -649,8 +649,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Featured Projects
                   </span>
                 </motion.h2>
@@ -667,8 +667,8 @@ export default function Portfolio() {
                     onClick={() => setSelectedFilter(null)}
                     className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
                       selectedFilter === null
-                        ? 'bg-orange-500/30 border border-orange-500 text-orange-300'
-                        : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-orange-300'
+                        ? 'bg-emerald-500/30 border border-emerald-500 text-emerald-300'
+                        : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-emerald-500/50 hover:text-emerald-300'
                     }`}
                   >
                     All ({allProjects.length})
@@ -681,8 +681,8 @@ export default function Portfolio() {
                         onClick={() => setSelectedFilter(category)}
                         className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
                           selectedFilter === category
-                            ? 'bg-orange-500/30 border border-orange-500 text-orange-300'
-                            : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-orange-500/50 hover:text-orange-300'
+                            ? 'bg-emerald-500/30 border border-emerald-500 text-emerald-300'
+                            : 'bg-neutral-900/50 border border-neutral-800 text-neutral-400 hover:border-emerald-500/50 hover:text-emerald-300'
                         }`}
                       >
                         {category.toUpperCase()} ({count})
@@ -704,8 +704,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Certifications
                   </span>
                 </motion.h2>
@@ -731,8 +731,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Experience
                   </span>
                 </motion.h2>
@@ -741,15 +741,15 @@ export default function Portfolio() {
                     {
                       title: "2025",
                       content: (
-                        <div className="bg-neutral-900/70 border border-neutral-800 hover:border-orange-500/40 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/10">
+                        <div className="bg-neutral-900/70 border border-neutral-800 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300 ">
                           <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
                             <div>
                               <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
                                 Artificial Intelligence Intern (Remote)
                               </h4>
-                              <p className="text-lg text-orange-300 font-mono">Mirai School of Technology</p>
+                              <p className="text-lg text-emerald-300 font-mono">Mirai School of Technology</p>
                             </div>
-                            <span className="bg-orange-500/20 text-orange-300 border border-orange-500/50 px-3 py-1 rounded-full text-sm font-mono">
+                            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/50 px-3 py-1 rounded-full text-sm font-mono">
                               July 2025 - August 2025
                             </span>
                           </div>
@@ -787,23 +787,23 @@ export default function Portfolio() {
                     {
                       title: "Projects",
                       content: (
-                        <div className="bg-neutral-900/70 border border-neutral-800 hover:border-orange-500/40 rounded-lg p-6 transition-all duration-300">
+                        <div className="bg-neutral-900/70 border border-neutral-800 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300">
                           <h4 className="text-xl font-semibold text-white/90 mb-4" style={{ fontFamily: "Syne, sans-serif" }}>Key Highlights</h4>
                           <div className="space-y-3">
                             <div className="flex gap-2 items-center text-neutral-300 text-sm">
-                              <span className="pulsing-prompt text-orange-400">▸</span> Built AI automation workflows with n8n
+                              <span className="pulsing-prompt text-emerald-400">▸</span> Built AI automation workflows with n8n
                             </div>
                             <div className="flex gap-2 items-center text-neutral-300 text-sm">
-                              <span className="pulsing-prompt text-orange-400">▸</span> Integrated Gemini LLM for intelligent responses
+                              <span className="pulsing-prompt text-emerald-400">▸</span> Integrated Gemini LLM for intelligent responses
                             </div>
                             <div className="flex gap-2 items-center text-neutral-300 text-sm">
-                              <span className="pulsing-prompt text-orange-400">▸</span> Developed multimodal chatbot with voice support
+                              <span className="pulsing-prompt text-emerald-400">▸</span> Developed multimodal chatbot with voice support
                             </div>
                             <div className="flex gap-2 items-center text-neutral-300 text-sm">
-                              <span className="pulsing-prompt text-orange-400">▸</span> Implemented sentiment analysis pipelines
+                              <span className="pulsing-prompt text-emerald-400">▸</span> Implemented sentiment analysis pipelines
                             </div>
                             <div className="flex gap-2 items-center text-neutral-300 text-sm">
-                              <span className="pulsing-prompt text-orange-400">▸</span> Automated data storage with Google Sheets
+                              <span className="pulsing-prompt text-emerald-400">▸</span> Automated data storage with Google Sheets
                             </div>
                           </div>
                         </div>
@@ -824,8 +824,8 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="pulsing-prompt text-orange-400">▸</span>
-                  <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                  <span className="pulsing-prompt text-emerald-400">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                     Achievements
                   </span>
                 </motion.h2>
@@ -918,8 +918,8 @@ export default function Portfolio() {
                   className="text-center mb-16"
                 >
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-                    <span className="pulsing-prompt text-orange-400">▸</span>
-                    <span className="bg-gradient-to-r from-orange-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
+                    <span className="pulsing-prompt text-emerald-400">▸</span>
+                    <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-clip-text text-transparent">
                       Let's Connect
                     </span>
                   </h2>
@@ -935,10 +935,10 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 hover:border-orange-500/50 rounded-2xl p-8 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 hover:border-emerald-500/50 rounded-2xl p-8  transition-all duration-300"
                   >
                     <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-                      <span className="pulsing-prompt text-orange-400">▸</span>
+                      <span className="pulsing-prompt text-emerald-400">▸</span>
                       Direct Contact
                     </h3>
 
@@ -962,10 +962,10 @@ export default function Portfolio() {
                         <a
                           key={i}
                           href={item.href}
-                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-300"
+                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
                         >
-                          <div className="p-3 bg-orange-500/20 rounded-lg mr-4 group-hover:bg-orange-500/30 transition-colors">
-                            <item.icon className="h-6 w-6 text-orange-400" />
+                          <div className="p-3 bg-emerald-500/20 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
+                            <item.icon className="h-6 w-6 text-emerald-400" />
                           </div>
                           <div>
                             <div className="text-neutral-300 text-sm font-medium">{item.label}</div>
@@ -983,7 +983,7 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-orange-500/30 transition-all duration-300"
+                    className="bg-gradient-to-br from-neutral-900 to-black border border-neutral-800 rounded-2xl p-8 hover:border-emerald-500/30 transition-all duration-300"
                   >
                     <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
 
@@ -1023,10 +1023,10 @@ export default function Portfolio() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-orange-500/10 hover:border-orange-500/50 transition-all duration-300"
+                          className="group flex items-start p-4 bg-neutral-800/30 border border-neutral-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
                         >
-                          <div className="p-3 bg-orange-500/20 rounded-lg mr-4 group-hover:bg-orange-500/30 transition-colors">
-                            <item.icon className="h-6 w-6 text-orange-400" />
+                          <div className="p-3 bg-emerald-500/20 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
+                            <item.icon className="h-6 w-6 text-emerald-400" />
                           </div>
                           <div>
                             <div className="text-neutral-300 text-sm font-medium">{item.label}</div>
@@ -1052,7 +1052,7 @@ export default function Portfolio() {
                     href="https://calendly.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-orange-500 to-rose-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 hover:-translate-y-1"
+                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-emerald-500/50 transition-all duration-300 hover:-translate-y-1"
                   >
                     Schedule a Call
                   </a>
@@ -1078,3 +1078,4 @@ export default function Portfolio() {
     </div>
   )
 }
+

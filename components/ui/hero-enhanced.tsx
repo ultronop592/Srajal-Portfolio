@@ -101,7 +101,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
         {/* Left Panel - Content */}
         <div className="hero-slide-in">
           {/* Label */}
-          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm">
+          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 backdrop-blur-sm">
             <span className="pulsing-prompt">▸</span>
             <span className="text-xs md:text-sm tracking-widest uppercase text-orange-300/80" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 600 }}>
               Welcome to My Portfolio

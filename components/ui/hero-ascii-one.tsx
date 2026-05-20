@@ -50,10 +50,10 @@ export default function HeroAsciiOne({ children, className, contentClassName }: 
 
       <div className="absolute inset-0 w-full h-full lg:hidden stars-bg" />
 
-      <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/30" />
-      <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-orange-500/30" />
-      <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/30" />
-      <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-orange-500/30" />
+      <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-emerald-500/30" />
+      <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-emerald-500/30" />
+      <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-emerald-500/30" />
+      <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-emerald-500/30" />
 
       <div className={cn("relative z-10 flex min-h-[90vh] items-center", contentClassName)}>{children}</div>
 

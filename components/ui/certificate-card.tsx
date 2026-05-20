@@ -47,7 +47,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
       const levelMap: { [key: string]: string } = {
         Beginner: "from-blue-500/30 to-blue-500/10 border-blue-500/30",
         Intermediate: "from-purple-500/30 to-purple-500/10 border-purple-500/30",
-        Advanced: "from-orange-500/30 to-orange-500/10 border-orange-500/30",
+        Advanced: "from-emerald-500/30 to-emerald-500/10 border-emerald-500/30",
         Expert: "from-red-500/30 to-red-500/10 border-red-500/30",
         Professional: "from-cyan-500/30 to-cyan-500/10 border-cyan-500/30",
       }
@@ -74,7 +74,6 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
           onMouseLeave={() => setIsHovered(false)}
           whileHover={{
             y: -4,
-            boxShadow: "0 20px 40px rgba(249, 115, 22, 0.1)",
           }}
           transition={{ duration: 0.3 }}
         >
@@ -82,7 +81,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
           <motion.div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             style={{
-              background: "radial-gradient(circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(249, 115, 22, 0.1), transparent 80%)",
+              background: "radial-gradient(circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(16, 101, 60, 0.1), transparent 80%)",
             }}
           />
 
@@ -96,13 +95,13 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
             variants={borderVariants}
             animate={isHovered ? "animate" : "initial"}
             style={{
-              background: "linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.5), transparent)",
+              background: "linear-gradient(90deg, transparent, rgba(16, 101, 60, 0.5), transparent)",
               backgroundSize: "200% 100%",
             }}
           />
 
           {/* Gradient Top Border Line */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Content */}
           <div className="relative z-10 space-y-4">
@@ -125,7 +124,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
 
             {/* Title */}
             <motion.h3
-              className="text-lg md:text-xl font-bold text-white group-hover:text-orange-300 transition-colors duration-300"
+              className="text-lg md:text-xl font-bold text-white group-hover:text-emerald-300 transition-colors duration-300"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.25, duration: 0.4 }}
@@ -140,7 +139,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
             >
-              <p className="text-sm text-orange-300 font-medium">{issuer}</p>
+              <p className="text-sm text-emerald-300 font-medium">{issuer}</p>
               <p className="text-xs text-neutral-400 font-mono">{date}</p>
             </motion.div>
 
@@ -152,7 +151,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
                 rel="noopener noreferrer"
                 className={cn(
                   "inline-flex items-center gap-2 text-sm font-medium",
-                  "text-neutral-300 hover:text-orange-300",
+                  "text-neutral-300 hover:text-emerald-300",
                   "transition-all duration-300",
                   "group/link"
                 )}
@@ -174,7 +173,7 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
 
           {/* Animated Corner Accent */}
           <motion.div
-            className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-orange-500/10 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-emerald-500/10 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             animate={isHovered ? { scale: 1.2 } : { scale: 1 }}
             transition={{ duration: 0.3 }}
           />

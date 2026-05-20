@@ -23,7 +23,7 @@ export default function HeroShowcase({ children, className, contentClassName }: 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.25)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.25)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      <div className="absolute -top-24 right-[-10%] h-72 w-72 rounded-full bg-orange-500/20 blur-3xl animate-hero-drift" />
+      <div className="absolute -top-24 right-[-10%] h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl animate-hero-drift" />
       <div className="absolute bottom-[-20%] left-[-10%] h-80 w-80 rounded-full bg-rose-500/20 blur-3xl animate-hero-drift-slow" />
 
       <div className={cn("relative z-10 flex min-h-[90vh] items-center", contentClassName)}>{children}</div>
