@@ -15,7 +15,7 @@ import { PillBase } from "@/components/ui/3d-adaptive-navigation-bar"
 import NavbarFrosted from "@/components/ui/navbar-frosted"
 import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedFeatureSpotlight } from "@/components/ui/feature-spotlight"
-import { StaggerTestimonials } from "@/components/ui/stagger-testimonials"
+import { CertificatesGrid } from "@/components/ui/certificates-grid"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 import HeroShowcase from "@/components/ui/hero-showcase"
@@ -700,7 +700,7 @@ export default function Portfolio() {
                     Certifications
                   </span>
                 </motion.h2>
-                <StaggerTestimonials
+                <CertificatesGrid
                   testimonials={certifications.map((cert, i) => ({
                     tempId: i,
                     testimonial: cert.name,
