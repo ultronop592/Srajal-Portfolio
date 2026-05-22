@@ -119,7 +119,21 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
     window.open(currentSlide.liveDemo, "_blank", "noopener,noreferrer");
   };
 
+  // Reset index when projects filter changes to prevent out-of-bounds access
+  useEffect(() => {
+    setCurrentIndex(0);
+    setProgress(0);
+  }, [projects]);
+
+  if (!projects || projects.length === 0) {
+    return null;
+  }
+
   const currentSlide = projects[currentIndex];
+  if (!currentSlide) {
+    return null;
+  }
+
   const accentColor = currentIndex % 3 === 0 ? '#A8AAAD' : currentIndex % 3 === 1 ? '#8BC9A9' : '#C4D7C8';
 
   return (
