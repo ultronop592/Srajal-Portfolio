@@ -59,30 +59,34 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 
   return (
     <>
-      {/* Background Radial Gradient Orbs */}
+      {/* Background Tech Canvas (No Orange, No Glow) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Animated Background Orbs */}
+        {/* Technical Coordinate Grid */}
         <div
-          className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-15"
+          className="absolute inset-0 opacity-15"
           style={{
-            background: "radial-gradient(circle, #f97316 0%, transparent 70%)",
-            animation: "drift-1 20s ease-in-out infinite",
+            backgroundImage: `
+              linear-gradient(to right, rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(16, 185, 129, 0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: "45px 45px",
+            maskImage: "radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%)",
           }}
         />
+
+        {/* Subtle panning data stream scanline */}
         <div
-          className="absolute top-40 right-20 w-96 h-96 rounded-full opacity-10"
+          className="absolute h-[1px] w-full bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"
           style={{
-            background: "radial-gradient(circle, #ea580c 0%, transparent 70%)",
-            animation: "drift-2 25s ease-in-out infinite",
+            animation: "scanline 12s linear infinite",
+            top: 0,
           }}
         />
-        <div
-          className="absolute -bottom-20 left-1/3 w-80 h-80 rounded-full opacity-12"
-          style={{
-            background: "radial-gradient(circle, #f97316 0%, transparent 70%)",
-            animation: "drift-3 30s ease-in-out infinite",
-          }}
-        />
+
+        {/* Soft, deep ambient background lights (non-glowing, ultra-low opacity) */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-emerald-950/10 rounded-full blur-[130px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-emerald-950/10 rounded-full blur-[110px]" />
 
         {/* Noise Texture Overlay */}
         <div
@@ -141,7 +145,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
           </p>
 
-          {/* Tech Stack Section */}
+          {/* Tech Stack Section (Hardware diagnostics style) */}
           <div className="grid grid-cols-3 gap-4 mb-8">
             {[
               { icon: "🤖", label: "AI/ML" },
@@ -150,11 +154,13 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="animate-fade-in p-3 rounded-lg border border-emerald-500/20 bg-emerald-500/10 backdrop-blur text-center hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
+                className="animate-fade-in relative p-3 rounded-lg border border-emerald-500/15 bg-neutral-900/60 backdrop-blur-md text-center hover:border-emerald-500/45 hover:bg-neutral-900/85 transition-all duration-300 cursor-pointer group"
                 style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
               >
-                <div className="text-2xl md:text-3xl mb-1">{tech.icon}</div>
-                <div className="text-xs md:text-sm text-neutral-300" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 500 }}>
+                {/* Active diagnostic status indicator */}
+                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-emerald-500/30 group-hover:bg-emerald-400 transition-colors" />
+                <div className="text-2xl md:text-3xl mb-1 filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">{tech.icon}</div>
+                <div className="text-xs md:text-sm text-neutral-300 group-hover:text-white transition-colors" style={{ fontFamily: "JetBrains Mono, monospace", fontWeight: 500 }}>
                   {tech.label}
                 </div>
               </div>
@@ -185,7 +191,7 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
             {/* Download Resume Button */}
             <button
               onClick={onDownloadResume}
-              className="shimmer-sweep relative px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-emerald-600/30 group overflow-hidden"
+              className="shimmer-sweep relative px-6 py-3 rounded-lg font-semibold bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-black/40 group overflow-hidden"
               style={{ fontFamily: "Inter, sans-serif", fontWeight: 600 }}
             >
               <Download className="inline-block h-4 w-4 mr-2" />
@@ -232,25 +238,40 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
           </div>
         </div>
 
-        {/* Right Panel - Hero Image with Breathing Glow */}
-        <div className="flex justify-center md:justify-end hero-fade-scale">
-          <div className="relative w-full max-w-sm mx-auto">
-            {/* Breathing Glow Background */}
-            <div className="breathing-glow absolute inset-0 rounded-2xl" />
+        {/* Right Panel - Hero Image with Diagnostic Canvas (No Glow) */}
+        <div className="flex justify-center md:justify-end hero-fade-scale mt-8 md:mt-0">
+          <div className="relative w-full max-w-sm mx-auto group">
+            {/* Fine Corner Brackets */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-emerald-500/40 rounded-tl transition-all duration-300 group-hover:-top-5 group-hover:-left-5 group-hover:border-emerald-400" />
+            <div className="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-emerald-500/40 rounded-tr transition-all duration-300 group-hover:-top-5 group-hover:-right-5 group-hover:border-emerald-400" />
+            <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b border-l border-emerald-500/40 rounded-bl transition-all duration-300 group-hover:-bottom-5 group-hover:-left-5 group-hover:border-emerald-400" />
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-emerald-500/40 rounded-br transition-all duration-300 group-hover:-bottom-5 group-hover:-right-5 group-hover:border-emerald-400" />
 
-            {/* Corner Brackets */}
-            <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-emerald-500 rounded-tl-lg" />
-            <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-emerald-500 rounded-tr-lg" />
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-emerald-500 rounded-bl-lg" />
-            <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-emerald-500 rounded-br-lg" />
+            {/* Diagnostic Monospace Metrics Overlay */}
+            <div className="absolute -top-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+              SYS_LOC: LKO.IN // BATCH: 2023_2027
+            </div>
+            <div className="absolute -top-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+              [ MODEL: ENHANCED_V2.5 ]
+            </div>
+            <div className="absolute -bottom-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+              CUDA_CORE: ACTIVE
+            </div>
+            <div className="absolute -bottom-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+              STATUS: READYSTREAM
+            </div>
 
             {/* Image Container */}
-            <div className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-900/50 backdrop-blur-sm">
+            <div className="relative rounded-2xl overflow-hidden border border-emerald-500/15 bg-neutral-900/60 backdrop-blur-sm shadow-2xl shadow-black/85 transition-all duration-500 hover:border-emerald-500/40">
+              {/* High-tech reticle overlay */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(10,10,10,0.6)_100%)] mix-blend-multiply pointer-events-none" />
+              <div className="absolute inset-0 border border-emerald-500/10 rounded-2xl pointer-events-none transition-all duration-500 group-hover:border-emerald-500/25" />
+
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/profile-3d.png"
                 alt="Srajal Tiwari"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover filter grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500"
               />
 
               {/* Name Overlay */}
@@ -269,9 +290,9 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
               </div>
             </div>
 
-            {/* Plus Icon Corners */}
-            <div className="absolute top-4 right-4 text-emerald-400 opacity-60 hover:opacity-100 transition-opacity">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {/* Micro Reticle Indicator */}
+            <div className="absolute top-4 right-4 text-emerald-500/40 opacity-60 hover:opacity-100 transition-all group-hover:scale-110 pointer-events-none">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <line x1="5" y1="12" x2="19" y2="12" />
               </svg>
