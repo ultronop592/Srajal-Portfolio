@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 import { Suspense } from "react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Download, Github, Linkedin, Mail, MapPin, Phone, Code, GraduationCap, Briefcase, Twitter } from "lucide-react"
+import { Download, Github, Linkedin, Mail, MapPin, Phone, Code, GraduationCap, Briefcase, Twitter, MessageSquare } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { CursorBlob } from "@/components/cursor-blob"
@@ -428,6 +428,20 @@ export default function Portfolio() {
 
           <div className="fixed top-0 left-0 right-0 z-50">
             <NavbarFrosted />
+          </div>
+
+          {/* Floating Action Buttons */}
+          <div className="fixed bottom-[84px] right-6 z-50 group">
+            <a href="#agent-sandbox">
+              <NeonButton
+                variant="ghost"
+                size="lg"
+                className="font-semibold shadow-lg !border-emerald-500/40 !bg-emerald-500/10 hover:!bg-emerald-500/20 !text-emerald-400"
+              >
+                <MessageSquare className="h-4 w-4 mr-2" />
+                Ask AI Agent
+              </NeonButton>
+            </a>
           </div>
 
           <div className="fixed bottom-6 right-6 z-50 group">

@@ -7,6 +7,7 @@ A production-grade portfolio website showcasing 10+ AI/ML projects, 12+ industry
 ## ✨ Features
 
 ### 🎨 Interactive UI Components
+- **AI Portfolio Ambassador Chatbot & MCP Simulator** - An interactive conversational assistant styled as a dark-emerald monospace console. Simulates Anthropic's **Model Context Protocol (MCP)** by logging real-time JSON-RPC tools request handshakes before outputting typewriter-synthesized answers to natural language recruiter questions.
 - **Animated Hero Section** - Scroll-based animations with stats visualization (9+ Projects, 12+ Certificates, 7+ Achievements, 12+ Tech Stack)
 - **3D Effects** - Profile 3D tilt, spline scene viewer, and motion animations
 - **Smooth Transitions** - Framer Motion animations for all interactive elements
@@ -63,6 +64,7 @@ Srajal-Portfolio/
 │       ├── animated-testimonials.tsx
 │       ├── bento-grid.tsx
 │       ├── elegant-carousel.tsx
+│       ├── mcp-terminal.tsx                  # Interactive Portfolio AI Agent Chatbot Console
 │       ├── container-scroll-animation.tsx
 │       ├── cpu-architecture.tsx
 │       ├── lamp.tsx
@@ -85,8 +87,8 @@ Srajal-Portfolio/
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.ts
-├── next.config.mjs
 ├── components.json                       # shadcn/ui config
+├── MCP_CHATBOT_ARCHITECTURE.md           # Chatbot system & JSON-RPC tools schema specs
 └── README.md
 \`\`\`
 
