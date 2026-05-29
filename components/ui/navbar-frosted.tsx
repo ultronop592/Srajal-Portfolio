@@ -8,6 +8,7 @@ const NavbarFrosted = () => {
     { label: "About", href: "#about-me" },
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
+    { label: "Agent Sandbox", href: "#agent-sandbox" },
     { label: "Contact", href: "#contact" },
   ]
 

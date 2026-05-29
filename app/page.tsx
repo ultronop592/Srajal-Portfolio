@@ -30,6 +30,7 @@ import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import NeuralBackground from "@/components/ui/neural-background"
 import ElegantCarousel from "@/components/ui/elegant-carousel"
 import GradientBarsBackground from "@/components/ui/gradient-bars-background"
+import McpTerminal from "@/components/ui/mcp-terminal"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -42,7 +43,7 @@ export default function Portfolio() {
   const [profileMode, setProfileMode] = useState<"css" | "canvas" | "webgl">("css")
   const [showLanding, setShowLanding] = useState(true)
   const [active, setActive] = useState<string | null>(null)
-  const [selectedFilter, setSelectedFilter] = useState<string | null>(null)
+  const [activeTags, setActiveTags] = useState<string[]>([])
 
   useEffect(() => {
     setMounted(true)
@@ -203,13 +204,12 @@ export default function Portfolio() {
     },
   ]
 
-  // Filter projects based on selected filter
-  const projects = selectedFilter
-    ? allProjects.filter(p => p.category === selectedFilter)
+  // Filter projects based on activeTags (categories or tech keywords)
+  const projects = activeTags.length > 0
+    ? allProjects.filter(p => p.tech.some(t => activeTags.includes(t)) || activeTags.includes(p.category))
     : allProjects
 
-  // Get unique categories for filter buttons
-  const categories = Array.from(new Set(allProjects.map(p => p.category)))
+  const filterOptions = ["ai", "web", "FastAPI", "Next.js", "Python", "Deep Learning", "Gemma 3 270M", "RAG", "LangChain"]
 
   const certifications = [
     {
@@ -657,41 +657,68 @@ export default function Portfolio() {
 
                 {/* Filter Buttons */}
                 <motion.div
-                  className="flex flex-wrap justify-center gap-3 mb-16"
+                  className="flex flex-wrap justify-center items-center gap-2.5 mb-12 max-w-4xl mx-auto"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
                   <button
-                    onClick={() => setSelectedFilter(null)}
-                    className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
-                      selectedFilter === null
-                        ? 'bg-emerald-500/30 border border-gray-500 text-gray-300'
-                        : 'bg-gray-900/50 border border-gray-700 text-gray-400 hover:border-emerald-500/50 hover:text-gray-300'
+                    onClick={() => setActiveTags([])}
+                    className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all duration-300 ${
+                      activeTags.length === 0
+                        ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
+                        : 'bg-neutral-900 border border-gray-800 text-gray-400 hover:border-emerald-500/30 hover:text-gray-300'
                     }`}
                   >
-                    All ({allProjects.length})
+                    Clear Filters ({allProjects.length})
                   </button>
-                  {categories.map((category) => {
-                    const count = allProjects.filter(p => p.category === category).length
+                  {filterOptions.map((tag) => {
+                    const isActive = activeTags.includes(tag)
+                    const count = allProjects.filter(p => p.tech.includes(tag) || p.category === tag).length
                     return (
                       <button
-                        key={category}
-                        onClick={() => setSelectedFilter(category)}
-                        className={`px-4 py-2 rounded-full font-mono text-sm transition-all duration-300 ${
-                          selectedFilter === category
-                            ? 'bg-emerald-500/30 border border-gray-500 text-gray-300'
-                            : 'bg-gray-900/50 border border-gray-700 text-gray-400 hover:border-emerald-500/50 hover:text-gray-300'
+                        key={tag}
+                        onClick={() => {
+                          if (isActive) {
+                            setActiveTags(prev => prev.filter(t => t !== tag))
+                          } else {
+                            setActiveTags(prev => [...prev, tag])
+                          }
+                        }}
+                        className={`px-3.5 py-1.5 rounded-full font-mono text-xs flex items-center gap-1.5 transition-all duration-300 ${
+                          isActive
+                            ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
+                            : 'bg-neutral-900 border border-gray-800 text-gray-500 hover:border-emerald-500/30 hover:text-gray-300'
                         }`}
                       >
-                        {category.toUpperCase()} ({count})
+                        <span>{tag.toUpperCase()}</span>
+                        <span className="text-[9px] px-1 bg-black/40 text-gray-500 rounded-full font-bold">{count}</span>
                       </button>
                     )
                   })}
                 </motion.div>
               </div>
               <ElegantCarousel projects={projects} />
+            </AnimatedSection>
+
+            <AnimatedSection id="agent-sandbox" className="py-20 px-4 bg-black/30 border-y border-gray-900" delay={0.12}>
+              <div className="container mx-auto">
+                <motion.h2
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="pulsing-prompt text-emerald-600">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 bg-clip-text text-transparent">
+                    Agentic AI Sandbox (MCP)
+                  </span>
+                </motion.h2>
+                <McpTerminal />
+              </div>
             </AnimatedSection>
 
             <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>
