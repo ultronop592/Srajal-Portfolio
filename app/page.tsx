@@ -551,6 +551,25 @@ export default function Portfolio() {
               </div>
             </section>
 
+            <AnimatedSection id="agent-sandbox" className="py-20 px-4 bg-black/30 border-y border-gray-900" delay={0.12}>
+              <div className="container mx-auto">
+                <motion.h2
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <span className="pulsing-prompt text-emerald-600">▸</span>
+                  <span className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 bg-clip-text text-transparent">
+                    Agentic AI Sandbox (MCP)
+                  </span>
+                </motion.h2>
+                <McpTerminal />
+              </div>
+            </AnimatedSection>
+
             <AnimatedSection id="stats" className="py-20 px-4" delay={0.08}>
               <div className="container mx-auto">
                 <motion.h2
@@ -702,24 +721,6 @@ export default function Portfolio() {
               <ElegantCarousel projects={projects} />
             </AnimatedSection>
 
-            <AnimatedSection id="agent-sandbox" className="py-20 px-4 bg-black/30 border-y border-gray-900" delay={0.12}>
-              <div className="container mx-auto">
-                <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
-                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <span className="pulsing-prompt text-emerald-600">▸</span>
-                  <span className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 bg-clip-text text-transparent">
-                    Agentic AI Sandbox (MCP)
-                  </span>
-                </motion.h2>
-                <McpTerminal />
-              </div>
-            </AnimatedSection>
 
             <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>
               <div className="container mx-auto">
