@@ -38,6 +38,13 @@ A production-grade, premium portfolio website showcasing 10+ AI/ML projects, 12+
 * **Custom Cursor Blob & Neural Background** - Dynamic background node connection simulation (`neural-background.tsx`) coupled with responsive custom mouse blobs tracking user focus.
 * **Smooth Transitions & Page Fades** - Lenis smooth scrolling integrated with custom Framer Motion page routes for high-end cinematic visual pacing.
 
+### ✨ Enhanced Animation System
+* **Optimized Easing Functions** - All animations use smooth cubic-bezier timing functions (`cubic-bezier(0.25, 0.46, 0.45, 0.94)`) for natural, refined motion that reduces cognitive load and improves perceived performance.
+* **Refined Animation Durations** - Carefully tuned transition times (300-400ms) ensure smooth interactions without feeling sluggish, optimized for both desktop and mobile devices.
+* **Smooth Component Interactions** - Buttons, cards, and UI elements feature polished hover/active states with consistent easing curves and predictable motion patterns.
+* **Staggered Reveal Animations** - Elements cascade into view with offset timing, creating elegant reveal sequences that guide user attention naturally.
+* **Performance Optimized** - All animations respect `prefers-reduced-motion` media queries for accessibility, ensuring smooth performance across all hardware capabilities.
+
 ### 📟 Simulated AI Portfolio Ambassador & MCP Terminal
 * **Interactive Conversational Console** - Styled as a dark-emerald monospace CLI console (`mcp-terminal.tsx`) representing Anthropic's **Model Context Protocol (MCP)** standards.
 * **JSON-RPC Handshake Visualization** - Outputs real-time JSON-RPC handshake request and response logs simulating server tools fetching academic scores, work history, and projects before streaming typing responses to visitors.
@@ -323,6 +330,23 @@ Srajal-Portfolio/
 * **Three.js & React Three Fiber**: Underlying engine rendering real-time webgl scenes.
 * **Spline Runtime**: Loads optimized interactive 3D assets.
 
+### ✨ Animation Standards & Easing Functions
+The portfolio implements a refined animation system with carefully tuned easing functions and durations for optimal user experience:
+
+#### **Primary Easing Functions**
+* `cubic-bezier(0.25, 0.46, 0.45, 0.94)` - **Smooth Ease-In-Out** (Default): Used for 90% of transitions, provides natural, refined motion without bouncing
+* `cubic-bezier(0.16, 1, 0.3, 1)` - **Smooth Spring**: Used for interactive elements like buttons and nav links, adds subtle elasticity
+* `cubic-bezier(0.34, 1.56, 0.64, 1)` - **Elastic Spring** (Legacy): Preserved for special micro-interactions requiring bounce
+
+#### **Animation Durations**
+* **Quick Interactions**: `200-250ms` (hover states, icon changes)
+* **Component Transitions**: `300-350ms` (card hovers, button presses)
+* **Page Reveals**: `400-600ms` (scroll animations, modal opens)
+* **Complex Sequences**: `600-800ms` (multi-element stagger reveals)
+
+#### **Accessibility**
+All animations respect the `prefers-reduced-motion` media query, automatically disabling animations for users who prefer reduced motion while maintaining full functionality.
+
 ---
 
 ## 🚀 Getting Started & Installation
@@ -432,6 +456,65 @@ Append or edit certificates inside the `certifications` dataset:
      window.open(fallbackUrl, "_blank", "noopener,noreferrer");
    };
    ```
+
+### ✨ 5. Customize Animation Behaviors
+To adjust animation timing and easing functions across the portfolio, edit `app/globals.css`:
+
+#### **Modify Transition Durations**
+```css
+/* Change all card hover animations from 400ms to 500ms */
+.card-hover-enhanced {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+```
+
+#### **Update Easing Functions**
+Swap easing curves for different motion feels:
+```css
+/* Replace smooth ease with more elastic spring effect */
+.button-hover {
+  /* Default: smooth */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Alternative: More energetic */
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Alternative: Bouncy elastic */
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+```
+
+#### **Create New Custom Animations**
+Add new keyframe sequences in `app/globals.css`:
+```css
+@keyframes customSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.custom-animation {
+  animation: customSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+```
+
+#### **Disable Animations for Specific Users**
+Respect user preferences with the built-in accessibility support:
+```css
+/* Already implemented globally */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
 
 ---
 
