@@ -64,7 +64,7 @@ export default function Portfolio() {
   }
 
   const handleDownloadResume = () => {
-    const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=1eIxB8c51EMGQVDiDetjrjJ-evX-hwWhk"
+    const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=1WO1woy2KLtvTs4fjpSCzkiL0P63XDMbm"
     window.open(driveDownloadUrl, "_blank", "noopener,noreferrer")
   }
 
