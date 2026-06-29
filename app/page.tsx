@@ -241,6 +241,15 @@ export default function Portfolio() {
       level: "Advanced",
     },
     {
+      name: "Claude with Amazon Bedrock",
+      issuer: "Anthropic",
+      date: "June 9, 2026",
+      link: "https://verify.skilljar.com/c/hfsptk66qau3",
+      level: "Advanced",
+      imageSrc: "/Claude%20with%20Amazon%20bedRock.png",
+      imageAlt: "Claude with Amazon Bedrock certificate",
+    },
+    {
       name: "Introduction to generative AI concepts",
       issuer: "Microsoft",
       date: "July 8, 2025",
@@ -758,6 +767,8 @@ export default function Portfolio() {
                     by: cert.issuer + " • " + cert.date,
                     level: cert.level,
                     link: cert.link,
+                    imageSrc: cert.imageSrc,
+                    imageAlt: cert.imageAlt,
                   }))}
                 />
               </div>

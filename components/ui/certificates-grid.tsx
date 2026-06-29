@@ -10,6 +10,8 @@ interface Certificate {
   by: string
   level: string
   link?: string
+  imageSrc?: string
+  imageAlt?: string
 }
 
 interface CertificatesGridProps {
@@ -43,6 +45,8 @@ export const CertificatesGrid: React.FC<CertificatesGridProps> = ({ testimonials
           date={cert.by.split(" • ")[1] || ""}
           level={cert.level}
           link={cert.link}
+          imageSrc={cert.imageSrc}
+          imageAlt={cert.imageAlt}
           index={index}
         />
       ))}
