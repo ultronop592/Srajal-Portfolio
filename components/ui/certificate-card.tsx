@@ -11,13 +11,11 @@ interface CertificateCardProps extends React.HTMLAttributes<HTMLDivElement> {
   date: string
   level: string
   link?: string
-  imageSrc?: string
-  imageAlt?: string
   index?: number
 }
 
 const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
-  ({ className, title, issuer, date, level, link, imageSrc, imageAlt, index = 0, ...props }, ref) => {
+  ({ className, title, issuer, date, level, link, index = 0, ...props }, ref) => {
     const [isHovered, setIsHovered] = React.useState(false)
 
     const containerVariants = {
@@ -107,22 +105,6 @@ const CertificateCard = React.forwardRef<HTMLDivElement, CertificateCardProps>(
 
           {/* Content */}
           <div className="relative z-10 space-y-4">
-            {imageSrc && (
-              <motion.div
-                className="overflow-hidden rounded-lg border border-emerald-500/15 bg-neutral-950/90"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.15, duration: 0.45 }}
-              >
-                <img
-                  src={imageSrc}
-                  alt={imageAlt || title}
-                  className="h-44 w-full object-contain bg-neutral-950 p-2"
-                  loading="lazy"
-                />
-              </motion.div>
-            )}
-
             {/* Level Badge */}
             <motion.div
               initial={{ opacity: 0, x: -10 }}

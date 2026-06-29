@@ -246,8 +246,6 @@ export default function Portfolio() {
       date: "June 9, 2026",
       link: "https://verify.skilljar.com/c/hfsptk66qau3",
       level: "Advanced",
-      imageSrc: "/Claude%20with%20Amazon%20bedRock.png",
-      imageAlt: "Claude with Amazon Bedrock certificate",
     },
     {
       name: "Agentic AI",
@@ -255,8 +253,6 @@ export default function Portfolio() {
       date: "Date not listed",
       link: "blob:https://skillbuilder.aws/5088dd93-ca21-4d84-a104-9f20eda473f5",
       level: "Intermediate",
-      imageSrc: "/abcd.png",
-      imageAlt: "Agentic AI certificate",
     },
     {
       name: "AWS IAM User",
@@ -264,8 +260,6 @@ export default function Portfolio() {
       date: "Date not listed",
       link: "blob:https://skillbuilder.aws/914d0044-34f2-4613-b350-6f2a7d6d9fe4",
       level: "Beginner",
-      imageSrc: "/Screenshot%202026-06-29%20185649.png",
-      imageAlt: "AWS IAM User certificate",
     },
     {
       name: "Introduction to generative AI concepts",
@@ -785,8 +779,6 @@ export default function Portfolio() {
                     by: cert.issuer + " • " + cert.date,
                     level: cert.level,
                     link: cert.link,
-                    imageSrc: cert.imageSrc,
-                    imageAlt: cert.imageAlt,
                   }))}
                 />
               </div>
