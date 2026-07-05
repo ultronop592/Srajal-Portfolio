@@ -89,6 +89,18 @@ export default function Portfolio() {
 
   const allProjects = [
     {
+      title: "AgentForge",
+      description: "Multi-agent workforce platform for planning, research, execution, and verification",
+      details:
+        "AgentForge coordinates specialized AI agents through LangGraph to handle complex multi-step tasks with shared state, memory, and QA verification. Built with a FastAPI backend, Next.js frontend, SSE log streaming, and MCP tool integration for extensible agent workflows.",
+      github: "https://github.com/ultronop592/Agent-Forge.git",
+      liveDemo: "https://agent-forge-tawny.vercel.app/",
+      tech: ["LangGraph", "FastAPI", "Next.js", "MCP", "SQLite", "Python"],
+      category: "ai",
+      image: "/apple-icon.png",
+      metrics: ["Multi-Agent System", "SSE Streaming", "MCP Integration"],
+    },
+    {
       title: "UnLegalize",
       description: "AI-powered legal clause simplification tool (2nd place hackathon project)",
       details:
