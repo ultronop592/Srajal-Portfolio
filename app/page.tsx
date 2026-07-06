@@ -97,7 +97,7 @@ export default function Portfolio() {
       liveDemo: "https://agent-forge-tawny.vercel.app/",
       tech: ["LangGraph", "FastAPI", "Next.js", "MCP", "SQLite", "Python"],
       category: "ai",
-      image: "/apple-icon.png",
+      image: "/AgentForge.png",
       metrics: ["Multi-Agent System", "SSE Streaming", "MCP Integration"],
     },
     {
