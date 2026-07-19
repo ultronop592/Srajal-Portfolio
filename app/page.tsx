@@ -814,6 +814,44 @@ export default function Portfolio() {
                 <Timeline
                   data={[
                     {
+                      title: "2026",
+                      content: (
+                        <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300 ">
+                          <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
+                            <div>
+                              <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
+                                Amazon ML Summer School
+                              </h4>
+                              <p className="text-lg text-gray-300 font-mono">Selected Participant Program</p>
+                            </div>
+                            <span className="bg-emerald-500/15 text-gray-300 border border-gray-500/50 px-3 py-1 rounded-full text-sm font-mono">
+                              Jul 2026 - Aug 2026
+                            </span>
+                          </div>
+                          <ul className="space-y-3 text-gray-300">
+                            <li className="flex items-start">
+                              <span className="text-gray-400 mr-2">•</span>
+                              <span>
+                                Selected participant in Amazon ML Summer School 2026, a competitive technical program led by Amazon Scientists covering Supervised Learning, Deep Neural Networks, Dimensionality Reduction, Unsupervised Learning, Generative AI & LLMs, Sequential Learning, Causal Inference, and Reinforcement Learning.
+                              </span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="text-gray-400 mr-2">•</span>
+                              <span>
+                                Participated in live interactive Q&A sessions with Amazon Scientists exploring implementation strategies, research insights, and real-world applications of machine learning across diverse domains.
+                              </span>
+                            </li>
+                            <li className="flex items-start">
+                              <span className="text-gray-400 mr-2">•</span>
+                              <span>
+                                Gained industry mentorship on AI career development, production-grade ML system architecture, and best practices for deploying scalable machine learning solutions in enterprise environments.
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      ),
+                    },
+                    {
                       title: "2025",
                       content: (
                         <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300 ">

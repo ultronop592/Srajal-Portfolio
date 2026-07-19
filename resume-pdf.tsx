@@ -128,6 +128,24 @@ export default function ResumePDF() {
             Participated in real-world AI projects involving data cleaning, preprocessing, and model optimization.
           </p>
         </div>
+
+        <div className="text-sm">
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="font-bold">Amazon ML Summer School | Selected Participant</h3>
+          </div>
+          <div className="mb-2">
+            <span>Jul 2026 – Aug 2026</span>
+          </div>
+          <p className="text-xs mb-1">
+            Selected participant in Amazon ML Summer School 2026, a competitive technical program led by Amazon Scientists covering Supervised Learning, Deep Neural Networks, Dimensionality Reduction, Unsupervised Learning, Generative AI & LLMs, Sequential Learning, Causal Inference, and Reinforcement Learning.
+          </p>
+          <p className="text-xs mb-1">
+            Participated in live interactive Q&A sessions with Amazon Scientists exploring implementation strategies, research insights, and real-world applications of machine learning across diverse domains.
+          </p>
+          <p className="text-xs">
+            Gained industry mentorship on AI career development, production-grade ML system architecture, and best practices for deploying scalable machine learning solutions in enterprise environments.
+          </p>
+        </div>
       </section>
 
       {/* Certification */}
