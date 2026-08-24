@@ -75,7 +75,7 @@ export default function McpTerminal() {
       intent = "certifications"
       toolName = "fetch_verified_credentials"
       toolArgs = `{"issuer": "all"}`
-    } else if (q.includes("intern") || q.includes("experience") || q.includes("job") || q.includes("work") || q.includes("omcrm") || q.includes("mirai") || q.includes("codec")) {
+    } else if (q.includes("intern") || q.includes("experience") || q.includes("job") || q.includes("work") || q.includes("om software") || q.includes("omsoftwares") || q.includes("omcrm") || q.includes("mirai") || q.includes("codec")) {
       intent = "experience"
       toolName = "get_employment_history"
       toolArgs = `{"detailed": true}`
@@ -113,13 +113,13 @@ export default function McpTerminal() {
     } else if (intent === "certifications") {
       toolResultText = "Retrieved verified credentials & achievements: [Amazon ML Summer School 2026 (Letter of Acknowledgement), Anthropic Advanced MCP, Anthropic AI Fluency, Google Startup School, Hackathon 2nd Place]."
     } else if (intent === "experience") {
-      toolResultText = "Retrieved experience records: [1. React Developer Intern @ OMCRM (6 Months, React, Next.js 15, FastAPI, PostgreSQL, WebSockets, Docker), 2. AI Intern @ Mirai School of Technology (July-August 2025)]."
+      toolResultText = "Retrieved experience records: [1. React Developer Intern @ Om Softwares (6 Months, OMCRM flagship platform launch, React, Next.js 15, FastAPI, PostgreSQL, WebSockets, Docker), 2. AI Intern @ Mirai School of Technology (July-August 2025)]."
     } else if (intent === "education") {
       toolResultText = "Retrieved academic sheet: [Babu Banarasi Das University, Lucknow. Degree: B.Tech CSE (AI). Duration: 2023 - 2027. CGPA: 8.4/10]."
     } else if (intent === "contact") {
       toolResultText = "Retrieved active channels: [Email: srajaltiwari902@gmail.com, Phone: +919919084211, Location: Lucknow, India, Socials: LinkedIn, GitHub, Kaggle]."
     } else if (intent === "hire") {
-      toolResultText = "Retrieved evaluation parameters: Candidate shows solid engineering structures, 6-month OMCRM production development internship, Amazon ML Summer School completion, 10+ AI projects, advanced Anthropic credentials, and 8.4 CGPA."
+      toolResultText = "Retrieved evaluation parameters: Candidate shows solid engineering structures, 6-month Om Softwares production development internship, Amazon ML Summer School completion, 10+ AI projects, advanced Anthropic credentials, and 8.4 CGPA."
     } else {
       toolResultText = "Retrieved base profile data: Srajal Tiwari - AI/ML Engineer and GenAI Builder seeking internship opportunities."
     }
@@ -172,8 +172,8 @@ All achievements and credentials can be reviewed directly in the Achievements an
     } else if (intent === "experience") {
       finalAnswer = `🤖 AGENT RESPONSE: Srajal has hands-on industry internship experience:
       
-* 💼 **React Developer Intern** at **OMCRM** (6 Months, 2026)
-  * **Frontend & Architecture**: Developed responsive CRM dashboard interfaces, pipeline trackers, lead & customer management modules using React, Next.js 15, React 19, TypeScript, and Tailwind CSS.
+* 💼 **React Developer Intern** at **Om Softwares** (6 Months, 2026)
+  * **Product & UI Architecture**: Developed production-ready user interfaces across all pages of the flagship **OMCRM** platform for upcoming commercial launch, using Next.js 15, React 19, TypeScript, and Tailwind CSS along with complete technical documentation.
   * **Backend & APIs**: Built backend API integrations with Python & FastAPI, PostgreSQL database schemas, and Google Sheets synchronization.
   * **Real-Time & Production**: Implemented WebSocket live updates, background task queues with Redis & Celery, JWT authentication, and Docker containerization.
 

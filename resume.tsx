@@ -137,14 +137,14 @@ export default function Component() {
         <h2 className="text-xl font-bold mb-3">EXPERIENCE</h2>
         <div className="mb-4 text-sm">
           <div className="flex justify-between items-start mb-1">
-            <h3 className="font-bold">React Developer Intern – OMCRM</h3>
+            <h3 className="font-bold">React Developer Intern – Om Softwares</h3>
           </div>
           <div className="flex justify-between items-start mb-2">
-            <span>6 Months (2026)</span>
+            <span>6 Months (2026) | Project: OMCRM (Enterprise CRM Launch)</span>
           </div>
           <ul className="ml-4 space-y-1">
             <li>
-              • Developed responsive CRM dashboards, lead management, and pipeline interfaces using React, Next.js 15, TypeScript, and Tailwind CSS.
+              • Architected and developed production-ready UI across all pages of the flagship OMCRM product using Next.js 15, React 19, TypeScript, and Tailwind CSS, complete with full technical documentation.
             </li>
             <li>
               • Contributed to backend API development using Python and FastAPI, handling PostgreSQL, JWT authentication, and Google Sheets integration.

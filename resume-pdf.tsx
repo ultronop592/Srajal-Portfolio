@@ -113,13 +113,13 @@ export default function ResumePDF() {
         <h2 className="text-xl font-bold mb-3">EXPERIENCE</h2>
         <div className="text-sm mb-4">
           <div className="flex justify-between items-start mb-1">
-            <h3 className="font-bold">React Developer Intern — OMCRM</h3>
+            <h3 className="font-bold">React Developer Intern — Om Softwares</h3>
           </div>
           <div className="mb-2">
-            <span>6 Months (2026)</span>
+            <span>6 Months (2026) | Project: OMCRM (Enterprise CRM Launch)</span>
           </div>
           <p className="text-xs mb-1">
-            Developed responsive CRM dashboards, lead management, and pipeline interfaces using React, Next.js 15, TypeScript, and Tailwind CSS.
+            Architected and developed production-ready UI across all pages of the flagship OMCRM product using Next.js 15, React 19, TypeScript, and Tailwind CSS, complete with full technical documentation.
           </p>
           <p className="text-xs mb-1">
             Contributed to backend API development using Python and FastAPI, handling PostgreSQL, JWT authentication, and Google Sheets integration.

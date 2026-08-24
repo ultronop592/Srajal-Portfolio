@@ -821,7 +821,7 @@ export default function Portfolio() {
                                 <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
                                   React Developer Intern
                                 </h4>
-                                <p className="text-lg text-emerald-400 font-mono font-medium">OMCRM</p>
+                                <p className="text-lg text-emerald-400 font-mono font-medium">Om Softwares</p>
                               </div>
                               <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full text-sm font-mono font-medium">
                                 6 Months
@@ -829,7 +829,7 @@ export default function Portfolio() {
                             </div>
 
                             <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                              Worked as a React Developer Intern on OMCRM, a comprehensive CRM platform designed to manage business leads, customers, deals, communication, analytics, and related business workflows. Contributed across modern frontend architecture and backend API integrations.
+                              Worked as a React Developer Intern at <strong className="text-white">Om Softwares</strong> building <strong className="text-white">OMCRM</strong> — a comprehensive enterprise CRM platform scheduled for imminent launch. Leveraged Next.js 15, React 19, and TypeScript to architect, design, and implement production-ready UI across all application pages, backed by thorough technical documentation and clean code architecture.
                             </p>
 
                             <div className="mb-4">
@@ -870,7 +870,7 @@ export default function Portfolio() {
                                 <li className="flex items-start">
                                   <span className="text-emerald-500 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">CRM Dashboards & UI:</strong> Built responsive, high-performance user interfaces and reusable UI component libraries using React, Next.js 15, React 19, TypeScript, and Tailwind CSS.
+                                    <strong className="text-white">Production-Ready Next.js UI & Docs:</strong> Designed and developed production-ready UI across all CRM pages using Next.js 15, React 19, TypeScript, and Tailwind CSS, complete with full technical documentation for upcoming commercial launch.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
