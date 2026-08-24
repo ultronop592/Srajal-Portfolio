@@ -11,6 +11,8 @@ interface AnimatedFeatureSpotlightProps extends React.HTMLAttributes<HTMLElement
   buttonProps?: ButtonProps
   imageUrl: string
   imageAlt?: string
+  imageHref?: string
+  onImageClick?: () => void
 }
 
 const AnimatedFeatureSpotlight = React.forwardRef<HTMLElement, AnimatedFeatureSpotlightProps>(
@@ -25,6 +27,8 @@ const AnimatedFeatureSpotlight = React.forwardRef<HTMLElement, AnimatedFeatureSp
       buttonProps,
       imageUrl,
       imageAlt = "Feature illustration",
+      imageHref,
+      onImageClick,
       ...props
     },
     ref
@@ -53,9 +57,9 @@ const AnimatedFeatureSpotlight = React.forwardRef<HTMLElement, AnimatedFeatureSp
             >
               {heading}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-4 duration-700 delay-300">
+            <div className="text-lg text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-top-4 duration-700 delay-300">
               {description}
-            </p>
+            </div>
             {buttonText ? (
               <div className="animate-in fade-in slide-in-from-top-4 duration-700 delay-400">
                 <Button size="lg" {...buttonProps}>
@@ -66,12 +70,46 @@ const AnimatedFeatureSpotlight = React.forwardRef<HTMLElement, AnimatedFeatureSp
           </div>
 
           <div className="relative w-full min-h-[250px] md:min-h-[320px] flex items-center justify-center animate-in fade-in zoom-in-95 duration-700 delay-200">
-            <img
-              src={imageUrl}
-              alt={imageAlt}
-              className="w-full max-w-md object-contain animate-float"
-              loading="lazy"
-            />
+            {imageHref ? (
+              <a
+                href={imageHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/spotlight-img block relative cursor-pointer overflow-hidden rounded-xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 shadow-xl"
+              >
+                <img
+                  src={imageUrl}
+                  alt={imageAlt}
+                  className="w-full max-w-md object-contain animate-float group-hover/spotlight-img:scale-[1.02] transition-transform duration-300 rounded-xl"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/spotlight-img:opacity-100 flex items-center justify-center transition-opacity duration-300 rounded-xl">
+                  <span className="px-3 py-1.5 bg-emerald-500 text-black text-xs font-mono font-bold rounded-md shadow-md">
+                    View Document ↗
+                  </span>
+                </div>
+              </a>
+            ) : onImageClick ? (
+              <button
+                type="button"
+                onClick={onImageClick}
+                className="group/spotlight-img block relative cursor-pointer overflow-hidden rounded-xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300"
+              >
+                <img
+                  src={imageUrl}
+                  alt={imageAlt}
+                  className="w-full max-w-md object-contain animate-float group-hover/spotlight-img:scale-[1.02] transition-transform duration-300 rounded-xl"
+                  loading="lazy"
+                />
+              </button>
+            ) : (
+              <img
+                src={imageUrl}
+                alt={imageAlt}
+                className="w-full max-w-md object-contain animate-float"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </section>

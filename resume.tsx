@@ -135,6 +135,26 @@ export default function Component() {
       {/* Experience */}
       <section className="mb-6">
         <h2 className="text-xl font-bold mb-3">EXPERIENCE</h2>
+        <div className="mb-4 text-sm">
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="font-bold">React Developer Intern – OMCRM</h3>
+          </div>
+          <div className="flex justify-between items-start mb-2">
+            <span>6 Months (2026)</span>
+          </div>
+          <ul className="ml-4 space-y-1">
+            <li>
+              • Developed responsive CRM dashboards, lead management, and pipeline interfaces using React, Next.js 15, TypeScript, and Tailwind CSS.
+            </li>
+            <li>
+              • Contributed to backend API development using Python and FastAPI, handling PostgreSQL, JWT authentication, and Google Sheets integration.
+            </li>
+            <li>
+              • Implemented real-time updates with WebSockets, asynchronous queues using Redis/Celery, and containerized deployments via Docker.
+            </li>
+          </ul>
+        </div>
+
         <div className="text-sm">
           <div className="flex justify-between items-start mb-1">
             <h3 className="font-bold">Artificial Intelligence Intern – Codex Technologies (Remote)</h3>
@@ -152,26 +172,6 @@ export default function Component() {
             <li>• Built and evaluated machine learning models using Python and key ML frameworks.</li>
             <li>
               • Participated in real-world AI projects involving data cleaning, preprocessing, and model optimization.
-            </li>
-          </ul>
-        </div>
-
-        <div className="mb-4 text-sm">
-          <div className="flex justify-between items-start mb-1">
-            <h3 className="font-bold">Amazon ML Summer School | Selected Participant</h3>
-          </div>
-          <div className="flex justify-between items-start mb-2">
-            <span>Jul 2026 – Aug 2026</span>
-          </div>
-          <ul className="ml-4 space-y-1">
-            <li>
-              • Selected participant in Amazon ML Summer School 2026, a competitive technical program led by Amazon Scientists covering Supervised Learning, Deep Neural Networks, Dimensionality Reduction, Unsupervised Learning, Generative AI & LLMs, Sequential Learning, Causal Inference, and Reinforcement Learning.
-            </li>
-            <li>
-              • Participated in live interactive Q&A sessions with Amazon Scientists exploring implementation strategies, research insights, and real-world applications of machine learning across diverse domains.
-            </li>
-            <li>
-              • Gained industry mentorship on AI career development, production-grade ML system architecture, and best practices for deploying scalable machine learning solutions in enterprise environments.
             </li>
           </ul>
         </div>
@@ -259,6 +259,9 @@ export default function Component() {
       <section>
         <h2 className="text-xl font-bold mb-3">ACHIEVEMENTS</h2>
         <ul className="space-y-1 text-sm">
+          <li>
+            • <strong>Amazon ML Summer School 2026 (Letter of Acknowledgement)</strong> – Completed intensive ML program covering Supervised/Unsupervised Learning, DNNs, Generative AI & LLMs, Agentic AI, Reinforcement Learning, and Causal Inference delivered by Amazon Scientists.
+          </li>
           <li>• Participated in Hack-a-thon 2.0, a competitive coding event by Coding Ninjas.</li>
           <li>• Attended the Google GDG Program in Lucknow and earned verified participation badges.</li>
         </ul>

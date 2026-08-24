@@ -45,7 +45,7 @@ export default function McpTerminal() {
   const handleQuery = async (userQuery: string) => {
     if (isRunning || !userQuery.trim()) return
     setIsRunning(true)
-    
+
     // Add user question to terminal logs
     addLog(userQuery, "input")
     setInput("")
@@ -56,7 +56,7 @@ export default function McpTerminal() {
     // Phase 1: Ingestion
     await delay(350)
     addLog("[agent] Ingested user query. Identifying search parameters...", "agent")
-    
+
     // Phase 2: Intent Classification
     await delay(450)
     let intent: "projects" | "skills" | "certifications" | "experience" | "education" | "contact" | "hire" | "about" = "about"
@@ -75,10 +75,14 @@ export default function McpTerminal() {
       intent = "certifications"
       toolName = "fetch_verified_credentials"
       toolArgs = `{"issuer": "all"}`
-    } else if (q.includes("intern") || q.includes("experience") || q.includes("job") || q.includes("work") || q.includes("mirai") || q.includes("school") || q.includes("codec")) {
+    } else if (q.includes("intern") || q.includes("experience") || q.includes("job") || q.includes("work") || q.includes("omcrm") || q.includes("mirai") || q.includes("codec")) {
       intent = "experience"
       toolName = "get_employment_history"
       toolArgs = `{"detailed": true}`
+    } else if (q.includes("amazon") || q.includes("achievement") || q.includes("summer school") || q.includes("award") || q.includes("streak") || q.includes("hackathon")) {
+      intent = "certifications"
+      toolName = "fetch_achievements_and_credentials"
+      toolArgs = `{"category": "achievements_and_credentials"}`
     } else if (q.includes("college") || q.includes("university") || q.includes("study") || q.includes("education") || q.includes("degree") || q.includes("cgpa") || q.includes("bbd")) {
       intent = "education"
       toolName = "read_academic_record"
@@ -94,11 +98,11 @@ export default function McpTerminal() {
     }
 
     addLog(`[agent] Intent classified: [${intent.toUpperCase()}]. Active MCP tools registered.`, "agent")
-    
+
     // Phase 3: MCP Handshake
     await delay(500)
     addLog(`[mcp] JSON-RPC Call -> tools/call {'name': '${toolName}', 'arguments': ${toolArgs}}`, "info")
-    
+
     // Phase 4: Tool Execution Result
     await delay(700)
     let toolResultText = ""
@@ -107,15 +111,15 @@ export default function McpTerminal() {
     } else if (intent === "skills") {
       toolResultText = "Retrieved skills metadata: Languages: Python, C/C++, SQL | Core: Pandas, NumPy, Scikit-learn, TensorFlow, Keras | Tools: Hugging Face, LangChain, Qdrant, Docker, n8n."
     } else if (intent === "certifications") {
-      toolResultText = "Retrieved 14 verified certificates: [Anthropic Advanced MCP (March 2026), Anthropic AI Fluency (May 2026), Anthropic Claude 101, Microsoft Generative AI, Deloitte Data Analytics]."
+      toolResultText = "Retrieved verified credentials & achievements: [Amazon ML Summer School 2026 (Letter of Acknowledgement), Anthropic Advanced MCP, Anthropic AI Fluency, Google Startup School, Hackathon 2nd Place]."
     } else if (intent === "experience") {
-      toolResultText = "Retrieved 1 internship node: [Mirai School of Technology - July to August 2025, developed trip itineraries with n8n and sentiment agent with Gemini API]."
+      toolResultText = "Retrieved experience records: [1. React Developer Intern @ OMCRM (6 Months, React, Next.js 15, FastAPI, PostgreSQL, WebSockets, Docker), 2. AI Intern @ Mirai School of Technology (July-August 2025)]."
     } else if (intent === "education") {
       toolResultText = "Retrieved academic sheet: [Babu Banarasi Das University, Lucknow. Degree: B.Tech CSE (AI). Duration: 2023 - 2027. CGPA: 8.4/10]."
     } else if (intent === "contact") {
       toolResultText = "Retrieved active channels: [Email: srajaltiwari902@gmail.com, Phone: +919919084211, Location: Lucknow, India, Socials: LinkedIn, GitHub, Kaggle]."
     } else if (intent === "hire") {
-      toolResultText = "Retrieved evaluation parameters: Candidate shows solid engineering structures, 10+ AI projects, advanced Anthropic credentials, B.Tech AI academic focus, and practical n8n workflow experience."
+      toolResultText = "Retrieved evaluation parameters: Candidate shows solid engineering structures, 6-month OMCRM production development internship, Amazon ML Summer School completion, 10+ AI projects, advanced Anthropic credentials, and 8.4 CGPA."
     } else {
       toolResultText = "Retrieved base profile data: Srajal Tiwari - AI/ML Engineer and GenAI Builder seeking internship opportunities."
     }
@@ -124,7 +128,7 @@ export default function McpTerminal() {
     // Phase 5: Synthesis
     await delay(600)
     addLog("[agent] Synthesizing intelligent profile response. Typewriter output loading...", "agent")
-    
+
     // Phase 6: Final Typewriter Response
     await delay(800)
     let finalAnswer = ""
@@ -147,33 +151,36 @@ Would you like details on any of Srajal's other model implementations (like Spam
     } else if (intent === "skills") {
       finalAnswer = `🤖 AGENT RESPONSE: Srajal possesses a highly focused and modern AI/ML tech stack:
       
-* **Languages**: Python, SQL, C/C++
+* **Languages**: Python, SQL, C/C++, TypeScript, JavaScript
 * **AI/ML & Deep Learning**: Scikit-learn, TensorFlow, Keras, Pandas, NumPy, Matplotlib, Seaborn
 * **Generative AI & Agents**: LangChain, ChromaDB, Qdrant Cloud (Vector Databases), Gemini API, Hugging Face Hub, PEFT/LoRA (Fine-Tuning adapters)
-* **Automation & Tools**: n8n (Advanced AI workflow orchestration), Docker, Cursor IDE, Git & GitHub, MySQL
+* **Full Stack & Backend**: React, Next.js 15, FastAPI, PostgreSQL, Redis, Celery, WebSockets, Docker
+* **Automation & Tools**: n8n (Advanced AI workflow orchestration), Cursor IDE, Git & GitHub, MySQL
 
-His expertise combines core mathematical concepts (ML/DL, Neural Networks, DSA) with practical generative AI deployments.`
+His expertise combines core mathematical concepts (ML/DL, Neural Networks, DSA) with practical generative AI and full-stack software deployments.`
     } else if (intent === "certifications") {
-      finalAnswer = `🤖 AGENT RESPONSE: Srajal holds 12+ industry credentials, with advanced qualifications from **Anthropic**:
+      finalAnswer = `🤖 AGENT RESPONSE: Srajal holds verified credentials and key achievements:
       
+* 🌟 **Amazon ML Summer School 2026 (Letter of Acknowledgement)** – Completed prestigious, intensive learning program with sessions delivered by Amazon Scientists covering Supervised/Unsupervised Learning, DNNs, Generative AI & LLMs, Agentic AI, Reinforcement Learning, and Causal Inference.
 * **Model Context Protocol (Advanced Topics)** – *Anthropic (March 2026)*: Verified expert in building, securing, and scaling MCP servers to link LLMs with external tools.
 * **AI Fluency: Capabilities & Limitations** – *Anthropic (May 2026)*: Advanced training on prompt reasoning and model capacities.
-* **Introduction to Model Context Protocol** – *Anthropic (March 2026)*
 * **Claude 101 & Agent Skills** – *Anthropic Academy (March 2026)*
 * **AI Engineer & Python/SQL Certifications** – *One Roadmap (2025)*
-* **Generative AI & Machine Learning Foundations** – *Microsoft (2025)*
-* **Data Analytics & Cybersecurity Protocols** – *Deloitte Virtual Experience (Forage, 2025)*
+* **Startup School: Prompt to Prototype** – *Google for Startups x Scaler*
 
-All certs have verified skilljar links which you can review directly in the Certifications timeline below!`
+All achievements and credentials can be reviewed directly in the Achievements and Certifications sections!`
     } else if (intent === "experience") {
-      finalAnswer = `🤖 AGENT RESPONSE: Srajal gained valuable remote industry experience during his internship:
+      finalAnswer = `🤖 AGENT RESPONSE: Srajal has hands-on industry internship experience:
       
-* **Artificial Intelligence Intern** at **Mirai School of Technology** (July 2025 – August 2025)
+* 💼 **React Developer Intern** at **OMCRM** (6 Months, 2026)
+  * **Frontend & Architecture**: Developed responsive CRM dashboard interfaces, pipeline trackers, lead & customer management modules using React, Next.js 15, React 19, TypeScript, and Tailwind CSS.
+  * **Backend & APIs**: Built backend API integrations with Python & FastAPI, PostgreSQL database schemas, and Google Sheets synchronization.
+  * **Real-Time & Production**: Implemented WebSocket live updates, background task queues with Redis & Celery, JWT authentication, and Docker containerization.
+
+* 🤖 **Artificial Intelligence Intern** at **Mirai School of Technology** (July 2025 – August 2025)
   * **AI-Powered Trip Planner**: Built complete automation itineraries using n8n for workflow orchestration, integrating Gemini to generate travel schedules, and logging coordinates automatically to Google Sheets.
   * **Feedback Sentiment Agent**: Engineered a BI pipeline capturing forms and utilizing Gemini as a classifier to rate café feedback with 95%+ classification accuracy.
-  * **Multimodal Chatbot**: Programmed a conversational Telegram chatbot that handles advanced voice and audio inputs using the Gemini API and n8n backend.
-
-He also completed a remote AI Internship at **Codec Technologies** in early 2025, specializing in clean data preprocessing, model tuning, and supervised training.`
+  * **Multimodal Chatbot**: Programmed a conversational Telegram chatbot that handles advanced voice and audio inputs using the Gemini API and n8n backend.`
     } else if (intent === "education") {
       finalAnswer = `🤖 AGENT RESPONSE: Srajal's academic profile is built on solid AI foundations:
       
@@ -193,22 +200,24 @@ He also completed a remote AI Internship at **Codec Technologies** in early 2025
 
 Feel free to send a message directly or schedule a virtual session using the Calendly CTA at the bottom of the page!`
     } else if (intent === "hire") {
-      finalAnswer = `🤖 AGENT RESPONSE: Here is why Srajal Tiwari is a high-value candidate for an AI/ML internship role:
+      finalAnswer = `🤖 AGENT RESPONSE: Here is why Srajal Tiwari is a high-value candidate for AI/ML and AI Engineering roles:
       
-1. **Agentic AI & MCP Specialization**: Srajal holds advanced, verified certifications directly from **Anthropic** in Model Context Protocol and Claude workflows, putting him at the forefront of the agentic revolution.
-2. **Production-Ready Builds**: He doesn't just build toy models. His projects (like UnLegalize and Multi-Source RAG) use industry-standard stacks: FastAPI, Qdrant Cloud vector search, Next.js, and local model fine-tuning (LoRA).
-3. **Internship Experience**: He has already successfully deployed AI automations (n8n, Gemini voice chatbost, sheets integrations) during his time at Mirai School of Technology.
-4. **Strong Academic Metrics**: Maintaining an **8.4 CGPA** at BBD University, proving strong study discipline and logical aptitude.
+1. **Amazon ML Summer School 2026 Alum**: Successfully completed Amazon's selective program covering Deep Learning, LLMs, Agentic AI, RL, and Causal Inference delivered by Amazon Scientists.
+2. **Hands-on Production Development**: 6-month React Developer Internship on OMCRM building full-stack CRM infrastructure with React, Next.js 15, FastAPI, PostgreSQL, WebSockets, and Docker.
+3. **Agentic AI & MCP Specialization**: Srajal holds advanced, verified certifications directly from **Anthropic** in Model Context Protocol and Claude workflows.
+4. **Production-Ready AI Builds**: UnLegalize (Hackathon 2nd Place), Multi-Source Agentic RAG System, and Cold Email Generator AI.
+5. **Strong Academic Metrics**: Maintaining an **8.4 CGPA** at BBD University.
 
-He is prepared to join your team and contribute to actual codebases starting immediately!`
+He is prepared to join your team and contribute to actual codebases immediately!`
     } else {
       finalAnswer = `🤖 AGENT RESPONSE: Hello! I am Srajal's AI Portfolio Ambassador, connected via the Model Context Protocol.
       
 I can provide detailed, verified answers about Srajal's background:
+* Type **"experience"** or **"omcrm"** to learn about his professional internship experience.
+* Type **"achievements"** or **"amazon"** to review his Amazon ML Summer School 2026 acknowledgement.
 * Type **"projects"** or **"unlegalize"** to review his AI/ML code builds.
 * Type **"skills"** to inspect his technical tools and languages.
 * Type **"certifications"** to see his advanced Anthropic credentials.
-* Type **"experience"** to learn about his remote AI internships.
 * Type **"contact"** to get phone numbers, emails, and LinkedIn links.
 
 How can I help you evaluate Srajal's fit for your engineering team today?`
@@ -259,8 +268,7 @@ How can I help you evaluate Srajal's fit for your engineering team today?`
             >
               <span className="text-[10px] text-emerald-500/40 mt-1 select-none font-mono tracking-wider">[{log.timestamp}]</span>
               <div
-                className={`flex-1 font-mono whitespace-pre-wrap ${
-                  log.type === "success"
+                className={`flex-1 font-mono whitespace-pre-wrap ${log.type === "success"
                     ? "text-emerald-400 selection:bg-emerald-500/20"
                     : log.type === "warning"
                       ? "text-amber-400 selection:bg-amber-500/20"
@@ -273,7 +281,7 @@ How can I help you evaluate Srajal's fit for your engineering team today?`
                             : log.type === "tool"
                               ? "text-gray-400 italic selection:bg-gray-700/30"
                               : "text-gray-300 selection:bg-gray-700/30"
-                }`}
+                  }`}
               >
                 {/* Visual icons based on output lines */}
                 {log.type === "input" && <span className="text-sky-400 mr-1 select-none">$</span>}

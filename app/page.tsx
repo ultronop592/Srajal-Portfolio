@@ -643,9 +643,9 @@ export default function Portfolio() {
                     className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
                   >
                     <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
-                      <img 
-                        src="/Screenshot 2026-05-14 164341.png" 
-                        alt="GitHub Stats" 
+                      <img
+                        src="/Screenshot 2026-05-14 164341.png"
+                        alt="GitHub Stats"
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </a>
@@ -660,9 +660,9 @@ export default function Portfolio() {
                     className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
                   >
                     <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
-                      <img 
-                        src="/Screenshot 2026-05-14 164458.png" 
-                        alt="LeetCode Stats" 
+                      <img
+                        src="/Screenshot 2026-05-14 164458.png"
+                        alt="LeetCode Stats"
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </a>
@@ -731,11 +731,10 @@ export default function Portfolio() {
                 >
                   <button
                     onClick={() => setActiveTags([])}
-                    className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all duration-300 ${
-                      activeTags.length === 0
+                    className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all duration-300 ${activeTags.length === 0
                         ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
                         : 'bg-neutral-900 border border-gray-800 text-gray-400 hover:border-emerald-500/30 hover:text-gray-300'
-                    }`}
+                      }`}
                   >
                     Clear Filters ({allProjects.length})
                   </button>
@@ -752,11 +751,10 @@ export default function Portfolio() {
                             setActiveTags(prev => [...prev, tag])
                           }
                         }}
-                        className={`px-3.5 py-1.5 rounded-full font-mono text-xs flex items-center gap-1.5 transition-all duration-300 ${
-                          isActive
+                        className={`px-3.5 py-1.5 rounded-full font-mono text-xs flex items-center gap-1.5 transition-all duration-300 ${isActive
                             ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
                             : 'bg-neutral-900 border border-gray-800 text-gray-500 hover:border-emerald-500/30 hover:text-gray-300'
-                        }`}
+                          }`}
                       >
                         <span>{tag.toUpperCase()}</span>
                         <span className="text-[9px] px-1 bg-black/40 text-gray-500 rounded-full font-bold">{count}</span>
@@ -816,38 +814,90 @@ export default function Portfolio() {
                     {
                       title: "2026",
                       content: (
-                        <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300 ">
-                          <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
+                        <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300">
+                          <div className="flex justify-between items-start flex-wrap gap-4 mb-3">
                             <div>
                               <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
-                                Amazon ML Summer School
+                                React Developer Intern
                               </h4>
-                              <p className="text-lg text-gray-300 font-mono">Selected Participant Program</p>
+                              <p className="text-lg text-emerald-400 font-mono font-medium">OMCRM</p>
                             </div>
-                            <span className="bg-emerald-500/15 text-gray-300 border border-gray-500/50 px-3 py-1 rounded-full text-sm font-mono">
-                              Jul 2026 - Aug 2026
+                            <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full text-sm font-mono font-medium">
+                              6 Months
                             </span>
                           </div>
-                          <ul className="space-y-3 text-gray-300">
-                            <li className="flex items-start">
-                              <span className="text-gray-400 mr-2">•</span>
-                              <span>
-                                Selected participant in Amazon ML Summer School 2026, a competitive technical program led by Amazon Scientists covering Supervised Learning, Deep Neural Networks, Dimensionality Reduction, Unsupervised Learning, Generative AI & LLMs, Sequential Learning, Causal Inference, and Reinforcement Learning.
-                              </span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="text-gray-400 mr-2">•</span>
-                              <span>
-                                Participated in live interactive Q&A sessions with Amazon Scientists exploring implementation strategies, research insights, and real-world applications of machine learning across diverse domains.
-                              </span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="text-gray-400 mr-2">•</span>
-                              <span>
-                                Gained industry mentorship on AI career development, production-grade ML system architecture, and best practices for deploying scalable machine learning solutions in enterprise environments.
-                              </span>
-                            </li>
-                          </ul>
+
+                          <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                            Worked as a React Developer Intern on OMCRM, a comprehensive CRM platform designed to manage business leads, customers, deals, communication, analytics, and related business workflows. Contributed across modern frontend architecture and backend API integrations.
+                          </p>
+
+                          <div className="mb-4">
+                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2 font-mono">
+                              Technologies & Stack:
+                            </span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {[
+                                "React",
+                                "Next.js 15",
+                                "React 19",
+                                "TypeScript",
+                                "Tailwind CSS",
+                                "Python",
+                                "FastAPI",
+                                "PostgreSQL",
+                                "Redis",
+                                "Celery",
+                                "Docker",
+                                "WebSockets",
+                                "JWT",
+                              ].map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-1 font-mono">
+                              Key Contributions & Features:
+                            </span>
+                            <ul className="space-y-2.5 text-gray-300 text-sm">
+                              <li className="flex items-start">
+                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span>
+                                  <strong className="text-white">CRM Dashboards & UI:</strong> Built responsive, high-performance user interfaces and reusable UI component libraries using React, Next.js 15, React 19, TypeScript, and Tailwind CSS.
+                                </span>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span>
+                                  <strong className="text-white">Pipeline & Lead Management:</strong> Developed core modules for lead management, customer & contact directories, deals tracking, and sales pipeline management.
+                                </span>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span>
+                                  <strong className="text-white">Analytics & AI Lead Intelligence:</strong> Created dynamic analytics dashboards and integrated AI Lead Intelligence features to evaluate, score, and surface high-value prospects.
+                                </span>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span>
+                                  <strong className="text-white">Backend APIs & Integrations:</strong> Contributed to backend API development using Python and FastAPI, managing PostgreSQL schemas, Google Sheets data synchronization, communication modules, and invoice generation.
+                                </span>
+                              </li>
+                              <li className="flex items-start">
+                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span>
+                                  <strong className="text-white">Real-Time & Production Infrastructure:</strong> Implemented secure JWT-based authentication, real-time live data syncing with WebSockets, asynchronous task processing using Redis & Celery, and containerized development using Docker.
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       ),
                     },
@@ -945,11 +995,59 @@ export default function Portfolio() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                   {[
                     {
+                      name: "Amazon ML Summer School 2026",
+                      designation: "Amazon • Letter of Acknowledgement",
+                      quote: (
+                        <div className="space-y-4 text-left">
+                          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Successfully completed <strong className="text-white">Amazon ML Summer School 2026</strong>, an integrated learning program focused on Machine Learning concepts and applications, with sessions delivered by <strong className="text-emerald-400">Amazon Scientists</strong>.
+                          </p>
+                          <div className="space-y-2">
+                            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block font-mono">
+                              Program Curriculum & Topics:
+                            </span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {[
+                                "Supervised Learning",
+                                "Deep Neural Networks",
+                                "Dimensionality Reduction",
+                                "Unsupervised Learning",
+                                "Sequential Learning",
+                                "Reinforcement Learning",
+                                "Generative AI & LLMs",
+                                "Agentic AI",
+                                "Causal Inference",
+                              ].map((topic) => (
+                                <span
+                                  key={topic}
+                                  className="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono"
+                                >
+                                  {topic}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between flex-wrap gap-2 pt-1 text-xs text-gray-400 font-mono">
+                            <span>Dates: July 11–26 & August 1–2, 2026</span>
+                            <span className="text-emerald-400 font-semibold">Virtual Program</span>
+                          </div>
+                        </div>
+                      ),
+                      src: "/images/amazon-ml-summer-school-2026.png",
+                      buttonText: "View Acknowledgement",
+                      buttonProps: {
+                        onClick: () => window.open("/Amazon-ML-Summer-School-2026-Acknowledgement.pdf", "_blank"),
+                        className: "bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs md:text-sm px-5 py-2.5 rounded-lg transition-all cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30",
+                      },
+                      imageHref: "/Amazon-ML-Summer-School-2026-Acknowledgement.pdf",
+                    },
+                    {
                       name: "100+ Days LeetCode Coding Streak",
                       designation: "LeetCode Badge 2025",
                       quote:
                         "Successfully maintained a consistent coding streak of 100+ days on LeetCode, demonstrating strong commitment, discipline, and proficiency in solving data structures and algorithms problems.",
                       src: "/images/leetcode-100-days-badge.png",
+                      imageHref: "/images/leetcode-100-days-badge.png",
                     },
                     {
                       name: "Startup School: Prompt to Prototype",
@@ -957,6 +1055,7 @@ export default function Portfolio() {
                       quote:
                         "Completed a two-week programme by Google for Startups in collaboration with Scaler. Learned the full AI product lifecycle from prompting to deployment through six expert-led sessions covering foundation skills, AI research, creative asset generation, prototyping, app development and deployment. Earned Certificate of Completion and applied hands-on learning to build AI-powered prototypes.",
                       src: "/images/google-startup-school-certificate.png",
+                      imageHref: "/images/google-startup-school-certificate.png",
                     },
                     {
                       name: "Mission Upskill India – Pre-Summit Event",
@@ -964,12 +1063,14 @@ export default function Portfolio() {
                       quote:
                         "Participated in the Mission Upskill India Pre-Summit Event organized by HCL GUVI in collaboration with Ministry of Electronics & Information Technology, Government of India, Digital India, and INDIAai. Focused on practical applications of AI and ML to build an AI-ready workforce. Learned core and advanced concepts of Machine Learning, Deep Learning, and Generative AI. Gained hands-on experience in rapid prototyping using Google Gemini AI Studio and practical prompt engineering. Mentored by Saransh Saxena, Amit Arjun Verma, and Yash Sharma. Certificate ID: i6047qOS1Ju74552W2",
                       src: "/images/hcl-guvi-ai-summit-certificate.jpg",
+                      imageHref: "/images/hcl-guvi-ai-summit-certificate.jpg",
                     },
                     {
                       name: "Coding Ninjas Challenge",
                       designation: "21-Day Coding Challenge",
                       quote: "Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.",
                       src: "/images/screenshot-202025-11-15-20101639.png",
+                      imageHref: "/images/screenshot-202025-11-15-20101639.png",
                     },
                     {
                       name: "Google Cloud Agentic AI",
@@ -977,18 +1078,21 @@ export default function Portfolio() {
                       quote:
                         "Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project 'Project Drishti' with team members.",
                       src: "/images/hack2skill-certificate-20-281-29.png",
+                      imageHref: "/images/hack2skill-certificate-20-281-29.png",
                     },
                     {
                       name: "Software Exhibition",
                       designation: "BBD University",
                       quote: "Presented the project 'Esport Strategy Hub' at the College Software Exhibition.",
                       src: "/images/whatsapp-20image-202025-11-15-20at-2010.jpeg",
+                      imageHref: "/images/whatsapp-20image-202025-11-15-20at-2010.jpeg",
                     },
                     {
                       name: "Google GDG Badges",
                       designation: "Google Developer Groups",
                       quote: "Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.",
                       src: "/images/screenshot-202025-11-15-20102310.png",
+                      imageHref: "/images/screenshot-202025-11-15-20102310.png",
                     },
                     {
                       name: "Hackathon Achievement",
@@ -1005,6 +1109,7 @@ export default function Portfolio() {
                         </>
                       ),
                       src: "/WhatsApp Image 2026-05-14 at 9.27.07 AM.jpeg",
+                      imageHref: "/WhatsApp Image 2026-05-14 at 9.27.07 AM.jpeg",
                     },
                   ].map((achievement) => (
                     <AnimatedFeatureSpotlight
@@ -1014,7 +1119,10 @@ export default function Portfolio() {
                       description={achievement.quote}
                       imageUrl={achievement.src}
                       imageAlt={achievement.name}
-                      className="bg-gray-950/70 border-gray-700"
+                      buttonText={achievement.buttonText}
+                      buttonProps={achievement.buttonProps}
+                      imageHref={achievement.imageHref}
+                      className="bg-gray-950/70 border-gray-700 hover:border-emerald-500/40 transition-all duration-300"
                     />
                   ))}
                 </div>
