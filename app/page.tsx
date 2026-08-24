@@ -64,26 +64,45 @@ export default function Portfolio() {
   }
 
   const handleDownloadResume = () => {
-    const driveDownloadUrl = "https://drive.google.com/uc?export=download&id=1WO1woy2KLtvTs4fjpSCzkiL0P63XDMbm"
-    window.open(driveDownloadUrl, "_blank", "noopener,noreferrer")
+    const resumeUrl = "/Srajal_Tiwari_Resume.pdf"
+    window.open(resumeUrl, "_blank", "noopener,noreferrer")
   }
 
   const skills = {
-    languages: ["Python", "C/C++", "SQL"],
-    frameworks: ["Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Streamlit", "TensorFlow", "Keras"],
-    concepts: ["Machine Learning", "Deep Learning", "Generative AI", "Neural Networks", "DSA", "DBMS", "Operating Systems"],
+    languages: ["Python", "TypeScript", "JavaScript", "C/C++", "SQL"],
+    frameworks: [
+      "LangChain",
+      "LangGraph",
+      "FastAPI",
+      "Next.js 15",
+      "React 19",
+      "PyTorch",
+      "TensorFlow/Keras",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+    ],
+    concepts: [
+      "Agentic AI & Multi-Agent Systems",
+      "Retrieval-Augmented Generation (RAG)",
+      "Generative AI & LLMs",
+      "Deep Learning",
+      "Machine Learning",
+      "Fine-Tuning (PEFT/LoRA)",
+      "Data Structures & Algorithms",
+      "DBMS & Database Design",
+    ],
     tools: [
-      "Google Colab",
+      "Qdrant Cloud",
+      "ChromaDB",
       "Hugging Face",
-      "LLMs",
-      "Kaggle",
-      "Cursor IDE",
       "Docker",
-      "MySQL Workbench",
-      "VS Code",
-      "n8n",
-      "github",
-      "Git",
+      "Redis & Celery",
+      "WebSockets",
+      "n8n Workflow Automation",
+      "Git & GitHub",
+      "Cursor IDE",
+      "Google Colab",
     ],
   }
 
@@ -369,8 +388,8 @@ export default function Portfolio() {
     {
       icon: <Briefcase className="size-4 text-gray-300" />,
       title: "Seeking",
-      description: "AI/ML Internship",
-      date: "Open to work",
+      description: "AI/ML Roles & Internships",
+      date: "Open for Opportunities",
       iconClassName: "bg-gray-800",
       titleClassName: "text-gray-200",
       className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
@@ -488,7 +507,7 @@ export default function Portfolio() {
               Download Resume
             </NeonButton>
             <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-emerald-500/15 border border-gray-500/40 rounded text-xs text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-              Last Updated: May 14, 2026
+              Last Updated: August 2026
             </div>
           </div>
 
@@ -535,9 +554,7 @@ export default function Portfolio() {
                             Profile
                           </h3>
                           <p className="text-gray-300 leading-relaxed">
-                            Motivated 3rd-year B.Tech AI student with strong foundations in machine learning and deep
-                            learning. Experienced in building AI/ML projects with Python and modern frameworks. Seeking
-                            Internship in AI/ML domain or as well as in IT sector.
+                            4th-year B.Tech AI student at BBD University with hands-on industry internship experience at Om Softwares & Amazon ML Summer School graduate. Passionate about GenAI, RAG platforms, and AI software engineering.
                           </p>
                         </div>
 
@@ -640,11 +657,11 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
+                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
                   >
                     <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
                       <img
-                        src="/Screenshot 2026-05-14 164341.png"
+                        src="/Screenshot 2026-08-24 123451.png"
                         alt="GitHub Stats"
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -657,11 +674,11 @@ export default function Portfolio() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300  cursor-pointer"
+                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
                   >
                     <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
                       <img
-                        src="/Screenshot 2026-05-14 164458.png"
+                        src="/Screenshot 2026-08-24 123542.png"
                         alt="LeetCode Stats"
                         className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                       />
