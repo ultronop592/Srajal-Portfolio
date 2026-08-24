@@ -154,6 +154,14 @@ export default function ResumePDF() {
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
             <span>
+              <strong>5-Day AI Agents: Intensive Vibe Coding Course, Kaggle × Google (View)</strong>
+            </span>
+            <span>July 30, 2026</span>
+          </div>
+          <p className="text-xs ml-4">Completed an intensive 5-day course focused on AI Agents, agentic workflows, and modern AI-assisted development.</p>
+
+          <div className="flex justify-between">
+            <span>
               <strong>Claude 101, Anthropic Academy (View)</strong>
             </span>
             <span>March 17, 2026</span>

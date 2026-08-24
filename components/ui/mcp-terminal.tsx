@@ -111,7 +111,7 @@ export default function McpTerminal() {
     } else if (intent === "skills") {
       toolResultText = "Retrieved skills metadata: Languages: Python, C/C++, SQL | Core: Pandas, NumPy, Scikit-learn, TensorFlow, Keras | Tools: Hugging Face, LangChain, Qdrant, Docker, n8n."
     } else if (intent === "certifications") {
-      toolResultText = "Retrieved verified credentials & achievements: [Amazon ML Summer School 2026 (Letter of Acknowledgement), Anthropic Advanced MCP, Anthropic AI Fluency, Google Startup School, Hackathon 2nd Place]."
+      toolResultText = "Retrieved verified credentials & achievements: [Kaggle × Google 5-Day AI Agents Course, Amazon ML Summer School 2026, Anthropic Advanced MCP, Anthropic AI Fluency, Google Startup School, Hackathon 2nd Place]."
     } else if (intent === "experience") {
       toolResultText = "Retrieved experience records: [1. React Developer Intern @ Om Softwares (6 Months, OMCRM flagship platform launch, React, Next.js 15, FastAPI, PostgreSQL, WebSockets, Docker), 2. AI Intern @ Mirai School of Technology (July-August 2025)]."
     } else if (intent === "education") {
@@ -161,6 +161,7 @@ His expertise combines core mathematical concepts (ML/DL, Neural Networks, DSA) 
     } else if (intent === "certifications") {
       finalAnswer = `🤖 AGENT RESPONSE: Srajal holds verified credentials and key achievements:
       
+* 🤖 **5-Day AI Agents: Intensive Vibe Coding Course** – *Kaggle × Google (July 30, 2026)*: Intensive training on AI Agents, agentic workflows, Generative AI, and modern AI-assisted development.
 * 🌟 **Amazon ML Summer School 2026 (Letter of Acknowledgement)** – Completed prestigious, intensive learning program with sessions delivered by Amazon Scientists covering Supervised/Unsupervised Learning, DNNs, Generative AI & LLMs, Agentic AI, Reinforcement Learning, and Causal Inference.
 * **Model Context Protocol (Advanced Topics)** – *Anthropic (March 2026)*: Verified expert in building, securing, and scaling MCP servers to link LLMs with external tools.
 * **AI Fluency: Capabilities & Limitations** – *Anthropic (May 2026)*: Advanced training on prompt reasoning and model capacities.

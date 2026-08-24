@@ -183,6 +183,18 @@ export default function Component() {
         <ul className="space-y-2 text-sm">
           <li className="flex justify-between">
             <span>
+              • <strong>5-Day AI Agents: Intensive Vibe Coding Course, Kaggle × Google</strong> (
+              <a href="/5-Day AI Agents_ Intensive Vibe Coding Course.png" className="underline" target="_blank" rel="noreferrer">
+                View
+              </a>
+              )
+            </span>
+            <span>July 30, 2026</span>
+          </li>
+          <li className="ml-4">Completed an intensive 5-day course focused on AI Agents, agentic workflows, and modern AI-assisted development.</li>
+
+          <li className="flex justify-between">
+            <span>
               • <strong>Claude 101, Anthropic Academy</strong> (
               <a href="https://verify.skilljar.com/c/7acndjj3z4hf" className="underline" target="_blank" rel="noreferrer">
                 View

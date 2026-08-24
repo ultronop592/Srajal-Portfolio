@@ -1077,6 +1077,43 @@ export default function Portfolio() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                   {[
                     {
+                      name: "5-Day AI Agents: Intensive Vibe Coding Course",
+                      designation: "Kaggle × Google • July 30, 2026",
+                      quote: (
+                        <div className="space-y-4 text-left">
+                          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            Completed an intensive 5-day course focused on AI Agents, agentic workflows, and modern AI-assisted development.
+                          </p>
+                          <div className="space-y-2">
+                            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block font-mono">
+                              Skills & Focus Areas:
+                            </span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {["AI Agents", "Agentic AI", "Generative AI", "LLMs"].map((topic) => (
+                                <span
+                                  key={topic}
+                                  className="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono"
+                                >
+                                  {topic}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="flex items-center justify-between flex-wrap gap-2 pt-1 text-xs text-gray-400 font-mono">
+                            <span>Completed: July 30, 2026</span>
+                            <span className="text-emerald-400 font-semibold">Kaggle × Google Certification</span>
+                          </div>
+                        </div>
+                      ),
+                      src: "/5-Day AI Agents_ Intensive Vibe Coding Course.png",
+                      buttonText: "View Certificate",
+                      buttonProps: {
+                        onClick: () => window.open("/5-Day AI Agents_ Intensive Vibe Coding Course.png", "_blank"),
+                        className: "bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs md:text-sm px-5 py-2.5 rounded-lg transition-all cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30",
+                      },
+                      imageHref: "/5-Day AI Agents_ Intensive Vibe Coding Course.png",
+                    },
+                    {
                       name: "Amazon ML Summer School 2026",
                       designation: "Amazon • Letter of Acknowledgement",
                       quote: (
