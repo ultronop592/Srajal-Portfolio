@@ -515,15 +515,9 @@ export default function Portfolio() {
           </div>
 
           <main className="relative z-10 pt-20" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
-            <section className="relative py-20 px-4 min-h-[90vh] bg-gradient-to-b from-gray-950 via-gray-950 to-black overflow-hidden">
-              {/* Background Base */}
-              <div className="absolute inset-0 bg-[#0a0908]"></div>
+            {/* Hero: self-contained full-screen section */}
+            <HeroEnhanced onDownloadResume={handleDownloadResume} />
 
-              {/* Content Container */}
-              <div className="container mx-auto relative z-10">
-                <HeroEnhanced onDownloadResume={handleDownloadResume} />
-              </div>
-            </section>
 
             <section id="about-me" className="py-16 px-4">
               <div className="container mx-auto">
