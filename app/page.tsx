@@ -695,7 +695,7 @@ export default function Portfolio() {
 
                       <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block relative">
                         <img
-                          src="/Screenshot 2026-08-24 123451.png"
+                          src="/Screenshot 2026-08-24 123542.png"
                           alt="GitHub Stats"
                           className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
                         />
@@ -731,7 +731,7 @@ export default function Portfolio() {
 
                       <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block relative">
                         <img
-                          src="/Screenshot 2026-08-24 123542.png"
+                          src="/Screenshot 2026-08-24 123451.png"
                           alt="LeetCode Stats"
                           className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
                         />
