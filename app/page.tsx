@@ -71,11 +71,12 @@ export default function Portfolio() {
   }
 
   const skills = {
-    languages: ["Python", "TypeScript", "JavaScript", "C/C++", "SQL"],
+    languages: ["Python", "FastAPI", "Django", "C/C++", "SQL"],
     frameworks: [
       "LangChain",
       "LangGraph",
       "FastAPI",
+      "Django",
       "Next.js 15",
       "React 19",
       "PyTorch",
