@@ -402,46 +402,50 @@ export default function Portfolio() {
     {
       Icon: CodeIcon,
       name: "Languages",
+      tagline: "CORE SYNTAX & RUNTIMES",
       description: skills.languages.join(" • "),
       href: "#skills",
       cta: "Core Languages",
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+      className: "lg:col-span-1 lg:row-span-1",
     },
     {
       Icon: LayersIcon,
       name: "Frameworks & Libraries",
+      tagline: "AI / LLM & FULLSTACK",
       description: skills.frameworks.join(" • "),
       href: "#skills",
       cta: "Tech Stack",
       background: (
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
-      className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+      className: "lg:col-span-1 lg:row-span-1",
     },
     {
       Icon: LightningBoltIcon,
       name: "Concepts & Domains",
+      tagline: "ALGORITHMS & PARADIGMS",
       description: skills.concepts.join(" • "),
       href: "#skills",
       cta: "Expertise Areas",
       background: (
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
-      className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+      className: "lg:col-span-1 lg:row-span-1",
     },
     {
       Icon: GearIcon,
       name: "Tools & Platforms",
+      tagline: "DEV & AUTOMATION PIPELINES",
       description: skills.tools.join(" • "),
       href: "#skills",
       cta: "Development Tools",
       background: (
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-60" />
       ),
-      className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-4",
+      className: "lg:col-span-1 lg:row-span-1",
     },
   ]
 
@@ -714,7 +718,7 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <BentoGrid className="lg:grid-rows-3">
+                  <BentoGrid className="grid-cols-1 md:grid-cols-2 auto-rows-fr">
                     {skillFeatures.map((feature) => (
                       <BentoCard key={feature.name} {...feature} />
                     ))}
