@@ -368,33 +368,33 @@ export default function Portfolio() {
 
   const aboutMeCards = [
     {
-      icon: <GraduationCap className="size-4 text-gray-300" />,
+      icon: <GraduationCap className="size-4 text-emerald-400" />,
       title: "Education",
       description: "B.Tech CSE (AI) - CGPA: 8.4",
       date: "2023 - 2027",
-      iconClassName: "bg-gray-800",
-      titleClassName: "text-gray-200",
+      iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
+      titleClassName: "text-emerald-300 font-mono",
       className:
-        "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+        "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:rounded-2xl before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/60 grayscale-[70%] hover:before:opacity-0 before:transition-opacity before:duration-500 hover:grayscale-0 before:left-0 before:top-0",
     },
     {
-      icon: <Code className="size-4 text-gray-300" />,
+      icon: <Code className="size-4 text-emerald-400" />,
       title: "Focus Area",
       description: "AI/ML & GEN AI",
-      date: "Current",
-      iconClassName: "bg-gray-800",
-      titleClassName: "text-gray-200",
+      date: "Current Focus",
+      iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
+      titleClassName: "text-emerald-300 font-mono",
       className:
-        "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+        "[grid-area:stack] translate-x-10 translate-y-8 hover:-translate-y-4 before:absolute before:w-[100%] before:rounded-2xl before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/60 grayscale-[70%] hover:before:opacity-0 before:transition-opacity before:duration-500 hover:grayscale-0 before:left-0 before:top-0",
     },
     {
-      icon: <Briefcase className="size-4 text-gray-300" />,
+      icon: <Briefcase className="size-4 text-emerald-400" />,
       title: "Seeking",
       description: "AI/ML Roles & Internships",
       date: "Open for Opportunities",
-      iconClassName: "bg-gray-800",
-      titleClassName: "text-gray-200",
-      className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
+      iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
+      titleClassName: "text-emerald-300 font-mono",
+      className: "[grid-area:stack] translate-x-20 translate-y-16 hover:translate-y-6",
     },
   ]
 
@@ -546,72 +546,87 @@ export default function Portfolio() {
                   </div>
 
                   {/* Info Card on the right */}
-                  <Card className="flex-1 bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40  transition-all duration-300">
-                    <CardContent className="p-8">
-                      <div className="space-y-6">
-                        <div className="space-y-4">
-                          <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
-                            <span className="pulsing-prompt text-emerald-600">▸</span>
-                            Profile
-                          </h3>
-                          <p className="text-gray-300 leading-relaxed">
-                            4th-year B.Tech AI student at BBD University with hands-on industry internship experience at Om Softwares & Amazon ML Summer School graduate. Passionate about GenAI, RAG platforms, and AI software engineering.
-                          </p>
-                        </div>
+                  <TiltCard3D tiltStrength={8} glareOpacity={0.1} className="flex-1 w-full">
+                    <Card className="relative bg-neutral-950/85 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 rounded-2xl transition-all duration-500 shadow-2xl overflow-hidden group">
+                      {/* Corner brackets */}
+                      <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
 
-                        <div className="space-y-4">
-                          <h3 className="text-xl font-semibold text-white/90 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
-                            <span className="pulsing-prompt text-emerald-600">▸</span>
-                            Education
-                          </h3>
-                          <div className="space-y-4">
-                            <div className="border-l-2 border-gray-500/40 pl-4 hover:border-emerald-500/70 transition-colors">
-                              <div className="flex items-center gap-2 mb-1">
-                                <GraduationCap className="h-4 w-4 text-emerald-500" />
-                                <span className="text-white font-medium">B.Tech in Computer Science (AI)</span>
-                              </div>
-                              <p className="text-gray-400 text-sm">Babu Banarasi Das University, Lucknow</p>
-                              <div className="flex items-center gap-4 mt-1 text-sm">
-                                <span className="text-gray-500 font-mono">2023 - 2027</span>
-                                <span className="text-emerald-500 font-medium">CGPA: 8.4</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-4">
-                          <h3 className="text-xl font-semibold text-white/90">Contact</h3>
+                      <CardContent className="p-8">
+                        <div className="space-y-6">
                           <div className="space-y-3">
-                            <div className="flex items-center text-gray-300">
-                              <Mail className="h-5 w-5 mr-3 text-gray-300" />
-                              <div>
-                                <div className="text-gray-400 text-sm">Email</div>
-                                <a href="mailto:srajaltiwari902@gmail.com" className="hover:text-white">
-                                  srajaltiwari902@gmail.com
-                                </a>
+                            <div className="flex items-center justify-between">
+                              <h3 className="text-xl font-bold text-white flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
+                                <span className="pulsing-prompt text-emerald-400">▸</span>
+                                Profile
+                              </h3>
+                              <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[10px] font-mono text-emerald-400">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                SYS_VERIFIED
+                              </span>
+                            </div>
+                            <p className="text-gray-300 text-sm leading-relaxed">
+                              4th-year B.Tech AI student at BBD University with hands-on industry internship experience at Om Softwares & Amazon ML Summer School graduate. Passionate about GenAI, RAG platforms, and AI software engineering.
+                            </p>
+                          </div>
+
+                          <div className="space-y-3">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
+                              <span className="pulsing-prompt text-emerald-400">▸</span>
+                              Education
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="border-l-2 border-emerald-500/40 pl-4 hover:border-emerald-400 transition-colors bg-emerald-500/5 p-3 rounded-r-xl">
+                                <div className="flex items-center gap-2 mb-1">
+                                  <GraduationCap className="h-4 w-4 text-emerald-400" />
+                                  <span className="text-white font-semibold text-sm">B.Tech in Computer Science (AI)</span>
+                                </div>
+                                <p className="text-gray-400 text-xs font-mono">Babu Banarasi Das University, Lucknow</p>
+                                <div className="flex items-center gap-4 mt-2 text-xs">
+                                  <span className="text-gray-400 font-mono">2023 - 2027</span>
+                                  <span className="text-emerald-400 font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">CGPA: 8.4</span>
+                                </div>
                               </div>
                             </div>
-                            <div className="flex items-center text-gray-300">
-                              <Phone className="h-5 w-5 mr-3 text-gray-300" />
-                              <div>
-                                <div className="text-gray-400 text-sm">Phone</div>
-                                <a href="tel:+919919084211" className="hover:text-white">
-                                  +91 9919084211
-                                </a>
-                              </div>
-                            </div>
-                            <div className="flex items-center text-gray-300">
-                              <MapPin className="h-5 w-5 mr-3 text-gray-300" />
-                              <div>
-                                <div className="text-gray-400 text-sm">Location</div>
-                                <span>Lucknow, India</span>
+                          </div>
+
+                          <div className="space-y-3">
+                            <h3 className="text-xl font-bold text-white flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif" }}>
+                              <span className="pulsing-prompt text-emerald-400">▸</span>
+                              Contact
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                              <a href="mailto:srajaltiwari902@gmail.com" className="flex items-center p-2.5 rounded-xl border border-emerald-500/15 bg-neutral-900/60 hover:border-emerald-500/40 hover:bg-neutral-900/90 transition-all group/item">
+                                <Mail className="h-4 w-4 mr-3 text-emerald-400 group-hover/item:scale-110 transition-transform" />
+                                <div className="overflow-hidden">
+                                  <div className="text-gray-400 text-[10px] font-mono">EMAIL</div>
+                                  <span className="text-xs text-neutral-200 truncate block font-mono">srajaltiwari902@gmail.com</span>
+                                </div>
+                              </a>
+
+                              <a href="tel:+919919084211" className="flex items-center p-2.5 rounded-xl border border-emerald-500/15 bg-neutral-900/60 hover:border-emerald-500/40 hover:bg-neutral-900/90 transition-all group/item">
+                                <Phone className="h-4 w-4 mr-3 text-emerald-400 group-hover/item:scale-110 transition-transform" />
+                                <div>
+                                  <div className="text-gray-400 text-[10px] font-mono">PHONE</div>
+                                  <span className="text-xs text-neutral-200 font-mono">+91 9919084211</span>
+                                </div>
+                              </a>
+
+                              <div className="flex items-center p-2.5 rounded-xl border border-emerald-500/15 bg-neutral-900/60 sm:col-span-2">
+                                <MapPin className="h-4 w-4 mr-3 text-emerald-400" />
+                                <div>
+                                  <div className="text-gray-400 text-[10px] font-mono">LOCATION</div>
+                                  <span className="text-xs text-neutral-200 font-mono">Lucknow, India</span>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </TiltCard3D>
                 </div>
               </div>
             </section>
@@ -653,38 +668,72 @@ export default function Portfolio() {
 
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                   {/* GitHub Stats */}
-                  <TiltCard3D tiltStrength={8} glareOpacity={0.08} className="w-full">
+                  <TiltCard3D tiltStrength={10} glareOpacity={0.12} className="w-full">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
+                      className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-950/85 backdrop-blur-md hover:border-emerald-500/50 transition-all duration-500 cursor-pointer group shadow-2xl"
                     >
-                      <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
+                      {/* Diagnostic Header Bar */}
+                      <div className="flex items-center justify-between p-3.5 px-5 bg-neutral-900/90 border-b border-emerald-500/15">
+                        <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold">
+                          <Github className="h-4 w-4" />
+                          <span>GITHUB // STATS</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">
+                          LIVE METRICS ↗
+                        </span>
+                      </div>
+
+                      {/* Corner Brackets */}
+                      <div className="absolute top-12 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute top-12 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+
+                      <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block relative">
                         <img
                           src="/Screenshot 2026-08-24 123451.png"
                           alt="GitHub Stats"
-                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
                         />
                       </a>
                     </motion.div>
                   </TiltCard3D>
 
                   {/* LeetCode Stats */}
-                  <TiltCard3D tiltStrength={8} glareOpacity={0.08} className="w-full">
+                  <TiltCard3D tiltStrength={10} glareOpacity={0.12} className="w-full">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.1 }}
-                      className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
+                      className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-950/85 backdrop-blur-md hover:border-emerald-500/50 transition-all duration-500 cursor-pointer group shadow-2xl"
                     >
-                      <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
+                      {/* Diagnostic Header Bar */}
+                      <div className="flex items-center justify-between p-3.5 px-5 bg-neutral-900/90 border-b border-emerald-500/15">
+                        <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold">
+                          <Code className="h-4 w-4" />
+                          <span>LEETCODE // DIAGNOSTIC</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">
+                          PROFILE STATS ↗
+                        </span>
+                      </div>
+
+                      {/* Corner Brackets */}
+                      <div className="absolute top-12 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute top-12 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+
+                      <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block relative">
                         <img
                           src="/Screenshot 2026-08-24 123542.png"
                           alt="LeetCode Stats"
-                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
                         />
                       </a>
                     </motion.div>
