@@ -837,26 +837,32 @@ export default function Portfolio() {
                       title: "2026",
                       content: (
                         <div className="space-y-6">
-                          <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300">
-                            <div className="flex justify-between items-start flex-wrap gap-4 mb-3">
+                          <div className="relative group bg-neutral-950/80 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 rounded-2xl p-7 transition-all duration-300 shadow-2xl overflow-hidden">
+                            {/* Corner brackets */}
+                            <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+
+                            <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
                               <div>
-                                <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
+                                <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
                                   React Developer Intern
                                 </h4>
-                                <p className="text-lg text-emerald-400 font-mono font-medium">Om Softwares</p>
+                                <p className="text-base text-emerald-400 font-mono font-semibold">Om Softwares</p>
                               </div>
-                              <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full text-sm font-mono font-medium">
-                                6 Months
+                              <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3.5 py-1 rounded-full text-xs font-mono font-semibold shadow-sm">
+                                6 Months Internship
                               </span>
                             </div>
 
-                            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                              Worked as a React Developer Intern at <strong className="text-white">Om Softwares</strong> building <strong className="text-white">OMCRM</strong> — a comprehensive enterprise CRM platform scheduled for imminent launch. Leveraged Next.js 15, React 19, and TypeScript to architect, design, and implement production-ready UI across all application pages, backed by thorough technical documentation and clean code architecture.
+                            <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                              Worked as a React Developer Intern at <strong className="text-white font-semibold">Om Softwares</strong> building <strong className="text-white font-semibold">OMCRM</strong> — a comprehensive enterprise CRM platform scheduled for imminent launch. Leveraged Next.js 15, React 19, and TypeScript to architect, design, and implement production-ready UI across all application pages, backed by thorough technical documentation and clean code architecture.
                             </p>
 
-                            <div className="mb-4">
-                              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2 font-mono">
-                                Technologies & Stack:
+                            <div className="mb-5">
+                              <span className="text-[11px] font-bold text-emerald-400/80 uppercase tracking-widest block mb-2 font-mono">
+                                // Technologies & Stack:
                               </span>
                               <div className="flex flex-wrap gap-1.5">
                                 {[
@@ -876,78 +882,84 @@ export default function Portfolio() {
                                 ].map((tech) => (
                                   <span
                                     key={tech}
-                                    className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono"
+                                    className="px-2.5 py-1 rounded-lg bg-emerald-950/40 border border-emerald-500/25 text-emerald-300 text-xs font-mono font-medium hover:border-emerald-500/60 hover:bg-emerald-500/10 transition-all cursor-default"
                                   >
-                                    {tech}
+                                    #{tech}
                                   </span>
                                 ))}
                               </div>
                             </div>
 
-                            <div className="space-y-2">
-                              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-1 font-mono">
-                                Key Contributions & Features:
+                            <div className="space-y-2.5">
+                              <span className="text-[11px] font-bold text-emerald-400/80 uppercase tracking-widest block mb-1 font-mono">
+                                // Key Contributions & Features:
                               </span>
                               <ul className="space-y-2.5 text-gray-300 text-sm">
                                 <li className="flex items-start">
-                                  <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                  <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Production-Ready Next.js UI & Docs:</strong> Designed and developed production-ready UI across all CRM pages using Next.js 15, React 19, TypeScript, and Tailwind CSS, complete with full technical documentation for upcoming commercial launch.
+                                    <strong className="text-white font-semibold">Production-Ready Next.js UI & Docs:</strong> Designed and developed production-ready UI across all CRM pages using Next.js 15, React 19, TypeScript, and Tailwind CSS, complete with full technical documentation for upcoming commercial launch.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
-                                  <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                  <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Pipeline & Lead Management:</strong> Developed core modules for lead management, customer & contact directories, deals tracking, and sales pipeline management.
+                                    <strong className="text-white font-semibold">Pipeline & Lead Management:</strong> Developed core modules for lead management, customer & contact directories, deals tracking, and sales pipeline management.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
-                                  <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                  <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Analytics & AI Lead Intelligence:</strong> Created dynamic analytics dashboards and integrated AI Lead Intelligence features to evaluate, score, and surface high-value prospects.
+                                    <strong className="text-white font-semibold">Analytics & AI Lead Intelligence:</strong> Created dynamic analytics dashboards and integrated AI Lead Intelligence features to evaluate, score, and surface high-value prospects.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
-                                  <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                  <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Backend APIs & Integrations:</strong> Contributed to backend API development using Python and FastAPI, managing PostgreSQL schemas, Google Sheets data synchronization, communication modules, and invoice generation.
+                                    <strong className="text-white font-semibold">Backend APIs & Integrations:</strong> Contributed to backend API development using Python and FastAPI, managing PostgreSQL schemas, Google Sheets data synchronization, communication modules, and invoice generation.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
-                                  <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                  <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Real-Time & Production Infrastructure:</strong> Implemented secure JWT-based authentication, real-time live data syncing with WebSockets, asynchronous task processing using Redis & Celery, and containerized development using Docker.
+                                    <strong className="text-white font-semibold">Real-Time & Production Infrastructure:</strong> Implemented secure JWT-based authentication, real-time live data syncing with WebSockets, asynchronous task processing using Redis & Celery, and containerized development using Docker.
                                   </span>
                                 </li>
                               </ul>
                             </div>
                           </div>
 
-                          <div className="bg-gray-900/70 border border-amber-500/30 hover:border-amber-500/60 rounded-lg p-6 transition-all duration-300">
-                            <div className="flex justify-between items-start flex-wrap gap-4 mb-3">
+                          <div className="relative group bg-neutral-950/80 backdrop-blur-xl border border-amber-500/30 hover:border-amber-500/60 rounded-2xl p-7 transition-all duration-300 shadow-2xl overflow-hidden">
+                            {/* Corner brackets */}
+                            <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-amber-500/30 group-hover:border-amber-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-amber-500/30 group-hover:border-amber-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-amber-500/30 group-hover:border-amber-400 transition-all duration-300 pointer-events-none" />
+                            <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-amber-500/30 group-hover:border-amber-400 transition-all duration-300 pointer-events-none" />
+
+                            <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
                               <div>
-                                <div className="flex items-center gap-2 mb-1">
-                                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/15 border border-amber-500/30 text-amber-400 uppercase tracking-widest">
+                                <div className="flex items-center gap-2 mb-1.5">
+                                  <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/15 border border-amber-500/30 text-amber-400 uppercase tracking-widest">
                                     Educational Program
                                   </span>
                                 </div>
-                                <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
+                                <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
                                   Amazon ML Summer School 2026
                                 </h4>
-                                <p className="text-lg text-amber-400 font-mono font-medium">Amazon</p>
+                                <p className="text-base text-amber-400 font-mono font-semibold">Amazon</p>
                               </div>
-                              <span className="bg-amber-500/15 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full text-sm font-mono font-medium">
+                              <span className="bg-amber-500/15 text-amber-300 border border-amber-500/30 px-3.5 py-1 rounded-full text-xs font-mono font-semibold">
                                 Jul 11 – Aug 2, 2026
                               </span>
                             </div>
 
-                            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                              Successfully completed <strong className="text-white">Amazon ML Summer School 2026</strong>, a rigorous, invitation-based integrated learning program focused on Machine Learning concepts and applications, with sessions delivered live by <strong className="text-amber-400">Amazon Scientists</strong>. Received a <strong className="text-white">Letter of Acknowledgement</strong> from the Amazon ML Summer School Team.
+                            <p className="text-gray-300 text-sm leading-relaxed mb-5">
+                              Successfully completed <strong className="text-white font-semibold">Amazon ML Summer School 2026</strong>, a rigorous, invitation-based integrated learning program focused on Machine Learning concepts and applications, with sessions delivered live by <strong className="text-amber-400 font-semibold">Amazon Scientists</strong>. Received a <strong className="text-white font-semibold">Letter of Acknowledgement</strong> from the Amazon ML Summer School Team.
                             </p>
 
-                            <div className="mb-4">
-                              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2 font-mono">
-                                Curriculum Covered:
+                            <div className="mb-5">
+                              <span className="text-[11px] font-bold text-amber-400/80 uppercase tracking-widest block mb-2 font-mono">
+                                // Curriculum Covered:
                               </span>
                               <div className="flex flex-wrap gap-1.5">
                                 {[
@@ -963,47 +975,47 @@ export default function Portfolio() {
                                 ].map((topic) => (
                                   <span
                                     key={topic}
-                                    className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-300 text-xs font-mono"
+                                    className="px-2.5 py-1 rounded-lg bg-amber-950/40 border border-amber-500/25 text-amber-300 text-xs font-mono font-medium hover:border-amber-500/60 hover:bg-amber-500/10 transition-all cursor-default"
                                   >
-                                    {topic}
+                                    #{topic}
                                   </span>
                                 ))}
                               </div>
                             </div>
 
-                            <div className="space-y-2">
-                              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-1 font-mono">
-                                Highlights:
+                            <div className="space-y-2.5">
+                              <span className="text-[11px] font-bold text-amber-400/80 uppercase tracking-widest block mb-1 font-mono">
+                                // Highlights:
                               </span>
                               <ul className="space-y-2.5 text-gray-300 text-sm">
                                 <li className="flex items-start">
                                   <span className="text-amber-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Structured ML Curriculum:</strong> Covered the complete spectrum of modern Machine Learning from classical supervised/unsupervised methods through advanced Deep Neural Networks, Sequential Learning, and Reinforcement Learning.
+                                    <strong className="text-white font-semibold">Structured ML Curriculum:</strong> Covered the complete spectrum of modern Machine Learning from classical supervised/unsupervised methods through advanced Deep Neural Networks, Sequential Learning, and Reinforcement Learning.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
                                   <span className="text-amber-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Advanced AI Topics:</strong> Gained structured exposure to Generative AI, Large Language Models, Agentic AI systems, and Causal Inference — areas directly aligned with the frontier of AI Engineering.
+                                    <strong className="text-white font-semibold">Advanced AI Topics:</strong> Gained structured exposure to Generative AI, Large Language Models, Agentic AI systems, and Causal Inference — areas directly aligned with the frontier of AI Engineering.
                                   </span>
                                 </li>
                                 <li className="flex items-start">
                                   <span className="text-amber-400 mr-2 font-bold">▸</span>
                                   <span>
-                                    <strong className="text-white">Amazon Scientists:</strong> Participated in live Q&A and technical sessions with practicing Amazon Scientists, gaining firsthand insights into production ML systems and industry research directions.
+                                    <strong className="text-white font-semibold">Amazon Scientists:</strong> Participated in live Q&A and technical sessions with practicing Amazon Scientists, gaining firsthand insights into production ML systems and industry research directions.
                                   </span>
                                 </li>
                               </ul>
                             </div>
 
-                            <div className="mt-4 pt-4 border-t border-amber-500/15 flex items-center justify-between flex-wrap gap-3">
-                              <span className="text-xs text-gray-500 font-mono">Credential: Letter of Acknowledgement · Issued: 18 August 2026</span>
+                            <div className="mt-5 pt-4 border-t border-amber-500/20 flex items-center justify-between flex-wrap gap-3">
+                              <span className="text-xs text-gray-400 font-mono">Credential: Letter of Acknowledgement · Issued: 18 August 2026</span>
                               <a
                                 href="/Amazon-ML-Summer-School-2026-Acknowledgement.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-mono font-semibold text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-lg hover:bg-amber-500/20 hover:border-amber-500/60 transition-all duration-200"
+                                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-semibold text-amber-300 bg-amber-500/15 border border-amber-500/40 rounded-xl hover:bg-amber-500/30 hover:border-amber-500/70 transition-all duration-200 shadow-md"
                               >
                                 View Acknowledgement ↗
                               </a>
@@ -1015,60 +1027,66 @@ export default function Portfolio() {
                     {
                       title: "2025",
                       content: (
-                        <div className="bg-gray-900/70 border border-gray-700 hover:border-emerald-500/40 rounded-lg p-6 transition-all duration-300">
-                          <div className="flex justify-between items-start flex-wrap gap-4 mb-3">
+                        <div className="relative group bg-neutral-950/80 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 rounded-2xl p-7 transition-all duration-300 shadow-2xl overflow-hidden">
+                          {/* Corner brackets */}
+                          <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                          <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                          <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+                          <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all duration-300 pointer-events-none" />
+
+                          <div className="flex justify-between items-start flex-wrap gap-4 mb-4">
                             <div>
-                              <h4 className="text-xl font-semibold text-white/90" style={{ fontFamily: "Syne, sans-serif" }}>
+                              <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
                                 Artificial Intelligence Intern
                               </h4>
-                              <p className="text-lg text-emerald-400 font-mono font-medium">Mirai School of Technology</p>
+                              <p className="text-base text-emerald-400 font-mono font-semibold">Mirai School of Technology</p>
                             </div>
-                            <span className="bg-emerald-500/15 text-gray-300 border border-gray-500/50 px-3 py-1 rounded-full text-sm font-mono">
+                            <span className="bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3.5 py-1 rounded-full text-xs font-mono font-semibold">
                               July – August 2025 · Remote
                             </span>
                           </div>
 
-                          <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                          <p className="text-gray-300 text-sm leading-relaxed mb-5">
                             Completed a remote AI internship at Mirai School of Technology, focusing on building real-world AI automation systems using workflow orchestration, LLM integration, and multimodal AI pipelines. Delivered three end-to-end AI projects from design to deployment.
                           </p>
 
-                          <div className="mb-4">
-                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-2 font-mono">
-                              Technologies & Tools:
+                          <div className="mb-5">
+                            <span className="text-[11px] font-bold text-emerald-400/80 uppercase tracking-widest block mb-2 font-mono">
+                              // Technologies & Tools:
                             </span>
                             <div className="flex flex-wrap gap-1.5">
                               {["n8n", "Gemini API", "Google Sheets API", "Telegram Bot API", "LLM Integration", "Workflow Automation"].map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono"
+                                  className="px-2.5 py-1 rounded-lg bg-emerald-950/40 border border-emerald-500/25 text-emerald-300 text-xs font-mono font-medium hover:border-emerald-500/60 hover:bg-emerald-500/10 transition-all cursor-default"
                                 >
-                                  {tech}
+                                  #{tech}
                                 </span>
                               ))}
                             </div>
                           </div>
 
-                          <div className="space-y-2">
-                            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider block mb-1 font-mono">
-                              Projects Delivered:
+                          <div className="space-y-2.5">
+                            <span className="text-[11px] font-bold text-emerald-400/80 uppercase tracking-widest block mb-1 font-mono">
+                              // Projects Delivered:
                             </span>
                             <ul className="space-y-2.5 text-gray-300 text-sm">
                               <li className="flex items-start">
-                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                 <span>
-                                  <strong className="text-white">AI Travel Planner:</strong> Built a fully automated travel itinerary generation system using n8n for workflow orchestration, Gemini LLM for personalized plan generation, and Google Sheets for persistent data storage and automated email delivery.
+                                  <strong className="text-white font-semibold">AI Travel Planner:</strong> Built a fully automated travel itinerary generation system using n8n for workflow orchestration, Gemini LLM for personalized plan generation, and Google Sheets for persistent data storage and automated email delivery.
                                 </span>
                               </li>
                               <li className="flex items-start">
-                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                 <span>
-                                  <strong className="text-white">Feedback Sentiment Agent:</strong> Engineered an AI-driven business intelligence pipeline that captured customer feedback forms, classified sentiment using the Gemini API as an analytical reasoning agent, and persisted structured results in Google Sheets for business reporting.
+                                  <strong className="text-white font-semibold">Feedback Sentiment Agent:</strong> Engineered an AI-driven business intelligence pipeline that captured customer feedback forms, classified sentiment using the Gemini API as an analytical reasoning agent, and persisted structured results in Google Sheets for business reporting.
                                 </span>
                               </li>
                               <li className="flex items-start">
-                                <span className="text-emerald-500 mr-2 font-bold">▸</span>
+                                <span className="text-emerald-400 mr-2 font-bold">▸</span>
                                 <span>
-                                  <strong className="text-white">Multimodal Telegram Chatbot:</strong> Developed a cross-platform conversational AI chatbot on Telegram using n8n as the backend orchestration layer and Gemini API for conversational intelligence, with support for advanced voice and audio input processing.
+                                  <strong className="text-white font-semibold">Multimodal Telegram Chatbot:</strong> Developed a cross-platform conversational AI chatbot on Telegram using n8n as the backend orchestration layer and Gemini API for conversational intelligence, with support for advanced voice and audio input processing.
                                 </span>
                               </li>
                             </ul>
