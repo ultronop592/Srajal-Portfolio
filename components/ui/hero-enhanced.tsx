@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { Download, Github, Linkedin, Code } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { TiltCard3D } from "@/components/ui/tilt-card-3d"
 
 const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) => {
   const [displayedText, setDisplayedText] = useState("")
@@ -240,64 +241,66 @@ const HeroEnhanced = ({ onDownloadResume }: { onDownloadResume: () => void }) =>
 
         {/* Right Panel - Hero Image with Diagnostic Canvas (No Glow) */}
         <div className="flex justify-center md:justify-end hero-fade-scale mt-8 md:mt-0">
-          <div className="relative w-full max-w-sm mx-auto group">
-            {/* Fine Corner Brackets */}
-            <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-emerald-500/40 rounded-tl transition-all duration-300 group-hover:-top-5 group-hover:-left-5 group-hover:border-emerald-400" />
-            <div className="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-emerald-500/40 rounded-tr transition-all duration-300 group-hover:-top-5 group-hover:-right-5 group-hover:border-emerald-400" />
-            <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b border-l border-emerald-500/40 rounded-bl transition-all duration-300 group-hover:-bottom-5 group-hover:-left-5 group-hover:border-emerald-400" />
-            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-emerald-500/40 rounded-br transition-all duration-300 group-hover:-bottom-5 group-hover:-right-5 group-hover:border-emerald-400" />
+          <TiltCard3D tiltStrength={10} glareOpacity={0.1} className="w-full max-w-sm mx-auto">
+            <div className="relative w-full group">
+              {/* Fine Corner Brackets */}
+              <div className="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-emerald-500/40 rounded-tl transition-all duration-300 group-hover:-top-5 group-hover:-left-5 group-hover:border-emerald-400" />
+              <div className="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-emerald-500/40 rounded-tr transition-all duration-300 group-hover:-top-5 group-hover:-right-5 group-hover:border-emerald-400" />
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b border-l border-emerald-500/40 rounded-bl transition-all duration-300 group-hover:-bottom-5 group-hover:-left-5 group-hover:border-emerald-400" />
+              <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-emerald-500/40 rounded-br transition-all duration-300 group-hover:-bottom-5 group-hover:-right-5 group-hover:border-emerald-400" />
 
-            {/* Diagnostic Monospace Metrics Overlay */}
-            <div className="absolute -top-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
-              SYS_LOC: LKO.IN // BATCH: 2023_2027
-            </div>
-            <div className="absolute -top-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
-              [ MODEL: ENHANCED_V2.5 ]
-            </div>
-            <div className="absolute -bottom-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
-              CUDA_CORE: ACTIVE
-            </div>
-            <div className="absolute -bottom-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
-              STATUS: READYSTREAM
-            </div>
+              {/* Diagnostic Monospace Metrics Overlay */}
+              <div className="absolute -top-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+                SYS_LOC: LKO.IN // BATCH: 2023_2027
+              </div>
+              <div className="absolute -top-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+                [ MODEL: ENHANCED_V2.5 ]
+              </div>
+              <div className="absolute -bottom-8 -left-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+                CUDA_CORE: ACTIVE
+              </div>
+              <div className="absolute -bottom-8 -right-2 font-mono text-[9px] text-emerald-500/50 leading-none select-none hidden sm:block tracking-wider">
+                STATUS: READYSTREAM
+              </div>
 
-            {/* Image Container */}
-            <div className="relative rounded-2xl overflow-hidden border border-emerald-500/15 bg-neutral-900/60 backdrop-blur-sm shadow-2xl shadow-black/85 transition-all duration-500 hover:border-emerald-500/40">
-              {/* High-tech reticle overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(10,10,10,0.6)_100%)] mix-blend-multiply pointer-events-none" />
-              <div className="absolute inset-0 border border-emerald-500/10 rounded-2xl pointer-events-none transition-all duration-500 group-hover:border-emerald-500/25" />
+              {/* Image Container */}
+              <div className="relative rounded-2xl overflow-hidden border border-emerald-500/15 bg-neutral-900/60 backdrop-blur-sm shadow-2xl shadow-black/85 transition-all duration-500 hover:border-emerald-500/40">
+                {/* High-tech reticle overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(10,10,10,0.6)_100%)] mix-blend-multiply pointer-events-none" />
+                <div className="absolute inset-0 border border-emerald-500/10 rounded-2xl pointer-events-none transition-all duration-500 group-hover:border-emerald-500/25" />
 
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/profile-3d.png"
-                alt="Srajal Tiwari"
-                className="w-full h-auto object-cover filter grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500"
-              />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/profile-3d.png"
+                  alt="Srajal Tiwari"
+                  className="w-full h-auto object-cover filter grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500"
+                />
 
-              {/* Name Overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black to-transparent flex items-end p-4">
-                <div
-                  className="text-xl md:text-2xl font-bold text-emerald-400 tracking-wider"
-                  style={{
-                    animation: "slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards",
-                    opacity: 0,
-                    fontFamily: "JetBrains Mono, monospace",
-                    fontWeight: 700,
-                  }}
-                >
-                  SRAJAL TIWARI
+                {/* Name Overlay */}
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black to-transparent flex items-end p-4">
+                  <div
+                    className="text-xl md:text-2xl font-bold text-emerald-400 tracking-wider"
+                    style={{
+                      animation: "slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards",
+                      opacity: 0,
+                      fontFamily: "JetBrains Mono, monospace",
+                      fontWeight: 700,
+                    }}
+                  >
+                    SRAJAL TIWARI
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Micro Reticle Indicator */}
-            <div className="absolute top-4 right-4 text-emerald-500/40 opacity-60 hover:opacity-100 transition-all group-hover:scale-110 pointer-events-none">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <line x1="5" y1="12" x2="19" y2="12" />
-              </svg>
+              {/* Micro Reticle Indicator */}
+              <div className="absolute top-4 right-4 text-emerald-500/40 opacity-60 hover:opacity-100 transition-all group-hover:scale-110 pointer-events-none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+              </div>
             </div>
-          </div>
+          </TiltCard3D>
         </div>
       </div>
 

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Terminal, Send, RotateCcw, ShieldCheck, Sparkles, User, Briefcase, Mail } from "lucide-react"
+import { TiltCard3D } from "@/components/ui/tilt-card-3d"
 
 interface MessageLog {
   text: string
@@ -349,9 +350,7 @@ I can answer any detail about his portfolio:
 * Ask about **"skills"** to inspect his Python, TypeScript, LangChain, LangGraph, Qdrant, Next.js, and FastAPI stack.
 * Ask about **"certifications"** to see his Anthropic MCP, AWS, Microsoft, and Google credentials.
 * Ask about **"education"** to check his BBD University 4th-year status & 8.4 CGPA.
-* Ask about **"contact"** for email, phone, and social profile links.
-
-What would you like to explore?`
+* Ask about **"contact"** for email, phone, and social profile links.`
     }
 
     addLog(finalAnswer, "success")
@@ -365,123 +364,107 @@ What would you like to explore?`
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden border border-emerald-500/25 bg-neutral-950/80 shadow-2xl flex flex-col min-h-[520px] backdrop-blur-xl relative">
-      {/* Dynamic scanline overlay for retro-modern tech style */}
-      <div className="absolute inset-0 pointer-events-none bg-terminal-scanline opacity-[0.03] z-10 rounded-2xl" />
+    <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full max-w-4xl mx-auto">
+      <div className="w-full rounded-2xl overflow-hidden border border-emerald-500/25 bg-neutral-950/80 shadow-2xl flex flex-col min-h-[520px] backdrop-blur-xl relative">
+        {/* Dynamic scanline overlay for retro-modern tech style */}
+        <div className="absolute inset-0 pointer-events-none bg-terminal-scanline opacity-[0.03] z-10 rounded-2xl" />
 
-      {/* Terminal Title Bar */}
-      <div className="bg-neutral-900/90 border-b border-emerald-500/10 px-5 py-4 flex justify-between items-center z-20">
-        <div className="flex items-center gap-2">
-          <Terminal className="h-4.5 w-4.5 text-emerald-400 animate-pulse" />
-          <span className="text-xs font-mono font-bold text-gray-300 tracking-wider">mcp-portfolio-agent ~ active-session</span>
-          <div className="flex items-center gap-1.5 ml-3 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-            <span className="text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest">LLM SECURE</span>
+        {/* Terminal Title Bar */}
+        <div className="bg-neutral-900/90 border-b border-emerald-500/10 px-5 py-4 flex justify-between items-center z-20">
+          <div className="flex items-center gap-2">
+            <Terminal className="h-4.5 w-4.5 text-emerald-400 animate-pulse" />
+            <span className="text-xs font-mono font-bold text-gray-300 tracking-wider">mcp-portfolio-agent ~ active-session</span>
+            <div className="flex items-center gap-1.5 ml-3 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span className="text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest">LLM SECURE</span>
+            </div>
+          </div>
+          <div className="flex gap-1.5">
+            <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
+            <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
+            <div className="h-3 w-3 rounded-full bg-emerald-500/30 border border-emerald-500/10" />
           </div>
         </div>
-        <div className="flex gap-1.5">
-          <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
-          <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
-          <div className="h-3 w-3 rounded-full bg-emerald-500/30 border border-emerald-500/10" />
-        </div>
-      </div>
 
-      {/* Interactive Logs Window */}
-      <div className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-black/40 scrollbar-thin select-text">
-        <AnimatePresence initial={false}>
-          {logs.map((log, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className="flex items-start gap-3 leading-relaxed"
-            >
-              <span className="text-[10px] text-emerald-500/40 mt-1 select-none font-mono tracking-wider">[{log.timestamp}]</span>
-              <div
-                className={`flex-1 font-mono whitespace-pre-wrap ${log.type === "success"
-                    ? "text-emerald-400 selection:bg-emerald-500/20"
-                    : log.type === "warning"
-                      ? "text-amber-400 selection:bg-amber-500/20"
-                      : log.type === "error"
-                        ? "text-rose-500 selection:bg-rose-500/20"
-                        : log.type === "input"
-                          ? "text-sky-300 font-bold selection:bg-sky-500/20"
-                          : log.type === "agent"
-                            ? "text-purple-400 font-medium selection:bg-purple-500/20"
-                            : log.type === "tool"
-                              ? "text-gray-400 italic selection:bg-gray-700/30"
-                              : "text-gray-300 selection:bg-gray-700/30"
-                  }`}
+        {/* Interactive Logs Window */}
+        <div className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-black/40 scrollbar-thin select-text">
+          <AnimatePresence initial={false}>
+            {logs.map((log, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-start gap-3 leading-relaxed"
               >
-                {/* Visual icons based on output lines */}
-                {log.type === "input" && <span className="text-sky-400 mr-1 select-none">$</span>}
-                {log.type === "agent" && <span className="text-purple-400 mr-1 select-none">⚙️</span>}
-                {log.type === "tool" && <span className="text-gray-500 mr-1 select-none">🛠️</span>}
-                {log.text}
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-        <div ref={logsEndRef} />
-      </div>
-
-      {/* Suggestion Prompt Pills */}
-      <div className="px-6 py-3 bg-neutral-900/20 border-t border-emerald-500/10 flex flex-col gap-2 z-20">
-        <div className="text-[9px] font-mono text-gray-500 uppercase tracking-widest font-semibold flex items-center gap-1 select-none">
-          <Sparkles className="h-3 w-3 text-emerald-500" />
-          Click to Query Srajal's Ambassador Agent:
+                <span className="text-[10px] text-emerald-500/40 mt-1 select-none font-mono tracking-wider">[{log.timestamp}]</span>
+                <div className="flex-1">
+                  {log.type === "input" && (
+                    <div className="text-emerald-400 font-semibold flex items-center gap-2">
+                      <span className="text-emerald-500">❯</span> {log.text}
+                    </div>
+                  )}
+                  {log.type === "info" && <div className="text-gray-300">{log.text}</div>}
+                  {log.type === "success" && <div className="text-emerald-400 font-medium">{log.text}</div>}
+                  {log.type === "agent" && <div className="text-emerald-500/80 italic text-xs">{log.text}</div>}
+                  {log.type === "tool" && <div className="text-amber-400/90 font-mono text-xs">{log.text}</div>}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          <div ref={logsEndRef} />
         </div>
-        <div className="flex flex-wrap gap-2">
+
+        {/* Suggestion Pills */}
+        <div className="p-3 bg-neutral-950/90 border-t border-emerald-500/10 flex flex-wrap gap-2 z-20">
           {suggestionPills.map((pill, idx) => (
             <button
               key={idx}
-              onClick={() => handleQuery(pill.query)}
               disabled={isRunning}
-              className="px-3 py-1.5 rounded-full bg-neutral-900 border border-gray-800 text-gray-400 text-xs font-mono font-medium hover:border-emerald-500/30 hover:text-emerald-400 hover:bg-emerald-500/5 disabled:opacity-50 transition-all duration-200"
+              onClick={() => handleQuery(pill.query)}
+              className="px-3 py-1.5 rounded-lg bg-neutral-900/80 hover:bg-emerald-500/10 border border-neutral-800 hover:border-emerald-500/30 text-xs text-gray-400 hover:text-emerald-300 transition-all font-mono disabled:opacity-50"
             >
               {pill.label}
             </button>
           ))}
         </div>
-      </div>
 
-      {/* Terminal Input Controls */}
-      <div className="bg-neutral-950 p-4 border-t border-emerald-500/15 flex items-stretch gap-3 z-20">
-        <form onSubmit={handleSubmit} className="flex-1 flex items-center gap-2 bg-black/60 border border-gray-800 focus-within:border-emerald-500/50 rounded-xl px-4 py-3 transition-colors">
-          <span className="text-emerald-500 font-mono font-bold select-none">$</span>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={isRunning}
-            placeholder={isRunning ? "Agent resolving local tools. Please wait..." : "Ask the AI agent anything... (e.g. 'unlegalize', 'certs', 'phone')"}
-            className="flex-1 bg-transparent font-mono text-sm text-gray-200 focus:outline-none placeholder-gray-600 disabled:opacity-50"
-          />
+        {/* Command Line Input */}
+        <div className="p-4 bg-neutral-900/90 border-t border-emerald-500/10 flex items-center gap-3 z-20">
+          <form onSubmit={handleSubmit} className="flex-1 flex items-center gap-2">
+            <span className="text-emerald-400 font-mono font-bold">❯</span>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder={isRunning ? "Agent processing request..." : "Ask AI Agent (e.g., 'What are Srajal's skills?')..."}
+              disabled={isRunning}
+              className="flex-1 bg-transparent font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none disabled:opacity-50"
+            />
+            <button
+              type="submit"
+              disabled={isRunning || !input.trim()}
+              className="p-2 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/30 transition-all disabled:opacity-30"
+            >
+              <Send className="h-4 w-4" />
+            </button>
+          </form>
+
           <button
-            type="submit"
-            disabled={isRunning || !input.trim()}
-            className="text-emerald-500 hover:text-emerald-400 disabled:opacity-30 disabled:hover:text-emerald-500 transition-colors"
-            title="Submit Query"
+            onClick={() => {
+              setLogs([
+                { text: "🤖 Srajal's AI Ambassador Client v2.0.0", type: "success", timestamp: "22:15:00" },
+                { text: "Connected via Model Context Protocol (MCP) to Local portfolio-db server.", type: "info", timestamp: "22:15:01" },
+              ])
+              setIsRunning(false)
+            }}
+            className="px-3.5 bg-neutral-900 hover:bg-neutral-800 border border-gray-800 rounded-xl text-gray-500 hover:text-white transition-colors flex items-center justify-center"
+            title="Reset Ambassador"
           >
-            <Send className="h-4.5 w-4.5" />
+            <RotateCcw className="h-4.5 w-4.5" />
           </button>
-        </form>
-
-        <button
-          onClick={() => {
-            setLogs([
-              { text: "🤖 Srajal's AI Ambassador Client v2.0.0", type: "success", timestamp: "22:15:00" },
-              { text: "Connected via Model Context Protocol (MCP) to Local portfolio-db server.", type: "info", timestamp: "22:15:01" },
-            ])
-            setIsRunning(false)
-          }}
-          className="px-3.5 bg-neutral-900 hover:bg-neutral-800 border border-gray-800 rounded-xl text-gray-500 hover:text-white transition-colors flex items-center justify-center"
-          title="Reset Ambasssador"
-        >
-          <RotateCcw className="h-4.5 w-4.5" />
-        </button>
+        </div>
       </div>
-    </div>
+    </TiltCard3D>
   )
 }

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Github, ExternalLink, X, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { TiltCard3D } from '@/components/ui/tilt-card-3d';
 
 interface ProjectSlide {
   title: string;
@@ -278,7 +279,7 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
         </div>
 
         {/* Right: Image */}
-        <div className="carousel-image-container">
+        <TiltCard3D tiltStrength={10} glareOpacity={0.1} className="carousel-image-container">
           <div
             className={`carousel-image-frame ${isTransitioning ? 'transitioning' : 'visible'}`}
           >
@@ -302,7 +303,7 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
           {/* Decorative frame corner */}
           <div className="carousel-frame-corner carousel-frame-corner--tl" style={{ borderColor: accentColor }} />
           <div className="carousel-frame-corner carousel-frame-corner--br" style={{ borderColor: accentColor }} />
-        </div>
+        </TiltCard3D>
       </div>
 
       {/* Progress Indicators */}

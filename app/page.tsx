@@ -27,6 +27,7 @@ import HeroScrollDemo from "@/components/hero-scroll-demo"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
+import { TiltCard3D } from "@/components/ui/tilt-card-3d"
 import NeuralBackground from "@/components/ui/neural-background"
 import ElegantCarousel from "@/components/ui/elegant-carousel"
 import GradientBarsBackground from "@/components/ui/gradient-bars-background"
@@ -35,6 +36,7 @@ import McpTerminal from "@/components/ui/mcp-terminal"
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
+const ThreeDBackground = dynamic(() => import("@/components/ui/three-d-background"), { ssr: false })
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -465,6 +467,7 @@ export default function Portfolio() {
       {!showLanding && (
         <>
           <ScrollToHashClient />
+          <ThreeDBackground />
 
           <div className="fixed inset-0 z-0 overflow-hidden">
             <GradientBarsBackground
@@ -652,38 +655,42 @@ export default function Portfolio() {
 
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                   {/* GitHub Stats */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
-                  >
-                    <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
-                      <img
-                        src="/Screenshot 2026-08-24 123451.png"
-                        alt="GitHub Stats"
-                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </a>
-                  </motion.div>
+                  <TiltCard3D tiltStrength={8} glareOpacity={0.08} className="w-full">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
+                    >
+                      <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block group">
+                        <img
+                          src="/Screenshot 2026-08-24 123451.png"
+                          alt="GitHub Stats"
+                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </a>
+                    </motion.div>
+                  </TiltCard3D>
 
                   {/* LeetCode Stats */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
-                  >
-                    <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
-                      <img
-                        src="/Screenshot 2026-08-24 123542.png"
-                        alt="LeetCode Stats"
-                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </a>
-                  </motion.div>
+                  <TiltCard3D tiltStrength={8} glareOpacity={0.08} className="w-full">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="rounded-2xl overflow-hidden border border-gray-500/20 bg-emerald-500/5 backdrop-blur-sm hover:border-emerald-500/40 transition-all duration-300 cursor-pointer"
+                    >
+                      <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block group">
+                        <img
+                          src="/Screenshot 2026-08-24 123542.png"
+                          alt="LeetCode Stats"
+                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </a>
+                    </motion.div>
+                  </TiltCard3D>
                 </div>
               </div>
             </AnimatedSection>
@@ -1287,61 +1294,64 @@ export default function Portfolio() {
 
                 <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                   {/* Contact Info Card */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 hover:border-emerald-500/50 rounded-2xl p-8  transition-all duration-300"
-                  >
-                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-                      <span className="pulsing-prompt text-emerald-600">▸</span>
-                      Direct Contact
-                    </h3>
+                  <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full">
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 hover:border-emerald-500/50 rounded-2xl p-8 transition-all duration-300 h-full"
+                    >
+                      <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
+                        <span className="pulsing-prompt text-emerald-600">▸</span>
+                        Direct Contact
+                      </h3>
 
-                    <div className="space-y-4">
-                      {[
-                        {
-                          icon: Mail,
-                          label: "Email",
-                          href: "mailto:srajaltiwari902@gmail.com",
-                          text: "srajaltiwari902@gmail.com",
-                          description: "Respond within 24 hours"
-                        },
-                        {
-                          icon: Phone,
-                          label: "Phone",
-                          href: "tel:+919919084211",
-                          text: "+91 9919084211",
-                          description: "Available on WhatsApp & Telegram"
-                        },
-                      ].map((item, i) => (
-                        <a
-                          key={i}
-                          href={item.href}
-                          className="group flex items-start p-4 bg-gray-800/30 border border-gray-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
-                        >
-                          <div className="p-3 bg-emerald-500/15 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
-                            <item.icon className="h-6 w-6 text-emerald-500" />
-                          </div>
-                          <div>
-                            <div className="text-gray-300 text-sm font-medium">{item.label}</div>
-                            <div className="text-white text-sm font-semibold mt-1">{item.text}</div>
-                            <div className="text-gray-500 text-xs mt-1">{item.description}</div>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </motion.div>
+                      <div className="space-y-4">
+                        {[
+                          {
+                            icon: Mail,
+                            label: "Email",
+                            href: "mailto:srajaltiwari902@gmail.com",
+                            text: "srajaltiwari902@gmail.com",
+                            description: "Respond within 24 hours"
+                          },
+                          {
+                            icon: Phone,
+                            label: "Phone",
+                            href: "tel:+919919084211",
+                            text: "+91 9919084211",
+                            description: "Available on WhatsApp & Telegram"
+                          },
+                        ].map((item, i) => (
+                          <a
+                            key={i}
+                            href={item.href}
+                            className="group flex items-start p-4 bg-gray-800/30 border border-gray-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
+                          >
+                            <div className="p-3 bg-emerald-500/15 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
+                              <item.icon className="h-6 w-6 text-emerald-500" />
+                            </div>
+                            <div>
+                              <div className="text-gray-300 text-sm font-medium">{item.label}</div>
+                              <div className="text-white text-sm font-semibold mt-1">{item.text}</div>
+                              <div className="text-gray-500 text-xs mt-1">{item.description}</div>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </TiltCard3D>
 
                   {/* Social Links Card */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 hover:border-emerald-500/30 transition-all duration-300"
-                  >
+                  <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full">
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 hover:border-emerald-500/30 transition-all duration-300 h-full"
+                    >
                     <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
 
                     <div className="space-y-4">
@@ -1394,7 +1404,8 @@ export default function Portfolio() {
                       ))}
                     </div>
                   </motion.div>
-                </div>
+                </TiltCard3D>
+              </div>
 
                 {/* CTA Section */}
                 <motion.div
