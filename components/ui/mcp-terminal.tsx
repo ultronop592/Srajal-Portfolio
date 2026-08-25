@@ -364,30 +364,36 @@ I can answer any detail about his portfolio:
   }
 
   return (
-    <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full max-w-4xl mx-auto">
-      <div className="w-full rounded-2xl overflow-hidden border border-emerald-500/25 bg-neutral-950/80 shadow-2xl flex flex-col min-h-[520px] backdrop-blur-xl relative">
-        {/* Dynamic scanline overlay for retro-modern tech style */}
+    <TiltCard3D tiltStrength={6} glareOpacity={0.08} className="w-full max-w-4xl mx-auto">
+      <div className="w-full rounded-2xl overflow-hidden border border-emerald-500/25 bg-neutral-950/90 shadow-2xl flex flex-col min-h-[540px] backdrop-blur-xl relative group">
+        {/* Dynamic scanline overlay */}
         <div className="absolute inset-0 pointer-events-none bg-terminal-scanline opacity-[0.03] z-10 rounded-2xl" />
 
+        {/* Corner Reticles */}
+        <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none z-30" />
+        <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none z-30" />
+        <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none z-30" />
+        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none z-30" />
+
         {/* Terminal Title Bar */}
-        <div className="bg-neutral-900/90 border-b border-emerald-500/10 px-5 py-4 flex justify-between items-center z-20">
+        <div className="bg-neutral-900/95 border-b border-emerald-500/15 px-5 py-4 flex justify-between items-center z-20">
           <div className="flex items-center gap-2">
             <Terminal className="h-4.5 w-4.5 text-emerald-400 animate-pulse" />
-            <span className="text-xs font-mono font-bold text-gray-300 tracking-wider">mcp-portfolio-agent ~ active-session</span>
-            <div className="flex items-center gap-1.5 ml-3 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+            <span className="text-xs font-mono font-bold text-gray-200 tracking-wider">mcp-portfolio-agent ~ active-session</span>
+            <div className="flex items-center gap-1.5 ml-3 px-2.5 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-500/30">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest">LLM SECURE</span>
+              <span className="text-[9px] font-mono font-bold text-emerald-400 uppercase tracking-widest">MCP ACTIVE</span>
             </div>
           </div>
           <div className="flex gap-1.5">
             <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
             <div className="h-3 w-3 rounded-full bg-neutral-800 border border-neutral-700" />
-            <div className="h-3 w-3 rounded-full bg-emerald-500/30 border border-emerald-500/10" />
+            <div className="h-3 w-3 rounded-full bg-emerald-500/40 border border-emerald-500/20" />
           </div>
         </div>
 
         {/* Interactive Logs Window */}
-        <div className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-black/40 scrollbar-thin select-text">
+        <div className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-neutral-950/70 scrollbar-thin select-text">
           <AnimatePresence initial={false}>
             {logs.map((log, idx) => (
               <motion.div
@@ -397,16 +403,16 @@ I can answer any detail about his portfolio:
                 transition={{ duration: 0.2 }}
                 className="flex items-start gap-3 leading-relaxed"
               >
-                <span className="text-[10px] text-emerald-500/40 mt-1 select-none font-mono tracking-wider">[{log.timestamp}]</span>
+                <span className="text-[10px] text-emerald-500/50 mt-1 select-none font-mono tracking-wider">[{log.timestamp}]</span>
                 <div className="flex-1">
                   {log.type === "input" && (
                     <div className="text-emerald-400 font-semibold flex items-center gap-2">
-                      <span className="text-emerald-500">❯</span> {log.text}
+                      <span className="text-emerald-500 font-bold">❯</span> {log.text}
                     </div>
                   )}
                   {log.type === "info" && <div className="text-gray-300">{log.text}</div>}
                   {log.type === "success" && <div className="text-emerald-400 font-medium">{log.text}</div>}
-                  {log.type === "agent" && <div className="text-emerald-500/80 italic text-xs">{log.text}</div>}
+                  {log.type === "agent" && <div className="text-emerald-400/80 italic text-xs">{log.text}</div>}
                   {log.type === "tool" && <div className="text-amber-400/90 font-mono text-xs">{log.text}</div>}
                 </div>
               </motion.div>
@@ -416,13 +422,13 @@ I can answer any detail about his portfolio:
         </div>
 
         {/* Suggestion Pills */}
-        <div className="p-3 bg-neutral-950/90 border-t border-emerald-500/10 flex flex-wrap gap-2 z-20">
+        <div className="p-3 bg-neutral-950/95 border-t border-emerald-500/10 flex flex-wrap gap-2 z-20">
           {suggestionPills.map((pill, idx) => (
             <button
               key={idx}
               disabled={isRunning}
               onClick={() => handleQuery(pill.query)}
-              className="px-3 py-1.5 rounded-lg bg-neutral-900/80 hover:bg-emerald-500/10 border border-neutral-800 hover:border-emerald-500/30 text-xs text-gray-400 hover:text-emerald-300 transition-all font-mono disabled:opacity-50"
+              className="px-3 py-1.5 rounded-lg bg-emerald-950/30 hover:bg-emerald-500/15 border border-emerald-500/20 hover:border-emerald-500/50 text-xs text-neutral-300 hover:text-emerald-300 transition-all font-mono disabled:opacity-50 shadow-sm"
             >
               {pill.label}
             </button>
@@ -430,23 +436,24 @@ I can answer any detail about his portfolio:
         </div>
 
         {/* Command Line Input */}
-        <div className="p-4 bg-neutral-900/90 border-t border-emerald-500/10 flex items-center gap-3 z-20">
+        <div className="p-4 bg-neutral-900/95 border-t border-emerald-500/15 flex items-center gap-3 z-20">
           <form onSubmit={handleSubmit} className="flex-1 flex items-center gap-2">
-            <span className="text-emerald-400 font-mono font-bold">❯</span>
+            <span className="text-emerald-400 font-mono font-bold text-base">❯</span>
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={isRunning ? "Agent processing request..." : "Ask AI Agent (e.g., 'What are Srajal's skills?')..."}
+              placeholder={isRunning ? "Agent processing query..." : "Ask AI Agent (e.g., 'What are Srajal's skills?')..."}
               disabled={isRunning}
-              className="flex-1 bg-transparent font-mono text-sm text-gray-200 placeholder-gray-600 focus:outline-none disabled:opacity-50"
+              className="flex-1 bg-transparent font-mono text-sm text-gray-100 placeholder-gray-500 focus:outline-none disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={isRunning || !input.trim()}
-              className="p-2 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/30 transition-all disabled:opacity-30"
+              className="p-2 px-3 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 transition-all disabled:opacity-30 flex items-center gap-1.5 text-xs font-mono font-semibold"
             >
-              <Send className="h-4 w-4" />
+              <span>SEND</span>
+              <Send className="h-3.5 w-3.5" />
             </button>
           </form>
 
@@ -458,10 +465,10 @@ I can answer any detail about his portfolio:
               ])
               setIsRunning(false)
             }}
-            className="px-3.5 bg-neutral-900 hover:bg-neutral-800 border border-gray-800 rounded-xl text-gray-500 hover:text-white transition-colors flex items-center justify-center"
+            className="p-2 px-2.5 bg-neutral-900 hover:bg-neutral-800 border border-gray-700 rounded-lg text-gray-400 hover:text-white transition-colors flex items-center justify-center"
             title="Reset Ambassador"
           >
-            <RotateCcw className="h-4.5 w-4.5" />
+            <RotateCcw className="h-4 w-4" />
           </button>
         </div>
       </div>
