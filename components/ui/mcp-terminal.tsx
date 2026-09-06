@@ -19,7 +19,8 @@ export default function McpTerminal() {
   ])
   const [input, setInput] = useState("")
   const [isRunning, setIsRunning] = useState(false)
-  const logsEndRef = useRef<HTMLDivElement>(null)
+  const logsContainerRef = useRef<HTMLDivElement>(null)
+  const isFirstRender = useRef(true)
 
   // Quick Action Prompts
   const suggestionPills = [
@@ -30,7 +31,13 @@ export default function McpTerminal() {
   ]
 
   useEffect(() => {
-    logsEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    if (logsContainerRef.current) {
+      logsContainerRef.current.scrollTop = logsContainerRef.current.scrollHeight
+    }
   }, [logs])
 
   const addLog = (text: string, type: MessageLog["type"] = "info") => {
@@ -393,7 +400,7 @@ I can answer any detail about his portfolio:
         </div>
 
         {/* Interactive Logs Window */}
-        <div className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-neutral-950/70 scrollbar-thin select-text">
+        <div ref={logsContainerRef} className="flex-1 p-6 font-mono text-sm overflow-y-auto max-h-[380px] min-h-[320px] flex flex-col gap-3.5 relative bg-neutral-950/70 scrollbar-thin select-text">
           <AnimatePresence initial={false}>
             {logs.map((log, idx) => (
               <motion.div
@@ -418,7 +425,6 @@ I can answer any detail about his portfolio:
               </motion.div>
             ))}
           </AnimatePresence>
-          <div ref={logsEndRef} />
         </div>
 
         {/* Suggestion Pills */}

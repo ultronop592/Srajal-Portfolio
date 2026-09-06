@@ -43,16 +43,31 @@ export function SplineSceneBasic({ isLanding = false, onExplore }: SplineSceneBa
               animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Srajal Tiwari</h1>
-              <p className="text-xl md:text-2xl text-neutral-300 mb-8 leading-relaxed">
-                I build AI/ML products that turn data into decisions. Exploring the world of Generative AI | Passionate
-                about AI that learns, creates, and reasons | RAG | LLMs | Hugging Face
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-4 backdrop-blur-md w-fit">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>BBDU CSE (AI) '27 · CGPA 8.3 · AMAZON ML SCHOLAR</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
+                Srajal Tiwari
+              </h1>
+              <div className="flex flex-wrap items-center gap-2 mb-4 text-xs font-mono text-emerald-400/90">
+                <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/20">AI / ML Engineer</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/20">Full-Stack Builder</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/20">Ex-Intern @ Om Softwares</span>
+              </div>
+              <p className="text-base sm:text-lg text-neutral-300 mb-6 leading-relaxed">
+                Computer Science & AI undergraduate at BBD University (CGPA 8.3). Selected for <strong className="text-white font-medium">Amazon ML Summer School 2026</strong>, certified in <strong className="text-white font-medium">AI Agents by Kaggle × Google</strong>, and experienced shipping production full-stack systems with Next.js 15, FastAPI, and Scikit-learn.
               </p>
-              <motion.div whileHover={prefersReducedMotion ? {} : { scale: 1.08, y: -3 }} whileTap={{ scale: 0.95 }}>
-                <NeonButton onClick={onExplore} variant="ghost" size="lg" className="font-semibold shadow-lg text-lg">
-                  Explore Portfolio
-                </NeonButton>
-              </motion.div>
+              <div className="flex items-center gap-4">
+                <motion.div whileHover={prefersReducedMotion ? {} : { scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
+                  <NeonButton onClick={onExplore} variant="ghost" size="lg" className="font-semibold shadow-lg text-base">
+                    Explore Portfolio
+                  </NeonButton>
+                </motion.div>
+                <span className="text-xs font-mono text-neutral-400 hidden sm:inline-block">
+                  Lucknow, India · Open for Roles
+                </span>
+              </div>
             </motion.div>
 
             {/* Right content - 3D Scene */}

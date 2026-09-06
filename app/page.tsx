@@ -19,7 +19,7 @@ import { CertificatesGrid } from "@/components/ui/certificates-grid"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
 import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 import HeroShowcase from "@/components/ui/hero-showcase"
-import HeroEnhanced from "@/components/ui/hero-enhanced"
+import { PrismaHero } from "@/components/ui/prisma-hero"
 import { CpuArchitecture } from "@/components/ui/cpu-architecture"
 import DisplayCards from "@/components/ui/display-cards"
 import { Timeline } from "@/components/ui/timeline"
@@ -30,13 +30,13 @@ import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import { TiltCard3D } from "@/components/ui/tilt-card-3d"
 import NeuralBackground from "@/components/ui/neural-background"
 import ElegantCarousel from "@/components/ui/elegant-carousel"
-const GatewayFlow = dynamic(() => import("@/components/ui/gateway-flow"), { ssr: false })
+import GatewayFlow from "@/components/ui/gateway-flow"
 import McpTerminal from "@/components/ui/mcp-terminal"
+import ThreeDBackground from "@/components/ui/three-d-background"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
-const ThreeDBackground = dynamic(() => import("@/components/ui/three-d-background"), { ssr: false })
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
@@ -49,6 +49,12 @@ export default function Portfolio() {
 
   useEffect(() => {
     setMounted(true)
+    if (typeof window !== "undefined") {
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname)
+      }
+      window.scrollTo(0, 0)
+    }
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
@@ -68,6 +74,19 @@ export default function Portfolio() {
   const handleDownloadResume = () => {
     const resumeUrl = "/Srajal_Tiwari_Resume.pdf"
     window.open(resumeUrl, "_blank", "noopener,noreferrer")
+  }
+
+  const handleExplore = () => {
+    if (typeof window !== "undefined") {
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname)
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" })
+      }, 50)
+    }
+    setShowLanding(false)
   }
 
   const skills = {
@@ -371,7 +390,7 @@ export default function Portfolio() {
     {
       icon: <GraduationCap className="size-4 text-emerald-400" />,
       title: "Education",
-      description: "B.Tech CSE (AI) - CGPA: 8.4",
+      description: "B.Tech CSE (AI) - CGPA: 8.3",
       date: "2023 - 2027",
       iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
       titleClassName: "text-emerald-300 font-mono",
@@ -465,7 +484,7 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {showLanding && <SplineSceneBasic isLanding={true} onExplore={() => setShowLanding(false)} />}
+      {showLanding && <SplineSceneBasic isLanding={true} onExplore={handleExplore} />}
 
       {!showLanding && <CursorBlob />}
 
@@ -520,7 +539,15 @@ export default function Portfolio() {
 
           <main className="relative z-10 pt-20" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
             {/* Hero: self-contained full-screen section */}
-            <HeroEnhanced onDownloadResume={handleDownloadResume} />
+            <PrismaHero
+              title="Srajal Tiwari"
+              showAsterisk={true}
+              subtitle="B.Tech Computer Science & AI engineer at BBDU (CGPA 8.3). Selected for Amazon ML Summer School 2026, certified by Kaggle × Google in AI Agents, and experienced shipping production systems at Om Softwares (Next.js 15, FastAPI, Docker). Building machine learning models and intelligent agentic workflows to turn data into impactful decisions."
+              ctaText="Explore Projects"
+              ctaHref="#projects"
+              onDownloadResume={handleDownloadResume}
+              showNav={false}
+            />
 
 
             <section id="about-me" className="py-16 px-4">
@@ -568,7 +595,7 @@ export default function Portfolio() {
                               </span>
                             </div>
                             <p className="text-gray-300 text-sm leading-relaxed">
-                              4th-year B.Tech AI student at BBD University with hands-on industry internship experience at Om Softwares & Amazon ML Summer School graduate. Passionate about GenAI, RAG platforms, and AI software engineering.
+                              B.Tech CSE (Artificial Intelligence) student (Batch 2023–2027, CGPA 8.3/10) at Babu Banarasi Das University, Lucknow. Hands-on industry experience building production CRM applications at Om Softwares (OMCRM), selected for Amazon ML Summer School 2026, and certified in AI Agents by Kaggle × Google.
                             </p>
                           </div>
 
@@ -586,7 +613,7 @@ export default function Portfolio() {
                                 <p className="text-gray-400 text-xs font-mono">Babu Banarasi Das University, Lucknow</p>
                                 <div className="flex items-center gap-4 mt-2 text-xs">
                                   <span className="text-gray-400 font-mono">2023 - 2027</span>
-                                  <span className="text-emerald-400 font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">CGPA: 8.4</span>
+                                  <span className="text-emerald-400 font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">CGPA: 8.3</span>
                                 </div>
                               </div>
                             </div>
