@@ -34,6 +34,7 @@ const ElegantCarousel = dynamic(() => import("@/components/ui/elegant-carousel")
 const GatewayFlow = dynamic(() => import("@/components/ui/gateway-flow"), { ssr: false })
 const McpTerminal = dynamic(() => import("@/components/ui/mcp-terminal"), { ssr: false })
 const ThreeDBackground = dynamic(() => import("@/components/ui/three-d-background"), { ssr: false })
+const AchievementsSection = dynamic(() => import("@/components/ui/achievements-section"), { ssr: false })
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
@@ -1469,7 +1470,7 @@ export default function Portfolio() {
             <AnimatedSection id="achievements" className="py-20 px-4" delay={0.12}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1478,180 +1479,19 @@ export default function Portfolio() {
                 >
                   <span className="pulsing-prompt text-emerald-600">▸</span>
                   <span className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 bg-clip-text text-transparent">
-                    Achievements
+                    Key Achievements
                   </span>
                 </motion.h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                  {[
-                    {
-                      name: "5-Day AI Agents: Intensive Vibe Coding Course",
-                      designation: "Kaggle × Google • July 30, 2026",
-                      quote: (
-                        <div className="space-y-4 text-left">
-                          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                            Completed an intensive 5-day course focused on AI Agents, agentic workflows, and modern AI-assisted development.
-                          </p>
-                          <div className="space-y-2">
-                            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block font-mono">
-                              Skills & Focus Areas:
-                            </span>
-                            <div className="flex flex-wrap gap-1.5">
-                              {["AI Agents", "Agentic AI", "Generative AI", "LLMs"].map((topic) => (
-                                <span
-                                  key={topic}
-                                  className="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono"
-                                >
-                                  {topic}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between flex-wrap gap-2 pt-1 text-xs text-gray-400 font-mono">
-                            <span>Completed: July 30, 2026</span>
-                            <span className="text-emerald-400 font-semibold">Kaggle × Google Certification</span>
-                          </div>
-                        </div>
-                      ),
-                      src: "/5-Day AI Agents_ Intensive Vibe Coding Course.png",
-                      buttonText: "View Certificate",
-                      buttonProps: {
-                        onClick: () => window.open("/5-Day AI Agents_ Intensive Vibe Coding Course.png", "_blank"),
-                        className: "bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs md:text-sm px-5 py-2.5 rounded-lg transition-all cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30",
-                      },
-                      imageHref: "/5-Day AI Agents_ Intensive Vibe Coding Course.png",
-                    },
-                    {
-                      name: "Amazon ML Summer School 2026",
-                      designation: "Amazon • Letter of Acknowledgement",
-                      quote: (
-                        <div className="space-y-4 text-left">
-                          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                            Successfully completed <strong className="text-white">Amazon ML Summer School 2026</strong>, an integrated learning program focused on Machine Learning concepts and applications, with sessions delivered by <strong className="text-emerald-400">Amazon Scientists</strong>.
-                          </p>
-                          <div className="space-y-2">
-                            <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider block font-mono">
-                              Program Curriculum & Topics:
-                            </span>
-                            <div className="flex flex-wrap gap-1.5">
-                              {[
-                                "Supervised Learning",
-                                "Deep Neural Networks",
-                                "Dimensionality Reduction",
-                                "Unsupervised Learning",
-                                "Sequential Learning",
-                                "Reinforcement Learning",
-                                "Generative AI & LLMs",
-                                "Agentic AI",
-                                "Causal Inference",
-                              ].map((topic) => (
-                                <span
-                                  key={topic}
-                                  className="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono"
-                                >
-                                  {topic}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between flex-wrap gap-2 pt-1 text-xs text-gray-400 font-mono">
-                            <span>Dates: July 11–26 & August 1–2, 2026</span>
-                            <span className="text-emerald-400 font-semibold">Virtual Program</span>
-                          </div>
-                        </div>
-                      ),
-                      src: "/images/amazon-ml-summer-school-2026.png",
-                      buttonText: "View Acknowledgement",
-                      buttonProps: {
-                        onClick: () => window.open("/Amazon-ML-Summer-School-2026-Acknowledgement.pdf", "_blank"),
-                        className: "bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs md:text-sm px-5 py-2.5 rounded-lg transition-all cursor-pointer inline-flex items-center gap-2 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/30",
-                      },
-                      imageHref: "/Amazon-ML-Summer-School-2026-Acknowledgement.pdf",
-                    },
-                    {
-                      name: "100+ Days LeetCode Coding Streak",
-                      designation: "LeetCode Badge 2025",
-                      quote:
-                        "Successfully maintained a consistent coding streak of 100+ days on LeetCode, demonstrating strong commitment, discipline, and proficiency in solving data structures and algorithms problems.",
-                      src: "/images/leetcode-100-days-badge.png",
-                      imageHref: "/images/leetcode-100-days-badge.png",
-                    },
-                    {
-                      name: "Startup School: Prompt to Prototype",
-                      designation: "Google for Startups x Scaler",
-                      quote:
-                        "Completed a two-week programme by Google for Startups in collaboration with Scaler. Learned the full AI product lifecycle from prompting to deployment through six expert-led sessions covering foundation skills, AI research, creative asset generation, prototyping, app development and deployment. Earned Certificate of Completion and applied hands-on learning to build AI-powered prototypes.",
-                      src: "/images/google-startup-school-certificate.png",
-                      imageHref: "/images/google-startup-school-certificate.png",
-                    },
-                    {
-                      name: "Mission Upskill India – Pre-Summit Event",
-                      designation: "AI Impact Summit 2026 | HCL GUVI",
-                      quote:
-                        "Participated in the Mission Upskill India Pre-Summit Event organized by HCL GUVI in collaboration with Ministry of Electronics & Information Technology, Government of India, Digital India, and INDIAai. Focused on practical applications of AI and ML to build an AI-ready workforce. Learned core and advanced concepts of Machine Learning, Deep Learning, and Generative AI. Gained hands-on experience in rapid prototyping using Google Gemini AI Studio and practical prompt engineering. Mentored by Saransh Saxena, Amit Arjun Verma, and Yash Sharma. Certificate ID: i6047qOS1Ju74552W2",
-                      src: "/images/hcl-guvi-ai-summit-certificate.jpg",
-                      imageHref: "/images/hcl-guvi-ai-summit-certificate.jpg",
-                    },
-                    {
-                      name: "Coding Ninjas Challenge",
-                      designation: "21-Day Coding Challenge",
-                      quote: "Completed Coding Ninjas' Ninja Slayground 2.0 — 21-Day Coding Challenge.",
-                      src: "/images/screenshot-202025-11-15-20101639.png",
-                      imageHref: "/images/screenshot-202025-11-15-20101639.png",
-                    },
-                    {
-                      name: "Google Cloud Agentic AI",
-                      designation: "Hackathon Participation",
-                      quote:
-                        "Participated in the Google Cloud Agentic AI Day Hackathon and showcased the project 'Project Drishti' with team members.",
-                      src: "/images/hack2skill-certificate-20-281-29.png",
-                      imageHref: "/images/hack2skill-certificate-20-281-29.png",
-                    },
-                    {
-                      name: "Software Exhibition",
-                      designation: "BBD University",
-                      quote: "Presented the project 'Esport Strategy Hub' at the College Software Exhibition.",
-                      src: "/images/whatsapp-20image-202025-11-15-20at-2010.jpeg",
-                      imageHref: "/images/whatsapp-20image-202025-11-15-20at-2010.jpeg",
-                    },
-                    {
-                      name: "Google GDG Badges",
-                      designation: "Google Developer Groups",
-                      quote: "Earned verified badges from Google GDG Lucknow and Google Gen AI Exchange.",
-                      src: "/images/screenshot-202025-11-15-20102310.png",
-                      imageHref: "/images/screenshot-202025-11-15-20102310.png",
-                    },
-                    {
-                      name: "Hackathon Achievement",
-                      designation: "2nd Place Winner – KALPATHON 2.0 (April 2026)",
-                      quote: (
-                        <>
-                          Built UnLegalize, an AI legal clause simplification platform for Indian rental agreements.
-                          <br />
-                          Developed FastAPI backend with clause-splitting, OCR parsing, and local AI inference.
-                          <br />
-                          Fine-tuned Gemma 3 270M with LoRA (PEFT) plus per-clause explanations and risk scoring.
-                          <br />
-                          Recognized for practical legal accessibility and privacy-first architecture.
-                        </>
-                      ),
-                      src: "/WhatsApp Image 2026-05-14 at 9.27.07 AM.jpeg",
-                      imageHref: "/WhatsApp Image 2026-05-14 at 9.27.07 AM.jpeg",
-                    },
-                  ].map((achievement) => (
-                    <AnimatedFeatureSpotlight
-                      key={achievement.name}
-                      preheaderText={achievement.designation}
-                      heading={achievement.name}
-                      description={achievement.quote}
-                      imageUrl={achievement.src}
-                      imageAlt={achievement.name}
-                      buttonText={achievement.buttonText}
-                      buttonProps={achievement.buttonProps}
-                      imageHref={achievement.imageHref}
-                      className="bg-gray-950/70 border-gray-700 hover:border-emerald-500/40 transition-all duration-300"
-                    />
-                  ))}
-                </div>
+                <motion.p
+                  className="text-neutral-400 text-sm sm:text-base text-center max-w-2xl mx-auto mb-12 font-mono"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  Validated hackathon podium finishes, industry-led fellowships, algorithmic streaks, and verified credentials.
+                </motion.p>
+                <AchievementsSection />
               </div>
             </AnimatedSection>
 
