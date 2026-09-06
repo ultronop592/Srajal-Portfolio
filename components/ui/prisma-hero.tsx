@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Download, Github, Linkedin, Sparkles } from "lucide-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SplineScene } from "@/components/ui/spline";
 
 /* ---------------- WordsPullUp ---------------- */
@@ -155,12 +155,35 @@ const PrismaHero = ({
   className = "",
 }: PrismaHeroProps) => {
   const [backdropMode, setBackdropMode] = useState<"video" | "robot">("video");
+  const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!videoRef.current) return;
+        if (entry.isIntersecting) {
+          videoRef.current.play().catch(() => {});
+        } else {
+          videoRef.current.pause();
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const normalizedNavItems: NavItemObject[] = navItems.map((item) =>
     typeof item === "string" ? { label: item, href: `#${item.toLowerCase().replace(/\s+/g, "-")}` } : item
   );
 
   return (
-    <section className={`min-h-screen w-full px-2 py-4 sm:px-4 md:px-6 lg:px-8 flex items-center justify-center ${className}`}>
+    <section ref={sectionRef} className={`min-h-screen w-full px-2 py-4 sm:px-4 md:px-6 lg:px-8 flex items-center justify-center ${className}`}>
       <div className="relative h-[92vh] sm:h-[94vh] w-full overflow-hidden rounded-2xl md:rounded-[2rem] lg:rounded-[2.5rem] border border-emerald-500/20 shadow-[0_20px_70px_rgba(0,0,0,0.8)] bg-neutral-950">
         
         {/* Background: Video or 3D Robot Scene */}
@@ -173,6 +196,7 @@ const PrismaHero = ({
           </div>
         ) : (
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted

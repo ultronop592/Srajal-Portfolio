@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   },
 }
 
+import SmoothScroll from "@/components/smooth-scroll"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
       <body className="font-sans">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
       </body>
     </html>

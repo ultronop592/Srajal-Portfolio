@@ -23,9 +23,13 @@ export default function ThreeDBackground() {
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000)
     camera.position.z = 12
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: false,
+      powerPreference: "high-performance",
+    })
     renderer.setSize(width, height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25))
     container.appendChild(renderer.domElement)
 
     // Lights
@@ -97,7 +101,7 @@ export default function ThreeDBackground() {
       mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5
     }
 
-    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("mousemove", handleMouseMove, { passive: true })
 
     // Resize Handler
     const handleResize = () => {
@@ -108,7 +112,7 @@ export default function ThreeDBackground() {
       renderer.setSize(w, h)
     }
 
-    window.addEventListener("resize", handleResize)
+    window.addEventListener("resize", handleResize, { passive: true })
 
     // Animation Loop
     let animationId: number

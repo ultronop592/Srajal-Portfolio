@@ -286,14 +286,14 @@ const gatewayFlowSource = `<!DOCTYPE html>
             let explosions = [];
 
             function resize() {
-                const dpr = window.devicePixelRatio || 1;
+                const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
                 width = window.innerWidth;
                 height = window.innerHeight;
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
+                canvas.width = Math.floor(width * dpr);
+                canvas.height = Math.floor(height * dpr);
                 ctx.scale(dpr, dpr);
             }
-            window.addEventListener('resize', resize);
+            window.addEventListener('resize', resize, { passive: true });
             resize();
 
             window.addEventListener('click', (e) => {
@@ -333,7 +333,8 @@ const gatewayFlowSource = `<!DOCTYPE html>
                 const centerX = width / 2;
                 const centerY = height / 2;
 
-                explosions.forEach(exp => {
+                for (let i = 0; i < explosions.length; i++) {
+                    const exp = explosions[i];
                     ctx.save();
                     ctx.beginPath();
                     ctx.arc(exp.x, exp.y, exp.radius, 0, Math.PI * 2);
@@ -344,25 +345,41 @@ const gatewayFlowSource = `<!DOCTYPE html>
 
                     exp.radius += 15;
                     exp.life -= 0.015;
-                });
+                }
                 explosions = explosions.filter(exp => exp.life > 0);
 
-                paths.forEach(path => {
+                // 1. Batch stroke all paths
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(16, 185, 129, 0.32)';
+                ctx.lineWidth = 1.2;
+                ctx.setLineDash([1, 4]);
+
+                for (let i = 0; i < paths.length; i++) {
+                    const path = paths[i];
                     const p0 = { x: path.isLeft ? 0 : width, y: path.startY };
                     const p1 = { x: path.isLeft ? centerX * 0.5 : width - centerX * 0.5, y: path.startY };
                     const p2 = { x: path.isLeft ? centerX * 0.8 : width - centerX * 0.8, y: centerY };
                     const p3 = { x: centerX, y: centerY };
 
-                    ctx.beginPath();
                     ctx.moveTo(p0.x, p0.y);
                     ctx.bezierCurveTo(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
-                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.32)';
-                    ctx.lineWidth = 1.2;
-                    ctx.setLineDash([1, 4]);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
 
-                    path.particles.forEach(p => {
+                // 2. Batch fill all particles
+                ctx.fillStyle = 'rgba(52, 211, 153, 0.85)';
+                ctx.beginPath();
+
+                for (let i = 0; i < paths.length; i++) {
+                    const path = paths[i];
+                    const p0 = { x: path.isLeft ? 0 : width, y: path.startY };
+                    const p1 = { x: path.isLeft ? centerX * 0.5 : width - centerX * 0.5, y: path.startY };
+                    const p2 = { x: path.isLeft ? centerX * 0.8 : width - centerX * 0.8, y: centerY };
+                    const p3 = { x: centerX, y: centerY };
+
+                    for (let j = 0; j < path.particles.length; j++) {
+                        const p = path.particles[j];
                         p.t += p.speed;
                         if (p.t > 1) {
                             p.t = 0;
@@ -372,7 +389,8 @@ const gatewayFlowSource = `<!DOCTYPE html>
                         let pos = getBezierPoint(p.t, p0, p1, p2, p3);
 
                         let dxTotal = 0, dyTotal = 0;
-                        explosions.forEach(exp => {
+                        for (let k = 0; k < explosions.length; k++) {
+                            const exp = explosions[k];
                             let dx = pos.x - exp.x;
                             let dy = pos.y - exp.y;
                             let dist = Math.hypot(dx, dy);
@@ -381,15 +399,15 @@ const gatewayFlowSource = `<!DOCTYPE html>
                                 dxTotal += (dx / dist) * force * 80;
                                 dyTotal += (dy / dist) * force * 80;
                             }
-                        });
+                        }
                         
                         pos.x += dxTotal;
                         pos.y += dyTotal;
 
-                        ctx.fillStyle = 'rgba(52, 211, 153, 0.85)';
-                        ctx.fillRect(pos.x - 1.5, pos.y - 1.5, 3, 3);
-                    });
-                });
+                        ctx.rect(pos.x - 1.5, pos.y - 1.5, 3, 3);
+                    }
+                }
+                ctx.fill();
                 
                 requestAnimationFrame(render);
             }
