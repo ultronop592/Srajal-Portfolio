@@ -30,7 +30,7 @@ import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import { TiltCard3D } from "@/components/ui/tilt-card-3d"
 import NeuralBackground from "@/components/ui/neural-background"
 import ElegantCarousel from "@/components/ui/elegant-carousel"
-import GradientBarsBackground from "@/components/ui/gradient-bars-background"
+const GatewayFlow = dynamic(() => import("@/components/ui/gateway-flow"), { ssr: false })
 import McpTerminal from "@/components/ui/mcp-terminal"
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
@@ -474,16 +474,15 @@ export default function Portfolio() {
           <ScrollToHashClient />
           <ThreeDBackground />
 
-          <div className="fixed inset-0 z-0 overflow-hidden">
-            <GradientBarsBackground
-              numBars={9}
-              gradientFrom="rgb(16, 101, 60)"
-              gradientTo="rgba(16, 101, 60, 0.1)"
-              animationDuration={3}
-              backgroundColor="rgb(10, 10, 10)"
-              className="!min-h-screen"
+          <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+            <GatewayFlow
+              className="w-full h-full"
+              speed={1}
+              density={1}
+              size={1}
+              opacity={0.85}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none"></div>
           </div>
 
           <div className="fixed top-0 left-0 right-0 z-50">
