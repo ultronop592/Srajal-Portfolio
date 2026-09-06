@@ -139,7 +139,7 @@ const DEFAULT_NAV_ITEMS: NavItemObject[] = [
 ];
 
 const DEFAULT_SUBTITLE =
-  "B.Tech CSE (Artificial Intelligence) at BBDU (CGPA 8.3). Selected for Amazon ML Summer School 2026, certified by Kaggle × Google in AI Agents, and experienced shipping enterprise full-stack systems at Om Softwares (Next.js 15, FastAPI, Docker). Building machine learning models and intelligent agentic workflows to turn data into impactful decisions.";
+  "4th-year B.Tech Computer Science & AI student at BBDU (CGPA 8.4). Ex-Amazon ML Summer School 2026 scholar & Kalpathon 2.0 Hackathon 2nd place winner. Specializing in autonomous multi-agent systems (LangGraph, MCP), SLM fine-tuning (PEFT/LoRA), and enterprise hybrid RAG. Actively seeking full-time AI/ML engineering roles.";
 
 const PrismaHero = ({
   title = "Srajal Tiwari",

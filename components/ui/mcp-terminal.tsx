@@ -232,7 +232,7 @@ export default function McpTerminal() {
     if (intent === "projects") {
       toolResultText = "Retrieved 11 project nodes from vector index: [1. AgentForge (Multi-Agent WorkForce), 2. UnLegalize (Hackathon 2nd Place), 3. Multi Source Agentic RAG System, 4. Cold Email Generator AI, 5. Waterborne Disease Predictor, 6. Fake News Classifier, 7. Movie Recommender, 8. Disease Predictor, 9. Esports Strategy Hub, 10. Spam Email Detector, 11. Loan Approval Predictor]."
     } else if (intent === "skills") {
-      toolResultText = "Retrieved technical skills matrix: Languages: Python, TypeScript, JavaScript, C/C++, SQL | Frameworks: LangChain, LangGraph, FastAPI, Next.js 15, React 19, PyTorch, TensorFlow, Scikit-learn | Tools & Vectors: Qdrant Cloud, ChromaDB, Docker, Redis, Celery, WebSockets, n8n, Git & GitHub."
+      toolResultText = "Retrieved technical skills matrix: Languages: Python, C++, SQL | Frameworks: Transformers (Hugging Face), Vision Transformers (ViT), vLLM, LangChain, LangGraph, FastAPI, PyTorch, TensorFlow/Keras, Scikit-learn, Next.js 15 | Concepts: AI Agents & Multi-Agent Systems, LLM Evaluation (LangSmith), LLM Inference & Quantization, VAE & Autoencoders, RAG, MCP, LoRA/PEFT | Tools & Vectors: LangSmith, vLLM, Qdrant Cloud, ChromaDB, Pinecone, FAISS, Docker, AWS, GCP."
     } else if (intent === "certifications") {
       toolResultText = "Retrieved 17 verified credentials: [Kaggle × Google 5-Day AI Agents (July 2026), Anthropic AI Fluency (May 2026), Anthropic Advanced MCP (March 2026), Claude 101, Claude with Bedrock, AWS Agentic AI, Microsoft GenAI, One Roadmap AI Engineer & Python/SQL, Deloitte Cyber & Analytics]."
     } else if (intent === "experience") {
@@ -244,9 +244,9 @@ export default function McpTerminal() {
     } else if (intent === "contact") {
       toolResultText = "Retrieved active channels: [Email: srajaltiwari902@gmail.com, Phone: +91 9919084211, Location: Lucknow, India, Socials: LinkedIn, GitHub, Kaggle]."
     } else if (intent === "hire") {
-      toolResultText = "Retrieved candidate evaluation metrics: 4th-year BTech CSE (AI) student at BBDU, 6-month Om Softwares production development internship, Amazon ML Summer School graduate, Kaggle × Google AI Agents certified, Anthropic MCP expert, 11+ deployed projects, 8.4 CGPA."
+      toolResultText = "Retrieved candidate evaluation metrics: 4th-year BTech CSE (AI) student at BBDU (CGPA 8.4), Ex Amazon ML Summer School 2026 scholar, 2nd Place Kalpathon 2.0 Hackathon Winner, Anthropic MCP expert, 11+ deployed AI projects. Actively seeking AI/ML engineering roles."
     } else {
-      toolResultText = "Retrieved full candidate profile: Srajal Tiwari — 4th-year B.Tech AI Student at BBD University, GenAI & Agentic AI Engineer, Full-Stack Developer with Om Softwares internship experience."
+      toolResultText = "Retrieved full candidate profile: Srajal Tiwari — 4th-year B.Tech AI Student at BBD University (CGPA 8.4), Ex Amazon ML Summer School 2026 scholar, Agentic AI & Generative AI Engineer actively seeking full-time roles."
     }
     addLog(`[tool-response] Success. ${toolResultText}`, "success")
 
@@ -340,13 +340,13 @@ Other deployed projects include Waterborne Disease Predictor (Bi-LSTM), Fake New
 * 📊 **Kaggle**: [kaggle.com/srajaltiwari76](https://www.kaggle.com/srajaltiwari76)
 * 🧩 **LeetCode**: [leetcode.com/u/SrajalTiwari](https://leetcode.com/u/SrajalTiwari/)`
     } else if (intent === "hire") {
-      finalAnswer = `🤖 AGENT RESPONSE: Why Srajal Tiwari is a top candidate for AI/ML & AI Software Engineering roles:
+      finalAnswer = `🤖 AGENT RESPONSE: Why Srajal Tiwari is an ideal candidate for AI/ML & Generative AI Engineering roles:
 
-1. **Production Full-Stack & AI Stack**: 6-month Om Softwares internship building Next.js 15, React 19, FastAPI, PostgreSQL, WebSockets, and Docker applications.
-2. **Selective AI Academics**: Amazon ML Summer School 2026 Alum (taught by Amazon Scientists) and Kaggle × Google AI Agents certified.
-3. **Agentic AI & MCP Expert**: Certified directly by Anthropic in Model Context Protocol (MCP), Claude workflows, and agent design.
-4. **Proven Builder & Hackathon Winner**: 2nd place in KALPATHON 2.0 (UnLegalize), creator of AgentForge (multi-agent workforce platform) and Multi-Source Agentic RAG.
-5. **Academic Excellence**: 4th-year student at BBDU maintaining an **8.4 CGPA**.`
+1. 🌟 **Amazon ML Summer School 2026 Scholar**: Selected for Amazon's competitive machine learning program, learning directly from Amazon Scientists across GenAI, LLMs, Deep Learning, and RL.
+2. 🏆 **Proven Builder & Hackathon Winner**: 2nd Place in Kalpathon 2.0 (UnLegalize — fine-tuned Gemma-3 270M with PEFT/LoRA), creator of AgentForge (LangGraph multi-agent orchestration) and Multi-Source Agentic RAG.
+3. ⚡ **Agentic AI & MCP Certified**: Certified directly by Anthropic in Model Context Protocol (MCP) architecture and Claude agentic workflows.
+4. 🎓 **Academic Rigor**: 4th-year B.Tech student in CSE (Artificial Intelligence) at BBDU maintaining a **8.4 / 10 CGPA**.
+5. 🚀 **Ready to Deploy**: Actively interviewing and ready to contribute to high-impact production AI systems from day one.`
     } else {
       finalAnswer = `🤖 AGENT RESPONSE: Welcome! I am Srajal's AI Portfolio Ambassador connected via Model Context Protocol (MCP).
 

@@ -92,41 +92,49 @@ export default function Portfolio() {
   }
 
   const skills = {
-    languages: ["Python", "FastAPI", "Django", "C/C++", "SQL"],
+    languages: ["Python", "C++", "SQL"],
     frameworks: [
+      "Transformers (Hugging Face)",
+      "Vision Transformers (ViT)",
       "LangChain",
       "LangGraph",
+      "vLLM",
       "FastAPI",
-      "Django",
-      "Next.js 15",
-      "React 19",
       "PyTorch",
       "TensorFlow/Keras",
       "Scikit-learn",
-      "Pandas",
-      "NumPy",
+      "Pandas & NumPy",
+      "Next.js 15",
+      "React 19",
     ],
     concepts: [
-      "Agentic AI & Multi-Agent Systems",
+      "AI Agents & Multi-Agent Systems",
+      "LLM Evaluation & Benchmarking",
+      "LLM Inference & Quantization",
       "Retrieval-Augmented Generation (RAG)",
-      "Generative AI & LLMs",
-      "Deep Learning",
-      "Machine Learning",
-      "Fine-Tuning (PEFT/LoRA)",
+      "VAE & Autoencoders",
+      "Vision Transformers (ViTs)",
+      "LoRA Fine-Tuning & PEFT",
+      "Model Context Protocol (MCP)",
+      "Deep Learning & Generative AI",
+      "Semantic & Hybrid Search",
       "Data Structures & Algorithms",
-      "DBMS & Database Design",
+      "Object-Oriented Programming",
     ],
     tools: [
+      "LangSmith (LLM Eval & Tracing)",
+      "vLLM Serving Engine",
+      "Hugging Face Hub",
       "Qdrant Cloud",
       "ChromaDB",
-      "Hugging Face",
+      "Pinecone",
+      "FAISS",
       "Docker",
-      "Redis & Celery",
-      "WebSockets",
-      "n8n Workflow Automation",
+      "AWS",
+      "Google Cloud Platform",
       "Git & GitHub",
       "Cursor IDE",
-      "Google Colab",
+      "Vercel",
     ],
   }
 
@@ -530,7 +538,7 @@ export default function Portfolio() {
     {
       icon: <GraduationCap className="size-4 text-emerald-400" />,
       title: "Education",
-      description: "B.Tech CSE (AI) - CGPA: 8.3",
+      description: "4th Year B.Tech CSE (AI) · CGPA: 8.4",
       date: "2023 - 2027",
       iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
       titleClassName: "text-emerald-300 font-mono",
@@ -538,10 +546,10 @@ export default function Portfolio() {
         "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:rounded-2xl before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-black/60 grayscale-[70%] hover:before:opacity-0 before:transition-opacity before:duration-500 hover:grayscale-0 before:left-0 before:top-0",
     },
     {
-      icon: <Code className="size-4 text-emerald-400" />,
-      title: "Focus Area",
-      description: "AI/ML & GEN AI",
-      date: "Current Focus",
+      icon: <Sparkles className="size-4 text-emerald-400" />,
+      title: "Recognition",
+      description: "Ex Amazon ML School 2026",
+      date: "Selected ML Scholar",
       iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
       titleClassName: "text-emerald-300 font-mono",
       className:
@@ -549,9 +557,9 @@ export default function Portfolio() {
     },
     {
       icon: <Briefcase className="size-4 text-emerald-400" />,
-      title: "Seeking",
-      description: "AI/ML Roles & Internships",
-      date: "Open for Opportunities",
+      title: "Status",
+      description: "Seeking AI / ML Roles",
+      date: "Actively Interviewing",
       iconClassName: "bg-emerald-950/60 border border-emerald-500/30",
       titleClassName: "text-emerald-300 font-mono",
       className: "[grid-area:stack] translate-x-20 translate-y-16 hover:translate-y-6",
@@ -682,7 +690,7 @@ export default function Portfolio() {
             <PrismaHero
               title="Srajal Tiwari"
               showAsterisk={true}
-              subtitle="B.Tech Computer Science & AI engineer at BBDU (CGPA 8.3). Selected for Amazon ML Summer School 2026, certified by Kaggle × Google in AI Agents, and experienced shipping production systems at Om Softwares (Next.js 15, FastAPI, Docker). Building machine learning models and intelligent agentic workflows to turn data into impactful decisions."
+              subtitle="4th-year B.Tech Computer Science & AI student at BBDU (CGPA 8.4). Ex-Amazon ML Summer School 2026 scholar & Kalpathon 2.0 Hackathon 2nd place winner. Specializing in autonomous multi-agent systems (LangGraph, MCP), SLM fine-tuning (PEFT/LoRA), and enterprise hybrid RAG. Actively seeking full-time AI/ML engineering roles."
               ctaText="Explore Projects"
               ctaHref="#projects"
               onDownloadResume={handleDownloadResume}
@@ -735,7 +743,7 @@ export default function Portfolio() {
                               </span>
                             </div>
                             <p className="text-gray-300 text-sm leading-relaxed">
-                              B.Tech CSE (Artificial Intelligence) student (Batch 2023–2027, CGPA 8.3/10) at Babu Banarasi Das University, Lucknow. Hands-on industry experience building production CRM applications at Om Softwares (OMCRM), selected for Amazon ML Summer School 2026, and certified in AI Agents by Kaggle × Google.
+                              4th-year B.Tech student in Computer Science & Engineering (Artificial Intelligence) at Babu Banarasi Das University, Lucknow (CGPA: 8.4/10). Ex-participant at Amazon ML Summer School 2026 (selected among top applicants across India, mentored by Amazon Scientists in Deep Learning, Generative AI, and Reinforcement Learning), and 2nd Place Winner at Kalpathon 2.0 Hackathon. Passionate about architecting production agentic workflows (LangGraph, MCP), fine-tuning local SLMs (LoRA/PEFT), and enterprise multi-source RAG systems. Actively seeking full-time AI/ML engineering roles.
                             </p>
                           </div>
 
@@ -748,12 +756,12 @@ export default function Portfolio() {
                               <div className="border-l-2 border-emerald-500/40 pl-4 hover:border-emerald-400 transition-colors bg-emerald-500/5 p-3 rounded-r-xl">
                                 <div className="flex items-center gap-2 mb-1">
                                   <GraduationCap className="h-4 w-4 text-emerald-400" />
-                                  <span className="text-white font-semibold text-sm">B.Tech in Computer Science (AI)</span>
+                                  <span className="text-white font-semibold text-sm">B.Tech in Computer Science & Engineering (AI)</span>
                                 </div>
-                                <p className="text-gray-400 text-xs font-mono">Babu Banarasi Das University, Lucknow</p>
+                                <p className="text-gray-400 text-xs font-mono">Babu Banarasi Das University, Lucknow · 4th Year Student</p>
                                 <div className="flex items-center gap-4 mt-2 text-xs">
-                                  <span className="text-gray-400 font-mono">2023 - 2027</span>
-                                  <span className="text-emerald-400 font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">CGPA: 8.3</span>
+                                  <span className="text-gray-400 font-mono">Expected: 2027</span>
+                                  <span className="text-emerald-400 font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">CGPA: 8.4 / 10</span>
                                 </div>
                               </div>
                             </div>
