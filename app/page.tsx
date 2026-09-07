@@ -13,6 +13,7 @@ import { NeonButton } from "@/components/ui/neon-button"
 import { AnimatedFeatureSpotlight } from "@/components/ui/feature-spotlight"
 import { CertificatesGrid } from "@/components/ui/certificates-grid"
 import { BentoGrid, BentoCard } from "@/components/ui/bento-grid"
+import { SkillsInteractiveSection } from "@/components/ui/skills-interactive-section"
 import { CodeIcon, LayersIcon, GearIcon, LightningBoltIcon } from "@radix-ui/react-icons"
 import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
@@ -943,11 +944,50 @@ export default function Portfolio() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-                  <BentoGrid className="grid-cols-1 md:grid-cols-2 auto-rows-fr">
-                    {skillFeatures.map((feature) => (
-                      <BentoCard key={feature.name} {...feature} />
-                    ))}
-                  </BentoGrid>
+                  <SkillsInteractiveSection
+                    categories={[
+                      {
+                        id: "languages",
+                        name: "Languages",
+                        tagline: "CORE SYNTAX & RUNTIMES",
+                        Icon: CodeIcon,
+                        description: skills.languages.join(" • "),
+                        items: skills.languages,
+                        href: "/skills",
+                        cta: "Full Matrix",
+                      },
+                      {
+                        id: "frameworks",
+                        name: "Frameworks & Libraries",
+                        tagline: "AI / LLM & FULLSTACK",
+                        Icon: LayersIcon,
+                        description: skills.frameworks.join(" • "),
+                        items: skills.frameworks,
+                        href: "/skills",
+                        cta: "Full Matrix",
+                      },
+                      {
+                        id: "concepts",
+                        name: "Concepts & Domains",
+                        tagline: "ALGORITHMS & PARADIGMS",
+                        Icon: LightningBoltIcon,
+                        description: skills.concepts.join(" • "),
+                        items: skills.concepts,
+                        href: "/skills",
+                        cta: "Full Matrix",
+                      },
+                      {
+                        id: "tools",
+                        name: "Tools & Platforms",
+                        tagline: "DEV & AUTOMATION PIPELINES",
+                        Icon: GearIcon,
+                        description: skills.tools.join(" • "),
+                        items: skills.tools,
+                        href: "/skills",
+                        cta: "Full Matrix",
+                      },
+                    ]}
+                  />
                 </motion.div>
               </div>
             </AnimatedSection>
@@ -1157,7 +1197,8 @@ export default function Portfolio() {
             </AnimatedSection>
 
 
-            <AnimatedSection id="components" className="py-20 px-4" delay={0.14}>
+            <AnimatedSection id="certifications" className="py-20 px-4" delay={0.14}>
+              <span id="components" className="sr-only pointer-events-none" />
               <div className="container mx-auto">
                 <motion.h2
                   className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
