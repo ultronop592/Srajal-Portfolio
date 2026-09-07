@@ -1,6 +1,6 @@
 # 🌌 Srajal Tiwari - AI/ML Engineer Portfolio
 
-A production-grade, premium portfolio website showcasing 10+ AI/ML projects, 12+ industry-recognized certifications, and a cutting-edge generative AI & machine learning tech stack. Built with **Next.js 14**, **React 18**, **TypeScript**, and **Tailwind CSS**, it features a fully interactive offline Model Context Protocol (MCP) AI Assistant Terminal, scroll-morphing typography, 3D interactive graphics, and seamless responsive design.
+A production-grade, premium portfolio website showcasing 10+ AI/ML projects, 17+ industry-recognized certifications, and a cutting-edge generative AI & machine learning tech stack. Built with **Next.js 14**, **React 18**, **TypeScript**, and **Tailwind CSS**, it features clean minimal card designs, dedicated showcase hubs for Skills and Certificates, an offline Model Context Protocol (MCP) AI Assistant Terminal, 3D interactive graphics, and seamless responsive design.
 
 [![Live Site](https://img.shields.io/badge/Live_Site-srajal--portfolio.vercel.app-10b981?style=for-the-badge&logo=vercel&logoColor=white)](https://srajal-portfolio.vercel.app)
 [![Next.js Version](https://img.shields.io/badge/Next.js-14.x-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
@@ -57,10 +57,18 @@ A production-grade, premium portfolio website showcasing 10+ AI/ML projects, 12+
   * **Cold Email Generator AI**: Context-aware LangChain and Groq LLM workflow with ChromaDB.
 * **Interactive Media & GitHub Integration** - Rich details, screenshots, tag filters, live deployment links, and repository access directly from the grid.
 
-### 🏆 Verified Credentials & Testimonials
-* **12+ Industry-Recognized Certifications** - Fully documented credentials from Anthropic, Microsoft, Google, Deloitte, and GUVI.
+### ⚡ Modern Skills & Technology Matrix
+* **Clean Bento Grid Cards** - Minimalist, glassmorphic layout replacing heavy brackets with soft ambient hover glow and refined typography.
+* **Interactive Category Filtering** - Instant switching across Languages, Frameworks & Libraries, Concepts & Paradigms, and Tools & Platforms.
+* **Real-time Skill Search & Highlights** - Search by keyword with instant card updates and highlighted core production competencies (Python, LangGraph, vLLM, Next.js 15, PyTorch).
+* **Dedicated Showcase Route (`/skills`)** - Comprehensive technical breakdown highlighting architectural pillars in Agentic AI, LLM Fine-Tuning, and High-Performance Full-Stack Engineering.
+
+### 🏆 Verified Credentials & Certifications Gallery
+* **17+ Industry-Recognized Certifications** - Authenticated accreditations from Anthropic, AWS, Microsoft, Deloitte, One Roadmap, and HP LIFE with direct verification links.
+* **Minimalist & Clean Card System** - Modern glassmorphic cards (`rounded-2xl`) featuring tailored brand issuer tags, credential ID badges, and smooth hover micro-animations.
+* **Interactive Filtering & Search** - Real-time issuer filtering tabs (`Anthropic`, `AWS`, `Microsoft`, `One Roadmap`, `Deloitte`, `HP LIFE`) and instant query search.
+* **Dedicated Showcase Route (`/certificates`)** - Full-page accreditation catalog with accreditation statistics and credential verify links (aliased at `/certifications`).
 * **7+ Major Achievements** - Documented coding streaks (LeetCode 100+ days), Startup School programs, HCL AI Summit participation, and hackathons.
-* **Autoplay Credentials Carousel** - Interactive slides highlighting course descriptors, completion certificates, and credential verify links.
 
 ---
 
@@ -263,6 +271,12 @@ Srajal-Portfolio/
 │   ├── globals.css                       # Global Tailwind and keyframe overrides
 │   ├── explore/
 │   │   └── page.tsx                      # Projects index page with keyword filters
+│   ├── skills/
+│   │   └── page.tsx                      # Dedicated technical skills matrix page
+│   ├── certificates/
+│   │   └── page.tsx                      # Dedicated verified credentials gallery
+│   ├── certifications/
+│   │   └── page.tsx                      # Alias route to certificates gallery
 │   └── resume-pdf/
 │       └── page.tsx                      # Fully embedded browser resume view
 ├── components/
@@ -279,7 +293,11 @@ Srajal-Portfolio/
 │       ├── 3d-adaptive-navigation-bar.tsx# High-end hover adaptive navbar
 │       ├── 3d-pin.tsx                    # Animated radial perspective overlays
 │       ├── animated-testimonials.tsx     # Auto-rotating credentials slideshow
-│       ├── bento-grid.tsx                # Grid module for compact project data
+│       ├── bento-grid.tsx                # Clean minimal bento cards for skill matrix
+│       ├── certificate-card.tsx          # Minimal glassmorphic card with brand issuer tags
+│       ├── certificates-grid.tsx         # Interactive credentials grid with search & filters
+│       ├── skills-interactive-section.tsx# Interactive skills section with category tabs & search
+│       ├── navbar-frosted.tsx            # Frosted glass navigation with Certifications link
 │       ├── elegant-carousel.tsx          # Micro-slide layout with physics damping
 │       ├── mcp-terminal.tsx              # Offline MCP CLI Chatbot console component
 │       ├── container-scroll-animation.tsx# Scroll-to-scale container component
@@ -586,7 +604,8 @@ docker run -p 3000:3000 portfolio-image
 ## 📊 Live Portfolio Statistics
 
 * **10+ Projects**: Production-ready, fully deployed AI/ML builds.
-* **12+ Credentials**: Verified certifications from industry leaders.
+* **17+ Verified Credentials**: Accredited certifications from Anthropic (MCP & Claude), AWS, Microsoft, Deloitte, and One Roadmap with direct verification links.
+* **Dedicated Showcase Hubs**: Standalone `/skills` matrix and `/certificates` gallery with instant search and category filtering.
 * **7+ Achievements**: Recognized coding stats, Summits, and hackathons.
 * **12+ Core Tech Stack Tools**: Direct hands-on workspace utilities.
 * **100+ Days**: LeetCode streak proving daily algorithmic problem solving.
