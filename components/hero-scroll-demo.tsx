@@ -218,105 +218,129 @@ export default function HeroScrollDemo() {
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
         titleComponent={
-          <div className="mb-8 text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-neutral-300 to-neutral-500 bg-clip-text text-transparent mb-4"
+          <div className="mb-4 md:mb-6 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/35 text-emerald-400 font-mono text-[11px] mb-3 shadow-lg shadow-emerald-950/40">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>INTERACTIVE 3D SYSTEM ARCHITECTURE</span>
+            </div>
+            <h2
+              className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight mb-3"
+              style={{ fontFamily: "Syne, sans-serif" }}
             >
-              Explore My Portfolio
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-neutral-400 text-xl md:text-2xl font-light tracking-wide"
-            >
-              AI/ML Engineer | GenAI and Applied NLP
-            </motion.p>
+              <span className="text-white">Explore </span>
+              <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent">
+                Core Intelligence
+              </span>
+            </h2>
+            <p className="text-neutral-400 text-xs sm:text-sm md:text-base max-w-2xl mx-auto font-mono">
+              High-performance AI/ML engineering, autonomous agent graphs, and cloud architectures.
+            </p>
           </div>
         }
       >
-        <div className="h-full w-full bg-gradient-to-br from-black via-neutral-950 to-neutral-900 p-8 md:p-12 flex flex-col rounded-3xl border border-neutral-800/50">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-10">
+        <div className="h-full w-full bg-gradient-to-br from-neutral-950 via-black to-neutral-950 p-4 sm:p-6 md:p-8 flex flex-col justify-between rounded-[22px] md:rounded-[26px] border border-emerald-500/15">
+          {/* OS Header Telemetry */}
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-800/80 text-[11px] font-mono text-neutral-400">
+            <div className="flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 border border-red-400/30" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 border border-amber-400/30" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 border border-emerald-400/30" />
+              </div>
+              <span className="hidden sm:inline-block text-neutral-500 ml-2">/workspace/srajal/metrics</span>
+            </div>
+            <div className="flex items-center gap-3 text-neutral-400 text-[10px] sm:text-xs">
+              <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                SYS_ONLINE
+              </span>
+              <span className="hidden md:inline text-neutral-600">|</span>
+              <span className="hidden md:inline font-mono text-neutral-400">INFERENCE: 12ms</span>
+            </div>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: index * 0.1,
-                  duration: 0.7,
-                  ease: [0.25, 0.46, 0.45, 0.94],
+                  delay: index * 0.08,
+                  duration: 0.5,
                 }}
                 whileHover={{
-                  scale: 1.05,
-                  y: -5,
+                  scale: 1.03,
+                  y: -3,
                   transition: { duration: 0.2 },
                 }}
-                className="relative text-center p-4 md:p-6 bg-gradient-to-b from-neutral-800/60 to-neutral-900/80 rounded-2xl border border-neutral-700/40 hover:border-neutral-500/60 transition-all duration-300 group overflow-hidden"
+                className="relative text-center p-3.5 sm:p-4 md:p-5 bg-gradient-to-b from-neutral-900/90 to-neutral-950/95 rounded-xl md:rounded-2xl border border-emerald-500/20 hover:border-emerald-500/50 transition-all duration-300 group overflow-hidden shadow-lg shadow-black/60"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative z-10">
-                  <span className="text-2xl md:text-3xl mb-2 flex justify-center text-neutral-200">
-                    <stat.icon className="h-6 w-6 md:h-8 md:w-8" />
-                  </span>
-                  <div className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 tracking-tight">
-                    {stat.value}
+                {/* Corner reticle brackets */}
+                <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-emerald-500/30 group-hover:border-emerald-400 transition-colors pointer-events-none" />
+                <div className="absolute top-1.5 right-1.5 w-2 h-2 border-t border-r border-emerald-500/30 group-hover:border-emerald-400 transition-colors pointer-events-none" />
+                <div className="absolute bottom-1.5 left-1.5 w-2 h-2 border-b border-l border-emerald-500/30 group-hover:border-emerald-400 transition-colors pointer-events-none" />
+                <div className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b border-r border-emerald-500/30 group-hover:border-emerald-400 transition-colors pointer-events-none" />
+
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="mb-2 p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all">
+                    <stat.icon className="h-4 w-4 md:h-5 md:w-5" />
                   </div>
-                  <div className="text-[11px] md:text-sm lg:text-base text-neutral-300 font-semibold uppercase tracking-wider">
+                  <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1 tracking-tight font-mono">
+                    <span className="bg-gradient-to-r from-white via-neutral-100 to-emerald-300 bg-clip-text text-transparent">
+                      {stat.value}
+                    </span>
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-neutral-300 font-semibold uppercase tracking-wider">
                     {stat.label}
                   </div>
-                  <div className="mt-2 text-[10px] md:text-xs text-neutral-500">{stat.meta}</div>
+                  <div className="mt-1 text-[9px] sm:text-[10px] text-neutral-500 font-mono line-clamp-1">{stat.meta}</div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="flex-1">
-            <motion.h3
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-lg md:text-xl text-neutral-500 font-semibold mb-4 md:mb-6 uppercase tracking-widest"
-            >
-              <span>{techStackHeading}</span>
-            </motion.h3>
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
-              {techStack.map((tech, index) => (
-                <motion.div
+          {/* Tech Stack Heading & Grid */}
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="flex items-center justify-between mb-3 md:mb-4">
+              <span className="text-[11px] md:text-xs text-emerald-400/90 font-mono font-bold uppercase tracking-widest flex items-center gap-1.5">
+                <span className="text-emerald-500">▸</span> {techStackHeading}
+              </span>
+              <span className="text-[10px] font-mono text-neutral-500 hidden sm:inline">
+                HOVER TO INSPECT // 3D ACCELERATED
+              </span>
+            </div>
+
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5 sm:gap-3 md:gap-4">
+              {techStack.map((tech) => (
+                <div
                   key={tech.name}
-                  initial={{ opacity: 0, scale: 0.3, rotateY: -180 }}
-                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                  transition={{
-                    delay: 0.6 + index * 0.08,
-                    duration: 0.8,
-                    type: "spring",
-                    stiffness: 80,
-                    damping: 12,
-                  }}
-                  whileHover={{
-                    scale: 1.15,
-                    rotateY: 10,
-                    rotateX: -5,
-                    z: 50,
-                    transition: { duration: 0.3 },
-                  }}
-                  className="flex flex-col items-center justify-center p-4 md:p-6 bg-gradient-to-br from-neutral-800/40 via-neutral-900/60 to-black/80 rounded-xl border border-neutral-700/30 hover:border-neutral-400/50 hover:bg-neutral-800/50 transition-all duration-300 cursor-pointer group"
-                  style={{
-                    transformStyle: "preserve-3d",
-                    perspective: "1000px",
-                  }}
+                  className="flex flex-col items-center justify-center p-2.5 sm:p-3 md:p-4 bg-gradient-to-b from-neutral-900/60 to-black/80 rounded-xl border border-neutral-800 hover:border-emerald-500/40 hover:bg-emerald-950/20 transition-all duration-300 cursor-pointer group shadow-sm"
                 >
-                  <div className="mb-2 group-hover:drop-shadow-[0_0_16px_rgba(255,255,255,0.5)] transition-all duration-300 transform group-hover:scale-110">
+                  <div className="mb-1.5 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_rgba(52,211,153,0.4)] transition-transform duration-300">
                     {tech.icon}
                   </div>
-                  <span className="text-xs md:text-sm text-neutral-500 group-hover:text-white text-center font-semibold transition-colors duration-300 uppercase tracking-wide">
+                  <span className="text-[10px] sm:text-xs text-neutral-400 group-hover:text-emerald-300 text-center font-mono font-medium transition-colors uppercase tracking-wider">
                     {tech.name}
                   </span>
-                </motion.div>
+                </div>
               ))}
+            </div>
+          </div>
+
+          {/* Bottom Live Telemetry Footer */}
+          <div className="mt-4 pt-3 border-t border-neutral-800/80 flex items-center justify-between text-[10px] font-mono text-neutral-500 flex-wrap gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-emerald-400 font-bold">CORE_STATE:</span>
+              <span className="text-neutral-300">LANGGRAPH_V0.2</span>
+              <span className="text-neutral-600">•</span>
+              <span className="text-neutral-300">PGVECTOR_768d</span>
+              <span className="text-neutral-600">•</span>
+              <span className="text-neutral-300">BOTO3_AUTONOMOUS</span>
+            </div>
+            <div className="text-emerald-400/80 font-bold hidden sm:block">
+              PORTFOLIO // INTERACTIVE_HUD
             </div>
           </div>
         </div>

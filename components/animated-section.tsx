@@ -14,13 +14,13 @@ export default function AnimatedSection({ className, delay = 0, id, children }: 
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+      initial={{ opacity: 0, y: 32, scale: 0.985 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "0px 0px -60px 0px" }}
       transition={{
         delay,
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        duration: 0.75,
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={cn(className)}
     >

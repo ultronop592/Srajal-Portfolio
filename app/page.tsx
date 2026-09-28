@@ -39,6 +39,7 @@ const ThreeDBackground = dynamic(() => import("@/components/ui/three-d-backgroun
 const AchievementsSection = dynamic(() => import("@/components/ui/achievements-section"), { ssr: false })
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
+const CyberScrollProgress = dynamic(() => import("@/components/ui/cyber-scroll-progress"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
 
@@ -1876,7 +1877,7 @@ export default function Portfolio() {
             </section>
 
             <Suspense fallback={null}>
-              <ScrollToTop />
+              <CyberScrollProgress />
             </Suspense>
           </main>
 

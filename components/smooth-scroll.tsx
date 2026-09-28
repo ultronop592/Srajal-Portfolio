@@ -6,11 +6,19 @@ import Lenis from "lenis";
 export default function SmoothScroll({ children }: { children?: React.ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
       smoothWheel: true,
-      touchMultiplier: 1.8,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.6,
+      infinite: false,
     });
+
+    if (typeof window !== "undefined") {
+      (window as any).__lenis = lenis;
+    }
 
     let rafId: number;
 
@@ -24,6 +32,9 @@ export default function SmoothScroll({ children }: { children?: React.ReactNode 
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      if (typeof window !== "undefined") {
+        delete (window as any).__lenis;
+      }
     };
   }, []);
 
