@@ -42,6 +42,7 @@ const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: f
 const CyberScrollProgress = dynamic(() => import("@/components/ui/cyber-scroll-progress"), { ssr: false })
 const CodingStatsHub = dynamic(() => import("@/components/ui/coding-stats-hub"), { ssr: false })
 const ContactCyberConsole = dynamic(() => import("@/components/ui/contact-cyber-console"), { ssr: false })
+const ProjectBlueprintWorkbench = dynamic(() => import("@/components/ui/project-blueprint-workbench"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
 
@@ -1117,208 +1118,23 @@ export default function Portfolio() {
                   </span>
                 </motion.h2>
 
-                {/* Filter Buttons */}
-                <motion.div
-                  className="flex flex-wrap justify-center items-center gap-2.5 mb-12 max-w-4xl mx-auto"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <button
-                    onClick={() => setActiveTags([])}
-                    className={`px-3.5 py-1.5 rounded-full font-mono text-xs transition-all duration-300 ${activeTags.length === 0
-                        ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
-                        : 'bg-neutral-900 border border-gray-800 text-gray-400 hover:border-emerald-500/30 hover:text-gray-300'
-                      }`}
-                  >
-                    Clear Filters ({allProjects.length})
-                  </button>
-                  {filterOptions.map((tag) => {
-                    const isActive = activeTags.includes(tag)
-                    const count = allProjects.filter(p => p.tech.includes(tag) || p.category === tag).length
-                    return (
-                      <button
-                        key={tag}
-                        onClick={() => {
-                          if (isActive) {
-                            setActiveTags(prev => prev.filter(t => t !== tag))
-                          } else {
-                            setActiveTags(prev => [...prev, tag])
-                          }
-                        }}
-                        className={`px-3.5 py-1.5 rounded-full font-mono text-xs flex items-center gap-1.5 transition-all duration-300 ${isActive
-                            ? 'bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold'
-                            : 'bg-neutral-900 border border-gray-800 text-gray-500 hover:border-emerald-500/30 hover:text-gray-300'
-                          }`}
-                      >
-                        <span>{tag.toUpperCase()}</span>
-                        <span className="text-[9px] px-1 bg-black/40 text-gray-500 rounded-full font-bold">{count}</span>
-                      </button>
-                    )
-                  })}
-                </motion.div>
-
-                {/* View Mode Switcher: Showcase Slider vs Compact Grid */}
-                <div className="flex items-center justify-center gap-2 mb-10">
-                  <button
-                    onClick={() => setProjectViewMode("showcase")}
-                    className={`px-4 py-2 rounded-xl font-mono text-xs flex items-center gap-2 transition-all duration-300 ${
-                      projectViewMode === "showcase"
-                        ? "bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold shadow-lg shadow-emerald-500/10"
-                        : "bg-neutral-900/80 border border-gray-800 text-gray-400 hover:text-gray-200 hover:border-gray-700"
-                    }`}
-                  >
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>FEATURED SHOWCASE</span>
-                  </button>
-                  <button
-                    onClick={() => setProjectViewMode("grid")}
-                    className={`px-4 py-2 rounded-xl font-mono text-xs flex items-center gap-2 transition-all duration-300 ${
-                      projectViewMode === "grid"
-                        ? "bg-emerald-500/20 border border-emerald-500 text-emerald-400 font-bold shadow-lg shadow-emerald-500/10"
-                        : "bg-neutral-900/80 border border-gray-800 text-gray-400 hover:text-gray-200 hover:border-gray-700"
-                    }`}
-                  >
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>COMPACT GRID ({projects.length})</span>
-                  </button>
-                </div>
+                <p className="text-center text-sm font-mono text-neutral-400 max-w-2xl mx-auto -mt-6 mb-8">
+                  Interactive 3D Mission Cockpit &amp; Architectural Blueprint Schematics • Inspect live pipelines, system telemetry, and deep execution topologies
+                </p>
               </div>
 
-              {projectViewMode === "showcase" ? (
-                <ElegantCarousel projects={projects} />
-              ) : (
-                <div className="container mx-auto px-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                    {projects.map((project, idx) => (
-                      <TiltCard3D key={idx} tiltStrength={6} glareOpacity={0.12} className="h-full">
-                        <div
-                          className="group relative flex flex-col justify-between h-full rounded-2xl bg-neutral-950/85 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 p-5 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 overflow-hidden"
-                        >
-                          {/* Corner Cyber Brackets */}
-                          <div className="absolute top-2.5 left-2.5 w-2.5 h-2.5 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                          <div className="absolute top-2.5 right-2.5 w-2.5 h-2.5 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                          <div className="absolute bottom-2.5 left-2.5 w-2.5 h-2.5 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                          <div className="absolute bottom-2.5 right-2.5 w-2.5 h-2.5 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-
-                          {/* Top: Image & Overlay */}
-                          <div>
-                            <div className="relative h-44 rounded-xl overflow-hidden mb-4 bg-neutral-900 border border-gray-800">
-                              <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover object-top filter brightness-[0.92] group-hover:scale-105 transition-transform duration-500"
-                                onError={(e) => {
-                                  (e.target as HTMLImageElement).src =
-                                    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop";
-                                }}
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
-                              
-                              {/* Hover Laser Scanline */}
-                              <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none group-hover:translate-y-40" />
-
-                              <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-emerald-500/30 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                                {project.tagline || project.category.toUpperCase()}
-                              </div>
-
-                              {project.metrics && project.metrics[0] && (
-                                <div className="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
-                                  {project.metrics[0]}
-                                </div>
-                              )}
-                            </div>
-
-                            {/* Title & Tagline */}
-                            <div className="mb-2">
-                              <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors font-sans">
-                                {project.title}
-                              </h3>
-                              <p className="text-xs font-mono text-emerald-400/80 mt-0.5">
-                                {project.description}
-                              </p>
-                            </div>
-
-                            {/* Brief (1-2 sentences, never overflowing) */}
-                            <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4">
-                              {project.brief || project.details.split(".")[0] + "."}
-                            </p>
-
-                            {/* Specs Mini HUD */}
-                            {project.specs && project.specs.length > 0 && (
-                              <div className="grid grid-cols-2 gap-2 mb-4">
-                                {project.specs.slice(0, 2).map((sp, i) => (
-                                  <div key={i} className="p-2 rounded-lg bg-neutral-900/90 border border-emerald-500/10">
-                                    <div className="text-[9px] font-mono uppercase text-gray-400 truncate">{sp.label}</div>
-                                    <div className="text-[11px] font-mono font-semibold text-gray-200 truncate">{sp.value}</div>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-
-                            {/* Tech Badges */}
-                            <div className="flex flex-wrap gap-1.5 mb-5">
-                              {project.tech.slice(0, 4).map((tech, i) => (
-                                <span
-                                  key={i}
-                                  className="px-2 py-0.5 rounded bg-neutral-900 border border-gray-800 text-[10px] font-mono text-gray-300"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                              {project.tech.length > 4 && (
-                                <span className="px-1.5 py-0.5 rounded bg-neutral-900/60 text-[9px] font-mono text-gray-500">
-                                  +{project.tech.length - 4}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Card Footer Actions */}
-                          <div className="flex items-center gap-2 pt-3 border-t border-gray-800/80">
-                            {project.liveDemo && project.liveDemo !== "#" && (
-                              <a
-                                href={project.liveDemo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-1 py-2 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
-                              >
-                                <span>Live Demo</span>
-                                <ArrowUpRight size={13} />
-                              </a>
-                            )}
-                            {project.github && project.github !== "#" && (
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-gray-800 text-gray-300 hover:text-white transition-colors"
-                                title="Source Code"
-                              >
-                                <Github size={15} />
-                              </a>
-                            )}
-                            <button
-                              onClick={() => setSelectedProjectForModal(project as any)}
-                              className="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 transition-colors"
-                              title="Architecture Specs"
-                            >
-                              <BookOpen size={15} />
-                            </button>
-                          </div>
-                        </div>
-                      </TiltCard3D>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <ProjectDetailModal
-                project={selectedProjectForModal}
-                isOpen={!!selectedProjectForModal}
-                onClose={() => setSelectedProjectForModal(null)}
+              <ProjectBlueprintWorkbench
+                projects={projects}
+                filterOptions={filterOptions}
+                activeTags={activeTags}
+                onTagToggle={(tag) => {
+                  if (activeTags.includes(tag)) {
+                    setActiveTags(prev => prev.filter(t => t !== tag))
+                  } else {
+                    setActiveTags(prev => [...prev, tag])
+                  }
+                }}
+                onClearTags={() => setActiveTags([])}
               />
             </AnimatedSection>
 
