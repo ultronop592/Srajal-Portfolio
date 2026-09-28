@@ -229,6 +229,89 @@ export default function Portfolio() {
       ],
     },
     {
+      title: "Meeting Intelligence Agent",
+      description: "Enterprise AI Meeting Intelligence & Workflow Automation Platform",
+      tagline: "AI WORKFLOW AUTOMATION",
+      brief:
+        "AI-powered platform that converts meeting recordings into structured intelligence, including transcripts, summaries, action items, decisions, and participants, then automates follow-up workflows across workplace tools.",
+      details:
+        "The Meeting Intelligence Agent is an enterprise-grade artificial intelligence platform designed to ingest meeting audio and video recordings of any duration, process them through an agentic multi-stage pipeline, extract structured intelligence, index records into a persistent vector memory layer, generate cross-meeting analytical insights, and synchronize deliverables across workplace communication and productivity tools.",
+      github: "https://github.com/ultronop592/Meeting-Intelligence-Agent",
+      liveDemo: "https://meeting-intelligence-agent-two.vercel.app/",
+      tech: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "LangGraph",
+        "PostgreSQL",
+        "Vector Search",
+        "Groq",
+        "OpenRouter",
+        "Hugging Face",
+        "ReportLab",
+      ],
+      category: "ai",
+      image: "/meeting-intelligence.png",
+      metrics: ["7-Stage LangGraph", "Neon pgvector", "Jira & Slack Sync"],
+      specs: [
+        { label: "PIPELINE", value: "LangGraph 7-Stage" },
+        { label: "MEMORY", value: "Neon pgvector (768d)" },
+        { label: "INTEGRATIONS", value: "Jira • Slack • Cal • Mail" },
+      ],
+      keyFeatures: [
+        "AI Meeting Transcription & Speaker Diarization: High-accuracy acoustic diarization attributing spoken dialogue to specific contributors with verbatim timestamps.",
+        "Structured Action Item & Decision Extraction: Automated extraction of owners, deadlines, priority levels, and formal decisions with contextual rationale.",
+        "Executive Summaries & PDF Reports: One-click vector PDF generation with ReportLab, featuring two-pass pagination, custom typography, and color-coded deliverables.",
+        "Vector Memory & Cross-Meeting Search: 768-dimensional pgvector index in Neon PostgreSQL for semantic retrieval and longitudinal trend analysis.",
+        "AI Conversational Meeting Agent: Real-time streaming conversational agent capable of querying single meetings or global workspace archives.",
+        "Jira, Slack, Google Calendar & Email Automation: Seamless dispatch of approved deliverables to Atlassian Jira Cloud, Google Calendar, Slack Block Kit, and SendGrid.",
+        "Automated Due-Date Reminders: Lifespan background scheduler monitoring pending and overdue action items, sending alerts via Slack and email.",
+        "Cross-Meeting Analytics Dashboard: Interactive analytics dashboard displaying participation metrics, decision counts, and task velocity with a charcoal black theme.",
+      ],
+      architecture: {
+        systemFlow: [
+          "Meeting Audio/Video",
+          "Ingestion",
+          "Speaker Diarization",
+          "Transcription",
+          "Intelligence Extraction",
+          "Summarization",
+          "Vector Storage",
+          "Human Review",
+          "External Integrations",
+        ],
+        remediationFlow: [
+          "01_INGEST",
+          "02_DIARIZE",
+          "03_TRANSCRIBE",
+          "04_EXTRACT",
+          "05_SYNTHESIZE",
+          "06_VECTORIZE",
+          "07_DISPATCH",
+        ],
+      },
+      aiLayer:
+        "Multi-agent state machine orchestrated by LangGraph coordinating specialized validation, chunking, diarization, Whisper transcription, and extraction agents. Employs dual high-speed inference via Groq and OpenRouter (Llama 3, DeepSeek) for sub-second structured entity synthesis.",
+      integrations: ["Atlassian Jira Cloud", "Slack Block Kit", "Google Calendar API", "SendGrid Email"],
+      databaseMemory:
+        "Neon PostgreSQL serverless relational store with pgvector 768-dimensional embedding index for cross-meeting semantic search and longitudinal analytics. Per-user encrypted tool credential storage with workspace default fallbacks.",
+      security: [
+        "JWT authentication and session guard with role-based workspace isolation",
+        "IP-based request rate limiting protecting all ingestion and LLM dispatch endpoints",
+        "Zero client-side credential persistence; server-side encrypted token resolution",
+        "Human-in-the-loop review guardrails ensuring verified approvals before syncing to external tools",
+      ],
+      achievements: [
+        "Engineered decoupled multi-stage LangGraph pipeline automating ingestion, acoustic diarization, speech-to-text, and entity extraction.",
+        "Implemented pgvector 768-dimensional semantic memory index enabling instantaneous cross-meeting conversational search.",
+        "Built bidirectional enterprise connectors for Atlassian Jira Cloud, Slack Block Kit, Google Calendar, and SendGrid email.",
+        "Constructed executive ReportLab vector PDF generator with two-pass pagination, custom styling, and color-coded deliverables tables.",
+        "Integrated HTML5 MediaRecorder API for direct browser-based recording with real-time waveform visualization.",
+      ],
+    },
+    {
       title: "AgentForge",
       description: "Autonomous Multi-Agent Workforce Orchestrator",
       tagline: "Agentic AI System",
@@ -499,7 +582,7 @@ export default function Portfolio() {
     ? allProjects.filter(p => p.tech.some(t => activeTags.includes(t)) || activeTags.includes(p.category))
     : allProjects
 
-  const filterOptions = ["ai", "AWS", "FastAPI", "Next.js", "Python", "Deep Learning", "Gemma 3 270M", "RAG", "LangChain"]
+  const filterOptions = ["ai", "AWS", "LangGraph", "FastAPI", "Next.js", "Python", "Deep Learning", "Gemma 3 270M", "RAG", "LangChain"]
 
   const certifications = [
     {

@@ -187,7 +187,7 @@ const techStack = [
 const stats = [
   {
     label: "Featured Projects",
-    value: "12+",
+    value: "13+",
     icon: Briefcase,
     meta: "Production AI and ML builds",
   },

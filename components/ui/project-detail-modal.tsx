@@ -16,6 +16,12 @@ import {
   CheckCircle2,
   Lock,
   ArrowRight,
+  Database,
+  Share2,
+  Bot,
+  Calendar,
+  Mail,
+  FileText,
 } from "lucide-react"
 
 export interface ProjectSpec {
@@ -31,7 +37,7 @@ export interface ProjectSlide {
   tagline?: string
   github: string
   liveDemo: string
-  tech: string[];
+  tech: string[]
   category: string
   image: string
   metrics?: string[]
@@ -46,6 +52,8 @@ export interface ProjectSlide {
   aiLayer?: string
   awsServices?: string[]
   security?: string[]
+  integrations?: string[]
+  databaseMemory?: string
 }
 
 interface ProjectDetailModalProps {
@@ -76,6 +84,10 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
   const isCloudOps =
     project.title.toLowerCase().includes("cloudops") ||
     project.title.toLowerCase().includes("aws infrastructure")
+
+  const isMeetingIntel =
+    project.title.toLowerCase().includes("meeting") ||
+    project.title.toLowerCase().includes("meeting intelligence")
 
   const specs = project.specs && project.specs.length > 0 ? project.specs : [
     { label: "STACK", value: project.tech.slice(0, 2).join(" • ") },
@@ -130,6 +142,12 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                     AWS WELL-ARCHITECTED
                   </span>
                 )}
+                {isMeetingIntel && (
+                  <span className="px-2 py-0.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-[10px] font-mono text-amber-300 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    STATE_MACHINE: 7-STAGE ORCHESTRATION
+                  </span>
+                )}
               </div>
               <h2
                 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight"
@@ -170,7 +188,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </div>
             </div>
 
-            {/* Architecture Pipelines (System + Remediation) */}
+            {/* Architecture Pipelines */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-emerald-400" />
@@ -179,17 +197,46 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                 </h3>
               </div>
 
-              {/* Primary System Architecture Pipeline */}
+              {/* Primary Architecture Flow */}
               <div className="bg-black/70 border border-emerald-500/20 rounded-xl p-4 font-mono text-xs">
                 <div className="text-[10px] text-gray-400 uppercase tracking-widest mb-3 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Decoupled Stateless Architecture
+                    {isMeetingIntel ? "End-to-End Processing Workflow" : "Decoupled Stateless Architecture"}
                   </span>
                   <span className="text-emerald-400/80 font-bold">README SPEC</span>
                 </div>
 
-                {isCloudOps ? (
+                {isMeetingIntel ? (
+                  <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-center">
+                    {[
+                      "Meeting Audio/Video",
+                      "Ingestion",
+                      "Speaker Diarization",
+                      "Transcription",
+                      "Intelligence Extraction",
+                      "Summarization",
+                      "Vector Storage",
+                      "Human Review",
+                      "External Integrations",
+                    ].map((step, idx, arr) => (
+                      <React.Fragment key={idx}>
+                        <div
+                          className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold ${
+                            idx === 4 || idx === 8
+                              ? "bg-emerald-500/20 border border-emerald-500/40 text-emerald-300"
+                              : "bg-neutral-900 border border-emerald-500/20 text-gray-300"
+                          }`}
+                        >
+                          {step}
+                        </div>
+                        {idx < arr.length - 1 && (
+                          <ArrowRight className="text-emerald-500 w-3 h-3 shrink-0" />
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
+                ) : isCloudOps ? (
                   <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center">
                     <div className="w-full md:w-auto px-3 py-2 bg-neutral-900 border border-emerald-500/20 rounded-lg text-emerald-300 font-semibold shadow-sm">
                       Next.js + React
@@ -253,6 +300,40 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
                   </div>
                 )}
               </div>
+
+              {/* Secondary State Machine Pipeline for Meeting Intelligence */}
+              {isMeetingIntel && (
+                <div className="bg-black/70 border border-emerald-500/20 rounded-xl p-4 font-mono text-xs">
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest mb-3 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <Zap className="w-3.5 h-3.5 text-amber-400" />
+                      LangGraph 7-Stage State Machine Lifecycle
+                    </span>
+                    <span className="text-amber-400/90 font-bold">STATE ENGINE</span>
+                  </div>
+                  <div className="flex flex-wrap items-center justify-center gap-2 text-center">
+                    {[
+                      { num: "01", name: "INGEST", color: "border-gray-800 text-gray-300" },
+                      { num: "02", name: "DIARIZE", color: "border-amber-500/40 text-amber-300 bg-amber-500/10" },
+                      { num: "03", name: "TRANSCRIBE", color: "border-gray-800 text-gray-300" },
+                      { num: "04", name: "EXTRACT", color: "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" },
+                      { num: "05", name: "SYNTHESIZE", color: "border-gray-800 text-gray-300" },
+                      { num: "06", name: "VECTORIZE", color: "border-gray-800 text-gray-300" },
+                      { num: "07", name: "DISPATCH", color: "border-emerald-500/40 text-emerald-300 bg-emerald-500/10" },
+                    ].map((step, idx, arr) => (
+                      <React.Fragment key={idx}>
+                        <div className={`px-2.5 py-1.5 rounded-lg border bg-neutral-900 ${step.color} font-mono text-[11px]`}>
+                          <span className="opacity-60 mr-1">{step.num}_</span>
+                          {step.name}
+                        </div>
+                        {idx < arr.length - 1 && (
+                          <ArrowRight className="text-emerald-500 w-3 h-3 shrink-0" />
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Remediation Flow Pipeline (for CloudOps AI) */}
               {isCloudOps && (
@@ -323,7 +404,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </p>
             </div>
 
-            {/* Key Features (7 cards) */}
+            {/* Key Features */}
             <div>
               <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-3 text-emerald-400 flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
@@ -331,13 +412,14 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {(project.keyFeatures || [
-                  "AWS Infrastructure Intelligence",
-                  "26-rule Well-Architected Compliance Engine",
-                  "FinOps Cost & Waste Analysis",
-                  "Interactive AWS Resource Dependency Graph",
-                  "AI Cloud Copilot",
-                  "One-Click Boto3 Remediation",
-                  "Audit Receipt & Security Controls",
+                  "AI Meeting Transcription & Speaker Diarization",
+                  "Structured Action Item & Decision Extraction",
+                  "Executive Summaries & PDF Reports",
+                  "Vector Memory & Cross-Meeting Search",
+                  "AI Conversational Meeting Agent",
+                  "Jira, Slack, Google Calendar & Email Automation",
+                  "Automated Due-Date Reminders",
+                  "Cross-Meeting Analytics Dashboard",
                 ]).map((feat, idx) => {
                   const parts = feat.split(":")
                   const title = parts[0]
@@ -364,7 +446,95 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </div>
             </div>
 
-            {/* AI Layer & Bedrock Intelligence */}
+            {/* AI Pipeline & LangGraph Section (for Meeting Intelligence) */}
+            {isMeetingIntel && (
+              <div>
+                <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
+                  <Bot className="w-3.5 h-3.5 text-emerald-400" />
+                  ■ AI Pipeline & Multi-Agent Orchestration
+                </h3>
+                <div className="p-4 rounded-xl bg-neutral-900/80 border border-emerald-500/20 text-xs text-gray-300 font-sans leading-relaxed space-y-2.5">
+                  <p>
+                    <strong className="text-emerald-400 font-mono">LangGraph State Machine Engine:</strong> Coordinates autonomous validation, lossless 10-minute audio chunking, speaker diarization, speech-to-text, entity extraction, and executive synthesis.
+                  </p>
+                  <p>
+                    <strong className="text-emerald-400 font-mono">Acoustic Diarization & Whisper STT:</strong> High-precision speaker attribution maps spoken dialogue to specific team members with verbatim timestamps and confidence tracking.
+                  </p>
+                  <p>
+                    <strong className="text-emerald-400 font-mono">Dual-Engine LLM Inference (Groq & OpenRouter):</strong> Sub-second extraction of commitments, owners, due dates, priority tiers, and formal decisions with contextual rationale.
+                  </p>
+                  <p>
+                    <strong className="text-emerald-400 font-mono">ReportLab Vector PDF Synthesis:</strong> Generates executive-ready vector PDF meeting minutes with two-pass page numbering, custom headers, and color-coded deliverables tables.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Enterprise Integrations Section (for Meeting Intelligence) */}
+            {isMeetingIntel && (
+              <div>
+                <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
+                  <Share2 className="w-3.5 h-3.5 text-emerald-400" />
+                  ■ Enterprise Workplace Integrations
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    {
+                      name: "Atlassian Jira Cloud",
+                      desc: "One-click creation of tracked Jira issues complete with assigned owners, priority labels, contextual descriptions, and due dates.",
+                    },
+                    {
+                      name: "Slack Block Kit",
+                      desc: "Dispatches formatted meeting digests, decision logs, and urgent action items directly to selected team channels and direct messages.",
+                    },
+                    {
+                      name: "Google Calendar",
+                      desc: "Automates milestone scheduling, follow-up calendar event creation, and deadline tracking via the official Google Calendar API.",
+                    },
+                    {
+                      name: "SendGrid Email Dispatch",
+                      desc: "Automated executive meeting minute distribution and hourly background due-date reminder alerts for pending or overdue tasks.",
+                    },
+                  ].map((integ, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 rounded-xl bg-neutral-900/70 border border-emerald-500/15"
+                    >
+                      <div className="font-mono text-xs font-semibold text-emerald-300 flex items-center gap-1.5 mb-1">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                        {integ.name}
+                      </div>
+                      <p className="text-[11px] text-gray-400 leading-relaxed font-sans">
+                        {integ.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Database & Vector Memory (for Meeting Intelligence) */}
+            {isMeetingIntel && (
+              <div>
+                <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
+                  <Database className="w-3.5 h-3.5 text-emerald-400" />
+                  ■ Database & Vector Memory Architecture
+                </h3>
+                <div className="p-4 rounded-xl bg-neutral-900/80 border border-emerald-500/20 text-xs text-gray-300 font-sans leading-relaxed space-y-2">
+                  <p>
+                    <strong className="text-emerald-400 font-mono">Neon PostgreSQL Relational Store:</strong> Serverless relational backend housing normalized transcripts, speaker turns, action items, decision registries, and audit logs.
+                  </p>
+                  <p>
+                    <strong className="text-emerald-400 font-mono">pgvector 768-Dimensional Embeddings:</strong> Deep semantic vector indexing enabling instantaneous cross-meeting semantic search and real-time conversational retrieval.
+                  </p>
+                  <p>
+                    <strong className="text-emerald-400 font-mono">Per-User Encrypted Tool Credentials:</strong> Secure credential management allowing users to supply personal OAuth/API keys with automated fallback to system defaults.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* AI Layer & Bedrock Intelligence (for CloudOps AI) */}
             {isCloudOps && (
               <div>
                 <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
@@ -385,7 +555,7 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
               </div>
             )}
 
-            {/* AWS Services Monitored */}
+            {/* AWS Services Monitored (for CloudOps AI) */}
             {isCloudOps && (
               <div>
                 <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
@@ -422,14 +592,44 @@ export function ProjectDetailModal({ project, isOpen, onClose }: ProjectDetailMo
             )}
 
             {/* Security & Governance Controls */}
-            {isCloudOps && (
+            {(isCloudOps || isMeetingIntel) && (
               <div>
                 <h3 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400 flex items-center gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   ■ Security & Governance Controls
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {[
+                  {isMeetingIntel ? [
+                    {
+                      title: "JWT Authentication & Session Guard",
+                      desc: "Secured API gateway endpoints with encrypted JWT tokens, protecting meeting uploads, transcripts, and integration dispatch.",
+                    },
+                    {
+                      title: "IP-Based Request Rate Limiting",
+                      desc: "Active rate limiting mitigating DDoS and brute-force attempts on heavy audio ingestion and LLM execution pipelines.",
+                    },
+                    {
+                      title: "Human-in-the-Loop Safeguards",
+                      desc: "Extracted action items and decisions remain in review mode until authorized by meeting leaders before dispatching to Jira or Slack.",
+                    },
+                    {
+                      title: "Zero Client Credential Leakage",
+                      desc: "All third-party tokens (Jira, Google, Slack, SendGrid) are encrypted at rest and resolved strictly within backend services.",
+                    },
+                  ].map((sec, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 rounded-xl bg-neutral-900/70 border border-emerald-500/15"
+                    >
+                      <div className="font-mono text-xs font-semibold text-emerald-300 flex items-center gap-1.5 mb-1">
+                        <Lock className="w-3 h-3 text-emerald-400" />
+                        {sec.title}
+                      </div>
+                      <p className="text-[11px] text-gray-400 leading-relaxed font-sans">
+                        {sec.desc}
+                      </p>
+                    </div>
+                  )) : [
                     {
                       title: "Zero Credential Persistence",
                       desc: "AWS credentials never touch disk or databases; held solely in ephemeral in-memory session stores with automated expiry.",
