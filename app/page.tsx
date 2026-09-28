@@ -1143,7 +1143,7 @@ export default function Portfolio() {
               <span id="components" className="sr-only pointer-events-none" />
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1155,6 +1155,9 @@ export default function Portfolio() {
                     Certifications
                   </span>
                 </motion.h2>
+                <p className="text-center text-sm font-mono text-neutral-400 max-w-2xl mx-auto -mt-2 mb-10">
+                  Cryptographic Credential Vault &amp; Accreditation Schematics • Inspect verified credentials, competency pipelines, and cryptographic audit records
+                </p>
                 <CertificatesGrid
                   testimonials={certifications.map((cert, i) => ({
                     tempId: i,
