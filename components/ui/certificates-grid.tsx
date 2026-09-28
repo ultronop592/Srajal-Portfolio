@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { CertificateVaultWorkbench, type Certificate } from "./certificate-vault-workbench"
+import { CertificateInteractiveExperience, type Certificate } from "./certificate-interactive-experience"
 
-export { type Certificate } from "./certificate-vault-workbench"
+export { type Certificate } from "./certificate-interactive-experience"
 
 interface CertificatesGridProps {
   testimonials: Certificate[]
@@ -15,7 +15,7 @@ export const CertificatesGrid: React.FC<CertificatesGridProps> = ({
   showViewAllLink = true,
 }) => {
   return (
-    <CertificateVaultWorkbench
+    <CertificateInteractiveExperience
       testimonials={testimonials}
       showViewAllLink={showViewAllLink}
     />
