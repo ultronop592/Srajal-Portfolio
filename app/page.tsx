@@ -40,6 +40,8 @@ const AchievementsSection = dynamic(() => import("@/components/ui/achievements-s
 
 const ScrollToTop = dynamic(() => import("@/components/scroll-to-top"), { ssr: false })
 const CyberScrollProgress = dynamic(() => import("@/components/ui/cyber-scroll-progress"), { ssr: false })
+const CodingStatsHub = dynamic(() => import("@/components/ui/coding-stats-hub"), { ssr: false })
+const ContactCyberConsole = dynamic(() => import("@/components/ui/contact-cyber-console"), { ssr: false })
 const AnimatedSection = dynamic(() => import("@/components/animated-section"), { ssr: false })
 const TypingText = dynamic(() => import("@/components/typing-text"), { ssr: false })
 
@@ -1001,7 +1003,7 @@ export default function Portfolio() {
             <AnimatedSection id="stats" className="py-20 px-4" delay={0.08}>
               <div className="container mx-auto">
                 <motion.h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center"
+                  className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center"
                   style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -1010,83 +1012,19 @@ export default function Portfolio() {
                 >
                   <span className="pulsing-prompt text-emerald-600">▸</span>
                   <span className="bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 bg-clip-text text-transparent">
-                    Coding Stats
+                    Coding Telemetry & Diagnostic Stats
                   </span>
                 </motion.h2>
+                <motion.p
+                  className="text-neutral-400 text-xs sm:text-sm font-mono text-center max-w-xl mx-auto mb-10"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  Real-time problem solving streaks, verified open-source contributions, and hackathon milestones.
+                </motion.p>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  {/* GitHub Stats */}
-                  <TiltCard3D tiltStrength={10} glareOpacity={0.12} className="w-full">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-950/85 backdrop-blur-md hover:border-emerald-500/50 transition-all duration-500 cursor-pointer group shadow-2xl"
-                    >
-                      {/* Diagnostic Header Bar */}
-                      <div className="flex items-center justify-between p-3.5 px-5 bg-neutral-900/90 border-b border-emerald-500/15">
-                        <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold">
-                          <Github className="h-4 w-4" />
-                          <span>GITHUB // STATS</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">
-                          LIVE METRICS ↗
-                        </span>
-                      </div>
-
-                      {/* Corner Brackets */}
-                      <div className="absolute top-12 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute top-12 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-
-                      <a href="https://github.com/ultronop592" target="_blank" rel="noopener noreferrer" className="block relative">
-                        <img
-                          src="/Screenshot 2026-08-24 123542.png"
-                          alt="GitHub Stats"
-                          className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
-                        />
-                      </a>
-                    </motion.div>
-                  </TiltCard3D>
-
-                  {/* LeetCode Stats */}
-                  <TiltCard3D tiltStrength={10} glareOpacity={0.12} className="w-full">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
-                      className="relative rounded-2xl overflow-hidden border border-emerald-500/20 bg-neutral-950/85 backdrop-blur-md hover:border-emerald-500/50 transition-all duration-500 cursor-pointer group shadow-2xl"
-                    >
-                      {/* Diagnostic Header Bar */}
-                      <div className="flex items-center justify-between p-3.5 px-5 bg-neutral-900/90 border-b border-emerald-500/15">
-                        <div className="flex items-center gap-2 font-mono text-xs text-emerald-400 font-semibold">
-                          <Code className="h-4 w-4" />
-                          <span>LEETCODE // DIAGNOSTIC</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-emerald-400/60 uppercase">
-                          PROFILE STATS ↗
-                        </span>
-                      </div>
-
-                      {/* Corner Brackets */}
-                      <div className="absolute top-12 left-3 w-3 h-3 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute top-12 right-3 w-3 h-3 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                      <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-
-                      <a href="https://leetcode.com/u/SrajalTiwari/" target="_blank" rel="noopener noreferrer" className="block relative">
-                        <img
-                          src="/Screenshot 2026-08-24 123451.png"
-                          alt="LeetCode Stats"
-                          className="w-full h-auto object-cover filter brightness-95 group-hover:brightness-105 group-hover:scale-[1.02] transition-all duration-500"
-                        />
-                      </a>
-                    </motion.div>
-                  </TiltCard3D>
-                </div>
+                <CodingStatsHub />
               </div>
             </AnimatedSection>
 
@@ -1254,120 +1192,124 @@ export default function Portfolio() {
                 <div className="container mx-auto px-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {projects.map((project, idx) => (
-                      <div
-                        key={idx}
-                        className="group relative flex flex-col justify-between rounded-2xl bg-neutral-950/85 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 p-5 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 overflow-hidden"
-                      >
-                        {/* Corner Cyber Brackets */}
-                        <div className="absolute top-2.5 left-2.5 w-2.5 h-2.5 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                        <div className="absolute top-2.5 right-2.5 w-2.5 h-2.5 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                        <div className="absolute bottom-2.5 left-2.5 w-2.5 h-2.5 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
-                        <div className="absolute bottom-2.5 right-2.5 w-2.5 h-2.5 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                      <TiltCard3D key={idx} tiltStrength={6} glareOpacity={0.12} className="h-full">
+                        <div
+                          className="group relative flex flex-col justify-between h-full rounded-2xl bg-neutral-950/85 backdrop-blur-xl border border-emerald-500/20 hover:border-emerald-500/50 p-5 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 overflow-hidden"
+                        >
+                          {/* Corner Cyber Brackets */}
+                          <div className="absolute top-2.5 left-2.5 w-2.5 h-2.5 border-t-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                          <div className="absolute top-2.5 right-2.5 w-2.5 h-2.5 border-t-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                          <div className="absolute bottom-2.5 left-2.5 w-2.5 h-2.5 border-b-2 border-l-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
+                          <div className="absolute bottom-2.5 right-2.5 w-2.5 h-2.5 border-b-2 border-r-2 border-emerald-500/30 group-hover:border-emerald-400 transition-all pointer-events-none" />
 
-                        {/* Top: Image & Overlay */}
-                        <div>
-                          <div className="relative h-44 rounded-xl overflow-hidden mb-4 bg-neutral-900 border border-gray-800">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full h-full object-cover object-top filter brightness-[0.92] group-hover:scale-105 transition-transform duration-500"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src =
-                                  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop";
-                              }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
+                          {/* Top: Image & Overlay */}
+                          <div>
+                            <div className="relative h-44 rounded-xl overflow-hidden mb-4 bg-neutral-900 border border-gray-800">
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover object-top filter brightness-[0.92] group-hover:scale-105 transition-transform duration-500"
+                                onError={(e) => {
+                                  (e.target as HTMLImageElement).src =
+                                    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop";
+                                }}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
+                              
+                              {/* Hover Laser Scanline */}
+                              <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none group-hover:translate-y-40" />
 
-                            <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-emerald-500/30 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                              {project.tagline || project.category.toUpperCase()}
+                              <div className="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-emerald-500/30 text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                {project.tagline || project.category.toUpperCase()}
+                              </div>
+
+                              {project.metrics && project.metrics[0] && (
+                                <div className="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
+                                  {project.metrics[0]}
+                                </div>
+                              )}
                             </div>
 
-                            {project.metrics && project.metrics[0] && (
-                              <div className="absolute bottom-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
-                                {project.metrics[0]}
+                            {/* Title & Tagline */}
+                            <div className="mb-2">
+                              <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors font-sans">
+                                {project.title}
+                              </h3>
+                              <p className="text-xs font-mono text-emerald-400/80 mt-0.5">
+                                {project.description}
+                              </p>
+                            </div>
+
+                            {/* Brief (1-2 sentences, never overflowing) */}
+                            <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4">
+                              {project.brief || project.details.split(".")[0] + "."}
+                            </p>
+
+                            {/* Specs Mini HUD */}
+                            {project.specs && project.specs.length > 0 && (
+                              <div className="grid grid-cols-2 gap-2 mb-4">
+                                {project.specs.slice(0, 2).map((sp, i) => (
+                                  <div key={i} className="p-2 rounded-lg bg-neutral-900/90 border border-emerald-500/10">
+                                    <div className="text-[9px] font-mono uppercase text-gray-400 truncate">{sp.label}</div>
+                                    <div className="text-[11px] font-mono font-semibold text-gray-200 truncate">{sp.value}</div>
+                                  </div>
+                                ))}
                               </div>
                             )}
-                          </div>
 
-                          {/* Title & Tagline */}
-                          <div className="mb-2">
-                            <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors font-sans">
-                              {project.title}
-                            </h3>
-                            <p className="text-xs font-mono text-emerald-400/80 mt-0.5">
-                              {project.description}
-                            </p>
-                          </div>
-
-                          {/* Brief (1-2 sentences, never overflowing) */}
-                          <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed mb-4">
-                            {project.brief || project.details.split(".")[0] + "."}
-                          </p>
-
-                          {/* Specs Mini HUD */}
-                          {project.specs && project.specs.length > 0 && (
-                            <div className="grid grid-cols-2 gap-2 mb-4">
-                              {project.specs.slice(0, 2).map((sp, i) => (
-                                <div key={i} className="p-2 rounded-lg bg-neutral-900/90 border border-emerald-500/10">
-                                  <div className="text-[9px] font-mono uppercase text-gray-400 truncate">{sp.label}</div>
-                                  <div className="text-[11px] font-mono font-semibold text-gray-200 truncate">{sp.value}</div>
-                                </div>
+                            {/* Tech Badges */}
+                            <div className="flex flex-wrap gap-1.5 mb-5">
+                              {project.tech.slice(0, 4).map((tech, i) => (
+                                <span
+                                  key={i}
+                                  className="px-2 py-0.5 rounded bg-neutral-900 border border-gray-800 text-[10px] font-mono text-gray-300"
+                                >
+                                  {tech}
+                                </span>
                               ))}
+                              {project.tech.length > 4 && (
+                                <span className="px-1.5 py-0.5 rounded bg-neutral-900/60 text-[9px] font-mono text-gray-500">
+                                  +{project.tech.length - 4}
+                                </span>
+                              )}
                             </div>
-                          )}
+                          </div>
 
-                          {/* Tech Badges */}
-                          <div className="flex flex-wrap gap-1.5 mb-5">
-                            {project.tech.slice(0, 4).map((tech, i) => (
-                              <span
-                                key={i}
-                                className="px-2 py-0.5 rounded bg-neutral-900 border border-gray-800 text-[10px] font-mono text-gray-300"
+                          {/* Card Footer Actions */}
+                          <div className="flex items-center gap-2 pt-3 border-t border-gray-800/80">
+                            {project.liveDemo && project.liveDemo !== "#" && (
+                              <a
+                                href={project.liveDemo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 py-2 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
                               >
-                                {tech}
-                              </span>
-                            ))}
-                            {project.tech.length > 4 && (
-                              <span className="px-1.5 py-0.5 rounded bg-neutral-900/60 text-[9px] font-mono text-gray-500">
-                                +{project.tech.length - 4}
-                              </span>
+                                <span>Live Demo</span>
+                                <ArrowUpRight size={13} />
+                              </a>
                             )}
+                            {project.github && project.github !== "#" && (
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-gray-800 text-gray-300 hover:text-white transition-colors"
+                                title="Source Code"
+                              >
+                                <Github size={15} />
+                              </a>
+                            )}
+                            <button
+                              onClick={() => setSelectedProjectForModal(project as any)}
+                              className="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 transition-colors"
+                              title="Architecture Specs"
+                            >
+                              <BookOpen size={15} />
+                            </button>
                           </div>
                         </div>
-
-                        {/* Card Footer Actions */}
-                        <div className="flex items-center gap-2 pt-3 border-t border-gray-800/80">
-                          {project.liveDemo && project.liveDemo !== "#" && (
-                            <a
-                              href={project.liveDemo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1 py-2 px-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
-                            >
-                              <span>Live Demo</span>
-                              <ArrowUpRight size={13} />
-                            </a>
-                          )}
-                          {project.github && project.github !== "#" && (
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-gray-800 text-gray-300 hover:text-white transition-colors"
-                              title="Source Code"
-                            >
-                              <Github size={15} />
-                            </a>
-                          )}
-                          <button
-                            onClick={() => setSelectedProjectForModal(project as any)}
-                            className="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 transition-colors"
-                            title="Architecture Specs"
-                          >
-                            <BookOpen size={15} />
-                          </button>
-                        </div>
-                      </div>
+                      </TiltCard3D>
                     ))}
                   </div>
                 </div>
@@ -1740,120 +1682,7 @@ export default function Portfolio() {
                   </p>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {/* Contact Info Card */}
-                  <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full">
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
-                      className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 hover:border-emerald-500/50 rounded-2xl p-8 transition-all duration-300 h-full"
-                    >
-                      <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2" style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}>
-                        <span className="pulsing-prompt text-emerald-600">▸</span>
-                        Direct Contact
-                      </h3>
-
-                      <div className="space-y-4">
-                        {[
-                          {
-                            icon: Mail,
-                            label: "Email",
-                            href: "mailto:srajaltiwari902@gmail.com",
-                            text: "srajaltiwari902@gmail.com",
-                            description: "Respond within 24 hours"
-                          },
-                          {
-                            icon: Phone,
-                            label: "Phone",
-                            href: "tel:+919919084211",
-                            text: "+91 9919084211",
-                            description: "Available on WhatsApp & Telegram"
-                          },
-                        ].map((item, i) => (
-                          <a
-                            key={i}
-                            href={item.href}
-                            className="group flex items-start p-4 bg-gray-800/30 border border-gray-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
-                          >
-                            <div className="p-3 bg-emerald-500/15 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
-                              <item.icon className="h-6 w-6 text-emerald-500" />
-                            </div>
-                            <div>
-                              <div className="text-gray-300 text-sm font-medium">{item.label}</div>
-                              <div className="text-white text-sm font-semibold mt-1">{item.text}</div>
-                              <div className="text-gray-500 text-xs mt-1">{item.description}</div>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </TiltCard3D>
-
-                  {/* Social Links Card */}
-                  <TiltCard3D tiltStrength={6} glareOpacity={0.06} className="w-full">
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 rounded-2xl p-8 hover:border-emerald-500/30 transition-all duration-300 h-full"
-                    >
-                    <h3 className="text-2xl font-bold text-white mb-6">Follow Me</h3>
-
-                    <div className="space-y-4">
-                      {[
-                        {
-                          icon: Github,
-                          label: "GitHub",
-                          href: "https://github.com/ultronop592",
-                          handle: "@ultronop592",
-                          description: "Open source projects & contributions"
-                        },
-                        {
-                          icon: Linkedin,
-                          label: "LinkedIn",
-                          href: "https://linkedin.com/in/srajal-tiwari-7229172b9",
-                          handle: "Srajal Tiwari",
-                          description: "Professional networking & updates"
-                        },
-                        {
-                          icon: Twitter,
-                          label: "X (Twitter)",
-                          href: "https://x.com/SrajalT54493802",
-                          handle: "@SrajalT54493802",
-                          description: "Tech insights & industry news"
-                        },
-                        {
-                          icon: Code,
-                          label: "Kaggle",
-                          href: "https://www.kaggle.com/srajaltiwari76",
-                          handle: "srajaltiwari76",
-                          description: "Data science & ML competitions"
-                        },
-                      ].map((item, i) => (
-                        <a
-                          key={i}
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group flex items-start p-4 bg-gray-800/30 border border-gray-700/50 rounded-xl hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
-                        >
-                          <div className="p-3 bg-emerald-500/15 rounded-lg mr-4 group-hover:bg-emerald-500/30 transition-colors">
-                            <item.icon className="h-6 w-6 text-emerald-500" />
-                          </div>
-                          <div>
-                            <div className="text-gray-300 text-sm font-medium">{item.label}</div>
-                            <div className="text-white text-sm font-semibold mt-1">{item.handle}</div>
-                            <div className="text-gray-500 text-xs mt-1">{item.description}</div>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </motion.div>
-                </TiltCard3D>
-              </div>
+                <ContactCyberConsole />
 
                 {/* CTA Section */}
                 <motion.div

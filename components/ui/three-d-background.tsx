@@ -92,16 +92,23 @@ export default function ThreeDBackground() {
     const particles = new THREE.Points(particleGeo, particleMat)
     scene.add(particles)
 
-    // Smooth Mouse Reaction
+    // Smooth Mouse & Scroll Reaction
     let mouseX = 0
     let mouseY = 0
+    let targetScroll = 0
+    let currentScroll = 0
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5
       mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5
     }
 
+    const handleScroll = () => {
+      targetScroll = window.scrollY * 0.0015
+    }
+
     window.addEventListener("mousemove", handleMouseMove, { passive: true })
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     // Resize Handler
     const handleResize = () => {
@@ -121,8 +128,12 @@ export default function ThreeDBackground() {
     const animate = () => {
       const delta = clock.getDelta()
 
+      // Smooth scroll interpolation
+      currentScroll += (targetScroll - currentScroll) * 0.05
+
       group.rotation.y += delta * 0.04
-      group.rotation.x += delta * 0.02
+      group.rotation.x = currentScroll * 0.4 + delta * 0.02
+      group.position.y = -currentScroll * 2
 
       icoMesh.rotation.x += delta * 0.2
       torusMesh.rotation.y += delta * 0.25
@@ -142,6 +153,7 @@ export default function ThreeDBackground() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", handleResize)
       cancelAnimationFrame(animationId)
       if (renderer.domElement && container.contains(renderer.domElement)) {
