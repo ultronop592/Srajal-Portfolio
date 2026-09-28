@@ -73,6 +73,8 @@ export default function McpTerminal() {
 
     if (
       q.includes("project") ||
+      q.includes("cloudops") ||
+      q.includes("cloud ops") ||
       q.includes("agentforge") ||
       q.includes("agent forge") ||
       q.includes("unlegalize") ||
@@ -230,7 +232,7 @@ export default function McpTerminal() {
     await delay(700)
     let toolResultText = ""
     if (intent === "projects") {
-      toolResultText = "Retrieved 11 project nodes from vector index: [1. AgentForge (Multi-Agent WorkForce), 2. UnLegalize (Hackathon 2nd Place), 3. Multi Source Agentic RAG System, 4. Cold Email Generator AI, 5. Waterborne Disease Predictor, 6. Fake News Classifier, 7. Movie Recommender, 8. Disease Predictor, 9. Esports Strategy Hub, 10. Spam Email Detector, 11. Loan Approval Predictor]."
+      toolResultText = "Retrieved 12 project nodes from vector index: [1. CloudOps AI (Enterprise AWS Autonomous Remediation), 2. AgentForge (Multi-Agent WorkForce), 3. UnLegalize (Hackathon 2nd Place), 4. Multi Source Agentic RAG System, 5. Cold Email Generator AI, 6. Waterborne Disease Predictor, 7. Fake News Classifier, 8. Movie Recommender, 9. Disease Predictor, 10. Esports Strategy Hub, 11. Spam Email Detector, 12. Loan Approval Predictor]."
     } else if (intent === "skills") {
       toolResultText = "Retrieved technical skills matrix: Languages: Python, C++, SQL | Frameworks: Transformers (Hugging Face), Vision Transformers (ViT), vLLM, LangChain, LangGraph, FastAPI, PyTorch, TensorFlow/Keras, Scikit-learn, Next.js 15 | Concepts: AI Agents & Multi-Agent Systems, LLM Evaluation (LangSmith), LLM Inference & Quantization, VAE & Autoencoders, RAG, MCP, LoRA/PEFT | Tools & Vectors: LangSmith, vLLM, Qdrant Cloud, ChromaDB, Pinecone, FAISS, Docker, AWS, GCP."
     } else if (intent === "certifications") {
@@ -260,22 +262,27 @@ export default function McpTerminal() {
     if (intent === "projects") {
       finalAnswer = `🤖 AGENT RESPONSE: Here are Srajal's featured AI/ML & Full-Stack software projects:
 
-1. 🛠️ **AgentForge (2026)**
+1. ☁️ **CloudOps AI (2026)**
+   * **Overview**: Enterprise AWS Infrastructure Intelligence, Well-Architected compliance, FinOps cost analysis, and autonomous Boto3 remediation platform.
+   * **Tech**: Next.js, React, TypeScript, FastAPI, Python, AWS, Boto3, Amazon Bedrock, Groq, React Flow, Docker, Render.
+   * **Links**: [GitHub](https://github.com/ultronop592/-AI-Powered-AWS-Infrastructure-Intelligence-Platform) | [Live Demo](https://aws-infrastructure-intelligence-pla.vercel.app/)
+
+2. 🛠️ **AgentForge (2026)**
    * **Overview**: Multi-agent workforce platform coordinating specialized AI agents via LangGraph for task planning, research, execution, and QA verification.
    * **Tech**: LangGraph, FastAPI, Next.js, MCP, SQLite, Python, SSE Streaming.
    * **Links**: [GitHub](https://github.com/ultronop592/Agent-Forge.git) | [Live Demo](https://agent-forge-tawny.vercel.app/)
 
-2. ⚖️ **UnLegalize (Hackathon 2nd Place - April 2026)**
+3. ⚖️ **UnLegalize (Hackathon 2nd Place - April 2026)**
    * **Overview**: AI-powered legal clause simplifier for Indian rental agreements using locally fine-tuned Gemma 3 (270M) via LoRA/PEFT, OCR document parsing, and FastAPI backend.
    * **Tech**: Gemma 3 270M, LoRA, PEFT, FastAPI, OCR, Python.
    * **Links**: [GitHub](https://github.com/ultronop592/Con-Tech_Srajal.git) | [Live Demo](https://con-tech-srajal.vercel.app/)
 
-3. 🧠 **Multi Source Agentic RAG System (2026)**
+4. 🧠 **Multi Source Agentic RAG System (2026)**
    * **Overview**: Production RAG platform with dynamic query routing, hybrid (dense + BM25) retrieval, real-time streaming, and PDF drag-and-drop ingestion.
    * **Tech**: Qdrant Cloud, Gemini 2.5 Flash, FastAPI, Next.js.
    * **Links**: [GitHub](https://github.com/ultronop592/MutliSouce-Agentic-RAG-System.git) | [Live Demo](https://mutli-souce-agentic-rag-system.vercel.app)
 
-4. ✉️ **Cold Email Generator AI (2026)**
+5. ✉️ **Cold Email Generator AI (2026)**
    * **Overview**: Production GenAI pipeline reading candidate resumes and job post URLs to generate personalized emails with complete AI reasoning.
    * **Tech**: LangChain, Groq LLM, ChromaDB, FastAPI.
    * **Links**: [GitHub](https://github.com/ultronop592/Cold-Email-AI.git) | [Live Demo](http://cold-email-ai-peach.vercel.app/)
@@ -343,7 +350,7 @@ Other deployed projects include Waterborne Disease Predictor (Bi-LSTM), Fake New
       finalAnswer = `🤖 AGENT RESPONSE: Why Srajal Tiwari is an ideal candidate for AI/ML & Generative AI Engineering roles:
 
 1. 🌟 **Amazon ML Summer School 2026 Scholar**: Selected for Amazon's competitive machine learning program, learning directly from Amazon Scientists across GenAI, LLMs, Deep Learning, and RL.
-2. 🏆 **Proven Builder & Hackathon Winner**: 2nd Place in Kalpathon 2.0 (UnLegalize — fine-tuned Gemma-3 270M with PEFT/LoRA), creator of AgentForge (LangGraph multi-agent orchestration) and Multi-Source Agentic RAG.
+2. 🏆 **Proven Builder & Hackathon Winner**: Architect of CloudOps AI (Enterprise AWS autonomous remediation), creator of AgentForge (LangGraph multi-agent orchestration), Multi-Source Agentic RAG, and 2nd Place in Kalpathon 2.0 (UnLegalize — fine-tuned Gemma-3 270M with PEFT/LoRA).
 3. ⚡ **Agentic AI & MCP Certified**: Certified directly by Anthropic in Model Context Protocol (MCP) architecture and Claude agentic workflows.
 4. 🎓 **Academic Rigor**: 4th-year B.Tech student in CSE (Artificial Intelligence) at BBDU maintaining a **8.4 / 10 CGPA**.
 5. 🚀 **Ready to Deploy**: Actively interviewing and ready to contribute to high-impact production AI systems from day one.`
@@ -351,7 +358,7 @@ Other deployed projects include Waterborne Disease Predictor (Bi-LSTM), Fake New
       finalAnswer = `🤖 AGENT RESPONSE: Welcome! I am Srajal's AI Portfolio Ambassador connected via Model Context Protocol (MCP).
 
 I can answer any detail about his portfolio:
-* Ask about **"projects"** or specific apps like **"AgentForge"**, **"UnLegalize"**, **"Agentic RAG"**, or **"Cold Email AI"**.
+* Ask about **"projects"** or specific apps like **"CloudOps AI"**, **"AgentForge"**, **"UnLegalize"**, or **"Agentic RAG"**.
 * Ask about **"experience"** or **"Om Softwares"** / **"Mirai"** to learn about his industry internships.
 * Ask about **"achievements"** or **"Amazon ML Summer School"** / **"Kaggle"** / **"hackathon"**.
 * Ask about **"skills"** to inspect his Python, TypeScript, LangChain, LangGraph, Qdrant, Next.js, and FastAPI stack.

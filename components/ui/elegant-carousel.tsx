@@ -1,30 +1,11 @@
 'use client';
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Github, ExternalLink, X, BookOpen, ChevronLeft, ChevronRight, Play, Pause, ArrowUpRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, BookOpen, ChevronLeft, ChevronRight, Play, Pause, ArrowUpRight } from 'lucide-react';
 import { TiltCard3D } from '@/components/ui/tilt-card-3d';
+import { ProjectDetailModal, type ProjectSlide, type ProjectSpec } from '@/components/ui/project-detail-modal';
 
-export interface ProjectSpec {
-  label: string;
-  value: string;
-}
-
-export interface ProjectSlide {
-  title: string;
-  description: string; // punchy subtitle
-  details: string; // comprehensive details for modal deep dive
-  brief?: string; // concise 1-2 sentence description for card
-  tagline?: string; // domain track (e.g. "MULTI-AGENT WORKFORCE")
-  github: string;
-  liveDemo: string;
-  tech: string[];
-  category: string;
-  image: string;
-  metrics?: string[];
-  specs?: ProjectSpec[];
-  achievements?: string[];
-  pipeline?: string[];
-}
+export type { ProjectSlide, ProjectSpec };
 
 interface ElegantCarouselProps {
   projects: ProjectSlide[];
@@ -125,21 +106,27 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
 
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current;
-    if (Math.abs(diff) > 60) {
-      if (diff > 0) goNext();
-      else goPrev();
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
     }
+    touchStartX.current = 0;
+    touchEndX.current = 0;
   };
 
-  // Reset index if filtered array changes
+  // Safe boundary check: if active filter results in empty set or invalid index
   useEffect(() => {
-    setCurrentIndex(0);
-    setProgress(0);
-  }, [projects]);
+    if (projects && currentIndex >= projects.length) {
+      setCurrentIndex(0);
+    }
+  }, [projects, currentIndex]);
 
   if (!projects || projects.length === 0) {
     return (
-      <div className="w-full py-16 text-center border border-dashed border-gray-800 rounded-2xl bg-neutral-950/40">
+      <div className="w-full max-w-5xl mx-auto py-16 text-center border border-dashed border-gray-800 rounded-2xl">
         <p className="text-gray-400 font-mono text-sm">No projects match the selected filter.</p>
       </div>
     );
@@ -194,9 +181,8 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
             <span className="font-mono text-xs text-emerald-400 font-bold tracking-wider">
               PROJECT // {String(currentIndex + 1).padStart(2, '0')} of {String(projects.length).padStart(2, '0')}
             </span>
-            <span className="text-gray-600 font-mono text-xs">/</span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-gray-600">|</span>
+            <span className="text-xs font-mono text-gray-400 uppercase tracking-widest hidden sm:inline-block">
               {currentSlide.tagline ? currentSlide.tagline.toUpperCase() : 'AI ENGINEERING'}
             </span>
           </div>
@@ -230,7 +216,7 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
               </p>
             </div>
 
-            {/* Concise Value Proposition (1-2 sentences max - NO TEXT WALL!) */}
+            {/* Concise Value Proposition */}
             <p className="text-sm sm:text-[15px] text-gray-300 leading-relaxed font-sans">
               {currentSlide.brief || currentSlide.details.split('.')[0] + '.'}
             </p>
@@ -331,7 +317,7 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
                   <img
                     src={currentSlide.image}
                     alt={currentSlide.title}
-                    className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05] group-hover/preview:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover object-top filter brightness-[0.98] contrast-[1.04] group-hover/preview:scale-105 transition-transform duration-700 ease-out"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =
                         'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop';
@@ -421,200 +407,11 @@ export default function ElegantCarousel({ projects }: ElegantCarouselProps) {
       </div>
 
       {/* Case Study / Architecture Deep Dive Modal */}
-      <AnimatePresence>
-        {showModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 15 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-2xl border border-emerald-500/30 bg-neutral-950 shadow-2xl p-6 md:p-8 flex flex-col gap-6 scrollbar-thin select-text"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowModal(false)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-gray-400 hover:text-white border border-gray-800 transition-colors"
-                aria-label="Close Case Study"
-              >
-                <X size={18} />
-              </button>
-
-              {/* Modal Header */}
-              <div>
-                <span className="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">
-                  {currentSlide.category} // ARCHITECTURE TEARDOWN
-                </span>
-                <h3
-                  className="text-2xl md:text-3xl font-bold text-white mt-1"
-                  style={{ fontFamily: 'Syne, sans-serif' }}
-                >
-                  {currentSlide.title}
-                </h3>
-                <p className="text-gray-400 text-sm md:text-base mt-2 font-mono">
-                  {currentSlide.description}
-                </p>
-              </div>
-
-              {/* Architecture Pipeline Flow Mockup */}
-              <div className="bg-black/60 border border-emerald-500/15 rounded-xl p-4 font-mono text-xs select-none">
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  System Architecture Pipeline
-                </div>
-                <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-center text-gray-300 py-2">
-                  {currentSlide.title.toLowerCase().includes('legal') ? (
-                    <>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">OCR Extraction</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Clause Splitter</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-emerald-500/15 border border-emerald-500/30 rounded-lg text-emerald-400 font-semibold">Gemma-3 LoRA</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Risk Scoring HUD</div>
-                    </>
-                  ) : currentSlide.title.toLowerCase().includes('rag') ? (
-                    <>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">PDF Chunk Ingestion</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Qdrant Cloud Vectors</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-emerald-500/15 border border-emerald-500/30 rounded-lg text-emerald-400 font-semibold">Agentic Router</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Gemini 2.5 Streaming</div>
-                    </>
-                  ) : currentSlide.title.toLowerCase().includes('forge') ? (
-                    <>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">User Goal Specification</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">LangGraph Multi-Agent</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-emerald-500/15 border border-emerald-500/30 rounded-lg text-emerald-400 font-semibold">MCP Tool Execution</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">SSE Real-Time Logs</div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Data Preprocessing</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Feature Engineering</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-emerald-500/15 border border-emerald-500/30 rounded-lg text-emerald-400 font-semibold">Model Inference</div>
-                      <span className="text-emerald-500 font-bold">➔</span>
-                      <div className="px-3 py-1.5 bg-neutral-950 border border-gray-800 rounded-lg">Prediction Output</div>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {/* Technical Specifications Grid */}
-              <div>
-                <h4 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2.5 text-emerald-400">
-                  ■ System Specifications
-                </h4>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {specs.map((spec, i) => (
-                    <div key={i} className="p-3 rounded-lg bg-neutral-900 border border-gray-800">
-                      <div className="text-[10px] font-mono text-gray-400 uppercase">{spec.label}</div>
-                      <div className="text-xs font-mono font-bold text-white mt-0.5">{spec.value}</div>
-                    </div>
-                  ))}
-                  <div className="p-3 rounded-lg bg-neutral-900 border border-gray-800">
-                    <div className="text-[10px] font-mono text-gray-400 uppercase">CATEGORY</div>
-                    <div className="text-xs font-mono font-bold text-emerald-400 mt-0.5">{currentSlide.category.toUpperCase()}</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Deep-Dive Technical Narrative */}
-              <div>
-                <h4 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400">
-                  ■ Project Overview & Architecture
-                </h4>
-                <p className="text-sm text-gray-300 leading-relaxed font-sans">
-                  {currentSlide.details}
-                </p>
-              </div>
-
-              {/* Key Technical Highlights */}
-              <div>
-                <h4 className="text-white font-semibold font-mono text-xs uppercase tracking-wider mb-2 text-emerald-400">
-                  ■ Key Engineering Highlights
-                </h4>
-                <ul className="space-y-2 text-xs sm:text-sm text-gray-300 font-sans pl-1">
-                  {currentSlide.achievements && currentSlide.achievements.length > 0 ? (
-                    currentSlide.achievements.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-mono mt-0.5">▸</span>
-                        <span>{item}</span>
-                      </li>
-                    ))
-                  ) : (
-                    <>
-                      <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-mono mt-0.5">▸</span>
-                        <span>Architected end-to-end production pipeline with robust error boundaries and clean APIs.</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-mono mt-0.5">▸</span>
-                        <span>Optimized memory footprint and query response latency for high-throughput inference.</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-emerald-400 font-mono mt-0.5">▸</span>
-                        <span>Deployed with continuous integration, responsive interface, and live operational monitoring.</span>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </div>
-
-              {/* Tech Badges in Modal */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {currentSlide.tech.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="px-2.5 py-1 rounded-lg bg-neutral-900 border border-gray-800 text-[11px] font-mono text-gray-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Modal Bottom Actions */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-800 mt-2">
-                {currentSlide.liveDemo && currentSlide.liveDemo !== '#' && (
-                  <a
-                    href={currentSlide.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-lg shadow-emerald-500/20"
-                  >
-                    <span>Launch Live Demo</span>
-                    <ExternalLink size={16} />
-                  </a>
-                )}
-                {currentSlide.github && currentSlide.github !== '#' && (
-                  <a
-                    href={currentSlide.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-gray-200 border border-gray-800 font-mono text-xs sm:text-sm flex items-center gap-2 transition-all"
-                  >
-                    <Github size={16} />
-                    <span>View Source Code</span>
-                  </a>
-                )}
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-gray-400 font-mono text-xs sm:text-sm ml-auto transition-colors"
-                >
-                  Close
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <ProjectDetailModal
+        project={currentSlide}
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 }

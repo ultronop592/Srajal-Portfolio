@@ -19,6 +19,7 @@ import { PinContainer } from "@/components/ui/3d-pin"
 import { FallingPattern } from "@/components/ui/falling-pattern"
 import { FocusRail, type FocusRailItem } from "@/components/ui/focus-rail"
 import { Timeline } from "@/components/ui/timeline"
+import { ProjectDetailModal, type ProjectSlide } from "@/components/ui/project-detail-modal"
 
 const CursorBlob = dynamic(() => import("@/components/cursor-blob").then(m => ({ default: m.CursorBlob })), { ssr: false })
 const HeroImageZoom = dynamic(() => import("@/components/ui/image-zoom").then(m => ({ default: m.HeroImageZoom })), { ssr: false })
@@ -50,6 +51,7 @@ export default function Portfolio() {
   const [active, setActive] = useState<string | null>(null)
   const [activeTags, setActiveTags] = useState<string[]>([])
   const [projectViewMode, setProjectViewMode] = useState<"showcase" | "grid">("showcase")
+  const [selectedProjectForModal, setSelectedProjectForModal] = useState<ProjectSlide | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -140,7 +142,92 @@ export default function Portfolio() {
     ],
   }
 
-  const allProjects = [
+  const allProjects: ProjectSlide[] = [
+    {
+      title: "CloudOps AI",
+      description: "Enterprise AWS Infrastructure Intelligence & Autonomous Remediation Platform",
+      tagline: "AWS AI & CLOUD ENGINEERING",
+      brief:
+        "AI-powered AWS platform for infrastructure monitoring, Well-Architected compliance, FinOps cost analysis, resource dependency visualization, AI cloud insights, and one-click Boto3 remediation.",
+      details:
+        "CloudOps AI is an enterprise cloud operations, compliance governance, and autonomous remediation platform designed to unify multi-account cloud observability, Well-Architected Framework evaluation, FinOps waste analysis, and one-click operational remediation into a unified, high-performance console. The platform continuously evaluates cloud configuration telemetry against official industry standards, maps topological dependency networks, identifies financial waste, and allows cloud engineers to safely execute autonomous Boto3 remediation actions directly from the browser with permanent audit receipts.",
+      github: "https://github.com/ultronop592/-AI-Powered-AWS-Infrastructure-Intelligence-Platform",
+      liveDemo: "https://aws-infrastructure-intelligence-pla.vercel.app/",
+      tech: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "AWS",
+        "Boto3",
+        "Amazon Bedrock",
+        "Groq",
+        "React Flow",
+        "Docker",
+        "Render",
+      ],
+      category: "ai",
+      image: "/cloudops-ai.png",
+      metrics: ["26-Rule WAF Engine", "1-Click Boto3 Remediation", "Bedrock AI Copilot"],
+      specs: [
+        { label: "CORE ENGINE", value: "FastAPI + Boto3 SDK" },
+        { label: "AI COPILOT", value: "Amazon Bedrock + Groq" },
+        { label: "GOVERNANCE", value: "26-Rule WAF & FinOps" },
+      ],
+      keyFeatures: [
+        "AWS Infrastructure Intelligence: Zero-agent telemetry ingestion across EC2, S3, RDS, EBS, and CloudWatch with sub-second DAG modeling.",
+        "26-rule Well-Architected Compliance Engine: Automated 5-pillar evaluations (Security, Reliability, Performance, Cost, Operational Excellence) with real-time scoring.",
+        "FinOps Cost & Waste Analysis: Idle compute and unattached volume analysis, spend treemaps, and immediate cost savings identification (e.g. gp2 to gp3).",
+        "Interactive AWS Resource Dependency Graph: Topological network graph visualizing multi-tiered dependencies and blast radius modeling using React Flow.",
+        "AI Cloud Copilot: In-context LLM reasoning powered by Amazon Bedrock (Nova Lite) and Groq for root-cause synthesis and drop-in Terraform (HCL) generation.",
+        "One-Click Boto3 Remediation: Autonomous AIOps remediation engine executing verified cloud actions directly via Boto3 with safe rollback capabilities.",
+        "Audit Receipt & Security Controls: Permanent thread-safe UUID audit receipts with execution timestamps, zero credential persistence on disk, and STS validation.",
+      ],
+      architecture: {
+        systemFlow: [
+          "Next.js + React",
+          "FastAPI",
+          "Analysis/Compliance Engines",
+          "Boto3",
+          "AWS Services",
+        ],
+        remediationFlow: [
+          "Finding Detected",
+          "Review & Customization",
+          "Boto3 Remediation",
+          "Audit Receipt (UUID)",
+          "Dashboard Refresh",
+        ],
+      },
+      aiLayer:
+        "Powered by Amazon Bedrock (Nova Lite) and Groq high-speed LLMs. Features an In-Context Cloud Copilot that synthesizes CloudWatch alarms, conducts root-cause analysis, generates drop-in Terraform (HCL) code for permanent infrastructure fixes, and answers natural language operational queries.",
+      awsServices: [
+        "Amazon EC2",
+        "Amazon S3",
+        "Amazon RDS",
+        "Amazon EBS (gp2/gp3)",
+        "AWS Lambda",
+        "AWS CloudWatch",
+        "AWS Cost Explorer",
+        "AWS Security Groups",
+        "AWS STS & IAM",
+      ],
+      security: [
+        "Ephemeral in-memory session manager with zero credential persistence to disk",
+        "Identity verification via AWS STS GetCallerIdentity",
+        "Client-isolated sessions with temporary bearer authentication tokens",
+        "Thread-safe UUID audit receipts with timestamps and execution telemetry",
+        "Air-gapped demo simulation mode allowing risk-free operational evaluation",
+      ],
+      achievements: [
+        "Architected decoupled, stateless service platform collecting agentless AWS telemetry across multi-service accounts via concurrent Boto3 orchestrators.",
+        "Engineered deterministic 26-rule Well-Architected compliance and FinOps waste engine calculating real-time financial savings and security risks.",
+        "Implemented interactive topological dependency graph using React Flow with dynamic blast-radius calculations and node clustering.",
+        "Integrated Amazon Bedrock (Nova Lite) & Groq to synthesize complex CloudWatch alarms into plain-English root causes and drop-in Terraform HCL fixes.",
+        "Built safe 1-click Boto3 remediation workflow generating immutable, thread-safe UUID audit receipts with zero secret persistence.",
+      ],
+    },
     {
       title: "AgentForge",
       description: "Autonomous Multi-Agent Workforce Orchestrator",
@@ -412,7 +499,7 @@ export default function Portfolio() {
     ? allProjects.filter(p => p.tech.some(t => activeTags.includes(t)) || activeTags.includes(p.category))
     : allProjects
 
-  const filterOptions = ["ai", "web", "FastAPI", "Next.js", "Python", "Deep Learning", "Gemma 3 270M", "RAG", "LangChain"]
+  const filterOptions = ["ai", "AWS", "FastAPI", "Next.js", "Python", "Deep Learning", "Gemma 3 270M", "RAG", "LangChain"]
 
   const certifications = [
     {
@@ -1099,7 +1186,7 @@ export default function Portfolio() {
                             <img
                               src={project.image}
                               alt={project.title}
-                              className="w-full h-full object-cover filter brightness-[0.92] group-hover:scale-105 transition-transform duration-500"
+                              className="w-full h-full object-cover object-top filter brightness-[0.92] group-hover:scale-105 transition-transform duration-500"
                               onError={(e) => {
                                 (e.target as HTMLImageElement).src =
                                   "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop";
@@ -1188,12 +1275,25 @@ export default function Portfolio() {
                               <Github size={15} />
                             </a>
                           )}
+                          <button
+                            onClick={() => setSelectedProjectForModal(project as any)}
+                            className="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 hover:text-emerald-300 transition-colors"
+                            title="Architecture Specs"
+                          >
+                            <BookOpen size={15} />
+                          </button>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
+
+              <ProjectDetailModal
+                project={selectedProjectForModal}
+                isOpen={!!selectedProjectForModal}
+                onClose={() => setSelectedProjectForModal(null)}
+              />
             </AnimatedSection>
 
 

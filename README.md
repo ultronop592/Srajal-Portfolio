@@ -51,7 +51,9 @@ A production-grade, premium portfolio website showcasing 10+ AI/ML projects, 17+
 * **Zero Network Latency RAG** - Combines a client-side intent classifier and keyword router to parse recruiter queries completely offline, yielding instantaneous streaming responses with 0ms network overhead.
 
 ### 💼 Production-Grade AI/ML Portfolio Showcase
-* **10+ Featured Projects** - Real-world applications fully showcased, including:
+* **12+ Featured Projects** - Real-world applications fully showcased, including:
+  * **CloudOps AI**: Enterprise AWS Infrastructure Intelligence, Well-Architected compliance, FinOps cost analysis, and autonomous Boto3 remediation platform.
+  * **AgentForge**: Autonomous Multi-Agent Workforce Orchestrator with LangGraph and MCP.
   * **UnLegalize**: Gemma-3-270M-LoRA-based simplified legal clause translator.
   * **Multi-Source Agentic RAG System**: Gemini-fueled advanced retrieval system using FastAPI, Next.js, and Qdrant.
   * **Cold Email Generator AI**: Context-aware LangChain and Groq LLM workflow with ChromaDB.
